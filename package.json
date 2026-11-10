@@ -1,7 +1,7 @@
 {
   "name": "@jonathanstecher/sloppyai",
   "version": "0.2.0",
-  "description": "Evidence-based artifact review, improvement and bounded verification loops for coding agents.",
+  "description": "Remove AI slop, improve design and writing, and fix bugs and security issues in websites and apps built with AI.",
   "type": "module",
   "license": "MIT",
   "author": "JonathanStecher",

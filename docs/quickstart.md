@@ -1,5 +1,8 @@
 # Quickstart
 
+For the complete installation, agent prompts and worked example, read
+[How to use sloppyai on your existing project](../blog/how-to-use-sloppyai.md).
+
 From a source checkout:
 
 ```sh
@@ -39,6 +42,8 @@ node skills/sloppyai/scripts/sloppyai.mjs watch /path/to/artifact --max-cycles 1
 It rechecks changed inputs and stops at a bound or Ctrl+C. Add --apply only when
 you want the supported repairs. It creates no scheduler or background service.
 
-Install a local skill copy with install --host codex, claude or cursor. Use
-uninstall with the same location options to remove an unchanged managed copy.
+For Codex's current documented user directory, run
+`node skills/sloppyai/scripts/sloppyai.mjs install --dest "$HOME/.agents/skills"`.
+For Claude Code or Cursor, use `install --host claude` or `install --host cursor`.
+Use uninstall with the same location options to remove an unchanged managed copy.
 Copying only SKILL.md is insufficient: keep the complete sloppyai folder.

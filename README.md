@@ -1,10 +1,18 @@
 # sloppyai
 
-Bring an existing artifact → understand the findings → choose a concrete improvement → make the change → verify the result.
+Remove AI slop, improve design and writing, and fix bugs and security issues in
+websites and apps built with AI.
 
-sloppyai gives coding agents a repeatable way to improve interfaces, writing,
-code and other artifacts while preserving useful behaviour and accepted style.
-It combines a portable Agent Skill with a local CLI, an evidence catalogue,
+Work on the project you already have. Use your coding agent to make interfaces
+easier to use, replace vague copy, and repair supported code issues while keeping
+useful features and deliberate style choices.
+
+- **[Getting started](blog/how-to-use-sloppyai.md):** installation, copyable prompts and a worked example.
+- **[About sloppyai](ABOUT.md):** what it helps with and why it exists.
+- **[Blog](blog/README.md):** practical guides for improving your work.
+- **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.
+
+sloppyai includes a portable Agent Skill, a local CLI, a reference catalogue,
 issue history and bounded check → repair → recheck loops.
 
 ## Start here
@@ -23,7 +31,7 @@ Install the skill for your chosen host, or copy the complete
 `skills/sloppyai` folder to a supported skill location:
 
 ```sh
-node skills/sloppyai/scripts/sloppyai.mjs install --host codex
+node skills/sloppyai/scripts/sloppyai.mjs install --dest "$HOME/.agents/skills"
 node skills/sloppyai/scripts/sloppyai.mjs install --host claude
 node skills/sloppyai/scripts/sloppyai.mjs install --host cursor
 ```
@@ -33,6 +41,10 @@ it does not edit project instructions, register hooks or change model settings.
 Use `--scope project --project /path/to/project` for a project installation or
 `--dest /path/to/skills` for an explicit skill-parent directory. The copied skill
 includes its CLI, library, references, schemas, catalogue and bundled licences.
+
+The Codex example uses its documented user skill directory. See
+[compatibility](docs/compatibility.md) for the older host-default location and
+[the usage article](blog/how-to-use-sloppyai.md) for the full workflow.
 
 Then ask your agent:
 

@@ -10,6 +10,12 @@ and Cursor, plus an explicit destination. This is filesystem installation suppor
 it does not prove how every host version discovers skills or evaluates their prose.
 It edits no host instructions, model settings or startup hooks.
 
+For Codex's documented user location, select it explicitly with
+`install --dest "$HOME/.agents/skills"`. The current `install --host codex` user
+default retains the older `.codex/skills` location; project scope uses
+`.agents/skills`. See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills)
+and the [step-by-step usage guide](../blog/how-to-use-sloppyai.md).
+
 ## Renamed release
 
 Version 0.2.0 uses sloppyai throughout: the skill is `$sloppyai` or `/sloppyai`,
