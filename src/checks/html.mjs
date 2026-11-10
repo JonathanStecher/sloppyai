@@ -113,7 +113,7 @@ export function checkHtml(file, ctx) {
     const location = html?.sourceCodeLocation?.startTag;
     const langLocation = html?.sourceCodeLocation?.attrs?.lang;
     const patch = location && ctx.config.language ? langLocation ? { start: langLocation.startOffset, end: langLocation.endOffset, replacement: `lang="${ctx.config.language}"` } : { start: location.endOffset - 1, end: location.endOffset - 1, replacement: ` lang="${ctx.config.language}"` } : null;
-    ctx.finding('A01', file, { anchor: 'html-language', line: line(html || {}), evidence: 'The authored HTML document has no non-empty lang attribute.', patch, ...(ctx.config.language ? {} : { recommendation: 'Specify the actual language in the document or set language in Craftcheck configuration to enable a bounded fix.' }) });
+    ctx.finding('A01', file, { anchor: 'html-language', line: line(html || {}), evidence: 'The authored HTML document has no non-empty lang attribute.', patch, ...(ctx.config.language ? {} : { recommendation: 'Specify the actual language in the document or set language in sloppyai configuration to enable a bounded fix.' }) });
   }
   let lastHeading = 0;
   const seenIds = new Set();

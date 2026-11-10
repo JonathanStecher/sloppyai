@@ -1,14 +1,26 @@
 {
-  "name": "@jonathanstecher/craftcheck",
-  "version": "0.1.0",
+  "name": "@jonathanstecher/sloppyai",
+  "version": "0.2.0",
   "description": "Evidence-based artifact review, improvement and bounded verification loops for coding agents.",
   "type": "module",
   "license": "MIT",
   "author": "JonathanStecher",
-  "engines": { "node": ">=22.13.0" },
-  "bin": { "craftcheck": "skills/craftcheck/scripts/craftcheck.mjs" },
-  "exports": { ".": "./skills/craftcheck/scripts/core.mjs" },
-  "files": ["skills/craftcheck", "README.md", "LICENSE", "NOTICE.md", "CHANGELOG.md"],
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "bin": {
+    "sloppyai": "skills/sloppyai/scripts/sloppyai.mjs"
+  },
+  "exports": {
+    ".": "./skills/sloppyai/scripts/core.mjs"
+  },
+  "files": [
+    "skills/sloppyai",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "node scripts/build.mjs",
     "catalog": "node scripts/catalog.mjs",
@@ -29,9 +41,24 @@
     "parse5": "8.1.1",
     "postcss": "8.5.32"
   },
-  "repository": { "type": "git", "url": "git+https://github.com/JonathanStecher/craftcheck.git" },
-  "bugs": { "url": "https://github.com/JonathanStecher/craftcheck/issues" },
-  "homepage": "https://github.com/JonathanStecher/craftcheck#readme",
-  "keywords": ["agent-skills", "ai", "design", "accessibility", "quality", "review", "verification"],
-  "overrides": { "minimatch": "11.0.1" }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanStecher/sloppyai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JonathanStecher/sloppyai/issues"
+  },
+  "homepage": "https://github.com/JonathanStecher/sloppyai#readme",
+  "keywords": [
+    "agent-skills",
+    "ai",
+    "design",
+    "accessibility",
+    "quality",
+    "review",
+    "verification"
+  ],
+  "overrides": {
+    "minimatch": "11.0.1"
+  }
 }

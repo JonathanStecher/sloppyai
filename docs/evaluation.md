@@ -20,7 +20,7 @@ These tests are not an empirical claim that an LLM makes better design decisions
 ## Future comparative study
 
 To evaluate judgment quality, use representative tasks with hidden counterexamples
-and compare an agent without guidance, a short checklist and Craftcheck under
+and compare an agent without guidance, a short checklist and sloppyai under
 comparable models, tools and budgets. Blind reviewers to the producing approach
 where practical. Measure correct findings, false positives, preserved behaviour,
 task completion, factual accuracy, accessibility changes, unnecessary edits and cost.

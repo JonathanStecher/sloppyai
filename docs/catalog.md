@@ -1,6 +1,6 @@
-# Craftcheck catalogue
+# sloppyai catalogue
 
-Generated from the canonical JSON records. Edit skills/craftcheck/catalog, then run npm run catalog.
+Generated from the canonical JSON records. Edit skills/sloppyai/catalog, then run npm run catalog.
 
 194 entries, including all 102 original screenshot labels.
 

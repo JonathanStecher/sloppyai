@@ -1,7 +1,7 @@
 # Synthetic copy review fixture
 
 The following text deliberately includes vague and unsupported promotional claims.
-It is not a description of Craftcheck or a real customer product.
+It is not a description of sloppyai or a real customer product.
 
 Unlock your potential with our all-in-one solution. Get perfect results and unlimited generations.
 

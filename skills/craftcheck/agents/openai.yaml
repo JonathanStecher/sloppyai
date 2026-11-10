@@ -1,4 +1,0 @@
-interface:
-  display_name: "Craftcheck"
-  short_description: "Review artifacts, improve them, and verify the change"
-  default_prompt: "Use $craftcheck to review this artifact, improve the concrete issues, and verify the result."

@@ -5,7 +5,7 @@ From a source checkout:
 ```sh
 npm ci --ignore-scripts
 npm run check
-node skills/craftcheck/scripts/craftcheck.mjs audit examples/landing-page --out .craftcheck/first-report
+node skills/sloppyai/scripts/sloppyai.mjs audit examples/landing-page --out .sloppyai/first-report
 npm run demo
 ```
 
@@ -22,8 +22,8 @@ fresh 2/5 → 4/5 heading-task ratings alongside static score changes.
 For your artifact, create configuration with its actual language:
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs init /path/to/artifact --language de
-node skills/craftcheck/scripts/craftcheck.mjs loop /path/to/artifact --apply
+node skills/sloppyai/scripts/sloppyai.mjs init /path/to/artifact --language de
+node skills/sloppyai/scripts/sloppyai.mjs loop /path/to/artifact --apply
 ```
 
 The helper applies only narrow known fixes. Ask the coding agent to handle semantic
@@ -33,7 +33,7 @@ Read [hooks.md](hooks.md) before authorizing project execution.
 Use watch for bounded recurring checks while you work:
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs watch /path/to/artifact --max-cycles 10 --duration-ms 300000
+node skills/sloppyai/scripts/sloppyai.mjs watch /path/to/artifact --max-cycles 10 --duration-ms 300000
 ```
 
 It rechecks changed inputs and stops at a bound or Ctrl+C. Add --apply only when
@@ -41,4 +41,4 @@ you want the supported repairs. It creates no scheduler or background service.
 
 Install a local skill copy with install --host codex, claude or cursor. Use
 uninstall with the same location options to remove an unchanged managed copy.
-Copying only SKILL.md is insufficient: keep the complete craftcheck folder.
+Copying only SKILL.md is insufficient: keep the complete sloppyai folder.

@@ -24,4 +24,4 @@ Errors need a stable code, useful context, safe recovery and redaction. Keep the
 first documented run usable and preserve user changes during upgrades or uninstall.
 
 Use E and K entries. Workflow inspiration:
-https://github.com/garrytan/gstack; original Craftcheck implementation and wording.
+https://github.com/garrytan/gstack; original sloppyai implementation and wording.

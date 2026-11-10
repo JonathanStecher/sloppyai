@@ -15,12 +15,12 @@ export async function loadConfig(root, options = {}) {
   let supplied = options.config ?? {};
   let from = 'defaults';
   if (!options.config) {
-    const file = options.configFile ? path.resolve(options.configFile) : path.join(root, '.craftcheck.json');
+    const file = options.configFile ? path.resolve(options.configFile) : path.join(root, '.sloppyai.json');
     try {
       const stat = await lstat(file);
       if (stat.isSymbolicLink()) fail('CONFIG_SYMLINK', 'Configuration must be a regular file.', 'Select a regular configuration file explicitly.');
       supplied = await readJson(file, 100_000);
-      from = options.configFile ? 'explicit file' : '.craftcheck.json';
+      from = options.configFile ? 'explicit file' : '.sloppyai.json';
     } catch (error) { if (error.code !== 'ENOENT' || options.configFile) throw error; }
   }
   await validate('config', supplied);

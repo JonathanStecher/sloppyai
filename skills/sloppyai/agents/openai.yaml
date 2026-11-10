@@ -1,0 +1,4 @@
+interface:
+  display_name: "sloppyai"
+  short_description: "Review artifacts, improve them, and verify the change"
+  default_prompt: "Use $sloppyai to review this artifact, improve the concrete issues, and verify the result."

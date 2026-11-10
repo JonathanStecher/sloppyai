@@ -1,7 +1,7 @@
-export class CraftcheckError extends Error {
+export class SloppyAIError extends Error {
   constructor(code, message, fix, context = {}) {
     super(message);
-    this.name = 'CraftcheckError';
+    this.name = 'SloppyAIError';
     this.code = code;
     this.fix = fix;
     this.context = context;
@@ -12,5 +12,5 @@ export class CraftcheckError extends Error {
 }
 
 export function fail(code, message, fix, context) {
-  throw new CraftcheckError(code, message, fix, context);
+  throw new SloppyAIError(code, message, fix, context);
 }

@@ -1,6 +1,6 @@
 # Evidence and ratings
 
-Craftcheck separates requirements, contextual heuristics, optional techniques and
+sloppyai separates requirements, contextual heuristics, optional techniques and
 definitions. It reports what was actually assessed and allows a clean scoped result.
 
 ## Automated scores
@@ -17,7 +17,7 @@ Reports keep review prompts, limits and coverage next to the number.
 ## Reviewer scores
 
 Human or agent reviewers supply 0–5 ratings with identity, rationale and evidence.
-The [rubric](../skills/craftcheck/references/ratings.md) measures the assessed goal.
+The [rubric](../skills/sloppyai/references/ratings.md) measures the assessed goal.
 Reviewer output is schema-validated, bound to current static inputs and labelled
 self-reported. It remains separate from automated scores.
 

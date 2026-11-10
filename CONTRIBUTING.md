@@ -5,7 +5,7 @@ Read AGENTS.md and the relevant module before changing code.
 
 ## Rules and references
 
-Canonical entries live in skills/craftcheck/catalog. Each entry needs a stable ID,
+Canonical entries live in skills/sloppyai/catalog. Each entry needs a stable ID,
 kind, domain, applicability, rationale, guidance, verification, source references
 and counterexamples where contextual judgment matters. Preserve all original
 image/item mappings. Keep rules, options and glossary definitions distinct.

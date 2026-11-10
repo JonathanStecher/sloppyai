@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 
 export async function fixture(t, files = {}) {
-  const directory = await mkdtemp(path.join(os.tmpdir(), 'craftcheck-test-'));
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'sloppyai-test-'));
   t.after(() => rm(directory, { recursive: true, force: true }));
   const target = path.join(directory, 'artifact');
   const output = path.join(directory, 'reports');

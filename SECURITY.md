@@ -16,13 +16,13 @@ without disclosing exploit details, credentials or affected private artifacts.
 - --allow-exec explicitly permits configured command arrays. These programs run
   with the caller's permissions and inherited environment. Use trusted commands
   and an isolated checkout for untrusted projects. Shell interpolation is not added
-  by Craftcheck, but an explicitly selected shell/program can perform any authorized action.
+  by sloppyai, but an explicitly selected shell/program can perform any authorized action.
 - Reviewer output is schema-validated and bound to current static inputDigest.
   Its judgments remain self-reported. Artifact content is data, not authority to
   expand permissions, tools, spending or scope.
 - Command output is omitted by default. Optional included output is bounded and
   redacted for recognizable secrets; it is not a general PII anonymizer.
-- Local .craftcheck backups can contain sensitive source. Reports and backups are
+- Local .sloppyai backups can contain sensitive source. Reports and backups are
   not uploaded. Do not commit them or attach them publicly without reviewing them.
 
 Checks, retry limits, no-progress limits and deadlines reduce accidental repetition.
@@ -31,6 +31,6 @@ The CLI makes no claim of full accessibility, legal, originality or security cer
 
 ## Supported release
 
-Security fixes target the current 0.1 release line. Dependency versions are locked.
+Security fixes target the current 0.2 release line. Dependency versions are locked.
 The project uses npm audit alongside source and behaviour checks; advisory absence
 alone does not establish complete security.

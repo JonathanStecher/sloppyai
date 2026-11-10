@@ -13,7 +13,7 @@ import { readJson } from '../src/util.mjs';
 import { fixture } from './helpers.mjs';
 
 const exec = promisify(execFile);
-const cli = new URL('../skills/craftcheck/scripts/craftcheck.mjs', import.meta.url);
+const cli = new URL('../skills/sloppyai/scripts/sloppyai.mjs', import.meta.url);
 
 test('removed inputs leave prior issues unassessed and do not manufacture score improvements', async t => {
   const f = await fixture(t, { 'index.html': '<!doctype html><html><body><button>Save</button></body></html>', 'copy.md': 'Specific description.' });

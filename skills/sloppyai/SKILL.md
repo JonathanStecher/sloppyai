@@ -1,10 +1,10 @@
 ---
-name: craftcheck
+name: sloppyai
 description: Review, improve, and verify existing AI-assisted interfaces, writing, code, and media. Use when asked to remove AI slop, improve an artifact, review quality, or repeat checks after repairs. Preserves useful features, accepted style, factual accuracy, and evidence boundaries.
 license: MIT
 ---
 
-# Craftcheck
+# sloppyai
 
 Bring an existing artifact → understand the findings → choose a concrete improvement → make the change → verify the result.
 
@@ -57,7 +57,7 @@ skipped check is a coverage gap. A clean scoped result is legitimate.
 
 ## Check → improve → recheck
 
-The self-contained Node.js helper is `scripts/craftcheck.mjs` (Node 22.13+).
+The self-contained Node.js helper is `scripts/sloppyai.mjs` (Node 22.13+).
 Resolve its actual path from this skill directory. It does not call AI APIs or the
 network. Execute with an argument array or safely quoted paths using the host's tools.
 

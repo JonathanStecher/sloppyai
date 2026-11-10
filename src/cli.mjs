@@ -13,28 +13,28 @@ import { runChecks, attachChecks } from './commands.mjs';
 import { markdownReport, htmlReport } from './report.mjs';
 import { compareReports } from './ratings.mjs';
 import { VERSION, SEVERITIES } from './assets.mjs';
-import { CraftcheckError, fail } from './errors.mjs';
+import { SloppyAIError, fail } from './errors.mjs';
 import { validate } from './schema.mjs';
 
-const HELP = `Craftcheck ${VERSION}
+const HELP = `sloppyai ${VERSION}
 Bring an existing artifact → understand the findings → choose a concrete improvement → make the change → verify the result.
 
-Usage: craftcheck <command> [target] [options]
+Usage: sloppyai <command> [target] [options]
 
   audit TARGET       Read UTF-8 source; save an evidence-bound report and ratings.
   plan TARGET        Audit and print a concrete, prioritized improvement plan.
   verify TARGET      Re-audit; optionally run authorized checks and compare a baseline.
   loop TARGET        Check → narrow fix → recheck with bounded attempts and history.
   watch TARGET       Recheck changed inputs, within cycle and duration limits.
-  init TARGET        Create a safe .craftcheck.json without overwriting an existing one.
+  init TARGET        Create a safe .sloppyai.json without overwriting an existing one.
   catalog            Browse the complete rule, technique and glossary catalogue.
   history            Show issue and rating history from --out.
   undo TARGET        Restore --transaction if repaired files have no later changes.
   install            Copy the self-contained skill into a selected host or --dest.
-  uninstall          Remove only an unchanged Craftcheck-managed installation.
+  uninstall          Remove only an unchanged sloppyai-managed installation.
 
 Options:
-  --out DIRECTORY           Local report/state directory (default: TARGET/.craftcheck).
+  --out DIRECTORY           Local report/state directory (default: TARGET/.sloppyai).
   --format summary|json|markdown|html  Output format (default: summary).
   --json                    Alias for --format json.
   --no-save                 Audit without writing reports (audit/plan/verify).
@@ -109,12 +109,12 @@ export async function main(args = process.argv.slice(2)) {
       events: { type: 'boolean' }, 'fail-on': { type: 'string' }, domain: { type: 'string' }, kind: { type: 'string' }, query: { type: 'string' },
       transaction: { type: 'string' }, host: { type: 'string' }, scope: { type: 'string' }, project: { type: 'string' }, dest: { type: 'string' }
     } });
-  } catch (error) { fail('INVALID_ARGUMENT', short(error.message), 'Run craftcheck --help.'); }
+  } catch (error) { fail('INVALID_ARGUMENT', short(error.message), 'Run sloppyai --help.'); }
   const { values, positionals } = parsed;
   if (values.help || !positionals.length && !values.version) { console.log(HELP); return 0; }
   if (values.version) { console.log(VERSION); return 0; }
   const [command, target, ...extra] = positionals;
-  if (extra.length) fail('INVALID_ARGUMENT', 'Too many positional arguments.', 'Run craftcheck --help.');
+  if (extra.length) fail('INVALID_ARGUMENT', 'Too many positional arguments.', 'Run sloppyai --help.');
   if (values.events && (values.json || values.format)) fail('INVALID_ARGUMENT', 'NDJSON events cannot be combined with another output format.', 'Use --events alone for streaming output.');
   if (values.format && !['summary', 'json', 'markdown', 'html'].includes(values.format)) fail('INVALID_FORMAT', 'Unknown output format.', 'Use summary, json, markdown or html.');
   if (values['fail-on'] && ![...SEVERITIES, 'none'].includes(values['fail-on'])) fail('INVALID_THRESHOLD', 'Unknown issue threshold.', 'Use critical, high, medium, low, suggestion or none.');
@@ -149,15 +149,15 @@ export async function main(args = process.argv.slice(2)) {
       if (!options.output) fail('OUTPUT_REQUIRED', 'History requires --out.', 'Select an existing report directory.');
       console.log(JSON.stringify(sanitize(await readJson(path.join(options.output, 'history.json'), 20_000_000)), null, 2)); return 0;
     }
-    if (!['audit', 'plan', 'verify', 'loop', 'watch', 'init', 'undo'].includes(command)) fail('UNKNOWN_COMMAND', 'Unknown command: ' + short(command), 'Run craftcheck --help.');
+    if (!['audit', 'plan', 'verify', 'loop', 'watch', 'init', 'undo'].includes(command)) fail('UNKNOWN_COMMAND', 'Unknown command: ' + short(command), 'Run sloppyai --help.');
     if (!target) fail('TARGET_REQUIRED', 'This command requires a target.', 'Select an existing artifact file or directory.');
     const info = await targetInfo(target);
-    if (!options.output) options.output = path.join(info.root, '.craftcheck');
+    if (!options.output) options.output = path.join(info.root, '.sloppyai');
     if (command === 'init') {
-      const destination = path.join(info.root, '.craftcheck.json');
+      const destination = path.join(info.root, '.sloppyai.json');
       let handle;
       try { handle = await open(destination, 'wx', 0o600); }
-      catch (error) { if (error.code === 'EEXIST') fail('CONFIG_EXISTS', 'Configuration already exists.', 'Edit the existing .craftcheck.json; it was not overwritten.'); throw error; }
+      catch (error) { if (error.code === 'EEXIST') fail('CONFIG_EXISTS', 'Configuration already exists.', 'Edit the existing .sloppyai.json; it was not overwritten.'); throw error; }
       try { await handle.writeFile(JSON.stringify({ ...(values.language ? { language: values.language } : {}), preserve: [], checks: [], loop: { maxRounds: 3, targetScore: 100, stallRounds: 2, maxDurationMs: 300000 } }, null, 2) + '\n'); }
       finally { await handle.close(); }
       console.log('Created ' + destination); return 0;
@@ -202,7 +202,7 @@ export async function main(args = process.argv.slice(2)) {
 }
 
 main().then(code => { process.exitCode = code; }).catch(error => {
-  const known = error instanceof CraftcheckError;
+  const known = error instanceof SloppyAIError;
   const detail = known ? error.toJSON() : { code: 'OPERATION_FAILED', message: short(error.message), fix: 'Inspect file permissions and the selected inputs. Existing reports and backups are retained.' };
   console.error(JSON.stringify(sanitize(detail), null, 2));
   process.exitCode = error.code === 'CANCELLED' ? 130 : 2;

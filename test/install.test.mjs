@@ -13,7 +13,7 @@ test('installed skill runs without its source checkout or node_modules', async t
   const f = await fixture(t, { 'copy.md': 'Concrete description.' });
   const destination = path.join(f.directory, 'skills');
   const result = await installSkill({ destination });
-  const cli = path.join(result.destination, 'scripts/craftcheck.mjs');
+  const cli = path.join(result.destination, 'scripts/sloppyai.mjs');
   const { stdout } = await exec(process.execPath, [cli, 'audit', f.target, '--json', '--no-save'], { cwd: f.directory });
   assert.equal(JSON.parse(stdout).coverage.assessedFiles, 1);
   await access(path.join(result.destination, 'catalog/security.json'));

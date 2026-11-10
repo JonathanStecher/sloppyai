@@ -1,12 +1,12 @@
 # Reviewer, fixer and check hooks
 
-Hooks let the controller use a caller-chosen agent or project tool. Craftcheck does
+Hooks let the controller use a caller-chosen agent or project tool. sloppyai does
 not implement a model service or require an additional API key. The host/command
 decides whether it uses a subscription, network or paid provider.
 
 ## Authorization
 
-Command arrays in .craftcheck.json are inert without --allow-exec. Source changes
+Command arrays in .sloppyai.json are inert without --allow-exec. Source changes
 also require --apply. Inspect the commands and authorized scope first. The process
 inherits the caller's environment and permissions. It is not a sandbox.
 
@@ -20,16 +20,16 @@ The reviewer receives these environment variables:
 
 | Name | Value |
 | --- | --- |
-| CRAFTCHECK_REQUEST | JSON request with target, inputDigest, observation path and review output path |
-| CRAFTCHECK_TARGET | The selected artifact |
-| CRAFTCHECK_REPORT | Current static observation JSON |
-| CRAFTCHECK_REVIEW | Write a review-schema JSON document here |
+| SLOPPYAI_REQUEST | JSON request with target, inputDigest, observation path and review output path |
+| SLOPPYAI_TARGET | The selected artifact |
+| SLOPPYAI_REPORT | Current static observation JSON |
+| SLOPPYAI_REVIEW | Write a review-schema JSON document here |
 
 The hook should inspect applicable evidence, leave the artifact unchanged, write
 its review and exit zero. Review JSON has inputDigest, reviewer, assessments and
-findings. See [the schema](../skills/craftcheck/schemas/review.schema.json).
+findings. See [the schema](../skills/sloppyai/schemas/review.schema.json).
 Only rate assessed domains, with rationale and evidence. Ratings use the
-[0–5 rubric](../skills/craftcheck/references/ratings.md).
+[0–5 rubric](../skills/sloppyai/references/ratings.md).
 
 A fresh reviewer runs for each assessment, including after repairs. The controller
 rejects a digest mismatch. Scores remain self-reported and distinct from automated
@@ -37,7 +37,7 @@ checks; they do not certify independent runtime behaviour.
 
 ## Fixer
 
-The fixer receives CRAFTCHECK_REQUEST, CRAFTCHECK_TARGET and CRAFTCHECK_REPORT.
+The fixer receives SLOPPYAI_REQUEST, SLOPPYAI_TARGET and SLOPPYAI_REPORT.
 The request includes the current inputDigest, report and preservation constraints.
 Repair only authorized source, preserve required behaviour, and exit zero.
 

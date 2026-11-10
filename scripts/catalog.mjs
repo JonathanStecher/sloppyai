@@ -5,7 +5,7 @@ import { loadCatalog } from '../src/catalog.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const catalog = await loadCatalog();
-const lines = ['# Craftcheck catalogue', '', 'Generated from the canonical JSON records. Edit skills/craftcheck/catalog, then run npm run catalog.', '', `${catalog.entries.length} entries, including all 102 original screenshot labels.`, '', 'Kinds: requirement, heuristic, option, definition. An entry is not necessarily an implemented automated check.', '', '## Entries', ''];
+const lines = ['# sloppyai catalogue', '', 'Generated from the canonical JSON records. Edit skills/sloppyai/catalog, then run npm run catalog.', '', `${catalog.entries.length} entries, including all 102 original screenshot labels.`, '', 'Kinds: requirement, heuristic, option, definition. An entry is not necessarily an implemented automated check.', '', '## Entries', ''];
 for (const entry of catalog.entries) {
   lines.push(`### ${entry.id}: ${entry.title}`, '', `Domain: ${entry.domain}. Kind: ${entry.kind}. Automation: ${entry.automation}.`, '', entry.description, '', entry.guidance, '', 'Verification: ' + entry.verification.join(' '), '', ...(entry.counterexamples.length ? ['Counterexample: ' + entry.counterexamples.join(' '), ''] : []), 'Sources: ' + entry.sourceIds.map(id => `[${id}](#source-${id})`).join(', '), '');
 }

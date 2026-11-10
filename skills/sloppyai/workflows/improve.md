@@ -25,10 +25,10 @@ viewport zoom, and ordinary new-tab opener relationships. Explicit `rel=opener`
 needs contextual review. Other findings need the coding agent or an authorized fixer.
 
 For an integrated semantic loop, configure reviewer, fixer and checks as command
-arrays and use `--allow-exec`. The reviewer receives CRAFTCHECK_REQUEST and writes
-fresh review JSON to CRAFTCHECK_REVIEW. The fixer receives the current report and
+arrays and use `--allow-exec`. The reviewer receives SLOPPYAI_REQUEST and writes
+fresh review JSON to SLOPPYAI_REVIEW. The fixer receives the current report and
 preservation contract. The controller pins the initial configuration and reruns it.
-The hooks may use the user's chosen agent; Craftcheck itself makes no AI API calls.
+The hooks may use the user's chosen agent; sloppyai itself makes no AI API calls.
 
 Stop when scoped targets are met, a regression occurs, progress stalls, bounds are
 exhausted, the user cancels, or a required new decision is unavailable. Preserve the

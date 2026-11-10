@@ -2,7 +2,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { readFile, mkdir, open, rename, unlink, realpath, lstat } from 'node:fs/promises';
 import path from 'node:path';
 import { constants } from 'node:fs';
-import { CraftcheckError, fail } from './errors.mjs';
+import { SloppyAIError, fail } from './errors.mjs';
 
 export const hash = value => createHash('sha256').update(value).digest('hex');
 export const id = () => randomUUID();
@@ -73,7 +73,7 @@ export async function readJson(file, max = 2_000_000) {
       return JSON.parse((await readBounded(handle, max)).toString('utf8'));
     } finally { await handle.close(); }
   } catch (error) {
-    if (error instanceof CraftcheckError || error.code === 'ENOENT') throw error;
+    if (error instanceof SloppyAIError || error.code === 'ENOENT') throw error;
     fail('INVALID_JSON', 'Cannot read valid JSON input.', 'Check JSON syntax and file permissions.', { cause: short(error.message) });
   }
 }
@@ -116,10 +116,10 @@ export function assertNotAborted(signal) {
 
 export function delay(ms, signal) {
   return new Promise((resolve, reject) => {
-    if (signal?.aborted) return reject(new CraftcheckError('CANCELLED', 'The operation was cancelled.', 'Resume when ready.'));
+    if (signal?.aborted) return reject(new SloppyAIError('CANCELLED', 'The operation was cancelled.', 'Resume when ready.'));
     const done = () => { signal?.removeEventListener('abort', abort); resolve(); };
     const timer = setTimeout(done, ms);
-    const abort = () => { clearTimeout(timer); signal?.removeEventListener('abort', abort); reject(new CraftcheckError('CANCELLED', 'The operation was cancelled.', 'Resume when ready.')); };
+    const abort = () => { clearTimeout(timer); signal?.removeEventListener('abort', abort); reject(new SloppyAIError('CANCELLED', 'The operation was cancelled.', 'Resume when ready.')); };
     signal?.addEventListener('abort', abort, { once: true });
   });
 }

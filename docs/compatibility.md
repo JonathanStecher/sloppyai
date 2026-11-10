@@ -10,6 +10,18 @@ and Cursor, plus an explicit destination. This is filesystem installation suppor
 it does not prove how every host version discovers skills or evaluates their prose.
 It edits no host instructions, model settings or startup hooks.
 
+## Renamed release
+
+Version 0.2.0 uses sloppyai throughout: the skill is `$sloppyai` or `/sloppyai`,
+the CLI is `scripts/sloppyai.mjs`, configuration is `.sloppyai.json`, report state
+defaults to `.sloppyai/`, and hook variables use the `SLOPPYAI_` prefix.
+
+For a configuration created with the original 0.1.0 release, copy
+`.craftcheck.json` to `.sloppyai.json` and update hook variables and script paths.
+Keep the original report history for reference; engine versions differ, so cross-version
+numeric deltas are withheld. Existing `.craftcheck/` report and backup folders remain
+excluded from scans and version control. The earlier tagged release remains available.
+
 ## Static inputs
 
 Supported UTF-8 source includes HTML, CSS, JavaScript/TypeScript, Python, SQL,

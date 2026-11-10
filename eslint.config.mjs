@@ -9,7 +9,7 @@ export default [
       sourceType: 'module',
       globals: Object.fromEntries([
         'process', 'Buffer', 'console', 'setTimeout', 'clearTimeout', 'URL',
-        'AbortController', 'AbortSignal', 'structuredClone', '__CRAFTCHECK_BUNDLE__'
+        'AbortController', 'AbortSignal', 'structuredClone', '__SLOPPYAI_BUNDLE__'
       ].map(name => [name, 'readonly']))
     },
     rules: {

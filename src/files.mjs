@@ -4,7 +4,7 @@ import { hash, inside, slash, stable, assertNotAborted, READ_FLAGS, readBounded 
 import { fail } from './errors.mjs';
 
 const EXTENSIONS = new Set(['.html', '.htm', '.css', '.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql', '.md', '.txt', '.json', '.yaml', '.yml']);
-const IGNORED = new Set(['.git', '.craftcheck', 'node_modules', 'vendor', 'coverage', '.next', '.nuxt', 'dist', 'build', '__pycache__', '.venv', 'venv']);
+const IGNORED = new Set(['.git', '.sloppyai', '.craftcheck', 'node_modules', 'vendor', 'coverage', '.next', '.nuxt', 'dist', 'build', '__pycache__', '.venv', 'venv']);
 const SECRET_FILE = /^(?:\.env(?:\..*)?|credentials(?:\..*)?|id_(?:rsa|ed25519|ecdsa)(?:\.pub)?|.*\.(?:pem|key|p12|pfx))$/i;
 const LOCK_FILE = /^(?:package-lock\.json|yarn\.lock|pnpm-lock\.yaml|bun\.lock|uv\.lock)$/;
 

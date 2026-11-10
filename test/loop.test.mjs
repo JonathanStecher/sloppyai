@@ -83,7 +83,7 @@ test('deleting an assessed file cannot satisfy the loop target by shrinking cove
 test('configuration edits during repair cannot add executable hooks', async t => {
   const f = await fixture(t, { 'index.html': '<!doctype html><html lang="en"><body><img src="a.png"></body></html>' });
   const injected = { checks: [{ name: 'injected command', command: [process.execPath, '-e', "require('fs').writeFileSync('executed','bad')"] }] };
-  const program = `require('fs').writeFileSync('.craftcheck.json',${JSON.stringify(JSON.stringify(injected))})`;
+  const program = `require('fs').writeFileSync('.sloppyai.json',${JSON.stringify(JSON.stringify(injected))})`;
   const result = await improveLoop(f.target, { output: f.output, apply: true, allowExec: true, config: { fixer: { name: 'edits configuration', command: [process.execPath, '-e', program] }, loop: { maxRounds: 1 } } });
   assert.equal(result.summary.stopReason, 'max_rounds');
   assert.equal(result.report.checksExecution.length, 0);
@@ -172,7 +172,7 @@ test('watch rechecks changed source and keeps prior assessments', async t => {
 });
 
 test('review hooks produce fresh per-iteration ratings and recorded deltas', async t => {
-  const reviewer = `import fs from 'node:fs';const req=JSON.parse(fs.readFileSync(process.env.CRAFTCHECK_REQUEST,'utf8'));const html=fs.readFileSync('index.html','utf8');fs.writeFileSync(process.env.CRAFTCHECK_REVIEW,JSON.stringify({inputDigest:req.inputDigest,reviewer:{name:'fixture reviewer',kind:'agent'},assessments:[{domain:'ux',score:html.includes('maximum-scale')?2:4,rationale:'Observed the relevant viewport and control source.',evidence:'The source viewport restriction is present or removed.'}],findings:[]}));`;
+  const reviewer = `import fs from 'node:fs';const req=JSON.parse(fs.readFileSync(process.env.SLOPPYAI_REQUEST,'utf8'));const html=fs.readFileSync('index.html','utf8');fs.writeFileSync(process.env.SLOPPYAI_REVIEW,JSON.stringify({inputDigest:req.inputDigest,reviewer:{name:'fixture reviewer',kind:'agent'},assessments:[{domain:'ux',score:html.includes('maximum-scale')?2:4,rationale:'Observed the relevant viewport and control source.',evidence:'The source viewport restriction is present or removed.'}],findings:[]}));`;
   const f = await fixture(t, { 'index.html': html, 'review.mjs': reviewer });
   const config = { language: 'en', reviewer: { name: 'fixture reviewer', command: [process.execPath, 'review.mjs'] } };
   const result = await improveLoop(f.target, { output: f.output, apply: true, allowExec: true, config });

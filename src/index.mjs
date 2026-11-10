@@ -7,5 +7,5 @@ export { loadConfig, DEFAULT_CONFIG } from './config.mjs';
 export { markdownReport, htmlReport } from './report.mjs';
 export { undoTransaction } from './repair.mjs';
 export { installSkill, uninstallSkill } from './install.mjs';
-export { CraftcheckError } from './errors.mjs';
+export { SloppyAIError } from './errors.mjs';
 export { VERSION } from './assets.mjs';

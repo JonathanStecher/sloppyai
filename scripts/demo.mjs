@@ -7,11 +7,11 @@ import { readJson } from '../src/util.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const hooks = process.argv.includes('--hooks');
-const workspace = path.join(root, '.craftcheck', 'demo', 'run-' + randomUUID());
+const workspace = path.join(root, '.sloppyai', 'demo', 'run-' + randomUUID());
 const target = path.join(workspace, 'artifact');
 await mkdir(workspace, { recursive: true, mode: 0o700 });
 await cp(path.join(root, 'examples/landing-page'), target, { recursive: true });
-const config = await readJson(path.join(target, '.craftcheck.json'));
+const config = await readJson(path.join(target, '.sloppyai.json'));
 if (hooks) {
   await cp(path.join(root, 'examples/hooks/reviewer.mjs'), path.join(target, 'reviewer.mjs'));
   await cp(path.join(root, 'examples/hooks/fixer.mjs'), path.join(target, 'fixer.mjs'));

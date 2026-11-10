@@ -1,8 +1,8 @@
-# Craftcheck
+# sloppyai
 
 Bring an existing artifact → understand the findings → choose a concrete improvement → make the change → verify the result.
 
-Craftcheck gives coding agents a repeatable way to improve interfaces, writing,
+sloppyai gives coding agents a repeatable way to improve interfaces, writing,
 code and other artifacts while preserving useful behaviour and accepted style.
 It combines a portable Agent Skill with a local CLI, an evidence catalogue,
 issue history and bounded check → repair → recheck loops.
@@ -12,23 +12,23 @@ issue history and bounded check → repair → recheck loops.
 Requires Node.js 22.13 or later. Clone the source and build the portable helpers:
 
 ```sh
-git clone https://github.com/JonathanStecher/craftcheck.git
-cd craftcheck
+git clone https://github.com/JonathanStecher/sloppyai.git
+cd sloppyai
 npm ci --ignore-scripts
 npm run check
-node skills/craftcheck/scripts/craftcheck.mjs --help
+node skills/sloppyai/scripts/sloppyai.mjs --help
 ```
 
 Install the skill for your chosen host, or copy the complete
-`skills/craftcheck` folder to a supported skill location:
+`skills/sloppyai` folder to a supported skill location:
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs install --host codex
-node skills/craftcheck/scripts/craftcheck.mjs install --host claude
-node skills/craftcheck/scripts/craftcheck.mjs install --host cursor
+node skills/sloppyai/scripts/sloppyai.mjs install --host codex
+node skills/sloppyai/scripts/sloppyai.mjs install --host claude
+node skills/sloppyai/scripts/sloppyai.mjs install --host cursor
 ```
 
-Choose one host command. The installer changes only the Craftcheck skill folder;
+Choose one host command. The installer changes only the sloppyai skill folder;
 it does not edit project instructions, register hooks or change model settings.
 Use `--scope project --project /path/to/project` for a project installation or
 `--dest /path/to/skills` for an explicit skill-parent directory. The copied skill
@@ -36,29 +36,29 @@ includes its CLI, library, references, schemas, catalogue and bundled licences.
 
 Then ask your agent:
 
-> Use Craftcheck to audit this artifact, fix concrete issues while preserving its useful features, and verify the result. Keep ratings and remaining concerns visible after each round.
+> Use sloppyai to audit this artifact, fix concrete issues while preserving its useful features, and verify the result. Keep ratings and remaining concerns visible after each round.
 
-Host syntax differs: Codex can use `$craftcheck`; Claude Code can use
-`/craftcheck`. The core workflow also works through an agent that reads SKILL.md.
+Host syntax differs: Codex can use `$sloppyai`; Claude Code can use
+`/sloppyai`. The core workflow also works through an agent that reads SKILL.md.
 
 ## Audit an artifact
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs audit /path/to/artifact
-node skills/craftcheck/scripts/craftcheck.mjs plan /path/to/artifact --no-save
-node skills/craftcheck/scripts/craftcheck.mjs catalog --domain accessibility
+node skills/sloppyai/scripts/sloppyai.mjs audit /path/to/artifact
+node skills/sloppyai/scripts/sloppyai.mjs plan /path/to/artifact --no-save
+node skills/sloppyai/scripts/sloppyai.mjs catalog --domain accessibility
 ```
 
-Reports are written locally to `.craftcheck` beneath the selected directory, or
+Reports are written locally to `.sloppyai` beneath the selected directory, or
 beside a selected file. `--out` selects another directory; `--no-save` produces
 stdout-only audit/plan/verify output. Formats include JSON, Markdown and HTML.
 
 ## Continuous improvement
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs init /path/to/artifact --language en
-node skills/craftcheck/scripts/craftcheck.mjs loop /path/to/artifact --apply
-node skills/craftcheck/scripts/craftcheck.mjs watch /path/to/artifact --max-cycles 10 --duration-ms 300000
+node skills/sloppyai/scripts/sloppyai.mjs init /path/to/artifact --language en
+node skills/sloppyai/scripts/sloppyai.mjs loop /path/to/artifact --apply
+node skills/sloppyai/scripts/sloppyai.mjs watch /path/to/artifact --max-cycles 10 --duration-ms 300000
 ```
 
 Configure the artifact's actual language. Each loop records a baseline, makes an
@@ -80,7 +80,7 @@ configured repair hook. Intentional `rel=opener` relationships require review.
 ### Integrate tests, reviewers and repair tools
 
 Project commands are inert until `--allow-exec` is supplied. Configure command
-arrays in `.craftcheck.json` after inspecting them:
+arrays in `.sloppyai.json` after inspecting them:
 
 ```json
 {
@@ -100,8 +100,8 @@ It runs again after changes so ratings are fresh. A fixer receives findings and
 the preservation contract, then the controller reruns its own checks.
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs loop /path/to/artifact --apply --allow-exec
-node skills/craftcheck/scripts/craftcheck.mjs verify /path/to/artifact --allow-exec --baseline /path/to/baseline.json
+node skills/sloppyai/scripts/sloppyai.mjs loop /path/to/artifact --apply --allow-exec
+node skills/sloppyai/scripts/sloppyai.mjs verify /path/to/artifact --allow-exec --baseline /path/to/baseline.json
 ```
 
 Commands run with your user permissions, not in a security sandbox. They may use
@@ -140,12 +140,12 @@ backups/          Private source backups for built-in repairs
 checkpoint.json   Latest persisted input/report identity
 ```
 
-Backups may contain sensitive source. Keep `.craftcheck/` out of version control.
+Backups may contain sensitive source. Keep `.sloppyai/` out of version control.
 Undo refuses to overwrite later edits:
 
 ```sh
-node skills/craftcheck/scripts/craftcheck.mjs history --out /path/to/.craftcheck
-node skills/craftcheck/scripts/craftcheck.mjs undo /path/to/artifact --out /path/to/.craftcheck --transaction TRANSACTION_ID
+node skills/sloppyai/scripts/sloppyai.mjs history --out /path/to/.sloppyai
+node skills/sloppyai/scripts/sloppyai.mjs undo /path/to/artifact --out /path/to/.sloppyai --transaction TRANSACTION_ID
 ```
 
 ## What is implemented
@@ -173,7 +173,7 @@ or remote resources. See [compatibility](docs/compatibility.md) and
 npm run demo
 ```
 
-The demo copies an authored fixture into `.craftcheck/demo` before improving it.
+The demo copies an authored fixture into `.sloppyai/demo` before improving it.
 It retains baseline scores, fixes, subsequent scores and undo metadata. The source
 fixture is preserved. Examples are synthetic and contain no customer data.
 
@@ -191,8 +191,8 @@ bundled licence notices and [catalogue](docs/catalog.md). See
 [CONTRIBUTING.md](CONTRIBUTING.md), [architecture](docs/architecture.md) and
 [SECURITY.md](SECURITY.md).
 
-Craftcheck is an independent project. Workflow inspiration includes
+sloppyai is an independent project. Workflow inspiration includes
 [gstack](https://github.com/garrytan/gstack); it is not required at runtime.
 Our original code and writing are MIT licensed. Bundled libraries retain their
-own [licence notices](skills/craftcheck/scripts/THIRD_PARTY_LICENSES.md).
+own [licence notices](skills/sloppyai/scripts/THIRD_PARTY_LICENSES.md).
 Source images and third-party article text are not distributed. See [NOTICE.md](NOTICE.md).

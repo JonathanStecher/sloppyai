@@ -24,14 +24,14 @@ for (let image = 1; image <= 5; image++) {
 }
 const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
 assert.equal(pkg.version, VERSION, 'Engine/package version drift');
-const skill = await readFile(path.join(root, 'skills/craftcheck/SKILL.md'), 'utf8');
-assert.match(skill, /^---\nname: craftcheck\ndescription: .+\nlicense: MIT\n---\n/);
+const skill = await readFile(path.join(root, 'skills/sloppyai/SKILL.md'), 'utf8');
+assert.match(skill, /^---\nname: sloppyai\ndescription: .+\nlicense: MIT\n---\n/);
 assert.ok(skill.split('\n').length < 180, 'Entrypoint grew beyond its project context budget');
 assert.ok(!skill.includes('/Users/'), 'Private path in skill');
 let markdownFiles = 0;
 async function walk(directory) {
   for (const name of await readdir(directory)) {
-    if (['node_modules', '.git', '.craftcheck'].includes(name)) continue;
+    if (['node_modules', '.git', '.sloppyai', '.craftcheck'].includes(name)) continue;
     const file = path.join(directory, name);
     const stat = await lstat(file);
     if (stat.isDirectory()) await walk(file);
@@ -49,6 +49,6 @@ async function walk(directory) {
   }
 }
 await walk(root);
-await access(path.join(root, 'skills/craftcheck/scripts/THIRD_PARTY_LICENSES.md'));
+await access(path.join(root, 'skills/sloppyai/scripts/THIRD_PARTY_LICENSES.md'));
 assert.ok((await readFile(path.join(root, 'docs/catalog.md'), 'utf8')).includes(`${catalog.entries.length} entries`));
 console.log(`Validated ${catalog.entries.length} catalogue entries, 102 original labels, ${catalog.sources.length} sources and ${markdownFiles} Markdown files.`);

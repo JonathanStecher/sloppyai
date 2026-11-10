@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- Renamed the project, public repository, package, skill and CLI to sloppyai.
+- Updated commands, hook environment variables, configuration, report paths and documentation to the new name.
+- Preserved the earlier release and kept its private report directories excluded from scans and version control.
+
 ## 0.1.0
 
 - Portable artifact-quality skill with plan, audit, improve and verify workflows.

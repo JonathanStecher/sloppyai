@@ -2,12 +2,12 @@
 import { readFile, writeFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 
-const request = JSON.parse(await readFile(process.env.CRAFTCHECK_REQUEST, 'utf8'));
-const target = process.env.CRAFTCHECK_TARGET;
+const request = JSON.parse(await readFile(process.env.SLOPPYAI_REQUEST, 'utf8'));
+const target = process.env.SLOPPYAI_TARGET;
 const file = (await stat(target)).isDirectory() ? path.join(target, 'index.html') : target;
 const source = await readFile(file, 'utf8');
 const specific = source.includes('<h1>Export a report</h1>');
-await writeFile(process.env.CRAFTCHECK_REVIEW, JSON.stringify({
+await writeFile(process.env.SLOPPYAI_REVIEW, JSON.stringify({
   inputDigest: request.inputDigest,
   reviewer: { name: 'deterministic heading fixture', kind: 'agent' },
   assessments: [{

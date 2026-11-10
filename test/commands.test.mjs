@@ -61,7 +61,7 @@ test('explicit command arrays do not interpolate shell metacharacters', async t 
 test('configuration commands stay inert during a normal audit', async t => {
   const f = await fixture(t, { 'copy.md': 'Useful description.' });
   const marker = path.join(f.target, 'should-not-exist');
-  await writeFile(path.join(f.target, '.craftcheck.json'), JSON.stringify({ checks: [{ name: 'inert', command: [process.execPath, '-e', `require('fs').writeFileSync(${JSON.stringify(marker)},'bad')`] }] }));
+  await writeFile(path.join(f.target, '.sloppyai.json'), JSON.stringify({ checks: [{ name: 'inert', command: [process.execPath, '-e', `require('fs').writeFileSync(${JSON.stringify(marker)},'bad')`] }] }));
   const { audit } = await import('../src/audit.mjs');
   await audit(f.target);
   await assert.rejects(readFile(marker), error => error.code === 'ENOENT');
