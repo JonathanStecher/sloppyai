@@ -1,0 +1,562 @@
+[
+  {
+    "id": "S01",
+    "title": "Next.js header",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "A framework-specific header may bypass authorization in affected versions; the screenshot likely refers to CVE-2025-29927.",
+    "guidance": "Determine the exact framework, affected version and authorization boundary before reporting an advisory.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 1
+    }
+  },
+  {
+    "id": "S02",
+    "title": "Exposed .git folder",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "A publicly served Git directory may expose source, history and previously committed credentials.",
+    "guidance": "Exclude repository internals from deployment and handle exposed credentials separately through revocation.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 2
+    }
+  },
+  {
+    "id": "S03",
+    "title": "Supabase storage",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Bucket visibility and object policies determine who can read, upload, modify or delete media.",
+    "guidance": "Compare the intended public/private model with actual operation-specific authorization.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 3
+    }
+  },
+  {
+    "id": "S04",
+    "title": "Price from the browser",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Client-supplied prices, discounts and entitlements can be manipulated.",
+    "guidance": "Re-derive authoritative amounts and permissions on the server using trusted records.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 4
+    }
+  },
+  {
+    "id": "S05",
+    "title": "Credential stuffing",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Stolen username-password pairs from other services are reused in automated login attempts.",
+    "guidance": "Review layered authentication, abuse limits, monitoring and recovery without exposing account existence.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 5
+    }
+  },
+  {
+    "id": "S06",
+    "title": "Open database",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Missing or broad data permissions may allow unauthorized reads and writes.",
+    "guidance": "Test the relevant actors and operations; network reachability alone is insufficient evidence.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 6
+    }
+  },
+  {
+    "id": "S07",
+    "title": "Polyfill.io",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "A previously trusted externally loaded script became a supply-chain risk.",
+    "guidance": "Review current external-code provenance and exposure; distinguish the incident from polyfills in general.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 7
+    }
+  },
+  {
+    "id": "S08",
+    "title": "SMS pumping",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Repeated requests trigger billable SMS and can generate fraudulent revenue for destination operators.",
+    "guidance": "Bound destinations, per-user volume, retries and spending exposure.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 8
+    }
+  },
+  {
+    "id": "S09",
+    "title": "Prompt injection",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Untrusted content attempts to redirect an AI that can read data or use tools.",
+    "guidance": "Enforce permissions and action validation outside the model, and treat retrieved instructions as data.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 9
+    }
+  },
+  {
+    "id": "S10",
+    "title": "Weak JWT secret",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Guessable shared signing secrets can enable token forgery.",
+    "guidance": "Review strong random keys, permitted algorithms, claims and session lifecycle.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 10
+    }
+  },
+  {
+    "id": "S11",
+    "title": "Race condition",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Concurrent requests can exploit a gap between checking and updating shared state.",
+    "guidance": "Use atomic updates, constraints and appropriate idempotency at the real boundary.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 11
+    }
+  },
+  {
+    "id": "S12",
+    "title": "Account pre-hijacking",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "An attacker prepares an account under a victim's identifier and may retain access after legitimate registration.",
+    "guidance": "Inspect identifier verification, linking, recovery and surviving sessions.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 12
+    }
+  },
+  {
+    "id": "S13",
+    "title": "Subdomain takeover",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Dangling DNS points to a claimable abandoned external resource.",
+    "guidance": "Establish actual claimability and organizational exposure before assigning severity.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 13
+    }
+  },
+  {
+    "id": "S14",
+    "title": "SSRF",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "A server fetches attacker-influenced destinations and may reach private services.",
+    "guidance": "Constrain protocols, destinations, redirects and network permissions.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 14
+    }
+  },
+  {
+    "id": "S15",
+    "title": "Path traversal",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "User-influenced paths escape an intended file boundary.",
+    "guidance": "Use constrained identifiers and enforce containment for reads, writes and archive extraction.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 15
+    }
+  },
+  {
+    "id": "S16",
+    "title": "Reset poisoning",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "A password reset link includes attacker-influenced origins or mishandled tokens.",
+    "guidance": "Build recovery links from trusted configuration and protect token handling.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 16
+    }
+  },
+  {
+    "id": "S17",
+    "title": "Source maps",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Debug maps expose readable client source and implementation details.",
+    "guidance": "Assess what becomes public; never ship privileged secrets in client code.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 17
+    }
+  },
+  {
+    "id": "S18",
+    "title": "Clickjacking",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Deceptive framing can make users activate sensitive controls unknowingly.",
+    "guidance": "Check framing policy against the sensitive operation and legitimate embedding needs.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 18
+    }
+  },
+  {
+    "id": "S19",
+    "title": "Open redirect",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "An application redirects to an unvalidated user-selected destination.",
+    "guidance": "Use approved destinations or mapped identifiers and validate the parsed destination.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 19
+    }
+  },
+  {
+    "id": "S20",
+    "title": "User enumeration",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Messages, codes or timing reveal whether a user account exists.",
+    "guidance": "Compare login, registration and recovery responses using controlled identities.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "An intentionally public resource, non-sensitive example or already enforced boundary may make the suspected issue inapplicable."
+    ],
+    "sourceIds": [
+      "image-1",
+      "owasp-asvs"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 1,
+      "item": 20
+    }
+  }
+]

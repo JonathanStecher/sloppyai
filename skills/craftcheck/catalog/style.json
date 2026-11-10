@@ -1,0 +1,582 @@
+[
+  {
+    "id": "H01",
+    "title": "Tags and pills",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Rounded labels can be meaningful controls or redundant decoration.",
+    "guidance": "Check information value and preserve real filters and statuses.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 1
+    }
+  },
+  {
+    "id": "H02",
+    "title": "Excessive italics",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Too much italic emphasis competes for attention.",
+    "guidance": "Evaluate the emphasis system, length and readability.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 2
+    }
+  },
+  {
+    "id": "H03",
+    "title": "Instrument Serif",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "A specific expressive serif typeface.",
+    "guidance": "Judge fit, readable sizing and identity; the font alone is not a defect.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 3
+    }
+  },
+  {
+    "id": "H04",
+    "title": "Negative kerning",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Tightened pair spacing or negative tracking can crowd text.",
+    "guidance": "Inspect collisions and tone; tightened headings can be intentional.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 4
+    }
+  },
+  {
+    "id": "H05",
+    "title": "Over-the-top detailed UI",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Complex controls or decoration can obscure the primary task.",
+    "guidance": "Preserve complexity that supports real professional workflows.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 5
+    }
+  },
+  {
+    "id": "H06",
+    "title": "Overusing dividers",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Too many separators can fragment a page.",
+    "guidance": "Use separators where boundaries matter and spacing where sufficient.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 6
+    }
+  },
+  {
+    "id": "H07",
+    "title": "Colour shades and opacities",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Uncontrolled shade and transparency variation can weaken hierarchy.",
+    "guidance": "Review actual semantic roles, consistency and contrast.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 7
+    }
+  },
+  {
+    "id": "H08",
+    "title": "Containers with borders",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Nested boxes can make unrelated elements look equally important.",
+    "guidance": "Retain boundaries that clarify structure or interaction.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 8
+    }
+  },
+  {
+    "id": "H09",
+    "title": "Overly detailed diagrams",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Excess nodes, arrows and annotations can hide the main relationship.",
+    "guidance": "Match detail to the reader's question and expertise.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 9
+    }
+  },
+  {
+    "id": "H10",
+    "title": "Verbose redundant text",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Repeated statements increase reading effort.",
+    "guidance": "Retain necessary conditions, costs, evidence and recovery instructions.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 10
+    }
+  },
+  {
+    "id": "H11",
+    "title": "Code breadcrumbs",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Code-like paths may provide real navigation or merely technical decoration.",
+    "guidance": "Clarify the function before proposing removal.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 11
+    }
+  },
+  {
+    "id": "H12",
+    "title": "Section numbering",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Numbering can support sequence and cross-reference.",
+    "guidance": "Treat decorative numbering as a contextual preference.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 12
+    }
+  },
+  {
+    "id": "H13",
+    "title": "Eyebrows",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Short labels above headlines may orient or duplicate.",
+    "guidance": "Keep labels that provide information the headline does not.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 13
+    }
+  },
+  {
+    "id": "H14",
+    "title": "Dithering",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Pixel pattern treatment creates limited-palette tone.",
+    "guidance": "Judge image detail and intentional identity rather than rejecting the technique.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 14
+    }
+  },
+  {
+    "id": "H15",
+    "title": "ASCII images",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Character art can suit computing-related or playful contexts.",
+    "guidance": "Check legibility and whether the audience understands the representation.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 15
+    }
+  },
+  {
+    "id": "H16",
+    "title": "Squircles",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Smoothly curved square-circle forms establish shape language.",
+    "guidance": "Review consistency, platform expectations and component purpose.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 16
+    }
+  },
+  {
+    "id": "H17",
+    "title": "Excessive mono fonts",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Technical styling throughout can flatten typographic roles.",
+    "guidance": "Preserve deliberate identity while maintaining readable hierarchy.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 17
+    }
+  },
+  {
+    "id": "H18",
+    "title": "ALL CAPS subtitles",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Uppercase supporting text becomes dense at length.",
+    "guidance": "Evaluate length, size, spacing and hierarchy.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 18
+    }
+  },
+  {
+    "id": "H19",
+    "title": "Gradient backgrounds",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Colour transitions can provide mood or undermine contrast.",
+    "guidance": "Judge actual background-content interaction and brand purpose.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 19
+    }
+  },
+  {
+    "id": "H20",
+    "title": "Periods in titles",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Title punctuation is an editorial choice.",
+    "guidance": "Preserve accepted style unless a concrete inconsistency needs correction.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-5",
+      "anthropic-design",
+      "openai-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 5,
+      "item": 20
+    }
+  }
+]

@@ -1,0 +1,326 @@
+[
+  {
+    "id": "S21",
+    "title": "New-tab opener boundary",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "A target=_blank link may retain an opener in some environments.",
+    "guidance": "Use an appropriate rel value while preserving existing relationship tokens.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "static",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "S22",
+    "title": "Raw HTML sink",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Assigning HTML from dynamic input can cross an output-encoding boundary.",
+    "guidance": "Trace input trust and sanitization before claiming exploitable XSS.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S23",
+    "title": "Hardcoded privileged credential",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Secret-shaped material in source may confer unintended authority.",
+    "guidance": "Redact evidence, assess exposure and validity, and recommend rotation when appropriate.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S24",
+    "title": "Shell execution boundary",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "shell=True or dynamic shell commands may interpret untrusted input.",
+    "guidance": "Trace attacker control and actual execution context; avoid automatic code rewriting.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S25",
+    "title": "Dynamic database query",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Interpolated SQL may mix data with query structure.",
+    "guidance": "Inspect parameter binding and the actual driver contract.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S26",
+    "title": "TLS verification disabled",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Disabling certificate verification may remove a network trust check.",
+    "guidance": "Check the actual environment and legitimate testing exceptions.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S27",
+    "title": "Object and tenant authorization",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Knowing an identifier must not grant access to another user's object.",
+    "guidance": "Test legitimate and unauthorized actors at each relevant operation.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "none",
+    "defaultSeverity": "critical"
+  },
+  {
+    "id": "S28",
+    "title": "Session and account lifecycle",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Recovery, logout and sensitive changes affect previously issued authority.",
+    "guidance": "Verify invalidation, validation and account-linking behaviour.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S29",
+    "title": "Webhook authentication and replay",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Callbacks can be forged, duplicated or delayed.",
+    "guidance": "Check signatures, timestamps, idempotency and durable state transitions.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S30",
+    "title": "Resource and spending limits",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Abusive or accidental work can exhaust availability or paid budgets.",
+    "guidance": "Bound volume, size, concurrency, retries and duration.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S31",
+    "title": "Dependency and build provenance",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Code and build dependencies execute with different capabilities.",
+    "guidance": "Establish identity, affected version, reachability and credential exposure.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "S32",
+    "title": "Logging and deletion",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Credentials or private content can leak through diagnostics and retained artifacts.",
+    "guidance": "Inspect actual data flow, access and retention.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "owasp-asvs",
+      "owasp-api",
+      "owasp-logic",
+      "owasp-webhook"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  }
+]

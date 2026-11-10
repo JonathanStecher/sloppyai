@@ -1,0 +1,152 @@
+[
+  {
+    "id": "R01",
+    "title": "Asset provenance",
+    "domain": "rights",
+    "kind": "requirement",
+    "description": "Photos, footage, music, fonts and code can carry separate terms.",
+    "guidance": "Record the actual source, permission, attribution and applicable restrictions.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "dpma-ai",
+      "usco-ai",
+      "ftc-reviews",
+      "google-spam"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "R02",
+    "title": "Human creative contribution",
+    "domain": "rights",
+    "kind": "requirement",
+    "description": "Protection of AI-assisted output depends on applicable law and human expression.",
+    "guidance": "Preserve relevant authorship records and identify unresolved jurisdiction-specific questions.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "dpma-ai",
+      "usco-ai",
+      "ftc-reviews",
+      "google-spam"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "R03",
+    "title": "Authentic testimonials",
+    "domain": "rights",
+    "kind": "requirement",
+    "description": "Invented customer experiences and endorsements misrepresent evidence.",
+    "guidance": "Publish only accurate, appropriately authorized claims.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "dpma-ai",
+      "usco-ai",
+      "ftc-reviews",
+      "google-spam"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "R04",
+    "title": "Platform disclosure",
+    "domain": "rights",
+    "kind": "requirement",
+    "description": "Realistic synthetic media may require disclosure on the distribution platform.",
+    "guidance": "Check current requirements for the actual output and context.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "dpma-ai",
+      "usco-ai",
+      "ftc-reviews",
+      "google-spam"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "R05",
+    "title": "Scaled content quality",
+    "domain": "rights",
+    "kind": "requirement",
+    "description": "Mass publishing without added user value can violate distribution policies.",
+    "guidance": "Assess original contribution, repetition and the platform's current rules.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "dpma-ai",
+      "usco-ai",
+      "ftc-reviews",
+      "google-spam"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "R06",
+    "title": "Privacy and retention",
+    "domain": "rights",
+    "kind": "requirement",
+    "description": "Personal information needs deliberate collection, access, retention and deletion handling.",
+    "guidance": "Minimize data and investigate applicable requirements without claiming legal certification.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "dpma-ai",
+      "usco-ai",
+      "ftc-reviews",
+      "google-spam"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  }
+]

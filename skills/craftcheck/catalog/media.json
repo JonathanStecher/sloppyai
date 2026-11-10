@@ -1,0 +1,202 @@
+[
+  {
+    "id": "M01",
+    "title": "Grounded imagery",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Imagery should support the subject rather than merely resemble its theme.",
+    "guidance": "Verify identity, context, geography and the intended claim.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "M02",
+    "title": "Readable visual text",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Text in images and video can contain spelling errors, clipping and weak contrast.",
+    "guidance": "Inspect exported frames at their actual viewing size.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "M03",
+    "title": "Truthful diagrams and charts",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Visual encodings must reflect real data and relationships.",
+    "guidance": "Check values, axes, labels, arrows, categories and scales.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "M04",
+    "title": "Temporal consistency",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Scenes should preserve relevant objects, identities and continuity.",
+    "guidance": "Inspect changes across frames and cuts.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "M05",
+    "title": "Narration alignment",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Spoken content, visible words, images and timing need to agree.",
+    "guidance": "Use measured audio timing and verify the final render.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "M06",
+    "title": "Audio intelligibility",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Pronunciation, pacing, clipping and background music affect understanding.",
+    "guidance": "Listen to representative and difficult passages in the final output.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "M07",
+    "title": "Editorial contribution",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Repeated scenes or sections may add no new value.",
+    "guidance": "Check how each part advances information, narrative or the intended experience.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "M08",
+    "title": "Export integrity",
+    "domain": "media",
+    "kind": "heuristic",
+    "description": "Dimensions, codecs, cropping and embedded resources affect delivery.",
+    "guidance": "Open the exported artifact in an appropriate viewer and verify actual playback or rendering.",
+    "appliesTo": [
+      "media",
+      "document"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "youtube-monetization",
+      "youtube-disclosure",
+      "google-design"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  }
+]

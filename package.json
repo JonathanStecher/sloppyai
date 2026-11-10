@@ -1,0 +1,37 @@
+{
+  "name": "@jonathanstecher/craftcheck",
+  "version": "0.1.0",
+  "description": "Evidence-based artifact review, improvement and bounded verification loops for coding agents.",
+  "type": "module",
+  "license": "MIT",
+  "author": "JonathanStecher",
+  "engines": { "node": ">=22.13.0" },
+  "bin": { "craftcheck": "skills/craftcheck/scripts/craftcheck.mjs" },
+  "exports": { ".": "./skills/craftcheck/scripts/core.mjs" },
+  "files": ["skills/craftcheck", "README.md", "LICENSE", "NOTICE.md", "CHANGELOG.md"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "catalog": "node scripts/catalog.mjs",
+    "lint": "eslint src scripts test",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test --test-concurrency=4 test/*.test.mjs",
+    "check": "npm run build && npm run lint && npm run test && npm run validate",
+    "prepack": "npm run build && npm run validate",
+    "demo": "node scripts/demo.mjs",
+    "demo:hooks": "node scripts/demo.mjs --hooks",
+    "package:smoke": "node scripts/package-smoke.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "eslint": "10.14.0",
+    "parse5": "8.1.1",
+    "postcss": "8.5.32"
+  },
+  "repository": { "type": "git", "url": "git+https://github.com/JonathanStecher/craftcheck.git" },
+  "bugs": { "url": "https://github.com/JonathanStecher/craftcheck/issues" },
+  "homepage": "https://github.com/JonathanStecher/craftcheck#readme",
+  "keywords": ["agent-skills", "ai", "design", "accessibility", "quality", "review", "verification"],
+  "overrides": { "minimatch": "11.0.1" }
+}

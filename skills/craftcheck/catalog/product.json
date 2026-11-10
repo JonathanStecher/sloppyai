@@ -1,0 +1,186 @@
+[
+  {
+    "id": "P01",
+    "title": "Audience and purpose",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "A design needs a known audience, immediate goal and context.",
+    "guidance": "State the user's intended outcome before selecting patterns.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "P02",
+    "title": "Surface classification",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Marketing, operational, reading and showcase surfaces have different priorities.",
+    "guidance": "Classify mixed artifacts by relevant area, rather than by industry alone.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "P03",
+    "title": "Page orientation",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Users need to understand their location, options and next step.",
+    "guidance": "Check the first impression and navigational structure with little prior context.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "P04",
+    "title": "One job per section",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Repeated mood statements can conceal missing information.",
+    "guidance": "Assign a concrete contribution to each section or scene.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "P05",
+    "title": "Objections and evidence",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Visitors have real concerns about suitability, effort, cost and reliability.",
+    "guidance": "Answer known concerns with supplied facts and genuine proof.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "P06",
+    "title": "Brand relevance",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Interchangeable composition and language can weaken recognition.",
+    "guidance": "Identify choices tied to the actual organization and audience.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "P07",
+    "title": "Appropriate density",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Professional tools and onboarding need different information density.",
+    "guidance": "Preserve useful complexity and evaluate task completion.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "P08",
+    "title": "Existing-system preservation",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Unnecessary redesign can break coherent established behaviour.",
+    "guidance": "Inspect components, accepted decisions and project instructions first.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-product",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  }
+]

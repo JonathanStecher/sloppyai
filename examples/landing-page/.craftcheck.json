@@ -1,0 +1,5 @@
+{
+  "language": "en",
+  "preserve": [ { "path": "index.html", "contains": ["Save", "Cancel", "Export format reference"] } ],
+  "loop": { "maxRounds": 3, "targetScore": 100, "reviewTarget": 4, "stallRounds": 2, "maxDurationMs": 300000 }
+}

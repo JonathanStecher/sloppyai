@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object", "additionalProperties": false,
+  "required": ["inputDigest", "reviewer", "assessments", "findings"],
+  "properties": {
+    "inputDigest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "reviewer": { "type": "object", "additionalProperties": false, "required": ["name", "kind"], "properties": { "name": { "type": "string", "minLength": 1, "maxLength": 100 }, "kind": { "enum": ["human", "agent"] } } },
+    "assessments": { "type": "array", "maxItems": 10, "items": { "type": "object", "additionalProperties": false, "required": ["domain", "score", "rationale", "evidence"], "properties": { "domain": { "enum": ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"] }, "score": { "type": "number", "minimum": 0, "maximum": 5 }, "rationale": { "type": "string", "minLength": 10, "maxLength": 2000 }, "evidence": { "type": "string", "minLength": 10, "maxLength": 2000 } } } },
+    "findings": { "type": "array", "maxItems": 200, "items": { "type": "object", "additionalProperties": false, "required": ["ruleId", "anchor", "path", "severity", "confidence", "evidence", "recommendation"], "properties": {
+      "ruleId": { "type": "string", "minLength": 1, "maxLength": 80 },
+      "anchor": { "type": "string", "minLength": 1, "maxLength": 500 },
+      "path": { "type": "string", "minLength": 1, "maxLength": 500 },
+      "line": { "type": "integer", "minimum": 1 },
+      "severity": { "enum": ["critical", "high", "medium", "low", "suggestion"] },
+      "confidence": { "enum": ["supported", "tentative", "reproduced"] },
+      "evidence": { "type": "string", "minLength": 10, "maxLength": 3000 },
+      "recommendation": { "type": "string", "minLength": 10, "maxLength": 2000 }
+    } } }
+  }
+}

@@ -1,0 +1,278 @@
+[
+  {
+    "id": "UX01",
+    "title": "Placeholder navigation",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Empty or fragment-only links may stand in for unfinished actions.",
+    "guidance": "Verify the intended interaction and wire it to a real destination or appropriate control.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "UX02",
+    "title": "Production placeholders",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Lorem ipsum, unresolved template tokens and example filler can conceal missing content.",
+    "guidance": "Replace filler with truthful content and preserve deliberately labelled examples.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "UX03",
+    "title": "Form submission semantics",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Buttons inside forms can submit unexpectedly when their type is ambiguous.",
+    "guidance": "Determine whether the button submits, resets or performs another action before changing its type.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "UX04",
+    "title": "Interaction-state coverage",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Loading, empty, error, success, partial and unavailable states need deliberate treatment.",
+    "guidance": "Specify what users see and how they can recover.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "UX05",
+    "title": "Session and permission transitions",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Authentication and permissions may change during work.",
+    "guidance": "Handle expiry and insufficient access without losing usable work or disclosing private data.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "UX06",
+    "title": "Cancellation and retries",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Cancellation and retries have consequences for partial work and charges.",
+    "guidance": "Reconcile unknown outcomes and make repeat operations safe.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "UX07",
+    "title": "Navigation and deep links",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Back, forward, refresh and shared links should preserve relevant state.",
+    "guidance": "Test actual journeys and avoid hiding essential state only in memory.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "UX08",
+    "title": "Unsaved work",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Users need truthful save state and reasonable protection from accidental loss.",
+    "guidance": "Inspect navigation, interruption, autosave failure and recovery.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "UX09",
+    "title": "Real-data resilience",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Layouts and workflows need to handle realistic lengths, counts and missing values.",
+    "guidance": "Use long names, empty collections, unusual values and large result sets.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "UX10",
+    "title": "Lifecycle completeness",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Registration, recovery, billing changes, cancellation, export and deletion can be essential.",
+    "guidance": "Trace the complete applicable lifecycle rather than only onboarding.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "UX11",
+    "title": "Primary task and hierarchy",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Secondary information can displace the task users came to perform.",
+    "guidance": "Identify the user's success condition and organize around it.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "UX12",
+    "title": "Discoverable controls",
+    "domain": "ux",
+    "kind": "heuristic",
+    "description": "Essential actions should be discoverable with the supported input methods.",
+    "guidance": "Check hover-only, icon-only, gesture-only and hidden actions.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "nngroup-heuristics",
+      "nngroup-aiprototyping"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  }
+]

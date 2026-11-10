@@ -1,0 +1,465 @@
+[
+  {
+    "id": "T01",
+    "title": "Kerning",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Spacing adjustment between individual letter pairs.",
+    "guidance": "Distinguish pair adjustments from tracking across a range of text.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 1
+    }
+  },
+  {
+    "id": "T02",
+    "title": "Optical centre",
+    "domain": "design",
+    "kind": "definition",
+    "description": "The location that appears visually centred.",
+    "guidance": "Inspect asymmetric icons and shapes in their intended container.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 2
+    }
+  },
+  {
+    "id": "T03",
+    "title": "Tabular numbers",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Digits that occupy equal horizontal widths.",
+    "guidance": "Use to align numeric columns and prevent changing digits from shifting content.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 3
+    }
+  },
+  {
+    "id": "T04",
+    "title": "Layout shift",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Visible content changes position after appearing.",
+    "guidance": "Investigate delayed assets, fonts and unreserved space.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4",
+      "google-vitals"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 4
+    }
+  },
+  {
+    "id": "T05",
+    "title": "Tracking",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Uniform letter-spacing adjustment across text.",
+    "guidance": "Apply in context rather than confusing it with pair-specific kerning.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 5
+    }
+  },
+  {
+    "id": "T06",
+    "title": "Optimistic update",
+    "domain": "design",
+    "kind": "definition",
+    "description": "The interface shows an expected result before server confirmation.",
+    "guidance": "Plan reconciliation, reversal or recovery when the operation fails.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 6
+    }
+  },
+  {
+    "id": "T07",
+    "title": "x-height",
+    "domain": "design",
+    "kind": "definition",
+    "description": "The main lowercase body height represented by the letter x.",
+    "guidance": "Compare apparent size and readability rather than nominal font size alone.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 7
+    }
+  },
+  {
+    "id": "T08",
+    "title": "Touch target",
+    "domain": "design",
+    "kind": "definition",
+    "description": "The area responding to pointer or touch activation.",
+    "guidance": "Remember that the interactive region can exceed the visible icon.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4",
+      "w3c-wcag22"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 8
+    }
+  },
+  {
+    "id": "T09",
+    "title": "Leading",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Distance between consecutive text baselines.",
+    "guidance": "Set line height for reading conditions and content density.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 9
+    }
+  },
+  {
+    "id": "T10",
+    "title": "Origin-aware animation",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Informal term for motion beginning from its initiating element.",
+    "guidance": "Use the relationship to make a transition understandable.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 10
+    }
+  },
+  {
+    "id": "T11",
+    "title": "OKLCH",
+    "domain": "design",
+    "kind": "definition",
+    "description": "A colour model using lightness, chroma and hue.",
+    "guidance": "Use perceptual palette adjustments and verify contrast separately.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 11
+    }
+  },
+  {
+    "id": "T12",
+    "title": "Widow",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Traditionally a paragraph's final line stranded atop the next page or column.",
+    "guidance": "In UI discussions clarify whether an isolated final word is meant instead.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 12
+    }
+  },
+  {
+    "id": "T13",
+    "title": "Safe area",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Space avoiding obstruction by device features and system controls.",
+    "guidance": "Keep essential controls and information within an appropriate usable region.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 13
+    }
+  },
+  {
+    "id": "T14",
+    "title": "Stagger",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Small timing offsets between related animations.",
+    "guidance": "Use sequence to communicate relationships without delaying essential content.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 14
+    }
+  },
+  {
+    "id": "T15",
+    "title": "Line length",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Horizontal length of a text line.",
+    "guidance": "Choose a measure suited to font, reading task, language and viewport.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 15
+    }
+  },
+  {
+    "id": "T16",
+    "title": "Affordance",
+    "domain": "design",
+    "kind": "definition",
+    "description": "An action an object or control allows.",
+    "guidance": "Use signifiers to help users discover the available action.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 16
+    }
+  },
+  {
+    "id": "T17",
+    "title": "Combobox",
+    "domain": "design",
+    "kind": "definition",
+    "description": "An input associated with a popup of choices.",
+    "guidance": "Distinguish editable and selection-only behaviours and implement their interaction model.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4",
+      "w3c-apg"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 17
+    }
+  },
+  {
+    "id": "T18",
+    "title": "Interruptible animation",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Motion that responds before its prior transition completes.",
+    "guidance": "Reverse or retarget smoothly when the user provides new input.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 18
+    }
+  },
+  {
+    "id": "T19",
+    "title": "Progressive disclosure",
+    "domain": "design",
+    "kind": "definition",
+    "description": "Additional detail becomes available when needed.",
+    "guidance": "Keep essential actions and material information readily available.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 19
+    }
+  },
+  {
+    "id": "T20",
+    "title": "Shared element transition",
+    "domain": "design",
+    "kind": "definition",
+    "description": "An identifiable element changes size or position across views.",
+    "guidance": "Preserve continuity without obscuring navigation or blocking interaction.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Use this definition to interpret related findings."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-4"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 4,
+      "item": 20
+    }
+  }
+]

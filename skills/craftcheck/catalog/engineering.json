@@ -1,0 +1,288 @@
+[
+  {
+    "id": "E01",
+    "title": "Silent catch blocks",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "An empty catch may discard a failure without explaining intended recovery.",
+    "guidance": "Inspect whether ignoring the failure is deliberate and whether users or operators need feedback.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "E02",
+    "title": "Executable project checks",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "An authorized project check reports failure or timeout.",
+    "guidance": "Use the actual exit result and preserve failed attempts; a later retry does not erase flakiness.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "E03",
+    "title": "Preservation contract",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "A required file or literal feature anchor is missing or has changed.",
+    "guidance": "Check the agreed contract; literal anchors supplement semantic review rather than proving it.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "E04",
+    "title": "State ownership",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Split ownership can create inconsistent updates and duplicated policy.",
+    "guidance": "Prefer one clear owner and trace all relevant writers.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "E05",
+    "title": "Module boundaries",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Interfaces should hide useful complexity and keep responsibilities coherent.",
+    "guidance": "Compare alternatives when introducing a substantial new public boundary.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "E06",
+    "title": "Reuse and duplication",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Similar-looking code does not establish equivalent behaviour.",
+    "guidance": "Verify actual callers and contracts before extracting or replacing shared code.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "E07",
+    "title": "Trust-boundary validation",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "External data needs validation before internal use.",
+    "guidance": "Inspect values, errors, side effects and downstream assumptions.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "E08",
+    "title": "Meaningful regression tests",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Tests should fail when the real protected behaviour breaks.",
+    "guidance": "Prefer real boundaries and record what mocks or fixtures leave unverified.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "E09",
+    "title": "Dead and speculative code",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Unused helpers and premature extensibility increase maintenance work.",
+    "guidance": "Remove only after checking actual callers and supported uses.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "E10",
+    "title": "Documentation accuracy",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Examples, commands and diagrams need to match the implementation.",
+    "guidance": "Run relevant examples and maintain documentation with changed contracts.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "E11",
+    "title": "Operational recovery",
+    "domain": "engineering",
+    "kind": "requirement",
+    "description": "Partial failures, migrations and restoration need deliberate handling.",
+    "guidance": "Test recovery against real invariants, not merely successful backup creation.",
+    "appliesTo": [
+      "web",
+      "code",
+      "backend"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "gstack-engineering",
+      "gstack-qa",
+      "gstack-devex"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  }
+]

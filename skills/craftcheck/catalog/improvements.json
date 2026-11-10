@@ -1,0 +1,562 @@
+[
+  {
+    "id": "D01",
+    "title": "Delete filler badges",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Decorative labels can repeat nearby information and consume attention.",
+    "guidance": "Remove only redundant labels; preserve useful status, prices, permissions and availability.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 1
+    }
+  },
+  {
+    "id": "D02",
+    "title": "Drop redundant labels",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Repeated words can increase scanning effort.",
+    "guidance": "Simplify repetition while preserving visible context and accessible control names.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 2
+    }
+  },
+  {
+    "id": "D03",
+    "title": "Unitalicize random words",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Arbitrary emphasis creates inconsistent focal points.",
+    "guidance": "Use an explicit typographic role and retain meaningful emphasis.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 3
+    }
+  },
+  {
+    "id": "D04",
+    "title": "Mono only where needed",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Equal-width lettering adds a technical character and affects reading.",
+    "guidance": "Choose it deliberately; use tabular digits separately where only numeric alignment is needed.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 4
+    }
+  },
+  {
+    "id": "D05",
+    "title": "Use a design system",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Shared component and token decisions reduce drift.",
+    "guidance": "Reuse the established system and specify states, terminology and behaviour.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 5
+    }
+  },
+  {
+    "id": "D06",
+    "title": "Show the actual product",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Credible demonstrations help people evaluate capabilities.",
+    "guidance": "Show genuine screens or outputs and label illustrative material accurately.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 6
+    }
+  },
+  {
+    "id": "D07",
+    "title": "Enlarge the main feature",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Space and visual priority should follow user task importance.",
+    "guidance": "Increase prominence selectively rather than enlarging everything.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 7
+    }
+  },
+  {
+    "id": "D08",
+    "title": "Group with spacing",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Proximity communicates relationships.",
+    "guidance": "Keep related items closer and distinct groups farther apart when appropriate.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 8
+    }
+  },
+  {
+    "id": "D09",
+    "title": "Make headlines specific",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Concrete headings explain tasks and outcomes.",
+    "guidance": "Replace vague aspiration with audience-relevant language supported by actual capability.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 9
+    }
+  },
+  {
+    "id": "D10",
+    "title": "Emphasize the CTA",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "The primary action needs recognizable priority.",
+    "guidance": "Use clear labels, appropriate contrast and accurate consequences.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 10
+    }
+  },
+  {
+    "id": "D11",
+    "title": "Add an accent colour",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "A deliberate highlight can establish emphasis.",
+    "guidance": "Assign consistent roles; retain effective monochrome designs when they work.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 11
+    }
+  },
+  {
+    "id": "D12",
+    "title": "Keep icons consistent",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Icon style and meaning should remain coherent.",
+    "guidance": "Match weight and sizing, and label unfamiliar essential actions.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 12
+    }
+  },
+  {
+    "id": "D13",
+    "title": "Remove embellishments",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Ornaments can compete with useful information.",
+    "guidance": "Retain decoration that contributes to identity, meaning or feedback.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 13
+    }
+  },
+  {
+    "id": "D14",
+    "title": "Inner radius = outer minus padding",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Evenly inset rounded shapes usually need related corner geometry.",
+    "guidance": "Account for actual total inset and borders; inspect the rendered result.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 14
+    }
+  },
+  {
+    "id": "D15",
+    "title": "Improve text contrast",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Text needs sufficient contrast in its actual state and background.",
+    "guidance": "Apply the relevant standard including images, gradients, themes and disabled-state exceptions.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 15
+    }
+  },
+  {
+    "id": "D16",
+    "title": "Wrap headlines properly",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Awkward line breaks disrupt meaning and rhythm.",
+    "guidance": "Check supported widths and languages while keeping phrases coherent.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 16
+    }
+  },
+  {
+    "id": "D17",
+    "title": "Align by eye",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Mathematically aligned asymmetric forms can appear off-centre.",
+    "guidance": "Make small optical corrections without breaking the structural grid.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 17
+    }
+  },
+  {
+    "id": "D18",
+    "title": "Use tabular numbers",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Equal-width digits stabilize columns and changing values.",
+    "guidance": "Apply the font feature when needed without replacing all text with monospace.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 18
+    }
+  },
+  {
+    "id": "D19",
+    "title": "Add loading states",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Pending work needs truthful feedback and appropriate recovery.",
+    "guidance": "Preserve layout space and prevent accidental duplicate operations.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 19
+    }
+  },
+  {
+    "id": "D20",
+    "title": "Animate useful feedback",
+    "domain": "design",
+    "kind": "heuristic",
+    "description": "Motion can clarify changes and relationships.",
+    "guidance": "Use it only where useful and support static or reduced-motion alternatives.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+    ],
+    "counterexamples": [
+      "A deliberate choice serving the audience or an accepted project requirement is not a defect."
+    ],
+    "sourceIds": [
+      "image-3",
+      "nngroup-heuristics"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 3,
+      "item": 20
+    }
+  }
+]

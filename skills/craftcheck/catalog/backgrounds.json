@@ -1,0 +1,574 @@
+[
+  {
+    "id": "B01",
+    "title": "Felt texture",
+    "domain": "design",
+    "kind": "option",
+    "description": "Fine fibres and soft shading evoke warm, tactile fabric.",
+    "guidance": "Use subtle detail where it supports identity; preserve text contrast.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 1
+    }
+  },
+  {
+    "id": "B02",
+    "title": "Fluted glass",
+    "domain": "design",
+    "kind": "option",
+    "description": "Parallel ridges refract or partially conceal imagery.",
+    "guidance": "Use optical depth without hiding useful information or destabilizing controls.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 2
+    }
+  },
+  {
+    "id": "B03",
+    "title": "Thermal gradients",
+    "domain": "design",
+    "kind": "option",
+    "description": "Heat-map-like colour transitions suggest energy and experimentation.",
+    "guidance": "Keep decorative colour distinct from real measurements and semantic status.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 3
+    }
+  },
+  {
+    "id": "B04",
+    "title": "Water ripples",
+    "domain": "design",
+    "kind": "option",
+    "description": "Wave patterns suggest fluidity, calm or movement.",
+    "guidance": "Control animation intensity and provide an appropriate reduced-motion treatment.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 4
+    }
+  },
+  {
+    "id": "B05",
+    "title": "Speckled graphite",
+    "domain": "design",
+    "kind": "option",
+    "description": "Irregular particles resemble graphite or rough drawing material.",
+    "guidance": "Add texture without allowing grain to compete with small content.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 5
+    }
+  },
+  {
+    "id": "B06",
+    "title": "Single-hue landscapes",
+    "domain": "design",
+    "kind": "option",
+    "description": "Layered scenery uses tonal differences to create depth.",
+    "guidance": "Select scenery related to the subject or deliberate brand direction.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 6
+    }
+  },
+  {
+    "id": "B07",
+    "title": "Blueprint grids",
+    "domain": "design",
+    "kind": "option",
+    "description": "Drafting grids and technical lines suggest precision.",
+    "guidance": "Avoid implying real diagrams or functionality with meaningless technical decoration.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 7
+    }
+  },
+  {
+    "id": "B08",
+    "title": "Halftone",
+    "domain": "design",
+    "kind": "option",
+    "description": "Regular dots simulate tones through size or density.",
+    "guidance": "Use intentionally for print-inspired, editorial or retro imagery.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 8
+    }
+  },
+  {
+    "id": "B09",
+    "title": "Grainy gradients",
+    "domain": "design",
+    "kind": "option",
+    "description": "Noise adds texture to smooth colour transitions.",
+    "guidance": "Inspect banding, readability and exported resolution rather than adding noise by default.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 9
+    }
+  },
+  {
+    "id": "B10",
+    "title": "Grass texture",
+    "domain": "design",
+    "kind": "option",
+    "description": "Directional blades or fibres evoke organic outdoor surfaces.",
+    "guidance": "Keep dense detail away from foreground tasks and meaningful labels.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 10
+    }
+  },
+  {
+    "id": "B11",
+    "title": "Dithered images",
+    "domain": "design",
+    "kind": "option",
+    "description": "Pixel patterns simulate tones in a restricted palette.",
+    "guidance": "Preserve subject recognition and use limited-palette aesthetics deliberately.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 11
+    }
+  },
+  {
+    "id": "B12",
+    "title": "Paper texture",
+    "domain": "design",
+    "kind": "option",
+    "description": "Fibres, grain and folds evoke editorial or handmade materials.",
+    "guidance": "Match texture to the identity and keep it consistent across surfaces.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 12
+    }
+  },
+  {
+    "id": "B13",
+    "title": "Contour lines",
+    "domain": "design",
+    "kind": "option",
+    "description": "Topographic-style curves suggest terrain and flow.",
+    "guidance": "Distinguish decorative contours from actual geographic data.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 13
+    }
+  },
+  {
+    "id": "B14",
+    "title": "Cloud sky",
+    "domain": "design",
+    "kind": "option",
+    "description": "Atmospheric imagery provides openness, colour and mood.",
+    "guidance": "Choose stable text placement and appropriate image rights.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 14
+    }
+  },
+  {
+    "id": "B15",
+    "title": "Pixel mosaics",
+    "domain": "design",
+    "kind": "option",
+    "description": "Coloured cells reduce imagery into geometric patterns.",
+    "guidance": "Preserve important detail and use abstraction where the subject allows it.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 15
+    }
+  },
+  {
+    "id": "B16",
+    "title": "Lens distortion",
+    "domain": "design",
+    "kind": "option",
+    "description": "Localized refraction or magnification creates optical depth.",
+    "guidance": "Keep essential text and interactive targets stable and recognizable.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 16
+    }
+  },
+  {
+    "id": "B17",
+    "title": "Stippled gradients",
+    "domain": "design",
+    "kind": "option",
+    "description": "Irregular dot density creates tonal transitions.",
+    "guidance": "Use for organic drawing-like texture without overwhelming detail.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 17
+    }
+  },
+  {
+    "id": "B18",
+    "title": "Square-dot grids",
+    "domain": "design",
+    "kind": "option",
+    "description": "Repeated small squares establish a technical structure.",
+    "guidance": "Keep repetition subordinate to foreground information.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 18
+    }
+  },
+  {
+    "id": "B19",
+    "title": "Blurred photos",
+    "domain": "design",
+    "kind": "option",
+    "description": "Blur preserves atmosphere while reducing photographic detail.",
+    "guidance": "Do not conceal product evidence or rely on unpredictable background contrast.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 19
+    }
+  },
+  {
+    "id": "B20",
+    "title": "Iridescent shapes",
+    "domain": "design",
+    "kind": "option",
+    "description": "Pearlescent colour shifts imitate reflective materials.",
+    "guidance": "Use expressive material effects with clear hierarchy and controlled rendering cost.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 20
+    }
+  },
+  {
+    "id": "B21",
+    "title": "Impressionist paintings",
+    "domain": "design",
+    "kind": "option",
+    "description": "Loose brushwork and colour patches provide atmosphere.",
+    "guidance": "Prefer more precise imagery when identification or factual detail matters.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 21
+    }
+  },
+  {
+    "id": "B22",
+    "title": "ASCII and pixels",
+    "domain": "design",
+    "kind": "option",
+    "description": "Character art and low-resolution graphics evoke computing or games.",
+    "guidance": "Preserve legibility, appropriate semantics and meaningful text alternatives.",
+    "appliesTo": [
+      "web",
+      "document",
+      "media"
+    ],
+    "verification": [
+      "Inspect the actual composition, contrast, cost and rights before choosing the treatment."
+    ],
+    "counterexamples": [],
+    "sourceIds": [
+      "image-2",
+      "google-design"
+    ],
+    "automation": "none",
+    "original": {
+      "image": 2,
+      "item": 22
+    }
+  }
+]

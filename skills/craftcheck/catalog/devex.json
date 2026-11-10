@@ -1,0 +1,186 @@
+[
+  {
+    "id": "K01",
+    "title": "Useful first run",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "A new user should obtain meaningful output through a documented short path.",
+    "guidance": "Test the documented clean installation and first command.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "K02",
+    "title": "Actionable errors",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "Failures need stable codes, explanations and safe next steps.",
+    "guidance": "Include actual context without secrets and signal failure through the native channel.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "K03",
+    "title": "Capability-aware coverage",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "Missing tools or inputs leave assessment gaps.",
+    "guidance": "Report not assessed or blocked rather than inventing verification.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "K04",
+    "title": "Bounded retries",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "Repeated attempts need deadlines, limits and no-progress stops.",
+    "guidance": "Preserve attempts and stop on regression, cancellation or exhaustion.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "K05",
+    "title": "Evidence freshness",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "Observations bind to specific source inputs and versions.",
+    "guidance": "Invalidate stale reviews when their input digest differs.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "K06",
+    "title": "Contextual exceptions",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "Accepted local choices need a clear scope and reason.",
+    "guidance": "Retain justified preferences without waiving objective failures silently.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "K07",
+    "title": "Private reports",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "Reports and execution hooks can expose sensitive context.",
+    "guidance": "Keep local state private, redact evidence and avoid automatic uploads.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "K08",
+    "title": "Honest clean results",
+    "domain": "devex",
+    "kind": "heuristic",
+    "description": "An audit may legitimately have no supported findings.",
+    "guidance": "State assessed scope and remaining gaps alongside the result.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+    ],
+    "sourceIds": [
+      "gstack-devex",
+      "skills-spec"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  }
+]

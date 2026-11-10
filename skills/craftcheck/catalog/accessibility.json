@@ -1,0 +1,255 @@
+[
+  {
+    "id": "A01",
+    "title": "Document language",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "A document needs a correctly identified human language.",
+    "guidance": "Set the actual language; do not infer it from a filename.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "A02",
+    "title": "Image alternatives",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Images need appropriate text alternatives or an intentional decorative treatment.",
+    "guidance": "Describe the image's function; decorative images can use an empty alt attribute.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A03",
+    "title": "Form control names",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Inputs, selects and text areas need accessible names.",
+    "guidance": "Use associated labels or an appropriate accessible naming mechanism.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A04",
+    "title": "Button names",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "An actionable button needs an understandable accessible name.",
+    "guidance": "Use meaningful visible text or a justified accessible label.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A05",
+    "title": "Zoom restrictions",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Viewport metadata should not disable user zoom.",
+    "guidance": "Remove restrictive user-scalable and maximum-scale values while preserving layout settings.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A06",
+    "title": "Heading structure",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Heading levels should communicate meaningful hierarchy.",
+    "guidance": "Review jumps in context; components and fragments may have external structure.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "low"
+  },
+  {
+    "id": "A07",
+    "title": "Literal text contrast",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Known literal foreground/background colours can reveal insufficient contrast.",
+    "guidance": "Verify actual computed colours and text size when styles or transparency are unresolved.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A08",
+    "title": "Focus visibility",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Keyboard focus needs an identifiable treatment.",
+    "guidance": "Check the cascade and actual keyboard operation before concluding an outline rule removes focus.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A09",
+    "title": "Link names",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Navigational links need understandable accessible names.",
+    "guidance": "Preserve meaningful image alternatives and accessible naming references.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "high"
+  },
+  {
+    "id": "A10",
+    "title": "Unique DOM identifiers",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Duplicate IDs can break labels, anchors and scripting.",
+    "guidance": "Use unique identifiers and update their callers together.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "static",
+    "defaultSeverity": "medium"
+  },
+  {
+    "id": "A11",
+    "title": "Reduced motion and dynamic updates",
+    "domain": "accessibility",
+    "kind": "requirement",
+    "description": "Motion and asynchronous changes need appropriate accessible alternatives and announcements.",
+    "guidance": "Test relevant preferences and assistive-technology behaviour.",
+    "appliesTo": [
+      "all"
+    ],
+    "verification": [
+      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+    ],
+    "counterexamples": [
+      "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
+    ],
+    "sourceIds": [
+      "w3c-wcag22",
+      "w3c-apg"
+    ],
+    "automation": "none",
+    "defaultSeverity": "medium"
+  }
+]

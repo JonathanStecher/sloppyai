@@ -1,0 +1,352 @@
+[
+  {
+    "id": "owasp-asvs",
+    "title": "OWASP Application Security Verification Standard",
+    "url": "https://asvs.owasp.org/",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "owasp-api",
+    "title": "OWASP API Security Top 10",
+    "url": "https://api-security.owasp.org/editions/2023/en/0x00-header/",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "owasp-logic",
+    "title": "OWASP Business Logic Security",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "owasp-webhook",
+    "title": "OWASP Webhook Security",
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/Webhook_Security_Cheat_Sheet.html",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "w3c-wcag22",
+    "title": "Web Content Accessibility Guidelines 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "w3c-apg",
+    "title": "WAI-ARIA Authoring Practices",
+    "url": "https://www.w3.org/WAI/ARIA/apg/",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "anthropic-design",
+    "title": "Improving frontend design through Skills",
+    "url": "https://claude.com/resources/articles/improving-frontend-design-through-skills",
+    "kind": "provider",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "openai-design",
+    "title": "Designing delightful frontends with GPT-5.4",
+    "url": "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4",
+    "kind": "provider",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "google-design",
+    "title": "Gemini AI Visual Design",
+    "url": "https://design.google/library/gemini-ai-visual-design",
+    "kind": "provider",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "govuk-ui",
+    "title": "Writing for user interfaces",
+    "url": "https://www.gov.uk/service-manual/design/writing-for-user-interfaces",
+    "kind": "guidance",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "copyhackers-research",
+    "title": "Copywriting research techniques",
+    "url": "https://copyhackers.com/2022/06/copywriting-research/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "nngroup-heuristics",
+    "title": "Ten usability heuristics",
+    "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "kind": "guidance",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "nngroup-aiprototyping",
+    "title": "AI prototyping in real design contexts",
+    "url": "https://www.nngroup.com/articles/ai-prototyping/",
+    "kind": "study",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "nngroup-uxdebt",
+    "title": "The custodial era of UX",
+    "url": "https://www.nngroup.com/articles/ai-ux-debt/",
+    "kind": "guidance",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "google-vitals",
+    "title": "Web Vitals",
+    "url": "https://web.dev/articles/vitals",
+    "kind": "guidance",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "gstack",
+    "title": "gstack",
+    "url": "https://github.com/garrytan/gstack",
+    "kind": "workflow-inspiration",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "gstack-product",
+    "title": "gstack product planning workflow",
+    "url": "https://github.com/garrytan/gstack/tree/main/plan-ceo-review",
+    "kind": "workflow-inspiration",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "gstack-engineering",
+    "title": "gstack engineering review workflow",
+    "url": "https://github.com/garrytan/gstack/tree/main/plan-eng-review",
+    "kind": "workflow-inspiration",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "gstack-qa",
+    "title": "gstack QA workflow",
+    "url": "https://github.com/garrytan/gstack/tree/main/qa-only",
+    "kind": "workflow-inspiration",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "gstack-devex",
+    "title": "gstack developer experience workflow",
+    "url": "https://github.com/garrytan/gstack/tree/main/plan-devex-review",
+    "kind": "workflow-inspiration",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "gstack-notice",
+    "title": "gstack third-party notices",
+    "url": "https://github.com/garrytan/gstack/blob/main/NOTICE.md",
+    "kind": "provenance",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "skills-spec",
+    "title": "Agent Skills specification",
+    "url": "https://agentskills.io/specification",
+    "kind": "standard",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "dpma-ai",
+    "title": "DPMA: intellectual property in the digital world",
+    "url": "https://www.dpma.de/service/schutzrechte_kurz_erklaert/geistigeseigentumdigital/index.html",
+    "kind": "authority",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "usco-ai",
+    "title": "US Copyright Office: AI copyrightability",
+    "url": "https://www.copyright.gov/newsnet/2025/1060.html",
+    "kind": "authority",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "youtube-monetization",
+    "title": "YouTube channel monetization policies",
+    "url": "https://support.google.com/youtube/answer/1311392?hl=en",
+    "kind": "platform-policy",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "youtube-disclosure",
+    "title": "YouTube synthetic-content disclosure",
+    "url": "https://support.google.com/youtube/answer/14328491?hl=en",
+    "kind": "platform-policy",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "google-spam",
+    "title": "Google Search spam policies",
+    "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+    "kind": "platform-policy",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "ftc-reviews",
+    "title": "FTC fake review and testimonial rule",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+    "kind": "authority",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "ftc-darkpatterns",
+    "title": "FTC Bringing Dark Patterns to Light",
+    "url": "https://www.ftc.gov/system/files/ftc_gov/pdf/P214800%20Dark%20Patterns%20Report%209.14.2022%20-%20FINAL.pdf",
+    "kind": "authority",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "wikipedia-aislop",
+    "title": "AI slop terminology",
+    "url": "https://en.wikipedia.org/wiki/AI_slop",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "wikipedia-aisigns",
+    "title": "Signs of AI writing",
+    "url": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "reddit-ui",
+    "title": "UI Design discussion of generic AI styling",
+    "url": "https://www.reddit.com/r/UI_Design/comments/1w70kqb/question_about_websites_looking_like_ai_slop/",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "reddit-webdesign",
+    "title": "Webdesign discussion of AI aesthetics",
+    "url": "https://www.reddit.com/r/webdesign/comments/1uhuovu/preventing_the_ai_slop_look/",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "x-defaults",
+    "title": "Practitioner example of common modern-site defaults",
+    "url": "https://x.com/ishaan_builds/status/2111491929334780132",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "youtube-workflow",
+    "title": "Stop Building AI Slop Websites",
+    "url": "https://www.youtube.com/watch?v=uPIIJDmq5OU",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "hn-design",
+    "title": "Hacker News design-pattern detector discussion",
+    "url": "https://news.ycombinator.com/item?id=48821493",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "uxse-minimalism",
+    "title": "UX Stack Exchange: minimal design tradeoffs",
+    "url": "https://ux.stackexchange.com/questions/29683/what-are-the-advantages-and-disadvantages-of-minimal-design/70018",
+    "kind": "community",
+    "reviewed": "2026-11-10",
+    "note": "Qualitative observation, not prevalence or authorship evidence."
+  },
+  {
+    "id": "research-ai-security",
+    "title": "Do Users Write More Insecure Code with AI Assistants?",
+    "url": "https://arxiv.org/abs/2211.03622",
+    "kind": "study",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "research-diversity",
+    "title": "Generative AI and collective creative diversity",
+    "url": "https://doi.org/10.1126/sciadv.adn5290",
+    "kind": "study",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "research-packages",
+    "title": "Package hallucinations in generated code",
+    "url": "https://www.usenix.org/system/files/usenixsecurity25-spracklen.pdf",
+    "kind": "study",
+    "reviewed": "2026-11-10",
+    "note": "Reference or workflow influence; check current applicability before consequential use."
+  },
+  {
+    "id": "image-1",
+    "title": "User-supplied screenshot 1",
+    "kind": "user-reference",
+    "note": "Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored."
+  },
+  {
+    "id": "image-2",
+    "title": "User-supplied screenshot 2",
+    "kind": "user-reference",
+    "note": "Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored."
+  },
+  {
+    "id": "image-3",
+    "title": "User-supplied screenshot 3",
+    "kind": "user-reference",
+    "note": "Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored."
+  },
+  {
+    "id": "image-4",
+    "title": "User-supplied screenshot 4",
+    "kind": "user-reference",
+    "note": "Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored."
+  },
+  {
+    "id": "image-5",
+    "title": "User-supplied screenshot 5",
+    "kind": "user-reference",
+    "note": "Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored."
+  }
+]

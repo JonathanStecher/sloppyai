@@ -1,0 +1,4 @@
+* text=auto eol=lf
+skills/craftcheck/scripts/craftcheck.mjs linguist-generated=true
+skills/craftcheck/scripts/core.mjs linguist-generated=true
+docs/catalog.md linguist-generated=true
