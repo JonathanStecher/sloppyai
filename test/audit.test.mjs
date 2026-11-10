@@ -62,6 +62,21 @@ test('missing tools and non-applicable domains have no invented scores', async t
   assert.ok(report.coverage.manualRules.includes('M05'));
 });
 
+test('accepted style decisions apply to imported heuristic reviews', async t => {
+  const f = await fixture(t, { 'copy.md': 'Specific product information.' });
+  const config = { acceptedHeuristics: [{ ruleId: 'H19', reason: 'The gradient is an intentional part of this product identity.' }] };
+  const first = await audit(f.target, { config });
+  const review = { inputDigest: first.report.inputDigest, reviewer: { name: 'Example reviewer', kind: 'human' }, assessments: [], findings: [{ ruleId: 'H19', anchor: 'background', path: '<artifact>', severity: 'suggestion', confidence: 'tentative', evidence: 'A gradient is visible in the authored product background.', recommendation: 'Consider a plainer background if the current composition distracts.' }] };
+  const imported = await audit(f.target, { config, review });
+  assert.equal(imported.report.findings[0].disposition, 'accepted');
+  assert.ok(imported.report.findings[0].acceptanceReason.includes('intentional'));
+});
+
+test('objective requirements cannot be waived as aesthetic preferences', async t => {
+  const f = await fixture(t, { 'index.html': '<!doctype html><html><body><button></button></body></html>' });
+  await assert.rejects(audit(f.target, { config: { acceptedHeuristics: [{ ruleId: 'A04', reason: 'An aesthetic preference cannot remove a functional requirement.' }] } }), error => error.code === 'INVALID_EXCEPTION');
+});
+
 test('symlinked source and secret files are excluded', async t => {
   const f = await fixture(t, { 'copy.md': 'Useful content.', '.env': 'PASSWORD=private', 'outside.txt': 'Local regular file.' });
   const outside = path.join(f.directory, 'private.js');

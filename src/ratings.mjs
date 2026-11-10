@@ -49,7 +49,7 @@ export function compareReports(before, after) {
     compatible,
     note: !compatible ? 'Scope or version changed; numeric deltas are withheld.' : !scoreComparable ? 'Inputs left the assessed manifest or coverage was capped; numeric deltas are withheld. Unassessed issues remain open.' : 'Rule/configuration scope matches. Absence means no longer observed by these checks, not independent runtime verification.',
     resolved: resolved.map(item => item.id), unassessed: unassessed.map(item => item.id), added: added.map(item => item.id), changed, scoreChanges, reviewerChanges,
-    regression: compatible && (scoreChanges.some(item => item.delta !== null && item.delta < 0) || reviewerChanges.some(item => item.delta !== null && item.delta < 0) || added.some(item => item.kind === 'requirement' && item.confidence === 'supported') || changed.some(item => ['critical', 'high', 'medium', 'low', 'suggestion'].indexOf(item.after) < ['critical', 'high', 'medium', 'low', 'suggestion'].indexOf(item.before)))
+    regression: compatible && (scoreChanges.some(item => item.delta !== null && item.delta < 0) || reviewerChanges.some(item => item.delta !== null && item.delta < 0) || added.some(item => item.kind === 'requirement' && ['supported', 'reproduced'].includes(item.confidence)) || changed.some(item => ['critical', 'high', 'medium', 'low', 'suggestion'].indexOf(item.after) < ['critical', 'high', 'medium', 'low', 'suggestion'].indexOf(item.before)))
   };
 }
 

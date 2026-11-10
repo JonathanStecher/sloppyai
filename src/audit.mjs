@@ -80,12 +80,14 @@ export async function audit(target, options = {}) {
       if (!rule || ['option', 'definition'].includes(rule.kind)) fail('INVALID_REVIEW_RULE', 'A review finding must reference a known evaluative rule.', 'Use a requirement or heuristic rule identifier.');
       if (!settings.config.domains.includes(rule.domain)) fail('REVIEW_SCOPE', 'A review finding is outside the selected domains.', 'Include the domain deliberately or narrow the review.');
       if (supplied.path !== '<artifact>' && !collected.manifest.some(file => file.path === supplied.path)) fail('REVIEW_PATH', 'A review finding names a file outside the assessed manifest.', 'Use a current manifest path or <artifact> for an artifact-wide observation.');
+      const accepted = settings.config.acceptedHeuristics.find(item => item.ruleId === rule.id);
       const proposed = {
         id: hash([supplied.ruleId, supplied.path, supplied.anchor].join('\0')).slice(0, 24),
         ruleId: rule.id, title: rule.title, domain: rule.domain, kind: rule.kind, severity: supplied.severity,
         confidence: supplied.confidence, location: { path: supplied.path, anchor: short(supplied.anchor, 500), line: supplied.line || 1 },
         evidence: short(supplied.evidence, 3000), recommendation: short(supplied.recommendation, 2000),
-        origin: 'review', assurance: `Self-reported ${review.reviewer.kind} review; not an independently witnessed reproduction.`, disposition: 'open'
+        origin: 'review', assurance: `Self-reported ${review.reviewer.kind} review; not an independently witnessed reproduction.`, disposition: accepted ? 'accepted' : 'open',
+        ...(accepted ? { acceptanceReason: short(accepted.reason, 1000) } : {})
       };
       const existing = report.findings.find(item => item.id === proposed.id);
       if (existing) existing.evidence = short(existing.evidence + ' Reviewer note: ' + proposed.evidence, 3000);
