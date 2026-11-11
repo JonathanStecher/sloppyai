@@ -32,3 +32,5 @@ verification that was not actually performed.
 - Give changed-file and incremental feedback a concrete source location, severity, evidence and actionable repair; keep baseline findings distinct from new regressions. Do not claim incremental coverage without a recorded baseline.
 - When reviewing long pages, sample evidence across the page and prioritize headings and controls within fixed limits. Mark omitted evidence as partial; source or layout facts are not screenshots.
 - Recheck applied changes against the original issue and protected behavior. Report skipped checks, failed providers and unchanged or regressed results explicitly.
+
+- Give every review step an explicit outcome: complete, partial, failed or not assessed. A skipped reviewer or truncated evidence must never be presented as a complete clean review. Keep failure reasons accessible with the result.
