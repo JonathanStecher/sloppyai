@@ -36,7 +36,7 @@ export function compareReports(before, after) {
   const absent = [...previous.values()].filter(item => !current.has(item.id));
   const resolved = absent.filter(item => findingAssessed(item, after));
   const unassessed = absent.filter(item => !findingAssessed(item, after));
-  const scoreComparable = compatible && !after.coverage.capped && before.manifest.every(file => after.manifest.some(item => item.path === file.path) && !skippedPath(file.path, after));
+  const scoreComparable = compatible && !after.coverage.capped && before.manifest.filter(file => !skippedPath(file.path, before)).every(file => after.manifest.some(item => item.path === file.path) && !skippedPath(file.path, after));
   const added = [...current.values()].filter(item => !previous.has(item.id));
   const changed = [...current.values()].filter(item => {
     const old = previous.get(item.id);
