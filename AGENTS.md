@@ -20,3 +20,21 @@ articles in blog/. Keep them linked from README.md and grounded in actual behavi
 Run npm run check before release. Run npm pack and exercise the installed tarball
 when changing packaging, scripts or installation. Do not assert host or browser
 verification that was not actually performed.
+
+## Visual review and platform parity
+
+- Review overall interface quality, not only recognizable AI-generated patterns. Check typography scale, hierarchy, spacing, alignment, clipping, overlap, missing assets, responsive layouts and states in context.
+- When possible, inspect the real rendered page at desktop and mobile sizes. Compare related elements and verify fixes at the same widths. Preserve the product's identity and useful behavior.
+- Ground findings in observations with a location, evidence, consequence, actionable fix and verification. Distinguish source, measured layout and actual screenshots. Never claim to see pixels or live behavior when they were not provided.
+- Treat static reconstructions as incomplete when scripts, fonts, images or dynamic states are missing. A lack of findings is not proof the live site is correct.
+- When platform changes affect the open-source checker, update the corresponding public code, documentation and AI instructions; do not publish private code, secrets or unrelated platform internals. Verify both repositories independently.
+
+- Give changed-file and incremental feedback a concrete source location, severity, evidence and actionable repair; keep baseline findings distinct from new regressions. Do not claim incremental coverage without a recorded baseline.
+- When reviewing long pages, sample evidence across the page and prioritize headings and controls within fixed limits. Mark omitted evidence as partial; source or layout facts are not screenshots.
+- Recheck applied changes against the original issue and protected behavior. Report skipped checks, failed providers and unchanged or regressed results explicitly.
+
+- Give every review step an explicit outcome: complete, partial, failed or not assessed. A skipped reviewer or truncated evidence must never be presented as a complete clean review. Keep failure reasons accessible with the result.
+
+- Use the product name `sloppy.ai` in user-facing text, page titles and accessible labels. Keep existing technical identifiers, commands, package names, paths and repository URLs stable unless a deliberate compatibility migration is requested.
+
+- Explain before any optional external AI review that selected source and layout data can leave the device, and provide a usable code-only path where available. Never imply that automated redaction guarantees sensitive data is removed.

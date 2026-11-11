@@ -7,6 +7,7 @@ import { createContext } from './checks/context.mjs';
 import { checkHtml } from './checks/html.mjs';
 import { checkText, checkCode } from './checks/text.mjs';
 import { checkCss } from './checks/css.mjs';
+import { isTestFixture } from './checks/scope.mjs';
 import { hash, id, stable, readJson, short } from './util.mjs';
 import { lstat } from 'node:fs/promises';
 import { rate, completion } from './ratings.mjs';
@@ -20,7 +21,12 @@ export async function audit(target, options = {}) {
   const collected = await collectFiles(info, settings.config, options);
   const inputDigest = hash(stable({ manifest: collected.manifest, config: settings.digest, catalog: catalog.digest, engine: VERSION }));
   const ctx = createContext(catalog, settings.config);
+  const excludedFixtures = [];
   for (const file of collected.files) {
+    if (!info.isFile && isTestFixture(file.path)) {
+      excludedFixtures.push({ path: file.path, reason: 'test or fixture excluded from product checks' });
+      continue;
+    }
     const extension = path.extname(file.path).toLowerCase();
     if (['.html', '.htm'].includes(extension)) {
       const result = checkHtml(file, ctx);
@@ -33,6 +39,7 @@ export async function audit(target, options = {}) {
     else if (['.md', '.txt'].includes(extension)) checkText(file, ctx);
     else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) checkCode(file, ctx);
   }
+  const excludedPaths = new Set(excludedFixtures.map(item => item.path));
   for (const preservation of settings.config.preserve) {
     const file = collected.files.find(item => item.path === preservation.path.split(path.sep).join('/'));
     const location = file || { path: preservation.path };
@@ -55,10 +62,11 @@ export async function audit(target, options = {}) {
     target: info.label, targetId: hash(info.target), inputDigest, artifactDigest: collected.digest, configDigest: settings.digest, catalogDigest: catalog.digest,
     manifest: collected.manifest, findings, checks,
     coverage: {
-      kind: 'partial static assessment', fullArtifactVerified: false, assessedFiles: collected.files.length,
-      assessedBytes: collected.bytes, capped: collected.capped || ctx.capped, skipped: collected.skipped,
+      kind: 'partial static assessment', fullArtifactVerified: false, assessedFiles: collected.files.length - excludedFixtures.length,
+      assessedBytes: collected.files.filter(file => !excludedPaths.has(file.path)).reduce((sum, file) => sum + file.bytes, 0), capped: collected.capped || ctx.capped || collected.skipped.length + excludedFixtures.length > 200, skipped: [...collected.skipped, ...excludedFixtures].slice(0, 200),
       limitations: [
         'Static UTF-8 source checks only. No browser, network, provider or production operations ran.',
+        ...(excludedFixtures.length ? ['Test and fixture files are excluded from project checks but remain in the input manifest. Audit a specific file directly to include it.'] : []),
         'Computed CSS, dynamic accessible names, full journeys, authorization and factual claims require contextual or runtime evidence.',
         'A high check score describes assessed checks only and does not certify security, accessibility, originality or legal compliance.',
         'Finding identifiers use source anchors; major structural changes can change identity.',

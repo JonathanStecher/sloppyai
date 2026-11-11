@@ -17,9 +17,14 @@ export function rate(findings, checks, enabledDomains = DOMAINS) {
   });
 }
 
+function skippedPath(path, report) {
+  return (report.coverage.skipped || []).some(item => item.path === path || path.startsWith(item.path + '/'));
+}
+
 export function findingAssessed(finding, report) {
   if (report.coverage.capped || report.coverage.assessedFiles === 0 || report.status === 'partial') return false;
   if (finding.origin === 'review') return report.reviewerAssessments.some(item => item.domain === finding.domain);
+  if (finding.origin === 'static' && skippedPath(finding.location.path, report)) return false;
   if (!report.checks.some(item => item.ruleId === finding.ruleId && item.assessedFiles > 0)) return false;
   return finding.origin === 'command' || finding.ruleId === 'E03' || report.manifest.some(item => item.path === finding.location.path);
 }
@@ -31,7 +36,7 @@ export function compareReports(before, after) {
   const absent = [...previous.values()].filter(item => !current.has(item.id));
   const resolved = absent.filter(item => findingAssessed(item, after));
   const unassessed = absent.filter(item => !findingAssessed(item, after));
-  const scoreComparable = compatible && !after.coverage.capped && before.manifest.every(file => after.manifest.some(item => item.path === file.path));
+  const scoreComparable = compatible && !after.coverage.capped && before.manifest.filter(file => !skippedPath(file.path, before)).every(file => after.manifest.some(item => item.path === file.path) && !skippedPath(file.path, after));
   const added = [...current.values()].filter(item => !previous.has(item.id));
   const changed = [...current.values()].filter(item => {
     const old = previous.get(item.id);

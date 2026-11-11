@@ -22683,6 +22683,11 @@ function checkCss(file, ctx, cssText = file.text, offset = 0, namespace = "style
   });
 }
 
+// src/checks/scope.mjs
+function isTestFixture(path12) {
+  return /(?:^|\/)(?:tests?|__tests__|fixtures?)(?:\/|$)|\.(?:test|spec)\.[^.]+$/i.test(path12);
+}
+
 // src/audit.mjs
 import { lstat as lstat4 } from "node:fs/promises";
 
@@ -22705,9 +22710,13 @@ function rate(findings, checks, enabledDomains = DOMAINS) {
     };
   });
 }
+function skippedPath(path12, report) {
+  return (report.coverage.skipped || []).some((item) => item.path === path12 || path12.startsWith(item.path + "/"));
+}
 function findingAssessed(finding, report) {
   if (report.coverage.capped || report.coverage.assessedFiles === 0 || report.status === "partial") return false;
   if (finding.origin === "review") return report.reviewerAssessments.some((item) => item.domain === finding.domain);
+  if (finding.origin === "static" && skippedPath(finding.location.path, report)) return false;
   if (!report.checks.some((item) => item.ruleId === finding.ruleId && item.assessedFiles > 0)) return false;
   return finding.origin === "command" || finding.ruleId === "E03" || report.manifest.some((item) => item.path === finding.location.path);
 }
@@ -22718,7 +22727,7 @@ function compareReports(before, after) {
   const absent = [...previous.values()].filter((item) => !current.has(item.id));
   const resolved = absent.filter((item) => findingAssessed(item, after));
   const unassessed = absent.filter((item) => !findingAssessed(item, after));
-  const scoreComparable = compatible && !after.coverage.capped && before.manifest.every((file) => after.manifest.some((item) => item.path === file.path));
+  const scoreComparable = compatible && !after.coverage.capped && before.manifest.filter((file) => !skippedPath(file.path, before)).every((file) => after.manifest.some((item) => item.path === file.path) && !skippedPath(file.path, after));
   const added = [...current.values()].filter((item) => !previous.has(item.id));
   const changed = [...current.values()].filter((item) => {
     const old = previous.get(item.id);
@@ -22760,7 +22769,12 @@ async function audit(target, options = {}) {
   const collected = await collectFiles(info, settings.config, options);
   const inputDigest = hash(stable({ manifest: collected.manifest, config: settings.digest, catalog: catalog.digest, engine: VERSION }));
   const ctx = createContext(catalog, settings.config);
+  const excludedFixtures = [];
   for (const file of collected.files) {
+    if (!info.isFile && isTestFixture(file.path)) {
+      excludedFixtures.push({ path: file.path, reason: "test or fixture excluded from product checks" });
+      continue;
+    }
     const extension = path6.extname(file.path).toLowerCase();
     if ([".html", ".htm"].includes(extension)) {
       const result = checkHtml(file, ctx);
@@ -22772,6 +22786,7 @@ async function audit(target, options = {}) {
     else if ([".md", ".txt"].includes(extension)) checkText(file, ctx);
     else if ([".js", ".mjs", ".cjs", ".jsx", ".ts", ".tsx", ".py", ".sql"].includes(extension)) checkCode(file, ctx);
   }
+  const excludedPaths = new Set(excludedFixtures.map((item) => item.path));
   for (const preservation of settings.config.preserve) {
     const file = collected.files.find((item) => item.path === preservation.path.split(path6.sep).join("/"));
     const location = file || { path: preservation.path };
@@ -22812,12 +22827,13 @@ async function audit(target, options = {}) {
     coverage: {
       kind: "partial static assessment",
       fullArtifactVerified: false,
-      assessedFiles: collected.files.length,
-      assessedBytes: collected.bytes,
-      capped: collected.capped || ctx.capped,
-      skipped: collected.skipped,
+      assessedFiles: collected.files.length - excludedFixtures.length,
+      assessedBytes: collected.files.filter((file) => !excludedPaths.has(file.path)).reduce((sum, file) => sum + file.bytes, 0),
+      capped: collected.capped || ctx.capped || collected.skipped.length + excludedFixtures.length > 200,
+      skipped: [...collected.skipped, ...excludedFixtures].slice(0, 200),
       limitations: [
         "Static UTF-8 source checks only. No browser, network, provider or production operations ran.",
+        ...excludedFixtures.length ? ["Test and fixture files are excluded from project checks but remain in the input manifest. Audit a specific file directly to include it."] : [],
         "Computed CSS, dynamic accessible names, full journeys, authorization and factual claims require contextual or runtime evidence.",
         "A high check score describes assessed checks only and does not certify security, accessibility, originality or legal compliance.",
         "Finding identifiers use source anchors; major structural changes can change identity.",

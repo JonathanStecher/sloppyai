@@ -32,6 +32,16 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run check
+      - name: Upload built portable helpers
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 24
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: portable-helpers
+          path: |
+            skills/sloppyai/scripts/sloppyai.mjs
+            skills/sloppyai/scripts/core.mjs
+            skills/sloppyai/scripts/THIRD_PARTY_LICENSES.md
+          retention-days: 1
       - run: npm audit --audit-level=moderate
       - run: npm pack
       - run: npm run package:smoke

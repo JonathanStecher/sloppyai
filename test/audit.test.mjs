@@ -99,3 +99,16 @@ test('literal contrast math uses correct luminance and preserves unknown CSS val
   assert.equal(contrastRatio('white', 'white'), 1);
   assert.equal(contrastRatio('var(--text)', '#fff'), null);
 });
+
+
+test('project scans exclude test fixtures but direct file audits still inspect them', async t => {
+  const secret = 'sk_live_' + 'A'.repeat(28);
+  const f = await fixture(t, { 'src/app.js': 'const key = "' + secret + '";', 'tests/app.test.js': 'const fixture = "' + secret + '";' });
+  const project = await audit(f.target);
+  assert.ok(project.report.findings.some(item => item.ruleId === 'S23' && item.location.path === 'src/app.js'));
+  assert.ok(!project.report.findings.some(item => item.location.path === 'tests/app.test.js'));
+  assert.ok(project.report.manifest.some(item => item.path === 'tests/app.test.js'));
+  assert.ok(project.report.coverage.skipped.some(item => item.path === 'tests/app.test.js'));
+  const targeted = await audit(path.join(f.target, 'tests/app.test.js'));
+  assert.ok(targeted.report.findings.some(item => item.ruleId === 'S23'));
+});
