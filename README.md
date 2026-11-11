@@ -172,6 +172,8 @@ node skills/sloppyai/scripts/sloppyai.mjs undo /path/to/artifact --out /path/to/
 - JSON schemas, generated catalogue documentation, examples and behavioural tests.
 - Local installation/removal and portable bundled helpers.
 
+For project directory audits, test and fixture files remain in the input manifest but are excluded from product checks and listed as skipped. Audit a test or fixture file directly to include it. They are not silently marked as verified.
+
 The catalogue is broader than the automated scanner. The CLI does not run browser
 journeys, inspect binary media, prove authorization, check asset rights or establish
 factual claims. The agent workflows explain how to assess these with suitable
