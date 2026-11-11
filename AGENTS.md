@@ -36,3 +36,5 @@ verification that was not actually performed.
 - Give every review step an explicit outcome: complete, partial, failed or not assessed. A skipped reviewer or truncated evidence must never be presented as a complete clean review. Keep failure reasons accessible with the result.
 
 - Use the product name `sloppy.ai` in user-facing text, page titles and accessible labels. Keep existing technical identifiers, commands, package names, paths and repository URLs stable unless a deliberate compatibility migration is requested.
+
+- Explain before any optional external AI review that selected source and layout data can leave the device, and provide a usable code-only path where available. Never imply that automated redaction guarantees sensitive data is removed.
