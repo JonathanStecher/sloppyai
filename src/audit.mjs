@@ -39,6 +39,7 @@ export async function audit(target, options = {}) {
     else if (['.md', '.txt'].includes(extension)) checkText(file, ctx);
     else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) checkCode(file, ctx);
   }
+  const excludedPaths = new Set(excludedFixtures.map(item => item.path));
   for (const preservation of settings.config.preserve) {
     const file = collected.files.find(item => item.path === preservation.path.split(path.sep).join('/'));
     const location = file || { path: preservation.path };
@@ -62,7 +63,7 @@ export async function audit(target, options = {}) {
     manifest: collected.manifest, findings, checks,
     coverage: {
       kind: 'partial static assessment', fullArtifactVerified: false, assessedFiles: collected.files.length - excludedFixtures.length,
-      assessedBytes: collected.files.filter(file => !excludedFixtures.some(item => item.path === file.path)).reduce((sum, file) => sum + file.bytes, 0), capped: collected.capped || ctx.capped, skipped: [...collected.skipped, ...excludedFixtures],
+      assessedBytes: collected.files.filter(file => !excludedPaths.has(file.path)).reduce((sum, file) => sum + file.bytes, 0), capped: collected.capped || ctx.capped || collected.skipped.length + excludedFixtures.length > 200, skipped: [...collected.skipped, ...excludedFixtures].slice(0, 200),
       limitations: [
         'Static UTF-8 source checks only. No browser, network, provider or production operations ran.',
         ...(excludedFixtures.length ? ['Test and fixture files are excluded from project checks but remain in the input manifest. Audit a specific file directly to include it.'] : []),
