@@ -28,3 +28,7 @@ verification that was not actually performed.
 - Ground findings in observations with a location, evidence, consequence, actionable fix and verification. Distinguish source, measured layout and actual screenshots. Never claim to see pixels or live behavior when they were not provided.
 - Treat static reconstructions as incomplete when scripts, fonts, images or dynamic states are missing. A lack of findings is not proof the live site is correct.
 - When platform changes affect the open-source checker, update the corresponding public code, documentation and AI instructions; do not publish private code, secrets or unrelated platform internals. Verify both repositories independently.
+
+- Give changed-file and incremental feedback a concrete source location, severity, evidence and actionable repair; keep baseline findings distinct from new regressions. Do not claim incremental coverage without a recorded baseline.
+- When reviewing long pages, sample evidence across the page and prioritize headings and controls within fixed limits. Mark omitted evidence as partial; source or layout facts are not screenshots.
+- Recheck applied changes against the original issue and protected behavior. Report skipped checks, failed providers and unchanged or regressed results explicitly.
