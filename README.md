@@ -1,4 +1,4 @@
-# sloppyai
+# sloppy.ai
 
 Remove AI slop, improve design and writing, and fix bugs and security issues in
 websites and apps built with AI.
@@ -8,11 +8,11 @@ easier to use, replace vague copy, and repair supported code issues while keepin
 useful features and deliberate style choices.
 
 - **[Getting started](blog/how-to-use-sloppyai.md):** installation, copyable prompts and a worked example.
-- **[About sloppyai](ABOUT.md):** what it helps with and why it exists.
+- **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.
 
-sloppyai includes a portable Agent Skill, a local CLI, a reference catalogue,
+sloppy.ai includes a portable Agent Skill, a local CLI, a reference catalogue,
 issue history and bounded check → repair → recheck loops.
 
 ## Start here
@@ -203,7 +203,7 @@ bundled licence notices and [catalogue](docs/catalog.md). See
 [CONTRIBUTING.md](CONTRIBUTING.md), [architecture](docs/architecture.md) and
 [SECURITY.md](SECURITY.md).
 
-sloppyai is an independent project. Workflow inspiration includes
+sloppy.ai is an independent project. Workflow inspiration includes
 [gstack](https://github.com/garrytan/gstack); it is not required at runtime.
 Our original code and writing are MIT licensed. Bundled libraries retain their
 own [licence notices](skills/sloppyai/scripts/THIRD_PARTY_LICENSES.md).
