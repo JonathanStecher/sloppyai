@@ -20,3 +20,11 @@ articles in blog/. Keep them linked from README.md and grounded in actual behavi
 Run npm run check before release. Run npm pack and exercise the installed tarball
 when changing packaging, scripts or installation. Do not assert host or browser
 verification that was not actually performed.
+
+## Visual review and platform parity
+
+- Review overall interface quality, not only recognizable AI-generated patterns. Check typography scale, hierarchy, spacing, alignment, clipping, overlap, missing assets, responsive layouts and states in context.
+- When possible, inspect the real rendered page at desktop and mobile sizes. Compare related elements and verify fixes at the same widths. Preserve the product's identity and useful behavior.
+- Ground findings in observations with a location, evidence, consequence, actionable fix and verification. Distinguish source, measured layout and actual screenshots. Never claim to see pixels or live behavior when they were not provided.
+- Treat static reconstructions as incomplete when scripts, fonts, images or dynamic states are missing. A lack of findings is not proof the live site is correct.
+- When platform changes affect the open-source checker, update the corresponding public code, documentation and AI instructions; do not publish private code, secrets or unrelated platform internals. Verify both repositories independently.
