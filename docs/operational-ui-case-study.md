@@ -108,3 +108,26 @@ The before/after lesson is iterative, not contradictory: remove redundant
 ornament, then add back intentional recognition and comparison cues where
 task evidence supports them. Do not convert either request into a universal
 aesthetic ban or an algorithmic "AI-slop" score.
+
+## Third follow-up: from card grid to a recognizable finance application
+
+Further owner-provided finance-app references revealed that the compact
+dashboard still needed a **stronger reading order**, not simply more metrics
+or colored icons. The source-level repair changed the Overview from eight
+equal-priority KPI cards at the top into a primary value+trend panel, paired
+cost/contribution figures, four smaller supporting metrics, category rows
+and an explicitly synthetic budget. Frequent modules gained a solid mobile
+quick-navigation dock, while the full sidebar and product filters remained.
+
+The mini spending chart was changed from hardcoded decorative bars to values
+derived from the same example cost trend used elsewhere. The first browser
+test found duplicate accessible chart names after switching from revenue to
+costs. Giving the compact bar chart a different accessible name fixed the
+ambiguity; hiding the chart from tests would not have improved users' access.
+
+This exemplifies an additional dimension of visual review: **functional
+hierarchy before ornament**. The material change is the position and
+relationship of important data, not adoption of a fashionable gradient,
+glass effect or color palette. The same approach may be wrong for
+dense professional applications where equal-priority scanning is the
+primary task.

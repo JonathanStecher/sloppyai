@@ -125,3 +125,40 @@ real task.
 **Evidence:** "more colorful" or "less AI-looking" is a preference, not a
 measurable score. Record whether the revised UI helps the user identify
 what each number is and compare the intended financial dimensions.
+
+## Visual hierarchy from financial application references
+
+When a user supplies a visually stronger reference, separate the functional
+hierarchy from its brand styling and licensed assets. A premium finance view
+may use a dominant value with a meaningful trend, two shorter complementary
+figures, then a compact category list and budget indicator. Reusing the layout
+pattern does **not** imply copying the reference's icons, wordmark, imagery or
+interaction behavior verbatim.
+
+Review the first screen in this order:
+
+1. What is the single decision-critical number? Can its label, value, units
+   and data provenance be understood without promotional framing?
+2. Do the supporting figures directly qualify it (e.g. recurring revenue,
+   cost, contribution), or simply repeat the same total in more cards?
+3. Is there a chart showing a meaningful metric and interval, and are controls
+   to change that view discoverable and accessible?
+4. Do category rows reveal names, amounts and percentages at a glance without
+   a maze of tiny dividing lines or decorative badges?
+5. Is a budget, capacity or threshold **real or explicitly simulated**?
+   Never manufacture a spending policy because a reference contains one.
+6. Does bottom navigation improve one-handed use of frequent destinations?
+   Keep the complete navigation accessible, with selected-state semantics and
+   no overlap with content or device safe areas.
+
+Compare the before/after **reading order** at a narrow phone size and desktop,
+then check zero, negative, localized and long-value fixtures. Review chart
+series names, accessible labels (including distinct names for both a main
+chart and a smaller sparkline), keyboard/touch navigation and calculated
+reconciliation. Keep one truthful source-status disclosure, not one badge
+per card.
+
+A source or screenshot review cannot prove better comprehension or visual
+fidelity by itself; use rendered checks and user feedback. This is a
+task-specific hierarchy pattern, not a mandatory app template or a static
+AI-authorship detector.
