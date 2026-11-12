@@ -61,3 +61,26 @@ gradient, card or icon alone is an AI-authorship signal.
 
 Use the [operational interface review](../skills/sloppyai/references/operational-ui.md)
 for a repeatable review sequence. No new automated blanket "slop" rule is added.
+
+## Follow-up: compact finance layout on a phone
+
+A subsequent phone screenshot showed one very wide card per short financial
+value and product/time filters stacked vertically. This consumed multiple
+screenfuls before the user reached detailed numbers.
+
+The repair used **two equal-width metric columns at phone sizes**, capped
+desktop card width, allowed long amounts to occupy both mobile columns, and
+placed two Scenvy-based Select controls in the same row. The user also required
+real decision-useful financial dimensions: product/direct/shared expenses,
+MRR, ARR, cost categories and contribution margins. This requires internally
+reconcilable example fixtures before live API integrations are ready.
+
+Verification should compare narrow mobile screenshot and computed card bounds,
+check both languages and long currency strings, and assert that category
+expenses plus shared overhead equal the headline expense total. The benefit
+is reduced scrolling while keeping readable numbers and tap targets. This does
+not justify shrinking every card in dashboards with more complex content.
+
+**Data caveat:** synthetic metrics and projected annual run rates must be
+visibly identified; they are not evidence of live bookings, real bank movements
+or actual audited financial statements.
