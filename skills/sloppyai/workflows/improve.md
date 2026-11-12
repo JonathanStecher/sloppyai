@@ -9,15 +9,19 @@ does not follow automatically.
    accessibility, terminology, API behaviour and accepted identity.
 2. Find the root cause and choose a focused repair. Prefer existing services and
    components over a second path or manually patched materialized output.
-3. Change the authoritative source. Use a reversible diff or the helper's narrow
+3. For operational interfaces, list each repeated headline, secondary line, badge,
+   icon and separator, and ask whether it conveys a decision, status, relationship
+   or recovery path. Remove redundant ornament *only where task evidence supports it*.
+   Keep a single truthful data-provenance marker when demo/live data differs.
+5. Change the authoritative source. Use a reversible diff or the helper's narrow
    source edits. Do not rewrite the entire artifact to remove a stylistic signal.
-4. Run the relevant checks immediately. A command's successful exit is evidence of
+5. Run the relevant checks immediately. A command's successful exit is evidence of
    its exit, not independent proof of all behaviour it prints.
-5. Inspect the changed artifact and original failure. Verify legitimate behaviour,
+6. Inspect the changed artifact and original failure. Verify legitimate behaviour,
    adjacent states and the preservation contract as appropriate.
-6. Rerate assessed domains against the same rubric and evidence bar. Create a new
+7. Rerate assessed domains against the same rubric and evidence bar. Create a new
    review tied to current inputDigest. Keep earlier ratings and failed attempts.
-7. Continue while useful progress is demonstrated and work remains authorized.
+8. Continue while useful progress is demonstrated and work remains authorized.
 
 For the executable controller, use `loop TARGET --apply --out REPORT_DIR`. It fixes
 only missing document language when an actual language is configured, restrictive
