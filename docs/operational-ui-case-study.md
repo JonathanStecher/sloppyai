@@ -84,3 +84,27 @@ not justify shrinking every card in dashboards with more complex content.
 **Data caveat:** synthetic metrics and projected annual run rates must be
 visibly identified; they are not evidence of live bookings, real bank movements
 or actual audited financial statements.
+
+## Second follow-up: restoring purposeful icons and cost visualizations
+
+After removing generic ornament, the user requested more icons, larger
+container titles and small accent colors, because distinct financial values
+still needed clearer recognition. The repair added *semantic*, standardized
+KPI and section icons and increased title size across shared components,
+rather than restoring the original promotional decoration.
+
+Three task-linked visualizations were added: a cost-composition donut,
+a revenue/direct-cost comparison by product, and an AI/GPU spending chart.
+Colors were limited to shared theme tokens. Tables remain readable for exact
+amounts. No gradient or glass card background was required.
+
+The first added donut chart triggered an automated accessibility failure
+because its SVG segments were exposed as images without accessible labels.
+The relevant fix attached accessible category/amount labels to the segments.
+This illustrates a useful rule: **visual enrichment is not complete until
+data accessibility and the underlying values are preserved**.
+
+The before/after lesson is iterative, not contradictory: remove redundant
+ornament, then add back intentional recognition and comparison cues where
+task evidence supports them. Do not convert either request into a universal
+aesthetic ban or an algorithmic "AI-slop" score.
