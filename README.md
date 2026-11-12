@@ -11,6 +11,7 @@ useful features and deliberate style choices.
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.
+- **[Operational UI before/after](docs/operational-ui-case-study.md):** remove duplicated chrome without losing useful information.
 
 sloppy.ai includes a portable Agent Skill, a local CLI, a reference catalogue,
 issue history and bounded check → repair → recheck loops.

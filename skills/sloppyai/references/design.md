@@ -10,7 +10,9 @@ first and whether that order supports the task. Inspect the actual rendered
 surface when possible; source classes alone do not establish visual quality.
 
 Review cards, badges, eyebrows, dividers and repeated sections for information
-value. Preserve real statuses, filters, prices and boundaries. Evaluate font and
+value. For operational interfaces, identify the job each label, icon, description
+and separator performs; remove duplication only when essential meaning remains.
+See [operational interfaces](operational-ui.md) for an evidence-based audit. Preserve real statuses, filters, prices and boundaries. Evaluate font and
 palette choices against the audience and accepted identity. Gradients, serif
 fonts, mono, rounded corners, punctuation and visual polish are legitimate choices.
 
