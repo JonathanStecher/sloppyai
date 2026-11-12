@@ -69,3 +69,29 @@ adding page-specific overrides or a parallel component library.
    gaps. State which tests ran and never treat a static pass as pixel-level proof.
 
 Further worked context: [operational UI case study](../../../docs/operational-ui-case-study.md).
+
+## Compact metric and filter layouts on small screens
+
+When reviewing a financial or operational dashboard, compare the **intrinsic
+width** of each numeric metric to its container at 320–430px and wide desktop
+sizes. Full-width cards are not automatically better. A single number and one
+short label may fit in half a phone row, allowing two comparable figures side
+by side. But avoid cramming long amounts, translated labels or accessible text
+into fixed half-width tiles.
+
+Inspect:
+- Can product and time-range controls share one row without truncating the
+  selected values or reducing tap targets?
+- Are cards allowed to grow when currency values or labels become longer,
+  rather than clipping or shrinking text until it becomes unreadable?
+- Do calculations reconcile across summary KPI, category totals, product
+  allocation, shared overhead and provider invoice views?
+- Does MRR/ARR distinguish *annualized recurring revenue* from real annual
+  receipts, and do cost/forecast metrics distinguish estimates from booked
+  financial data?
+- Do horizontal tables remain keyboard-scrollable and usable at touch sizes?
+
+Before/after evidence should include real viewport widths and long-value stress
+cases, not a blanket rule to put all cards into two columns. State data provenance
+once in a reliably visible location, without replacing factual units or legally
+required disclosures.
