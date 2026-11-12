@@ -95,3 +95,33 @@ Before/after evidence should include real viewport widths and long-value stress
 cases, not a blanket rule to put all cards into two columns. State data provenance
 once in a reliably visible location, without replacing factual units or legally
 required disclosures.
+
+## Meaningful icons and analytic visualization: review in context
+
+After simplifying an internal dashboard, the operator may still need *more*
+recognition aids. Do not turn a previous "remove decorative KPI icons" request
+into a permanent ban on icons or color. Reassess each new iteration and the
+real task.
+
+- Prefer a consistent small, recognizable icon next to a KPI or domain label
+  when it materially improves scanning among many similar financial metrics.
+  Avoid multiple redundant icons around the same item.
+- Use a restrained semantic palette: e.g. revenue, contribution, expense,
+  computing or warning can use different *small accent indicators*, without
+  changing entire card backgrounds or creating arbitrary border treatments.
+- Prefer visualizations tied to actual comparisons (cost composition, product
+  revenues vs direct costs, AI vs GPU spend), with named axes, legends and
+  amounts. A decorative chart with no comparable quantity is not an
+  improvement.
+- Preserve the source component library and existing design tokens. Avoid
+  one-off style patches or hardcoded color values that diverge from the
+  established system.
+- Confirm text contrast, data-legibility, legend/segment accessible names and
+  touch widths. A chart's visual legend does not replace accessible names,
+  and a donut's unlabeled SVG segments can fail accessibility checks.
+- Verify charts under empty, zero, negative, translated, long-value and
+  product-filtered states. Check that numbers reconcile with the tables.
+
+**Evidence:** "more colorful" or "less AI-looking" is a preference, not a
+measurable score. Record whether the revised UI helps the user identify
+what each number is and compare the intended financial dimensions.
