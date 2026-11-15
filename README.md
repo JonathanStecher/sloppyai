@@ -8,6 +8,7 @@ easier to use, replace vague copy, and repair supported code issues while keepin
 useful features and deliberate style choices.
 
 - **[Getting started](blog/how-to-use-sloppyai.md):** installation, copyable prompts and a worked example.
+- [AI use and the EU AI Act](skills/sloppyai/references/eu-ai-act.md)
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.

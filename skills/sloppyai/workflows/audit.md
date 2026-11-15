@@ -12,11 +12,14 @@
    copy, repeated badges, duplicate navigation labels, unexplained icons and
    dividers. Record where they obscure data or require scanning. Do not call
    a visual pattern defective merely because it appears in a catalogue.
+5. When the scope includes an EU-facing AI feature or AI-generated publication,
+   use the [EU AI Act reference](../references/eu-ai-act.md). Identify the actual
+   use and the responsible provider or deployer before assessing disclosures.
 6. Challenge each suspected issue. Consider existing controls, the audience, accepted
    choices, legitimate examples and what evidence is unavailable.
-6. Separate confirmed observations, supported concerns, tentative review prompts,
+7. Separate confirmed observations, supported concerns, tentative review prompts,
    accepted preferences and unassessed domains. Absence of findings is valid.
-7. Rate assessed domains using references/ratings.md. Bind imported review JSON to
+8. Rate assessed domains using references/ratings.md. Bind imported review JSON to
    the current inputDigest; list evidence and reviewer identity.
 
 Each finding needs a concrete consequence and recommendation. Avoid quotas, blanket
