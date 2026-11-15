@@ -42,6 +42,7 @@ Load only relevant references:
 | Authorization, data, money and external operations | [Security](references/security.md) |
 | Boundaries, errors, tests and documentation | [Engineering](references/engineering.md) |
 | Images, documents, video, audio and provenance | [Media and rights](references/media.md) |
+| EU-facing AI features and publication of AI-generated content | [EU AI Act](references/eu-ai-act.md) |
 | Ratings, evidence and recurring review | [Ratings](references/ratings.md) |
 | Tools, commands and configuration | [CLI](references/cli.md) |
 
@@ -49,6 +50,7 @@ Load only relevant references:
 
 Capture a baseline and name what must survive: useful controls, status, costs,
 permissions, navigation, accessibility, real data and accepted brand decisions.
+Preserve applicable AI disclosures and provenance when editing or exporting.
 For each concern give a location, evidence, consequence, recommendation and a check
 that would demonstrate improvement. Keep severity and confidence separate.
 
@@ -61,6 +63,10 @@ skipped check is a coverage gap. A clean scoped result is legitimate.
 The self-contained Node.js helper is `scripts/sloppyai.mjs` (Node 22.13+).
 Resolve its actual path from this skill directory. It does not call AI APIs or the
 network. Execute with an argument array or safely quoted paths using the host's tools.
+
+Identify which findings and edits came from the coding agent. Show the relevant
+evidence, changed behavior and unverified checks so the user can review them before
+relying on the result.
 
 1. Run `audit TARGET --out REPORT_DIR` for static evidence and inputDigest.
 2. Add relevant visual, source, runtime and factual review using available tools.
