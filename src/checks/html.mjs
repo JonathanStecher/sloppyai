@@ -25,6 +25,14 @@ function hidden(node) {
   while (current) { if (has(current, 'hidden') || has(current, 'inert') || attr(current, 'aria-hidden') === 'true') return true; current = current.parentNode; }
   return false;
 }
+function skipRhythm(node) {
+  for (let current = node; current; current = current.parentNode) {
+    if (['li', 'blockquote', 'pre', 'code'].includes(current.tagName)
+        || ['alert', 'status', 'log', 'timer'].includes(attr(current, 'role'))
+        || ['assertive', 'polite'].includes(attr(current, 'aria-live'))) return true;
+  }
+  return false;
+}
 function inForm(node) { let current = node.parentNode; while (current) { if (current.tagName === 'form') return true; current = current.parentNode; } return false; }
 const line = node => node.sourceCodeLocation?.startLine || 1;
 
@@ -174,6 +182,8 @@ export function checkHtml(file, ctx) {
       }
     }
   }
-  const visible = nodes.filter(node => ['p', 'h1', 'h2', 'h3', 'li', 'button', 'a'].includes(node.tagName)).map(node => ({ text: text(node).trim(), line: line(node), anchor: anchor(node) }));
+  const visible = nodes.filter(node => /^(?:p|h[1-6]|li|button|a)$/.test(node.tagName) && !hidden(node)).map(node => ({
+    text: text(node).trim(), line: line(node), anchor: anchor(node), tagName: node.tagName, skipRhythm: skipRhythm(node)
+  }));
   return { visible, nodes };
 }

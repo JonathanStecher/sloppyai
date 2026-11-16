@@ -6,6 +6,7 @@ import { loadCatalog } from './catalog.mjs';
 import { createContext } from './checks/context.mjs';
 import { checkHtml } from './checks/html.mjs';
 import { checkText, checkCode } from './checks/text.mjs';
+import { checkJsxCopy } from './checks/jsx-copy.mjs';
 import { checkCss } from './checks/css.mjs';
 import { isTestFixture } from './checks/scope.mjs';
 import { hash, id, stable, readJson, short } from './util.mjs';
@@ -37,7 +38,10 @@ export async function audit(target, options = {}) {
       for (const match of file.text.matchAll(expression)) checkCss(file, ctx, match[1], match.index + match[0].indexOf('>') + 1, 'embedded-' + ++styleIndex);
     } else if (extension === '.css') checkCss(file, ctx);
     else if (['.md', '.txt'].includes(extension)) checkText(file, ctx);
-    else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) checkCode(file, ctx);
+    else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) {
+      checkCode(file, ctx);
+      if (extension === '.jsx' || extension === '.tsx') checkJsxCopy(file, ctx, extension);
+    }
   }
   const excludedPaths = new Set(excludedFixtures.map(item => item.path));
   for (const preservation of settings.config.preserve) {

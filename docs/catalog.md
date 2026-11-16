@@ -526,15 +526,15 @@ Sources: [govuk-ui](#source-govuk-ui), [copyhackers-research](#source-copyhacker
 
 ### C08: Terminology and tone
 
-Domain: copy. Kind: heuristic. Automation: none.
+Domain: copy. Kind: heuristic. Automation: partial.
 
-Terms and tone need to fit the task and remain consistent.
+Vocabulary, tone, and sentence rhythm should fit the reader and task.
 
-Preserve the established product vocabulary and emotional context.
+Preserve the product vocabulary and write headlines as single natural phrases. Connect related ideas in prose when a series of short sentences makes the copy sound clipped.
 
-Verification: Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps.
+Verification: Read flagged runs of short sentences in context to confirm where full stops interrupt a single thought.
 
-Counterexample: An intentional, appropriate project choice or existing verified control can make this concern inapplicable.
+Counterexample: Short status messages and distinct steps in instructions can be clear and useful.
 
 Sources: [govuk-ui](#source-govuk-ui), [copyhackers-research](#source-copyhackers-research), [wikipedia-aisigns](#source-wikipedia-aisigns)
 

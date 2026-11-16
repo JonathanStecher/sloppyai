@@ -1,8 +1,63 @@
 import { hash } from '../util.mjs';
 
+const sentenceSegmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
+const shortPhrase = /^\p{Lu}[\p{L}\p{M}\p{Pd}'’ ]+$/u;
+const instructionOrStatus = /^(?:click|tap|press|select|type|sign in|log in|try again|klicke|drücke|wähle|öffne|versuche es erneut)\b|\b(?:failed|timed out|not found|fehlgeschlagen|nicht gefunden)\b/i;
+const abbreviation = /(?:^| )(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|St|etc|vs|No)\.$/;
+
+function paragraphs(text) {
+  let line = 1;
+  return text.split(/(\n(?:[\t ]*\n)+)/).flatMap((part, index) => {
+    const start = line;
+    line += part.split('\n').length - 1;
+    if (index % 2 !== 0 || !part.trim()) return [];
+    const leadingLines = part.match(/^\s*/)[0].split('\n').length - 1;
+    return [{ text: part.trim(), line: start + leadingLines, anchor: 'paragraph:' + index / 2 }];
+  });
+}
+
+export function checkSentenceRhythm(file, ctx, blocks) {
+  if (!ctx.enabled.has('copy')) return;
+  const copy = blocks.filter(block => block.text && !block.skipRhythm
+    && (!block.tagName || /^(?:h[1-6]|p)$/.test(block.tagName))
+    && !/^\s*(?:[>|]|[*+-]\s|\d+[.)]\s)/m.test(block.text));
+  if (!ctx.check('C08', file, copy.length > 0, 'No applicable heading or prose block')) return;
+
+  for (const block of copy) {
+    const heading = /^h[1-6]$/.test(block.tagName ?? '') || /^#{1,6}\s/.test(block.text);
+    const content = block.text.replace(/^#{1,6}[\t ]+/, '').replace(/\s+/g, ' ').trim();
+    if (!/\. \p{Lu}/u.test(content)) continue;
+    let consecutive = 0;
+    let longest = 0;
+    let sentences = 0;
+    for (const { segment, index } of sentenceSegmenter.segment(content)) {
+      const sentence = segment.trim();
+      const hasPeriod = sentence.endsWith('.');
+      const finalHeadlinePhrase = heading && index + segment.length === content.length;
+      const phrase = hasPeriod ? sentence.slice(0, -1) : sentence;
+      sentences++;
+      if ((hasPeriod || finalHeadlinePhrase) && shortPhrase.test(phrase) && phrase.split(' ').length <= 6
+          && !instructionOrStatus.test(sentence) && !abbreviation.test(sentence)) {
+        longest = Math.max(longest, ++consecutive);
+      } else {
+        consecutive = 0;
+      }
+    }
+    if (longest >= (heading || sentences === 2 ? 2 : 3)) {
+      ctx.finding('C08', file, {
+        anchor: block.anchor,
+        line: block.line,
+        evidence: `This copy uses ${longest} consecutive short phrases separated by full stops, which can make it read as a series of clipped beats.`,
+        recommendation: 'Read the passage in context and join related ideas so they flow in one natural headline or sentence.'
+      });
+    }
+  }
+}
+
 export function checkText(file, ctx, suppliedBlocks) {
-  const cleaned = file.text.replace(/```[^\n]*\n[\s\S]*?```/g, match => '\n'.repeat((match.match(/\n/g) || []).length));
-  const blocks = suppliedBlocks || cleaned.split(/\n\s*\n/).map((value, index) => ({ text: value.trim(), line: 1, anchor: 'paragraph:' + index }));
+  const blocks = suppliedBlocks ?? paragraphs(file.text.replace(/\r\n/g, '\n')
+    .replace(/(```|~~~)[^\n]*\n[\s\S]*?\1/g, match => '\n'.repeat((match.match(/\n/g) || []).length)));
+  checkSentenceRhythm(file, ctx, blocks);
   ['C01', 'C02', 'C04', 'UX02'].forEach(rule => ctx.check(rule, file));
   const repetitions = new Map();
   for (const block of blocks) {

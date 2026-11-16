@@ -34,6 +34,7 @@
     "package:smoke": "node scripts/package-smoke.mjs"
   },
   "devDependencies": {
+    "@babel/parser": "7.29.14",
     "@eslint/js": "10.0.1",
     "ajv": "8.20.0",
     "esbuild": "0.28.2",

@@ -172,23 +172,23 @@
     "title": "Terminology and tone",
     "domain": "copy",
     "kind": "heuristic",
-    "description": "Terms and tone need to fit the task and remain consistent.",
-    "guidance": "Preserve the established product vocabulary and emotional context.",
+    "description": "Vocabulary, tone, and sentence rhythm should fit the reader and task.",
+    "guidance": "Preserve the product vocabulary and write headlines as single natural phrases. Connect related ideas in prose when a series of short sentences makes the copy sound clipped.",
     "appliesTo": [
       "all"
     ],
     "verification": [
-      "Obtain direct source, visual or runtime evidence for this artifact and record assessment gaps."
+      "Read flagged runs of short sentences in context to confirm where full stops interrupt a single thought."
     ],
     "counterexamples": [
-      "An intentional, appropriate project choice or existing verified control can make this concern inapplicable."
+      "Short status messages and distinct steps in instructions can be clear and useful."
     ],
     "sourceIds": [
       "govuk-ui",
       "copyhackers-research",
       "wikipedia-aisigns"
     ],
-    "automation": "none",
+    "automation": "partial",
     "defaultSeverity": "low"
   },
   {

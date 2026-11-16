@@ -36,6 +36,41 @@ test('fragments do not acquire a false missing-document-language issue', async t
   assert.equal(report.checks.find(item => item.ruleId === 'A01').status, 'not_assessed');
 });
 
+test('copy audit reports clipped rhythm in generated HTML, Markdown, text, and TSX', async t => {
+  const rejected = 'One model drafts. Another reviews.';
+  const f = await fixture(t, {
+    'index.html': `<main>\n<h1><span>One model drafts.</span><span>Another reviews.</span></h1>\n<p>Use the editor to bring notes and source files together. Plan faster. Write better. Finish sooner.</p></main>`,
+    'copy.md': '## Writing workspace\n\n## Find it. Fix it. Ship it',
+    'generated.txt': rejected,
+    'app/page.tsx': `export function Hero(): React.JSX.Element {\n  return <h1 id="new-chat-title">${rejected}</h1>;\n}`,
+  });
+  const { report } = await audit(f.target);
+  const findings = report.findings.filter(item => item.ruleId === 'C08');
+  const locations = findings.map(item => `${item.location.path}:${item.location.line}`).sort();
+  assert.deepEqual(locations, ['app/page.tsx:2', 'copy.md:3', 'generated.txt:1', 'index.html:2', 'index.html:3']);
+  assert.ok(findings.every(item => item.confidence === 'tentative' && item.disposition === 'open'));
+  assert.equal(report.checks.find(item => item.ruleId === 'C08').status, 'needs_review');
+  assert.ok(!JSON.stringify(report).includes(rejected), 'the report does not echo the original copy');
+  await writeFile(path.join(f.target, 'app/page.tsx'), 'export const Hero = () => <h1>Write, study, and make things</h1>;');
+  const revised = await audit(path.join(f.target, 'app/page.tsx'));
+  assert.ok(!revised.report.findings.some(item => item.ruleId === 'C08'));
+});
+
+test('copy rhythm accepts concise instructions, status messages, examples, and ordinary prose', async t => {
+  const example = 'One model drafts. Another reviews.';
+  const f = await fixture(t, {
+    'index.html': `<h1>Export your report</h1><p>Click Save. Press Enter.</p><div role="status"><p>Your draft saved. Changes are live.</p></div><blockquote><p>${example}</p></blockquote><section hidden><h2>${example}</h2></section><p>Export your report with the sources included. You can share the result as a PDF once it is ready.</p>`,
+    'copy.md': [
+      '# Example copy', '', '> ' + example, '', '```html', `<h1>${example}</h1>`, '```', '',
+      'Use v6.1. Keep your notes.', '', '1. Open the file. Turn off editing. Save the draft.'
+    ].join('\n'),
+    'status.txt': 'Upload failed. Try again.\n\nAsk Dr. Rivera for the summary.',
+    'App.jsx': `const example = '<h1>${example}</h1>';\nexport const Status = () => <div aria-live="polite"><p>Your draft saved. Changes are live.</p></div>;\nexport const Hero = ({ value }) => <h1>{value}</h1>;`,
+  });
+  const { report } = await audit(f.target);
+  assert.deepEqual(report.findings.filter(item => item.ruleId === 'C08').map(item => item.location), []);
+});
+
 test('credential candidates are redacted and never treated as demonstrated vulnerabilities', async t => {
   const secret = 'sk_live_' + 'A'.repeat(28);
   const f = await fixture(t, { 'app.js': 'const key = "' + secret + '";' });

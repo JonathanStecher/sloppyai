@@ -27,6 +27,10 @@ try {
   const report = JSON.parse(stdout);
   assert.equal(report.coverage.assessedFiles, 1);
   assert.equal(report.findings.length, 0);
+  const copy = path.join(temporary, 'generated.tsx');
+  await writeFile(copy, 'export const Hero = () => <h1>One model drafts. Another reviews.</h1>;');
+  const scanned = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'audit', copy, '--json', '--no-save'], { cwd: temporary });
+  assert.ok(JSON.parse(scanned.stdout).findings.some(item => item.ruleId === 'C08' && item.location.line === 1));
   assert.ok(!(await readdir(installed)).includes('src'), 'The installed bundle must work without development source');
   console.log('Packaged CLI, catalogue and library work from an isolated installation.');
 } finally {

@@ -9,6 +9,16 @@ calls to action, inconsistent terminology and unnecessary explanation. A phrase
 such as seamless or Continue can be appropriate in context; do not replace words
 merely because a style detector recognizes them.
 
+Write headlines and taglines as one natural phrase without a trailing period.
+Avoid strings of clipped sentences with full stops for emphasis. When several
+short sentences break up one thought, connect the related ideas in normal prose.
+Read the result aloud to check the pace. Keep concise control labels and clear
+status messages where brevity helps the user act.
+
+The copy audit flags likely examples under C08 in HTML, Markdown, plain text,
+and literal JSX or TSX headings and paragraphs. Inspect flagged text in context
+and review copy assembled at runtime in its rendered form.
+
 Connect material claims to evidence. Never invent customers, quotes, ratings,
 uptime, guarantees, timing, usage numbers, refunds or trials. Check that a citation
 exists and supports the adjacent claim. Distinguish a factual assertion from a
