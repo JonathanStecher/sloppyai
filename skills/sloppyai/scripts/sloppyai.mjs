@@ -38480,22 +38480,23 @@ async function staticAsset(route, root2, url) {
 }
 async function view(browser, source, result, options, routePath, preset, theme, index) {
   const { width, height, name } = preset;
-  const context = await browser.newContext({
-    viewport: { width, height },
-    colorScheme: theme,
-    reducedMotion: "reduce",
-    deviceScaleFactor: 1,
-    isMobile: name === "mobile",
-    hasTouch: name === "mobile",
-    serviceWorkers: "block"
-  });
   const area = { route: routePath, viewport: name, theme, width, height };
+  let context;
   let blockedRequests = 0;
   let pageErrors = 0;
   let consoleErrors = 0;
   let consoleWarnings = 0;
   let failedResponses = 0;
   try {
+    context = await browser.newContext({
+      viewport: { width, height },
+      colorScheme: theme,
+      reducedMotion: "reduce",
+      deviceScaleFactor: 1,
+      isMobile: name === "mobile",
+      hasTouch: name === "mobile",
+      serviceWorkers: "block"
+    });
     await context.routeWebSocket?.("**/*", (socket) => socket.close());
     await context.route("**/*", async (route) => {
       const url = new URL(route.request().url());
@@ -38525,6 +38526,17 @@ async function view(browser, source, result, options, routePath, preset, theme, 
     const httpStatus = response?.status() ?? 0;
     if (new URL(page.url()).origin !== source.origin) return { ...area, status: "failed", httpStatus, reason: "Navigation left the selected preview origin." };
     if (httpStatus < 200 || httpStatus >= 400) return { ...area, status: "failed", httpStatus, reason: "Preview returned an unsuccessful response." };
+    const readySelector = result.config.visual?.readySelector;
+    const readinessBudget = Math.max(1, Math.min(4e3, options.deadline - Date.now()));
+    await page.waitForFunction(() => globalThis.document.fonts.status === "loaded", void 0, { timeout: readinessBudget });
+    if (readySelector) {
+      try {
+        await page.locator(`css=${readySelector}`).first().waitFor({ state: "visible", timeout: Math.max(1, Math.min(4e3, options.deadline - Date.now())) });
+      } catch (_error) {
+        return { ...area, status: "failed", httpStatus, reason: "The configured rendered element did not become visible." };
+      }
+    }
+    await page.waitForTimeout(Math.max(0, Math.min(250, options.deadline - Date.now())));
     const geometry = await page.evaluate(() => {
       const visibleText = globalThis.document.body?.innerText?.trim() || "";
       const root2 = globalThis.document.documentElement;
@@ -38559,7 +38571,7 @@ async function view(browser, source, result, options, routePath, preset, theme, 
   } catch (_error) {
     return { ...area, status: "failed", httpStatus: 0, reason: "The preview did not finish rendering within the available browser scope or time." };
   } finally {
-    await context.close().catch(() => {
+    await context?.close().catch(() => {
     });
   }
 }
@@ -38621,7 +38633,7 @@ async function captureProjectImages(result, options) {
       handle = await open3(await safeChild(result.info.root, relative), READ_FLAGS);
       const stat = await handle.stat();
       if (!stat.isFile() || stat.size < 33 || stat.size > 1e7) throw new Error("Expected a bounded PNG file");
-      if (!options.allowExec || stat.mtimeMs < options.startedAt) {
+      if (!options.allowExec || !Number.isFinite(options.startedAt) || stat.mtimeMs < options.startedAt) {
         captures.push({ path: relative, status: "stale" });
         continue;
       }
@@ -39463,6 +39475,7 @@ function number(value, name) {
 function exitFor(report, threshold = "medium") {
   if (report.loop?.stopReason === "cancelled") return 130;
   if (report.loop?.stopReason === "regression") return 1;
+  if (report.checksExecution.some((item) => ["failed", "timed_out"].includes(item.status))) return 1;
   if (report.status === "partial" || ["coverage_reduced", "fixer_timeout", "fixer_failed", "operational_error", "deadline"].includes(report.loop?.stopReason) || report.coverage.assessedFiles === 0 || report.coverage.capped || report.checksExecution.some((item) => ["not_run", "deadline", "cancelled"].includes(item.status))) return 2;
   if (threshold === "none") return 0;
   const limit = SEVERITIES.indexOf(threshold);
@@ -39481,6 +39494,7 @@ function outputReport(report, values, output) {
     if (report.loop) console.log(`  Loop stopped: ${report.loop.stopReason}; ${report.loop.repairRounds} repair round(s).`);
     if (report.runtime) {
       console.log(`  Browser: ${report.runtime.visual.status}, ${report.runtime.visual.captures.filter((item) => item.status === "captured").length} capture(s). ${report.runtime.visual.reason}`);
+      if (report.runtime.projectImages) console.log(`  Project UI captures: ${report.runtime.projectImages.filter((item) => item.status === "captured").length}/${report.runtime.projectImages.length}.`);
       console.log(`  Project checks: ${report.runtime.commands.filter((item) => item.samples.length).length} executed. Logs: ${report.runtime.logs.filter((item) => item.status === "sampled").length} sampled.`);
     }
     if (output) console.log(`  Reports: ${output}`);

@@ -58,17 +58,18 @@ async function staticAsset(route, root, url) {
 
 async function view(browser, source, result, options, routePath, preset, theme, index) {
   const { width, height, name } = preset;
-  const context = await browser.newContext({
-    viewport: { width, height }, colorScheme: theme, reducedMotion: 'reduce',
-    deviceScaleFactor: 1, isMobile: name === 'mobile', hasTouch: name === 'mobile', serviceWorkers: 'block'
-  });
   const area = { route: routePath, viewport: name, theme, width, height };
+  let context;
   let blockedRequests = 0;
   let pageErrors = 0;
   let consoleErrors = 0;
   let consoleWarnings = 0;
   let failedResponses = 0;
   try {
+    context = await browser.newContext({
+      viewport: { width, height }, colorScheme: theme, reducedMotion: 'reduce',
+      deviceScaleFactor: 1, isMobile: name === 'mobile', hasTouch: name === 'mobile', serviceWorkers: 'block'
+    });
     await context.routeWebSocket?.('**/*', socket => socket.close());
     await context.route('**/*', async route => {
       const url = new URL(route.request().url());
@@ -94,6 +95,15 @@ async function view(browser, source, result, options, routePath, preset, theme, 
     const httpStatus = response?.status() ?? 0;
     if (new URL(page.url()).origin !== source.origin) return { ...area, status: 'failed', httpStatus, reason: 'Navigation left the selected preview origin.' };
     if (httpStatus < 200 || httpStatus >= 400) return { ...area, status: 'failed', httpStatus, reason: 'Preview returned an unsuccessful response.' };
+    const readySelector = result.config.visual?.readySelector;
+    const readinessBudget = Math.max(1, Math.min(4000, options.deadline - Date.now()));
+    await page.waitForFunction(() => globalThis.document.fonts.status === 'loaded', undefined, { timeout: readinessBudget });
+    if (readySelector) {
+      try {
+        await page.locator(`css=${readySelector}`).first().waitFor({ state: 'visible', timeout: Math.max(1, Math.min(4000, options.deadline - Date.now())) });
+      } catch (_error) { return { ...area, status: 'failed', httpStatus, reason: 'The configured rendered element did not become visible.' }; }
+    }
+    await page.waitForTimeout(Math.max(0, Math.min(250, options.deadline - Date.now())));
     const geometry = await page.evaluate(() => {
       const visibleText = globalThis.document.body?.innerText?.trim() || '';
       const root = globalThis.document.documentElement;
@@ -116,7 +126,7 @@ async function view(browser, source, result, options, routePath, preset, theme, 
     };
   } catch (_error) {
     return { ...area, status: 'failed', httpStatus: 0, reason: 'The preview did not finish rendering within the available browser scope or time.' };
-  } finally { await context.close().catch(() => {}); }
+  } finally { await context?.close().catch(() => {}); }
 }
 
 export async function captureVisual(result, options) {
@@ -172,7 +182,7 @@ export async function captureProjectImages(result, options) {
       handle = await open(await safeChild(result.info.root, relative), READ_FLAGS);
       const stat = await handle.stat();
       if (!stat.isFile() || stat.size < 33 || stat.size > 10_000_000) throw new Error('Expected a bounded PNG file');
-      if (!options.allowExec || stat.mtimeMs < options.startedAt) {
+      if (!options.allowExec || !Number.isFinite(options.startedAt) || stat.mtimeMs < options.startedAt) {
         captures.push({ path: relative, status: 'stale' });
         continue;
       }

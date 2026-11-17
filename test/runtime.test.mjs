@@ -32,8 +32,8 @@ test('full review records missing browser scope and samples authorized commands 
 });
 
 test('rendered review captures actual mobile overflow in Chromium', async t => {
-  const f = await fixture(t, { 'index.html': '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main style="width:720px"><h1>Measured fixture</h1><button><span aria-hidden="true">→</span></button></main></body></html>' });
-  const result = await improveLoop(f.target, { output: f.output, allowExec: true, fullReview: true, config: { visual: { themes: ['light'] } } });
+  const f = await fixture(t, { 'index.html': '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><main><h1>Measured fixture</h1><button><span aria-hidden="true">→</span></button></main><script>setTimeout(() => { const main = document.querySelector("main"); main.style.width = "720px"; main.id = "ready"; }, 350)</script></body></html>' });
+  const result = await improveLoop(f.target, { output: f.output, allowExec: true, fullReview: true, config: { visual: { themes: ['light'], readySelector: '#ready' } } });
   if (result.report.runtime.visual.status === 'unassessed' && !process.env.SLOPPYAI_REQUIRE_BROWSER) {
     t.skip(result.report.runtime.visual.reason);
     return;

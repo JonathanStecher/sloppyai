@@ -77,6 +77,7 @@ function number(value, name) {
 function exitFor(report, threshold = 'medium') {
   if (report.loop?.stopReason === 'cancelled') return 130;
   if (report.loop?.stopReason === 'regression') return 1;
+  if (report.checksExecution.some(item => ['failed', 'timed_out'].includes(item.status))) return 1;
   if (report.status === 'partial' || ['coverage_reduced', 'fixer_timeout', 'fixer_failed', 'operational_error', 'deadline'].includes(report.loop?.stopReason) || report.coverage.assessedFiles === 0 || report.coverage.capped || report.checksExecution.some(item => ['not_run', 'deadline', 'cancelled'].includes(item.status))) return 2;
   if (threshold === 'none') return 0;
   const limit = SEVERITIES.indexOf(threshold);
@@ -96,6 +97,7 @@ function outputReport(report, values, output) {
     if (report.loop) console.log(`  Loop stopped: ${report.loop.stopReason}; ${report.loop.repairRounds} repair round(s).`);
     if (report.runtime) {
       console.log(`  Browser: ${report.runtime.visual.status}, ${report.runtime.visual.captures.filter(item => item.status === 'captured').length} capture(s). ${report.runtime.visual.reason}`);
+      if (report.runtime.projectImages) console.log(`  Project UI captures: ${report.runtime.projectImages.filter(item => item.status === 'captured').length}/${report.runtime.projectImages.length}.`);
       console.log(`  Project checks: ${report.runtime.commands.filter(item => item.samples.length).length} executed. Logs: ${report.runtime.logs.filter(item => item.status === 'sampled').length} sampled.`);
     }
     if (output) console.log(`  Reports: ${output}`);

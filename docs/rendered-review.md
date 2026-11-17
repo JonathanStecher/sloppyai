@@ -33,6 +33,10 @@ through approved project tests. Incomplete captures stay visible. Review
 the saved screenshots for actual hierarchy, copy, spacing and interaction
 states. The metrics address only the measured properties.
 
+Set `visual.readySelector` to a visible CSS selector when every selected
+route needs a specific element to render before the screenshot is taken.
+This is useful for charts and components rendered after hydration.
+
 For native UI, component catalogs, or signed-in fixture journeys, let a
 project check generate PNGs and add their relative paths to `visual.artifacts`.
 The assessment imports PNGs regenerated during the current check run,
