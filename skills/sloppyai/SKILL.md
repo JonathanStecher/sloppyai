@@ -34,6 +34,8 @@ Load only relevant references:
 | Work | Reference |
 | --- | --- |
 | Visual identity, composition and hierarchy | [Design](references/design.md) |
+| Shared product, launch and short-form review | [Product and release checklist](references/release-review.md) |
+| Repair and verification steps for the agent | [Repair instructions](references/repairs.md) |
 | Dense dashboards and operational controls | [Operational interfaces](references/operational-ui.md) |
 | Journeys, state and recovery | [UX](references/ux.md) |
 | Wording, claims and localization | [Copy](references/copy.md) |
@@ -68,10 +70,13 @@ Identify which findings and edits came from the coding agent. Show the relevant
 evidence, changed behavior and unverified checks so the user can review them before
 relying on the result.
 
-1. Run `audit TARGET --out REPORT_DIR` for static evidence and inputDigest.
+1. Run `review TARGET --allow-exec --out REPORT_DIR` for approved product
+   review with rendered evidence, project checks and log summaries. Use
+   `audit TARGET` for source-only evidence.
 2. Add relevant visual, source, runtime and factual review using available tools.
 3. Rate only assessed domains with the rubric in references/ratings.md.
-4. Make the smallest useful authorized repair. Check the actual root cause.
+4. Run the authorized built-in repairs and use the repair instructions for
+   evidence-supported changes in the app. Check the actual root cause.
 5. Re-audit changed inputs, rerun the relevant checks, and produce a fresh review.
 6. Compare per-domain ratings and issue histories; investigate new failures.
 

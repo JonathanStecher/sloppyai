@@ -4,6 +4,7 @@ import path from 'node:path';
 import { mkdtemp, readdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { loadCatalog } from '../src/catalog.mjs';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
 const exec = promisify(execFile);
@@ -20,7 +21,9 @@ try {
   assert.ok(!Object.keys(installedPackage.dependencies || {}).length, 'The portable package has no runtime dependency installation');
   const library = await import(pathToFileURL(path.join(installed, 'skills/sloppyai/scripts/core.mjs')));
   assert.equal(library.VERSION, pkg.version);
-  assert.equal((await library.loadCatalog()).entries.length, 194);
+  assert.equal((await library.loadCatalog()).digest, (await loadCatalog()).digest);
+  const checklist = 'skills/sloppyai/references/release-review.md';
+  assert.equal(await readFile(path.join(installed, checklist), 'utf8'), await readFile(path.join(root, checklist), 'utf8'));
   const artifact = path.join(temporary, 'fixture.html');
   await writeFile(artifact, '<!doctype html><html lang="en"><body><h1>Export your report</h1><button>Save report</button></body></html>');
   const { stdout } = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'audit', artifact, '--json', '--no-save'], { cwd: temporary });
@@ -31,6 +34,15 @@ try {
   await writeFile(copy, 'export const Hero = () => <h1>One model drafts. Another reviews.</h1>;');
   const scanned = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'audit', copy, '--json', '--no-save'], { cwd: temporary });
   assert.ok(JSON.parse(scanned.stdout).findings.some(item => item.ruleId === 'C08' && item.location.line === 1));
+  const jsxImage = path.join(temporary, 'photo.jsx');
+  await writeFile(jsxImage, 'export const Photo = () => <img src="cover.png" />;');
+  const imageScan = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'audit', jsxImage, '--json', '--no-save'], { cwd: temporary });
+  assert.ok(JSON.parse(imageScan.stdout).findings.some(item => item.ruleId === 'A02' && item.location.line === 1));
+  const planned = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'plan', jsxImage, '--json', '--no-save'], { cwd: temporary });
+  const { guidance } = JSON.parse(planned.stdout);
+  assert.ok(guidance.steps.some(step => step.ruleId === 'A02' && step.method === 'contextual' && step.verification.length));
+  assert.ok((await readFile(guidance.repairGuideFile, 'utf8')).includes('Repair by problem'));
+  assert.equal(await readFile(guidance.checklistFile, 'utf8'), await readFile(path.join(root, checklist), 'utf8'));
   assert.ok(!(await readdir(installed)).includes('src'), 'The installed bundle must work without development source');
   console.log('Packaged CLI, catalogue and library work from an isolated installation.');
 } finally {

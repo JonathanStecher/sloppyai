@@ -320,6 +320,55 @@
     "note": "Reference or workflow influence; check current applicability before consequential use."
   },
   {
+    "id": "mdn-css-cascade",
+    "title": "MDN introduction to the CSS cascade",
+    "kind": "guidance",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Introduction",
+    "note": "Explains declaration precedence, including order of appearance for competing values."
+  },
+  {
+    "id": "mdn-noopener",
+    "title": "MDN noopener HTML relationship",
+    "kind": "guidance",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener",
+    "note": "Describes explicit opener isolation, referrer behaviour and the modern target=_blank default."
+  },
+  {
+    "id": "next-powered-by-header",
+    "title": "Next.js poweredByHeader configuration",
+    "kind": "guidance",
+    "url": "https://nextjs.org/docs/app/api-reference/config/next-config-js/poweredByHeader",
+    "note": "Documents the default framework identification header and the configuration switch to disable it."
+  },
+  {
+    "id": "next-env",
+    "title": "Next.js env configuration",
+    "kind": "guidance",
+    "url": "https://nextjs.org/docs/app/api-reference/config/next-config-js/env",
+    "note": "Describes compile-time substitutions and their inclusion in JavaScript bundles."
+  },
+  {
+    "id": "google-search-central",
+    "title": "Google Search Central SEO Starter Guide",
+    "kind": "guidance",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "note": "Context for public search discovery and page metadata."
+  },
+  {
+    "id": "ec-data-rights",
+    "title": "European Commission guidance on data rights",
+    "kind": "guidance",
+    "url": "https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en",
+    "note": "Overview of applicable GDPR data rights and transparency."
+  },
+  {
+    "id": "ec-processing-grounds",
+    "title": "European Commission guidance on lawful processing",
+    "kind": "guidance",
+    "url": "https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data_en",
+    "note": "Overview of legal grounds, consent withdrawal and processing contexts."
+  },
+  {
     "id": "image-1",
     "title": "User-supplied screenshot 1",
     "kind": "user-reference",

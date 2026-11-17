@@ -1,6 +1,7 @@
 import { parse, parseFragment } from 'parse5';
 import { parse as parseCss } from 'postcss';
 import { short } from '../util.mjs';
+import { checkHeadingLabel, headingGroupTags, headingTag, precedingLabelTags } from './text.mjs';
 
 const attr = (node, name) => node.attrs?.find(item => item.name === name)?.value;
 const has = (node, name) => node.attrs?.some(item => item.name === name);
@@ -149,10 +150,19 @@ export function checkHtml(file, ctx) {
         ctx.finding('A05', file, { ...where, evidence: 'Viewport metadata explicitly restricts zoom.', patch: valueLocation ? { start: valueLocation.startOffset, end: valueLocation.endOffset, replacement: 'content="' + cleaned.replace(/&/g, '&amp;').replace(/"/g, '&quot;') + '"' } : null });
       }
     }
-    if (/^h[1-6]$/.test(node.tagName)) {
+    if (headingTag.test(node.tagName)) {
       const level = Number(node.tagName[1]);
       if (lastHeading && level > lastHeading + 1) ctx.finding('A06', file, { ...where, confidence: 'tentative', evidence: `Static heading order jumps from h${lastHeading} to h${level}; check component and page context.` });
       lastHeading = level;
+      if (ctx.enabled.has('design') && headingGroupTags.has(node.parentNode?.tagName)) {
+        const siblings = node.parentNode.childNodes;
+        const preceding = siblings.slice(0, siblings.indexOf(node)).findLast(sibling =>
+          sibling.tagName || (sibling.nodeName === '#text' && sibling.value.trim()));
+        if (precedingLabelTags.has(preceding?.tagName) && !hidden(preceding) && !skipRhythm(preceding) &&
+            !has(preceding, 'id') && descendants(preceding).every(child => child === preceding || child.nodeName === '#text')) {
+          checkHeadingLabel(file, ctx, text(preceding), text(node), { anchor: anchor(preceding), line: line(preceding) });
+        }
+      }
     }
     if (node.tagName === 'a') {
       const href = attr(node, 'href');

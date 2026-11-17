@@ -5,6 +5,8 @@
 2. Capture the baseline and required behaviours. Use `audit TARGET --out REPORT_DIR`
    for supported static checks when appropriate. The helper ignores secret files,
    dependencies, generated output and symlinks and records relevant input limits.
+   For a cross-surface or launch review, use the applicable rows in the
+   [product and release checklist](../references/release-review.md).
 3. Inspect the relevant artifact directly. For an interface, walk complete key tasks
    and applicable loading, empty, failure, permission and partial states. For writing
    and media, check actual claims, sources, timing and output quality.

@@ -8,8 +8,8 @@ Use this mode when the user requests a plan or has not authorized changes.
    evidence as appropriate; clearly mark inaccessible states.
 3. Identify requirements and preservation constraints before aesthetics. Do not
    invent product capabilities, controls, customers, metrics or policies.
-4. Select relevant domain references. Use `catalog --domain NAME` for detail;
-   do not load every catalogue file.
+4. Select relevant domain references. Use `catalog --domain NAME` for detail and
+   `plan TARGET --json --no-save` for actionable findings and verification.
 5. Name each supported issue, its location, user/system impact and smallest useful
    repair. Label contextual suggestions and hypotheses separately.
 6. Compare a materially different approach when introducing an important new module

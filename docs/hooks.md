@@ -25,11 +25,17 @@ The reviewer receives these environment variables:
 | SLOPPYAI_REPORT | Current static observation JSON |
 | SLOPPYAI_REVIEW | Write a review-schema JSON document here |
 
-The hook should inspect applicable evidence, leave the artifact unchanged, write
+Read `guidance.checklistFile` and the relevant `guidance.domainReferences` in
+the request. Read `guidance.rubricFile` and `guidance.reviewSchemaFile` before
+writing the review. Inspect applicable evidence, leave the artifact unchanged, write
 its review and exit zero. Review JSON has inputDigest, reviewer, assessments and
 findings. See [the schema](../skills/sloppyai/schemas/review.schema.json).
 Only rate assessed domains, with rationale and evidence. Ratings use the
 [0–5 rubric](../skills/sloppyai/references/ratings.md).
+
+When confirming an existing finding, reuse its rule ID, relative path and source
+anchor. The controller retains the static observation and uses the review
+confirmation to schedule contextual work.
 
 A fresh reviewer runs for each assessment, including after repairs. The controller
 rejects a digest mismatch. Scores remain self-reported and distinct from automated
@@ -39,7 +45,10 @@ checks; they do not certify independent runtime behaviour.
 
 The fixer receives SLOPPYAI_REQUEST, SLOPPYAI_TARGET and SLOPPYAI_REPORT.
 The request includes the current inputDigest, report and preservation constraints.
-Repair only authorized source, preserve required behaviour, and exit zero.
+Read `guidance.repairGuideFile` and the installed checklist for the relevant
+repair. Join `guidance.steps` to report findings by `findingId` to see the
+method, reviewer confirmation and rule-specific verification. Repair only
+authorized source, preserve required behaviour, and exit zero.
 
 After the hook, the controller re-audits source and reruns the pinned checks.
 It stops when new objective failures or passing-to-failing checks appear. External

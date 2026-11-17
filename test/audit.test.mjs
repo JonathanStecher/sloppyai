@@ -36,6 +36,28 @@ test('fragments do not acquire a false missing-document-language issue', async t
   assert.equal(report.checks.find(item => item.ruleId === 'A01').status, 'not_assessed');
 });
 
+test('native JSX images flag missing alt with dynamic and decorative cases preserved', async t => {
+  const f = await fixture(t, {
+    'Gallery.tsx': [
+      'export const Gallery = ({ description, imageProps }: any) => <>',
+      '  <img src="cover.png" />',
+      '  <img src="icon.png" alt="" />',
+      '  <img src="diagram.png" alt={description} />',
+      '  <img {...imageProps} />',
+      '  <img src="divider.png" role="presentation" />',
+      '  <div aria-hidden={true}><img src="hidden.png" /></div>',
+      '  <CustomImage src="handled-by-component.png" />',
+      '</>;'
+    ].join('\n')
+  });
+  const { report } = await audit(f.target, { domains: ['accessibility'] });
+  const findings = report.findings.filter(item => item.ruleId === 'A02');
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].location.line, 2);
+  assert.equal(findings[0].confidence, 'tentative');
+  assert.match(report.checks.find(item => item.ruleId === 'A02').reasons.join(' '), /Spread props/);
+});
+
 test('copy audit reports clipped rhythm in generated HTML, Markdown, text, and TSX', async t => {
   const rejected = 'One model drafts. Another reviews.';
   const f = await fixture(t, {

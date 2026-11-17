@@ -5,6 +5,23 @@ const shortPhrase = /^\p{Lu}[\p{L}\p{M}\p{Pd}'’ ]+$/u;
 const instructionOrStatus = /^(?:click|tap|press|select|type|sign in|log in|try again|klicke|drücke|wähle|öffne|versuche es erneut)\b|\b(?:failed|timed out|not found|fehlgeschlagen|nicht gefunden)\b/i;
 const abbreviation = /(?:^| )(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|St|etc|vs|No)\.$/;
 
+export const headingTag = /^h[1-6]$/;
+export const precedingLabelTags = new Set(['p', 'small', 'span']);
+export const headingGroupTags = new Set(['article', 'div', 'header', 'hgroup', 'main', 'section']);
+
+export function checkHeadingLabel(file, ctx, label, heading, where) {
+  if (!ctx.enabled.has('design') || !label || !heading) return;
+  const normalize = value => value.trim().replace(/\s+/g, ' ').toLowerCase();
+  const first = normalize(label);
+  if (!first || !heading.trim()) return;
+  ctx.check('D02', file);
+  if (first === normalize(heading)) ctx.finding('D02', file, {
+    ...where,
+    evidence: 'A nearby text label repeats the following heading.',
+    recommendation: 'Review the two elements together. Remove the redundant label if it carries no independent status, context or accessible relationship.'
+  });
+}
+
 function paragraphs(text) {
   let line = 1;
   return text.split(/(\n(?:[\t ]*\n)+)/).flatMap((part, index) => {

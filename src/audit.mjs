@@ -6,8 +6,10 @@ import { loadCatalog } from './catalog.mjs';
 import { createContext } from './checks/context.mjs';
 import { checkHtml } from './checks/html.mjs';
 import { checkText, checkCode } from './checks/text.mjs';
-import { checkJsxCopy } from './checks/jsx-copy.mjs';
+import { checkJsx } from './checks/jsx.mjs';
 import { checkCss } from './checks/css.mjs';
+import { checkNextConfig } from './checks/next-config.mjs';
+import { inventoryOf } from './inventory.mjs';
 import { isTestFixture } from './checks/scope.mjs';
 import { hash, id, stable, readJson, short } from './util.mjs';
 import { lstat } from 'node:fs/promises';
@@ -40,7 +42,8 @@ export async function audit(target, options = {}) {
     else if (['.md', '.txt'].includes(extension)) checkText(file, ctx);
     else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) {
       checkCode(file, ctx);
-      if (extension === '.jsx' || extension === '.tsx') checkJsxCopy(file, ctx, extension);
+      checkNextConfig(file, ctx);
+      if (['.js', '.mjs', '.cjs', '.jsx', '.tsx'].includes(extension)) checkJsx(file, ctx, extension);
     }
   }
   const excludedPaths = new Set(excludedFixtures.map(item => item.path));
@@ -59,12 +62,13 @@ export async function audit(target, options = {}) {
     }
   }
   const patches = ctx.findings.filter(item => item.patch).map(item => ({ ...item.patch, findingId: item.id, ruleId: item.ruleId }));
+  const confirmedReviewFindings = new Set();
   const findings = ctx.findings.map(({ patch: _patch, ...item }) => item);
   const checks = ctx.finish();
   const report = {
     schemaVersion: 1, engineVersion: VERSION, id: id(), createdAt: new Date().toISOString(),
     target: info.label, targetId: hash(info.target), inputDigest, artifactDigest: collected.digest, configDigest: settings.digest, catalogDigest: catalog.digest,
-    manifest: collected.manifest, findings, checks,
+    manifest: collected.manifest, inventory: inventoryOf(collected.files), findings, checks,
     coverage: {
       kind: 'partial static assessment', fullArtifactVerified: false, assessedFiles: collected.files.length - excludedFixtures.length,
       assessedBytes: collected.files.filter(file => !excludedPaths.has(file.path)).reduce((sum, file) => sum + file.bytes, 0), capped: collected.capped || ctx.capped || collected.skipped.length + excludedFixtures.length > 200, skipped: [...collected.skipped, ...excludedFixtures].slice(0, 200),
@@ -101,6 +105,9 @@ export async function audit(target, options = {}) {
         origin: 'review', assurance: `Self-reported ${review.reviewer.kind} review; not an independently witnessed reproduction.`, disposition: accepted ? 'accepted' : 'open',
         ...(accepted ? { acceptanceReason: short(accepted.reason, 1000) } : {})
       };
+      if (proposed.disposition === 'open' && ['supported', 'reproduced'].includes(proposed.confidence)) {
+        confirmedReviewFindings.add(proposed.id);
+      }
       const existing = report.findings.find(item => item.id === proposed.id);
       if (existing) existing.evidence = short(existing.evidence + ' Reviewer note: ' + proposed.evidence, 3000);
       else report.findings.push(proposed);
@@ -110,7 +117,7 @@ export async function audit(target, options = {}) {
   report.sourceIds = [...new Set(report.findings.flatMap(item => catalog.byId.get(item.ruleId)?.sourceIds || []))];
   report.ratings = rate(report.findings, report.checks, settings.config.domains);
   report.status = completion(report);
-  return { report, patches, info, config: settings.config, files: collected.files };
+  return { report, patches, info, config: settings.config, files: collected.files, catalog, confirmedReviewFindings };
 }
 
 export async function assertStableInputs(result, options = {}) {

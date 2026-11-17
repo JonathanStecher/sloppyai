@@ -1,0 +1,4 @@
+{
+  "visual": { "themes": ["light"] },
+  "checks": [{ "name": "Booking rules", "command": ["node", "--test", "test-booking.mjs"] }]
+}

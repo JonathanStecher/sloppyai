@@ -9,6 +9,7 @@ useful features and deliberate style choices.
 
 - **[Getting started](blog/how-to-use-sloppyai.md):** installation, copyable prompts and a worked example.
 - [AI use and the EU AI Act](skills/sloppyai/references/eu-ai-act.md)
+- [Product and release review checklist](skills/sloppyai/references/release-review.md)
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.
@@ -57,6 +58,22 @@ Host syntax differs: Codex can use `$sloppyai`; Claude Code can use
 
 ## Audit an artifact
 
+Use the full review for product work. It inventories UTF-8 source, captures
+desktop and mobile browser evidence for UI targets, runs authorized project
+checks and summarizes browser, command and configured file logs.
+
+```sh
+node skills/sloppyai/scripts/sloppyai.mjs review /path/to/artifact --allow-exec
+```
+
+Add `--apply` to recheck after supported repairs. For framework applications,
+start the preview and pass its origin with `--preview http://127.0.0.1:3000`.
+Standalone HTML can be rendered locally. See the
+[rendered review guide](docs/rendered-review.md) for routes, browser setup,
+backend tests and reports.
+
+Use a source audit for a read-only scan.
+
 ```sh
 node skills/sloppyai/scripts/sloppyai.mjs audit /path/to/artifact
 node skills/sloppyai/scripts/sloppyai.mjs plan /path/to/artifact --no-save
@@ -86,10 +103,12 @@ The default automated target is 100 within assessed checks. If a reviewer hook i
 configured, it also needs fresh evidence and a reviewer score of at least 4/5.
 These thresholds describe scoped checks; reaching them is not full-product approval.
 
-The built-in fixer is deliberately narrow: it can add a configured missing HTML
-language, remove restrictive viewport zoom settings and add ordinary new-tab
-opener protection. Other issues are improved by the coding agent or an explicitly
-configured repair hook. Intentional `rel=opener` relationships require review.
+The built-in fixer can add configured document language, restore viewport zoom,
+isolate ordinary new-tab links in HTML and native JSX, remove adjacent identical
+CSS declarations, and suppress the framework identification header in supported
+Next.js configs. `plan TARGET --json --no-save` shows which edits are available
+and how to verify each finding. The coding agent or an authorized fixer handles
+contextual changes using the [repair instructions](skills/sloppyai/references/repairs.md).
 
 ### Integrate tests, reviewers and repair tools
 
@@ -111,7 +130,8 @@ The hook filenames above are your tools, not bundled model services. Their
 [protocol](docs/hooks.md) is provider-neutral. A reviewer receives the current
 observation and writes schema-validated review JSON bound to its input digest.
 It runs again after changes so ratings are fresh. A fixer receives findings and
-the preservation contract, then the controller reruns its own checks.
+the preservation contract. Both get the shared checklist, repair instructions
+and rule-specific verification steps. The controller reruns its own checks.
 
 ```sh
 node skills/sloppyai/scripts/sloppyai.mjs loop /path/to/artifact --apply --allow-exec
@@ -120,6 +140,9 @@ node skills/sloppyai/scripts/sloppyai.mjs verify /path/to/artifact --allow-exec 
 
 Commands run with your user permissions, not in a security sandbox. They may use
 network or paid services if your command does; authorize those costs separately.
+An authorized external agent may send selected source or rendered evidence to
+its provider. Use `loop --apply` for built-in repairs with a configuration that
+has no external reviewer, fixer or executable checks.
 The helper itself contains no network calls, AI API client, telemetry or updater.
 It pins the initial configuration during a loop/watch so a repair cannot add new
 executable hooks mid-run. Check retries preserve every attempt; a later pass is
@@ -165,10 +188,12 @@ node skills/sloppyai/scripts/sloppyai.mjs undo /path/to/artifact --out /path/to/
 ## What is implemented
 
 - A self-contained skill with plan, audit, improve and verify workflows.
-- 194 canonical entries, retaining all 102 original research labels: requirements,
+- 206 canonical entries, retaining all 102 original research labels: requirements,
   contextual heuristics, optional visual techniques and definitions.
-- Static HTML naming, language, zoom, duplicate-ID and link checks; contextual
-  heading, contrast, image-space, CSS, copy and source-code prompts.
+- Static HTML naming, language, zoom, duplicate-ID and link checks. Native JSX
+  checks cover image alternatives, link destinations and relations, and literal
+  copy. Contextual review includes repeated heading labels, contrast, image
+  sizing, CSS, copy and likely privileged Next.js client substitutions.
 - Bounded loops, change-triggered watch, optional command checks and review/fix hooks.
 - Fresh-review binding, separate ratings, issue comparisons, backups and undo.
 - JSON schemas, generated catalogue documentation, examples and behavioural tests.

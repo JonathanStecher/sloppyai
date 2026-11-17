@@ -2,6 +2,8 @@ import { parseArgs } from 'node:util';
 import path from 'node:path';
 import { open } from 'node:fs/promises';
 import { audit, assertStableInputs } from './audit.mjs';
+import { improvementGuidance } from './guidance.mjs';
+import { attachRuntime, collectRuntime } from './runtime.mjs';
 import { targetInfo } from './files.mjs';
 import { saveReport, prepareOutput } from './state.mjs';
 import { improveLoop, watchTarget } from './loop.mjs';
@@ -22,6 +24,7 @@ Bring an existing artifact → understand the findings → choose a concrete imp
 Usage: sloppyai <command> [target] [options]
 
   audit TARGET       Read UTF-8 source; save an evidence-bound report and ratings.
+  review TARGET      Review source, rendered pages, authorized checks and logs.
   plan TARGET        Audit and print a concrete, prioritized improvement plan.
   verify TARGET      Re-audit; optionally run authorized checks and compare a baseline.
   loop TARGET        Check → narrow fix → recheck with bounded attempts and history.
@@ -42,6 +45,7 @@ Options:
   --config FILE             Explicit JSON configuration.
   --language TAG            Actual document language; enables the missing-lang fix.
   --review FILE             Import a current-digest human/agent review.
+  --preview URL             HTTPS or local HTTP origin for the browser review.
   --baseline FILE           Compare verify output with an earlier report.
   --apply                   Authorize writes to the selected artifact in loop/watch.
   --allow-exec              Authorize configured commands and repair hooks (no sandbox).
@@ -73,6 +77,7 @@ function number(value, name) {
 function exitFor(report, threshold = 'medium') {
   if (report.loop?.stopReason === 'cancelled') return 130;
   if (report.loop?.stopReason === 'regression') return 1;
+  if (report.checksExecution.some(item => ['failed', 'timed_out'].includes(item.status))) return 1;
   if (report.status === 'partial' || ['coverage_reduced', 'fixer_timeout', 'fixer_failed', 'operational_error', 'deadline'].includes(report.loop?.stopReason) || report.coverage.assessedFiles === 0 || report.coverage.capped || report.checksExecution.some(item => ['not_run', 'deadline', 'cancelled'].includes(item.status))) return 2;
   if (threshold === 'none') return 0;
   const limit = SEVERITIES.indexOf(threshold);
@@ -90,6 +95,11 @@ function outputReport(report, values, output) {
     console.log(`${short(report.target)}: ${report.status}; ${report.findings.length} finding(s), ${report.coverage.assessedFiles} file(s).`);
     for (const item of report.ratings.filter(item => item.score !== null)) console.log(`  ${item.domain}: ${item.score}/100 assessed-check score; ${item.confirmedIssues} confirmed, ${item.reviewPrompts} to review`);
     if (report.loop) console.log(`  Loop stopped: ${report.loop.stopReason}; ${report.loop.repairRounds} repair round(s).`);
+    if (report.runtime) {
+      console.log(`  Browser: ${report.runtime.visual.status}, ${report.runtime.visual.captures.filter(item => item.status === 'captured').length} capture(s). ${report.runtime.visual.reason}`);
+      if (report.runtime.projectImages) console.log(`  Project UI captures: ${report.runtime.projectImages.filter(item => item.status === 'captured').length}/${report.runtime.projectImages.length}.`);
+      console.log(`  Project checks: ${report.runtime.commands.filter(item => item.samples.length).length} executed. Logs: ${report.runtime.logs.filter(item => item.status === 'sampled').length} sampled.`);
+    }
     if (output) console.log(`  Reports: ${output}`);
     console.log('  Partial static scope. Full behaviour, security and accessibility remain subject to applicable verification.');
   }
@@ -102,7 +112,7 @@ export async function main(args = process.argv.slice(2)) {
       help: { type: 'boolean' }, version: { type: 'boolean' }, json: { type: 'boolean' },
       out: { type: 'string' }, format: { type: 'string' }, 'no-save': { type: 'boolean' },
       domains: { type: 'string' }, config: { type: 'string' }, language: { type: 'string' },
-      review: { type: 'string' }, baseline: { type: 'string' }, apply: { type: 'boolean' },
+      review: { type: 'string' }, preview: { type: 'string' }, baseline: { type: 'string' }, apply: { type: 'boolean' },
       'allow-exec': { type: 'boolean' }, 'include-check-output': { type: 'boolean' },
       'max-rounds': { type: 'string' }, 'target-score': { type: 'string' }, 'max-duration-ms': { type: 'string' },
       'interval-ms': { type: 'string' }, 'max-cycles': { type: 'string' }, 'duration-ms': { type: 'string' },
@@ -121,6 +131,8 @@ export async function main(args = process.argv.slice(2)) {
   const options = {
     output: values.out ? path.resolve(values.out) : undefined,
     configFile: values.config, language: values.language,
+    preview: values.preview,
+    fullReview: command === 'review',
     domains: values.domains?.split(',').map(value => value.trim()), reviewFile: values.review,
     apply: Boolean(values.apply), allowExec: Boolean(values['allow-exec']), includeOutput: Boolean(values['include-check-output']),
     maxRounds: number(values['max-rounds'], '--max-rounds'), targetScore: number(values['target-score'], '--target-score'),
@@ -149,7 +161,7 @@ export async function main(args = process.argv.slice(2)) {
       if (!options.output) fail('OUTPUT_REQUIRED', 'History requires --out.', 'Select an existing report directory.');
       console.log(JSON.stringify(sanitize(await readJson(path.join(options.output, 'history.json'), 20_000_000)), null, 2)); return 0;
     }
-    if (!['audit', 'plan', 'verify', 'loop', 'watch', 'init', 'undo'].includes(command)) fail('UNKNOWN_COMMAND', 'Unknown command: ' + short(command), 'Run sloppyai --help.');
+    if (!['audit', 'review', 'plan', 'verify', 'loop', 'watch', 'init', 'undo'].includes(command)) fail('UNKNOWN_COMMAND', 'Unknown command: ' + short(command), 'Run sloppyai --help.');
     if (!target) fail('TARGET_REQUIRED', 'This command requires a target.', 'Select an existing artifact file or directory.');
     const info = await targetInfo(target);
     if (!options.output) options.output = path.join(info.root, '.sloppyai');
@@ -167,13 +179,13 @@ export async function main(args = process.argv.slice(2)) {
       const output = await prepareOutput(options.output);
       console.log(JSON.stringify(await withLock(output, () => undoTransaction(info, output, values.transaction)), null, 2)); return 0;
     }
-    if (command === 'loop' || command === 'watch') {
-      if (values['no-save'] || values.review) fail('INVALID_ARGUMENT', 'Loop/watch require durable state and fresh review after each changed input.', 'Omit --no-save and --review. Import a review separately against the latest inputDigest.');
+    if (['review', 'loop', 'watch'].includes(command)) {
+      if (values['no-save'] || values.review) fail('INVALID_ARGUMENT', 'Review, loop and watch require durable state and fresh evidence after edits.', 'Omit --no-save and --review. Import a source review separately with audit.');
       options.onProgress = event => {
         if (values.events) console.log(JSON.stringify(event));
         else if (!values.json && values.format !== 'json') console.error(event.type === 'assessment' ? `Round ${event.round}: ${event.report.findings.length} finding(s); ${event.report.status}` : event.type === 'repair' ? `Applied ${event.transaction.changes.length} narrow file repair(s).` : event.type === 'stopped' ? `Stopped: ${event.summary.stopReason}` : `Repair hook round ${event.round} completed.`);
       };
-      const result = await (command === 'loop' ? improveLoop : watchTarget)(target, options);
+      const result = await (command === 'watch' ? watchTarget : improveLoop)(target, options);
       if (command === 'watch' && values.events) console.log(JSON.stringify({ type: 'watch_stopped', stopReason: result.stopReason, cycles: result.cycles, elapsedMs: result.elapsedMs }));
       if (result.report && !values.events) outputReport(result.report, values, result.output);
       if (command === 'watch' && !values.events && !values.json) console.error(`Watch stopped: ${result.stopReason}; ${result.cycles} changed-input cycle(s).`);
@@ -181,9 +193,14 @@ export async function main(args = process.argv.slice(2)) {
     }
     const result = await audit(target, options);
     if (command === 'verify') {
-      const executions = await runChecks(result.config.checks, { cwd: info.root, allowExec: options.allowExec, signal: options.signal, deadline: Date.now() + result.config.loop.maxDurationMs, includeOutput: options.includeOutput });
+      const startedAt = Date.now();
+      const deadline = startedAt + result.config.loop.maxDurationMs;
+      const executions = await runChecks(result.config.checks, { cwd: info.root, allowExec: options.allowExec, signal: options.signal, deadline, includeOutput: options.includeOutput });
       if (executions.some(item => item.attempts.length)) await assertStableInputs(result, { output: options.output, signal: options.signal });
       attachChecks(result.report, executions, result.config.domains);
+      const runtime = await collectRuntime(result, executions, { ...options, deadline, startedAt, noSave: values['no-save'] });
+      if (runtime?.visual.captures.length) await assertStableInputs(result, { output: options.output, signal: options.signal });
+      attachRuntime(result.report, runtime);
     }
     const baseline = values.baseline ? await validate('report', await readJson(values.baseline, 20_000_000)) : null;
     if (baseline) result.report.comparison = compareReports(baseline, result.report);
@@ -191,8 +208,20 @@ export async function main(args = process.argv.slice(2)) {
     if (!values['no-save']) saved = await saveReport(options.output, result.report, { ...(baseline ? { baseline } : {}) });
     if (command === 'plan') {
       const actionable = result.report.findings.filter(item => item.disposition === 'open');
-      const plan = ['# Improvement plan', '', `Target: ${short(result.report.target)}. Input digest: ${result.report.inputDigest}.`, '', 'Preserve required features, useful statuses, actual costs, navigation, accessibility and accepted style.', '', ...actionable.flatMap((item, i) => [`## ${i + 1}. ${short(item.title)}`, '', `Evidence (${item.confidence}): ${short(item.evidence, 1000)}`, '', `Change: ${short(item.recommendation, 1000)}`, '', 'Verify the original issue and the relevant preserved behaviour. Record unassessed runtime or contextual work.', '']), ...(actionable.length ? [] : ['No supported static findings. Select relevant contextual review domains before claiming full verification.']), ''].join('\n');
-      console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan }, null, 2) : plan);
+      const guidance = improvementGuidance(result);
+      const byId = new Map(actionable.map(item => [item.id, item]));
+      const plan = ['# Improvement plan', '', `Target: ${short(result.report.target)}. Input digest: ${result.report.inputDigest}.`, '', 'Preserve required features, useful statuses, actual costs, navigation, accessibility and accepted style.', '',
+        ...guidance.steps.flatMap((step, i) => {
+          const item = byId.get(step.findingId);
+          return [`## ${i + 1}. ${short(item.title)} (${step.ruleId})`, '',
+            `Source ${short(item.location.path)}:${item.location.line}. ${step.method === 'built_in' ? 'Available through loop --apply.' : 'Review the context before changing source.'}`, '',
+            `Evidence (${item.confidence}): ${short(item.evidence, 1000)}`, '',
+            `Change: ${short(item.recommendation, 1000)}`, '',
+            ...step.verification.map(verification => short(verification, 1000)), ''];
+        }),
+        ...(actionable.length ? [] : ['Static source checks returned zero findings. Use the relevant checklist rows to assess other evidence.']), '',
+        `Checklist: ${guidance.checklistFile}`, `Repair guide: ${guidance.repairGuideFile}`, ''].join('\n');
+      console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan, guidance }, null, 2) : plan);
     } else outputReport(saved?.report || result.report, values, saved?.output);
     return exitFor(result.report, values['fail-on']);
   } finally {

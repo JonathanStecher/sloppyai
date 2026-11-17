@@ -3,7 +3,7 @@ import path from 'node:path';
 import { hash, inside, slash, stable, assertNotAborted, READ_FLAGS, readBounded } from './util.mjs';
 import { fail } from './errors.mjs';
 
-const EXTENSIONS = new Set(['.html', '.htm', '.css', '.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql', '.md', '.txt', '.json', '.yaml', '.yml']);
+const NON_SOURCE = /\.(?:7z|avi|bin|class|db|dll|docx?|eot|exe|flac|gif|gz|ico|jpe?g|log|mov|mp[34]|o|otf|pdf|png|pptx?|rar|sqlite[3]?|svgz|tar|tiff?|tsbuildinfo|ttf|wasm|wav|webm|webp|woff2?|xlsx?|zip)$/i;
 const IGNORED = new Set(['.git', '.sloppyai', '.craftcheck', 'node_modules', 'vendor', 'coverage', '.next', '.nuxt', 'dist', 'build', '__pycache__', '.venv', 'venv']);
 const SECRET_FILE = /^(?:\.env(?:\..*)?|credentials(?:\..*)?|id_(?:rsa|ed25519|ecdsa)(?:\.pub)?|.*\.(?:pem|key|p12|pfx))$/i;
 const LOCK_FILE = /^(?:package-lock\.json|yarn\.lock|pnpm-lock\.yaml|bun\.lock|uv\.lock)$/;
@@ -44,7 +44,7 @@ export async function collectFiles(info, config, options = {}) {
       for (const child of children) { if (capped) break; await visit(path.join(file, child)); }
       return;
     }
-    if (!stat.isFile() || !EXTENSIONS.has(path.extname(file).toLowerCase())) { skip(relative, 'unsupported file type'); return; }
+    if (!stat.isFile() || NON_SOURCE.test(base)) { skip(relative, 'non-source file excluded'); return; }
     if (files.length >= config.maxFiles) { capped = true; skip(relative, 'file count limit'); return; }
     if (stat.size > config.maxFileBytes) { skip(relative, 'file byte limit'); return; }
     if (total + stat.size > config.maxTotalBytes) { capped = true; skip(relative, 'total byte limit'); return; }
@@ -65,7 +65,7 @@ export async function collectFiles(info, config, options = {}) {
     } catch (_error) { skip(relative, 'unreadable file'); }
     finally { await handle?.close(); }
   }
-  if (info.isFile && !EXTENSIONS.has(path.extname(info.target).toLowerCase())) fail('UNSUPPORTED_FILE', 'This file type has no static reader.', 'Use the agent media/document workflow, or select UTF-8 source files.');
+  if (info.isFile && NON_SOURCE.test(info.target)) fail('UNSUPPORTED_FILE', 'This file type has no static reader.', 'Use the agent media/document workflow, or select UTF-8 source files.');
   await visit(info.target);
   const manifest = files.map(({ path, hash, bytes }) => ({ path, hash, bytes }));
   return { files, manifest, skipped, capped, bytes: total, digest: hash(stable(manifest)) };

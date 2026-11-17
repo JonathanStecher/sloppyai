@@ -2,7 +2,7 @@
 
 Generated from the canonical JSON records. Edit skills/sloppyai/catalog, then run npm run catalog.
 
-194 entries, including all 102 original screenshot labels.
+206 entries, including all 102 original screenshot labels.
 
 Kinds: requirement, heuristic, option, definition. An entry is not necessarily an implemented automated check.
 
@@ -30,7 +30,7 @@ Images need appropriate text alternatives or an intentional decorative treatment
 
 Describe the image's function; decorative images can use an empty alt attribute.
 
-Verification: Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted.
+Verification: Review HTML and native JSX source checks. Verify the rendered accessibility tree, alternative text quality, component props and image purpose.
 
 Counterexample: A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence.
 
@@ -1088,13 +1088,13 @@ Sources: [image-3](#source-image-3), [nngroup-heuristics](#source-nngroup-heuris
 
 ### D02: Drop redundant labels
 
-Domain: design. Kind: heuristic. Automation: none.
+Domain: design. Kind: heuristic. Automation: partial.
 
 Repeated words can increase scanning effort.
 
 Simplify repetition while preserving visible context and accessible control names.
 
-Verification: Inspect the relevant artifact and establish the concrete impact before recommending a change.
+Verification: Check whether a repeated label and heading render together. Preserve any status, accessible relationship or navigation role before removing redundant copy.
 
 Counterexample: A deliberate choice serving the audience or an accepted project requirement is not a defect.
 
@@ -1660,6 +1660,174 @@ Counterexample: An intentional, appropriate project choice or existing verified 
 
 Sources: [gstack-product](#source-gstack-product), [nngroup-heuristics](#source-nngroup-heuristics)
 
+### A12: Keyboard, touch and drag access
+
+Domain: accessibility. Kind: requirement. Automation: none.
+
+Interactive tasks need usable targets and appropriate input alternatives.
+
+Check keyboard operation, target size and spacing, and an alternative to dragging when applicable. Keep focus visible and return it at the end of transient interactions.
+
+Verification: Complete the key tasks with touch and keyboard on the rendered artifact. Measure relevant targets and check the applicable WCAG exceptions.
+
+Counterexample: An inline link can qualify for a target-size exception. Some native or essential interactions have different applicable criteria.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22), [w3c-apg](#source-w3c-apg)
+
+### D21: Typographic detail and stability
+
+Domain: design. Kind: heuristic. Automation: none.
+
+Type needs to remain readable and aligned as labels, numbers and available space change.
+
+Review type scale, optical spacing, line length and wrapping. Use width reservation, text-box trim, underline offsets, fluid sizing or truncation only where they improve the measured state.
+
+Verification: Compare the affected lines or controls at narrow and wide widths, with long translations and changing content.
+
+Counterexample: A readable long title may be more useful than a uniform card height. Deliberate editorial variation can support the composition.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22), [google-design](#source-google-design), [image-4](#source-image-4)
+
+### UX13: Responsive layout and safe areas
+
+Domain: ux. Kind: heuristic. Automation: none.
+
+Content and primary actions need room on narrow, short and changing viewports.
+
+Inspect device safe areas, browser chrome, zoom and keyboard open states. Check overflow, clipping, layering and whether sticky controls cover important content.
+
+Verification: Use the real page and target inputs at relevant widths and heights. Repeat with the keyboard open, zoom increased and long or localized text.
+
+Counterexample: A map, timeline or dense data table can require intentional horizontal navigation while keeping its controls and surrounding content accessible.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22), [nngroup-heuristics](#source-nngroup-heuristics), [image-4](#source-image-4)
+
+### P09: Public route discovery and sharing
+
+Domain: design. Kind: heuristic. Automation: none.
+
+A public page should be identifiable and usable when opened, indexed or shared.
+
+Check distinct page titles and descriptions, canonical URLs, social preview images, internal links, index directives and the actual not-found response for the intended public routes.
+
+Verification: Inspect the rendered metadata, canonical destinations and public navigation. Check status and index intent for visible routes and a missing route.
+
+Counterexample: Authenticated workspace routes, duplicated language-neutral previews and temporary staging pages have different indexing and metadata goals.
+
+Sources: [google-search-central](#source-google-search-central), [w3c-wcag22](#source-w3c-wcag22)
+
+### P10: Public business and support information
+
+Domain: design. Kind: heuristic. Automation: none.
+
+Visitors need accurate contact, location and support information to make a decision.
+
+Verify business identity, response-time promises and relevant FAQs. Provide current directions and matching local structured data where an actual customer-facing location exists.
+
+Verification: Compare the information with the actual offer and information supplied by the operator. Walk navigation and contact paths.
+
+Counterexample: An online-only tool may have no location to visit. Existing support documentation may answer questions without a separate FAQ.
+
+Sources: [google-search-central](#source-google-search-central), [nngroup-heuristics](#source-nngroup-heuristics)
+
+### R07: Product notices and consent flows
+
+Domain: rights. Kind: requirement. Automation: none.
+
+User-facing disclosures and choices need to match the actual feature, data flow and market.
+
+Verify which privacy, cookie, AI, terms, renewal, cancellation or refund disclosures apply. Check choices in forms and analytics, consent withdrawal and marketing unsubscribe where relevant.
+
+Verification: Compare notices and controls with actual supported flows, SDKs and provider data handling. Record legal applicability that still needs authoritative review.
+
+Counterexample: A tracker-free site, non-renewing purchase or purely local demo can have different disclosure and consent needs.
+
+Sources: [ec-data-rights](#source-ec-data-rights), [ec-processing-grounds](#source-ec-processing-grounds), [ftc-darkpatterns](#source-ftc-darkpatterns)
+
+### S33: Deployed transport and origin policies
+
+Domain: security. Kind: requirement. Automation: none.
+
+TLS, cross-origin policies and response headers need to match the deployed topology and trust boundaries.
+
+Review HTTPS, CORS for sensitive responses, and security headers at the application and authorized edge configuration. Document any intentional public access.
+
+Verification: Review the relevant app, host and proxy configuration or recorded deployment evidence. Keep environment-specific gaps visible.
+
+Counterexample: A deliberately public, credential-free endpoint may allow a broad origin policy. Loopback development traffic can have distinct transport settings.
+
+Sources: [owasp-asvs](#source-owasp-asvs), [owasp-api](#source-owasp-api)
+
+### S34: Upload validation and serving
+
+Domain: security. Kind: requirement. Automation: none.
+
+Uploaded files cross ownership, storage and content-handling boundaries.
+
+Apply relevant type, size and ownership constraints before processing. Verify safe rendering, storage permissions, serving policy and deletion through the file lifecycle.
+
+Verification: Trace upload, processing, download and deletion source. Use approved local fixtures to verify expected product behavior where supported.
+
+Counterexample: An intentionally public asset library has a different access policy from private user attachments.
+
+Sources: [owasp-asvs](#source-owasp-asvs), [owasp-api](#source-owasp-api)
+
+### M09: Short-form explanation and demonstration
+
+Domain: media. Kind: heuristic. Automation: none.
+
+A short explainer needs a clear focal action and legible supporting information at the moment it is discussed.
+
+Use real product states or sourced examples, clear before and after states, and selective annotation. Keep captions, sources and useful labels within the viewing safe area and time them to the spoken point.
+
+Verification: Watch the actual export at its intended size and speed. Inspect key beats for visible evidence, caption position, read time and continuity.
+
+Counterexample: A quiet documentary sequence can hold a verified image or diagram without labels when that supports comprehension.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22), [nngroup-heuristics](#source-nngroup-heuristics)
+
+### E12: Adjacent duplicate CSS declarations
+
+Domain: engineering. Kind: heuristic. Automation: static.
+
+Two adjacent, identical declarations in a style rule repeat the same assignment.
+
+Keep one declaration. Keep distinct fallbacks, priority, comments and declarations separated by other style changes.
+
+Verification: Reparse the stylesheet, review cascade-equivalent declarations and compare the affected rendered state if the wider style was changed.
+
+Counterexample: Consecutive declarations with differing values can implement a fallback. A separate comment or intervening declaration makes the context meaningful.
+
+Sources: [mdn-css-cascade](#source-mdn-css-cascade)
+
+### S35: Optional Next.js identification header
+
+Domain: security. Kind: heuristic. Automation: partial.
+
+Next.js can omit its framework-identifying response header.
+
+Set poweredByHeader to false for projects that want less identifying response metadata. Keep framework advisories and authorization checks separate.
+
+Verification: Check the authored Next.js configuration. Use approved hosting evidence to assess actual response headers.
+
+Counterexample: A deployment may strip the header at its edge or explicitly retain it for internal diagnostics.
+
+Sources: [next-powered-by-header](#source-next-powered-by-header)
+
+### S36: Privileged environment values in client configuration
+
+Domain: security. Kind: requirement. Automation: partial.
+
+Next.js env substitutions can make configured values available in client bundles.
+
+Verify the intended exposure and usage. Move privileged values to server-only configuration and reuse an authorized server operation for the client-facing task.
+
+Verification: Trace configuration and client callers. Use safe sample values to verify the build boundary and ordinary server operation.
+
+Counterexample: Publishable keys and product display strings can be appropriate public values. A name alone does not establish that a value is privileged or deployed.
+
+Sources: [next-env](#source-next-env), [owasp-asvs](#source-owasp-asvs)
+
 ### R01: Asset provenance
 
 Domain: rights. Kind: requirement. Automation: none.
@@ -1752,11 +1920,11 @@ A target=_blank link may retain an opener in some environments.
 
 Use an appropriate rel value while preserving existing relationship tokens.
 
-Verification: Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted.
+Verification: Confirm the ordinary new-tab relation in HTML or native JSX and preserve navigation, attribution tokens and any intentional opener relationship.
 
 Counterexample: A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence.
 
-Sources: [owasp-asvs](#source-owasp-asvs), [owasp-api](#source-owasp-api), [owasp-logic](#source-owasp-logic), [owasp-webhook](#source-owasp-webhook)
+Sources: [mdn-noopener](#source-mdn-noopener), [owasp-asvs](#source-owasp-asvs), [owasp-api](#source-owasp-api), [owasp-logic](#source-owasp-logic), [owasp-webhook](#source-owasp-webhook)
 
 ### S22: Raw HTML sink
 
@@ -3003,6 +3171,69 @@ Type: study. Reviewed 2026-11-10.
 [Original source](https://www.usenix.org/system/files/usenixsecurity25-spracklen.pdf)
 
 Reference or workflow influence; check current applicability before consequential use.
+
+<a id="source-mdn-css-cascade"></a>
+### MDN introduction to the CSS cascade
+
+Type: guidance.
+
+[Original source](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Introduction)
+
+Explains declaration precedence, including order of appearance for competing values.
+
+<a id="source-mdn-noopener"></a>
+### MDN noopener HTML relationship
+
+Type: guidance.
+
+[Original source](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener)
+
+Describes explicit opener isolation, referrer behaviour and the modern target=_blank default.
+
+<a id="source-next-powered-by-header"></a>
+### Next.js poweredByHeader configuration
+
+Type: guidance.
+
+[Original source](https://nextjs.org/docs/app/api-reference/config/next-config-js/poweredByHeader)
+
+Documents the default framework identification header and the configuration switch to disable it.
+
+<a id="source-next-env"></a>
+### Next.js env configuration
+
+Type: guidance.
+
+[Original source](https://nextjs.org/docs/app/api-reference/config/next-config-js/env)
+
+Describes compile-time substitutions and their inclusion in JavaScript bundles.
+
+<a id="source-google-search-central"></a>
+### Google Search Central SEO Starter Guide
+
+Type: guidance.
+
+[Original source](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+
+Context for public search discovery and page metadata.
+
+<a id="source-ec-data-rights"></a>
+### European Commission guidance on data rights
+
+Type: guidance.
+
+[Original source](https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en)
+
+Overview of applicable GDPR data rights and transparency.
+
+<a id="source-ec-processing-grounds"></a>
+### European Commission guidance on lawful processing
+
+Type: guidance.
+
+[Original source](https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data_en)
+
+Overview of legal grounds, consent withdrawal and processing contexts.
 
 <a id="source-image-1"></a>
 ### User-supplied screenshot 1
