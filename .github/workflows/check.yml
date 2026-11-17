@@ -60,6 +60,8 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm install --no-save --package-lock=false --ignore-scripts playwright@1.62.1
       - run: npx playwright install --with-deps chromium
+      - name: Select the installed Playwright Chromium
+        run: node -e "console.log('SLOPPYAI_CHROMIUM=' + require('playwright').chromium.executablePath())" >> "$GITHUB_ENV"
       - run: node --test test/runtime.test.mjs
         env:
           SLOPPYAI_REQUIRE_BROWSER: '1'
