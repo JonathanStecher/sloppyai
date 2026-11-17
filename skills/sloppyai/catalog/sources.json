@@ -320,6 +320,27 @@
     "note": "Reference or workflow influence; check current applicability before consequential use."
   },
   {
+    "id": "google-search-central",
+    "title": "Google Search Central SEO Starter Guide",
+    "kind": "guidance",
+    "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+    "note": "Context for public search discovery and page metadata."
+  },
+  {
+    "id": "ec-data-rights",
+    "title": "European Commission guidance on data rights",
+    "kind": "guidance",
+    "url": "https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en",
+    "note": "Overview of applicable GDPR data rights and transparency."
+  },
+  {
+    "id": "ec-processing-grounds",
+    "title": "European Commission guidance on lawful processing",
+    "kind": "guidance",
+    "url": "https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data_en",
+    "note": "Overview of legal grounds, consent withdrawal and processing contexts."
+  },
+  {
     "id": "image-1",
     "title": "User-supplied screenshot 1",
     "kind": "user-reference",

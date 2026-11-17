@@ -9,6 +9,7 @@ useful features and deliberate style choices.
 
 - **[Getting started](blog/how-to-use-sloppyai.md):** installation, copyable prompts and a worked example.
 - [AI use and the EU AI Act](skills/sloppyai/references/eu-ai-act.md)
+- [Product and release review checklist](skills/sloppyai/references/release-review.md)
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.
@@ -165,9 +166,10 @@ node skills/sloppyai/scripts/sloppyai.mjs undo /path/to/artifact --out /path/to/
 ## What is implemented
 
 - A self-contained skill with plan, audit, improve and verify workflows.
-- 194 canonical entries, retaining all 102 original research labels: requirements,
+- 203 canonical entries, retaining all 102 original research labels: requirements,
   contextual heuristics, optional visual techniques and definitions.
-- Static HTML naming, language, zoom, duplicate-ID and link checks; contextual
+- Static HTML naming, language, zoom, duplicate-ID and link checks, plus native
+  JSX image-alternative review prompts. Also includes contextual
   heading, contrast, image-space, CSS, copy and source-code prompts.
 - Bounded loops, change-triggered watch, optional command checks and review/fix hooks.
 - Fresh-review binding, separate ratings, issue comparisons, backups and undo.

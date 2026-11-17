@@ -34,6 +34,7 @@ Load only relevant references:
 | Work | Reference |
 | --- | --- |
 | Visual identity, composition and hierarchy | [Design](references/design.md) |
+| Shared product, launch and short-form review | [Product and release checklist](references/release-review.md) |
 | Dense dashboards and operational controls | [Operational interfaces](references/operational-ui.md) |
 | Journeys, state and recovery | [UX](references/ux.md) |
 | Wording, claims and localization | [Copy](references/copy.md) |

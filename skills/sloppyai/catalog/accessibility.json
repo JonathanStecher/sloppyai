@@ -33,7 +33,7 @@
       "all"
     ],
     "verification": [
-      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+      "Review HTML and native JSX source checks. Verify the rendered accessibility tree, alternative text quality, component props and image purpose."
     ],
     "counterexamples": [
       "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."

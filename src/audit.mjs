@@ -6,7 +6,7 @@ import { loadCatalog } from './catalog.mjs';
 import { createContext } from './checks/context.mjs';
 import { checkHtml } from './checks/html.mjs';
 import { checkText, checkCode } from './checks/text.mjs';
-import { checkJsxCopy } from './checks/jsx-copy.mjs';
+import { checkJsx } from './checks/jsx.mjs';
 import { checkCss } from './checks/css.mjs';
 import { isTestFixture } from './checks/scope.mjs';
 import { hash, id, stable, readJson, short } from './util.mjs';
@@ -40,7 +40,7 @@ export async function audit(target, options = {}) {
     else if (['.md', '.txt'].includes(extension)) checkText(file, ctx);
     else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) {
       checkCode(file, ctx);
-      if (extension === '.jsx' || extension === '.tsx') checkJsxCopy(file, ctx, extension);
+      if (extension === '.jsx' || extension === '.tsx') checkJsx(file, ctx, extension);
     }
   }
   const excludedPaths = new Set(excludedFixtures.map(item => item.path));
