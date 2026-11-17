@@ -70,7 +70,9 @@ Identify which findings and edits came from the coding agent. Show the relevant
 evidence, changed behavior and unverified checks so the user can review them before
 relying on the result.
 
-1. Run `audit TARGET --out REPORT_DIR` for static evidence and inputDigest.
+1. Run `review TARGET --allow-exec --out REPORT_DIR` for approved product
+   review with rendered evidence, project checks and log summaries. Use
+   `audit TARGET` for source-only evidence.
 2. Add relevant visual, source, runtime and factual review using available tools.
 3. Rate only assessed domains with the rubric in references/ratings.md.
 4. Run the authorized built-in repairs and use the repair instructions for

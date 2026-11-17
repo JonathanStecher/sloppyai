@@ -46,6 +46,65 @@
     "targetId": {
       "$ref": "#/definitions/digest"
     },
+    "inventory": {
+      "type": "object",
+      "required": ["languages", "uiFiles", "backendFiles", "testFiles", "builtInFiles"],
+      "additionalProperties": false,
+      "properties": {
+        "languages": { "type": "array", "items": { "type": "object", "required": ["name", "files"], "additionalProperties": false, "properties": { "name": { "type": "string" }, "files": { "type": "integer", "minimum": 0 } } } },
+        "uiFiles": { "type": "integer", "minimum": 0 },
+        "backendFiles": { "type": "integer", "minimum": 0 },
+        "testFiles": { "type": "integer", "minimum": 0 },
+        "builtInFiles": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["visual", "logs", "commands", "digest"],
+      "additionalProperties": false,
+      "properties": {
+        "digest": { "$ref": "#/definitions/digest" },
+        "projectImages": {
+          "type": "array", "maxItems": 12,
+          "items": {
+            "type": "object", "required": ["path", "status"], "additionalProperties": false,
+            "properties": {
+              "path": { "type": "string", "maxLength": 300 },
+              "status": { "enum": ["captured", "unavailable", "stale"] },
+              "width": { "type": "integer", "minimum": 1 }, "height": { "type": "integer", "minimum": 1 },
+              "screenshot": { "type": ["string", "null"], "pattern": "^visual/[a-f0-9-]{36}/project-[0-9]+\\.png$" },
+              "screenshotDigest": { "$ref": "#/definitions/digest" }
+            }
+          }
+        },
+        "visual": {
+          "type": "object", "required": ["status", "reason", "captures"], "additionalProperties": false,
+          "properties": {
+            "status": { "enum": ["captured", "partial", "unassessed", "not_applicable"] },
+            "reason": { "type": "string", "maxLength": 500 },
+            "captures": {
+              "type": "array", "maxItems": 24,
+              "items": {
+                "type": "object", "required": ["status", "route", "viewport", "theme", "width", "height", "httpStatus"],
+                "properties": {
+                  "status": { "enum": ["captured", "failed"] },
+                  "route": { "type": "string", "maxLength": 2050 },
+                  "viewport": { "enum": ["desktop", "mobile"] },
+                  "theme": { "enum": ["light", "dark"] },
+                  "width": { "type": "integer" },
+                  "height": { "type": "integer" },
+                  "httpStatus": { "type": "integer" },
+                  "screenshot": { "type": ["string", "null"], "pattern": "^visual/[a-f0-9-]{36}/[0-9]+-(desktop|mobile)-(light|dark)\\.png$" },
+                  "screenshotDigest": { "$ref": "#/definitions/digest" }
+                }
+              }
+            }
+          }
+        },
+        "logs": { "type": "array", "maxItems": 12, "items": { "type": "object" } },
+        "commands": { "type": "array", "maxItems": 12, "items": { "type": "object" } }
+      }
+    },
     "inputDigest": {
       "$ref": "#/definitions/digest"
     },
@@ -405,6 +464,14 @@
                 },
                 "outputTruncated": {
                   "type": "boolean"
+                },
+                "diagnostics": {
+                  "type": "object", "required": ["lines", "errors", "warnings"], "additionalProperties": false,
+                  "properties": {
+                    "lines": { "type": "integer", "minimum": 0 },
+                    "errors": { "type": "integer", "minimum": 0 },
+                    "warnings": { "type": "integer", "minimum": 0 }
+                  }
                 },
                 "error": {
                   "type": "string",

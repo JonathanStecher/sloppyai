@@ -58,6 +58,22 @@ Host syntax differs: Codex can use `$sloppyai`; Claude Code can use
 
 ## Audit an artifact
 
+Use the full review for product work. It inventories UTF-8 source, captures
+desktop and mobile browser evidence for UI targets, runs authorized project
+checks and summarizes browser, command and configured file logs.
+
+```sh
+node skills/sloppyai/scripts/sloppyai.mjs review /path/to/artifact --allow-exec
+```
+
+Add `--apply` to recheck after supported repairs. For framework applications,
+start the preview and pass its origin with `--preview http://127.0.0.1:3000`.
+Standalone HTML can be rendered locally. See the
+[rendered review guide](docs/rendered-review.md) for routes, browser setup,
+backend tests and reports.
+
+Use a source audit for a read-only scan.
+
 ```sh
 node skills/sloppyai/scripts/sloppyai.mjs audit /path/to/artifact
 node skills/sloppyai/scripts/sloppyai.mjs plan /path/to/artifact --no-save

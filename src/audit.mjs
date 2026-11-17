@@ -9,6 +9,7 @@ import { checkText, checkCode } from './checks/text.mjs';
 import { checkJsx } from './checks/jsx.mjs';
 import { checkCss } from './checks/css.mjs';
 import { checkNextConfig } from './checks/next-config.mjs';
+import { inventoryOf } from './inventory.mjs';
 import { isTestFixture } from './checks/scope.mjs';
 import { hash, id, stable, readJson, short } from './util.mjs';
 import { lstat } from 'node:fs/promises';
@@ -42,7 +43,7 @@ export async function audit(target, options = {}) {
     else if (['.js', '.mjs', '.cjs', '.jsx', '.ts', '.tsx', '.py', '.sql'].includes(extension)) {
       checkCode(file, ctx);
       checkNextConfig(file, ctx);
-      if (extension === '.jsx' || extension === '.tsx') checkJsx(file, ctx, extension);
+      if (['.js', '.mjs', '.cjs', '.jsx', '.tsx'].includes(extension)) checkJsx(file, ctx, extension);
     }
   }
   const excludedPaths = new Set(excludedFixtures.map(item => item.path));
@@ -67,7 +68,7 @@ export async function audit(target, options = {}) {
   const report = {
     schemaVersion: 1, engineVersion: VERSION, id: id(), createdAt: new Date().toISOString(),
     target: info.label, targetId: hash(info.target), inputDigest, artifactDigest: collected.digest, configDigest: settings.digest, catalogDigest: catalog.digest,
-    manifest: collected.manifest, findings, checks,
+    manifest: collected.manifest, inventory: inventoryOf(collected.files), findings, checks,
     coverage: {
       kind: 'partial static assessment', fullArtifactVerified: false, assessedFiles: collected.files.length - excludedFixtures.length,
       assessedBytes: collected.files.filter(file => !excludedPaths.has(file.path)).reduce((sum, file) => sum + file.bytes, 0), capped: collected.capped || ctx.capped || collected.skipped.length + excludedFixtures.length > 200, skipped: [...collected.skipped, ...excludedFixtures].slice(0, 200),

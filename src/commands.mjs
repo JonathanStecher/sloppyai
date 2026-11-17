@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { hash, short, stable, assertNotAborted } from './util.mjs';
 import { rate, completion } from './ratings.mjs';
+import { logLevels } from './diagnostics.mjs';
 
 export async function executeCommand(definition, options) {
   assertNotAborted(options.signal);
@@ -39,6 +40,7 @@ export async function executeCommand(definition, options) {
       resolve({
         exitCode: code, timedOut, cancelled, durationMs: Date.now() - started,
         outputDigest: digest.digest('hex'), outputTruncated: outputBytes > 8000,
+        diagnostics: logLevels(tail),
         ...(spawnError ? { error: spawnError } : {}),
         ...(options.includeOutput && (code !== 0 || timedOut) ? { output: short(tail, 2000) } : {})
       });
