@@ -1,0 +1,42 @@
+[
+  {
+    "id": "E12",
+    "title": "Adjacent duplicate CSS declarations",
+    "domain": "engineering",
+    "kind": "heuristic",
+    "description": "Two adjacent, identical declarations in a style rule repeat the same assignment.",
+    "guidance": "Keep one declaration. Keep distinct fallbacks, priority, comments and declarations separated by other style changes.",
+    "appliesTo": ["web", "code"],
+    "verification": ["Reparse the stylesheet, review cascade-equivalent declarations and compare the affected rendered state if the wider style was changed."],
+    "counterexamples": ["Consecutive declarations with differing values can implement a fallback. A separate comment or intervening declaration makes the context meaningful."],
+    "sourceIds": ["mdn-css-cascade"],
+    "automation": "static"
+  },
+  {
+    "id": "S35",
+    "title": "Optional Next.js identification header",
+    "domain": "security",
+    "kind": "heuristic",
+    "description": "Next.js can omit its framework-identifying response header.",
+    "guidance": "Set poweredByHeader to false for projects that want less identifying response metadata. Keep framework advisories and authorization checks separate.",
+    "appliesTo": ["web", "code"],
+    "verification": ["Check the authored Next.js configuration. Use approved hosting evidence to assess actual response headers."],
+    "counterexamples": ["A deployment may strip the header at its edge or explicitly retain it for internal diagnostics."],
+    "sourceIds": ["next-powered-by-header"],
+    "automation": "partial"
+  },
+  {
+    "id": "S36",
+    "title": "Privileged environment values in client configuration",
+    "domain": "security",
+    "kind": "requirement",
+    "description": "Next.js env substitutions can make configured values available in client bundles.",
+    "guidance": "Verify the intended exposure and usage. Move privileged values to server-only configuration and reuse an authorized server operation for the client-facing task.",
+    "appliesTo": ["web", "code"],
+    "verification": ["Trace configuration and client callers. Use safe sample values to verify the build boundary and ordinary server operation."],
+    "counterexamples": ["Publishable keys and product display strings can be appropriate public values. A name alone does not establish that a value is privileged or deployed."],
+    "sourceIds": ["next-env", "owasp-asvs"],
+    "automation": "partial",
+    "defaultSeverity": "high"
+  }
+]

@@ -2,7 +2,7 @@
 
 Generated from the canonical JSON records. Edit skills/sloppyai/catalog, then run npm run catalog.
 
-203 entries, including all 102 original screenshot labels.
+206 entries, including all 102 original screenshot labels.
 
 Kinds: requirement, heuristic, option, definition. An entry is not necessarily an implemented automated check.
 
@@ -1088,13 +1088,13 @@ Sources: [image-3](#source-image-3), [nngroup-heuristics](#source-nngroup-heuris
 
 ### D02: Drop redundant labels
 
-Domain: design. Kind: heuristic. Automation: none.
+Domain: design. Kind: heuristic. Automation: partial.
 
 Repeated words can increase scanning effort.
 
 Simplify repetition while preserving visible context and accessible control names.
 
-Verification: Inspect the relevant artifact and establish the concrete impact before recommending a change.
+Verification: Check whether a repeated label and heading render together. Preserve any status, accessible relationship or navigation role before removing redundant copy.
 
 Counterexample: A deliberate choice serving the audience or an accepted project requirement is not a defect.
 
@@ -1786,6 +1786,48 @@ Counterexample: A quiet documentary sequence can hold a verified image or diagra
 
 Sources: [w3c-wcag22](#source-w3c-wcag22), [nngroup-heuristics](#source-nngroup-heuristics)
 
+### E12: Adjacent duplicate CSS declarations
+
+Domain: engineering. Kind: heuristic. Automation: static.
+
+Two adjacent, identical declarations in a style rule repeat the same assignment.
+
+Keep one declaration. Keep distinct fallbacks, priority, comments and declarations separated by other style changes.
+
+Verification: Reparse the stylesheet, review cascade-equivalent declarations and compare the affected rendered state if the wider style was changed.
+
+Counterexample: Consecutive declarations with differing values can implement a fallback. A separate comment or intervening declaration makes the context meaningful.
+
+Sources: [mdn-css-cascade](#source-mdn-css-cascade)
+
+### S35: Optional Next.js identification header
+
+Domain: security. Kind: heuristic. Automation: partial.
+
+Next.js can omit its framework-identifying response header.
+
+Set poweredByHeader to false for projects that want less identifying response metadata. Keep framework advisories and authorization checks separate.
+
+Verification: Check the authored Next.js configuration. Use approved hosting evidence to assess actual response headers.
+
+Counterexample: A deployment may strip the header at its edge or explicitly retain it for internal diagnostics.
+
+Sources: [next-powered-by-header](#source-next-powered-by-header)
+
+### S36: Privileged environment values in client configuration
+
+Domain: security. Kind: requirement. Automation: partial.
+
+Next.js env substitutions can make configured values available in client bundles.
+
+Verify the intended exposure and usage. Move privileged values to server-only configuration and reuse an authorized server operation for the client-facing task.
+
+Verification: Trace configuration and client callers. Use safe sample values to verify the build boundary and ordinary server operation.
+
+Counterexample: Publishable keys and product display strings can be appropriate public values. A name alone does not establish that a value is privileged or deployed.
+
+Sources: [next-env](#source-next-env), [owasp-asvs](#source-owasp-asvs)
+
 ### R01: Asset provenance
 
 Domain: rights. Kind: requirement. Automation: none.
@@ -1878,11 +1920,11 @@ A target=_blank link may retain an opener in some environments.
 
 Use an appropriate rel value while preserving existing relationship tokens.
 
-Verification: Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted.
+Verification: Confirm the ordinary new-tab relation in HTML or native JSX and preserve navigation, attribution tokens and any intentional opener relationship.
 
 Counterexample: A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence.
 
-Sources: [owasp-asvs](#source-owasp-asvs), [owasp-api](#source-owasp-api), [owasp-logic](#source-owasp-logic), [owasp-webhook](#source-owasp-webhook)
+Sources: [mdn-noopener](#source-mdn-noopener), [owasp-asvs](#source-owasp-asvs), [owasp-api](#source-owasp-api), [owasp-logic](#source-owasp-logic), [owasp-webhook](#source-owasp-webhook)
 
 ### S22: Raw HTML sink
 
@@ -3129,6 +3171,42 @@ Type: study. Reviewed 2026-11-10.
 [Original source](https://www.usenix.org/system/files/usenixsecurity25-spracklen.pdf)
 
 Reference or workflow influence; check current applicability before consequential use.
+
+<a id="source-mdn-css-cascade"></a>
+### MDN introduction to the CSS cascade
+
+Type: guidance.
+
+[Original source](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Introduction)
+
+Explains declaration precedence, including order of appearance for competing values.
+
+<a id="source-mdn-noopener"></a>
+### MDN noopener HTML relationship
+
+Type: guidance.
+
+[Original source](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener)
+
+Describes explicit opener isolation, referrer behaviour and the modern target=_blank default.
+
+<a id="source-next-powered-by-header"></a>
+### Next.js poweredByHeader configuration
+
+Type: guidance.
+
+[Original source](https://nextjs.org/docs/app/api-reference/config/next-config-js/poweredByHeader)
+
+Documents the default framework identification header and the configuration switch to disable it.
+
+<a id="source-next-env"></a>
+### Next.js env configuration
+
+Type: guidance.
+
+[Original source](https://nextjs.org/docs/app/api-reference/config/next-config-js/env)
+
+Describes compile-time substitutions and their inclusion in JavaScript bundles.
 
 <a id="source-google-search-central"></a>
 ### Google Search Central SEO Starter Guide

@@ -38,6 +38,11 @@ try {
   await writeFile(jsxImage, 'export const Photo = () => <img src="cover.png" />;');
   const imageScan = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'audit', jsxImage, '--json', '--no-save'], { cwd: temporary });
   assert.ok(JSON.parse(imageScan.stdout).findings.some(item => item.ruleId === 'A02' && item.location.line === 1));
+  const planned = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'plan', jsxImage, '--json', '--no-save'], { cwd: temporary });
+  const { guidance } = JSON.parse(planned.stdout);
+  assert.ok(guidance.steps.some(step => step.ruleId === 'A02' && step.method === 'contextual' && step.verification.length));
+  assert.ok((await readFile(guidance.repairGuideFile, 'utf8')).includes('Repair by problem'));
+  assert.equal(await readFile(guidance.checklistFile, 'utf8'), await readFile(path.join(root, checklist), 'utf8'));
   assert.ok(!(await readdir(installed)).includes('src'), 'The installed bundle must work without development source');
   console.log('Packaged CLI, catalogue and library work from an isolated installation.');
 } finally {

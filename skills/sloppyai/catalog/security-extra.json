@@ -12,12 +12,13 @@
       "backend"
     ],
     "verification": [
-      "Run the supported static check and inspect its evidence; perform contextual or runtime verification where noted."
+      "Confirm the ordinary new-tab relation in HTML or native JSX and preserve navigation, attribution tokens and any intentional opener relationship."
     ],
     "counterexamples": [
       "A synthetic fixture, explicitly public asset or effective control may change applicability; record the evidence."
     ],
     "sourceIds": [
+      "mdn-noopener",
       "owasp-asvs",
       "owasp-api",
       "owasp-logic",

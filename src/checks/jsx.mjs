@@ -1,5 +1,5 @@
 import { parse } from '@babel/parser';
-import { checkSentenceRhythm } from './text.mjs';
+import { checkHeadingLabel, checkText, headingGroupTags, headingTag, precedingLabelTags } from './text.mjs';
 
 const copyTag = /^(?:p|h[1-6])$/;
 const excludedTags = new Set(['blockquote', 'button', 'code', 'li', 'pre', 'script', 'style', 'template']);
@@ -12,7 +12,7 @@ function tagName(element) {
 }
 
 function attributeValue(attribute) {
-  return attribute.value?.type === 'JSXExpressionContainer' ? attribute.value.expression.value : attribute.value?.value;
+  return attribute?.value?.type === 'JSXExpressionContainer' ? attribute.value.expression.value : attribute?.value?.value;
 }
 
 function hidesContent(attribute) {
@@ -70,20 +70,82 @@ function checkNativeImage(element, file, ctx, index) {
   });
 }
 
+function checkNativeLink(element, file, ctx, index) {
+  const attributes = element.openingElement.attributes;
+  if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute') ||
+      new Set(attributes.map(attribute => attribute.name.name)).size !== attributes.length) {
+    ctx.check('S21', file, false, 'Spread or duplicate props can override the JSX link policy');
+    ctx.check('UX01', file, false, 'Spread or duplicate props can override the JSX link destination');
+    return;
+  }
+  const attributesByName = new Map(attributes.map(attribute => [attribute.name.name, attribute]));
+  const href = attributesByName.get('href');
+  const destination = attributeValue(href);
+  const where = { anchor: 'jsx-link:' + index, line: element.loc.start.line, confidence: 'tentative' };
+  if (typeof destination === 'string' && ctx.check('UX01', file) && ['', '#'].includes(destination.trim())) {
+    ctx.finding('UX01', file, { ...where, evidence: 'Native JSX link has an empty or placeholder destination. Check its interaction and route in context.' });
+  }
+  const target = attributeValue(attributesByName.get('target'));
+  if (!href || typeof target !== 'string' || target.toLowerCase() !== '_blank') return;
+  const rel = attributesByName.get('rel');
+  const relation = attributeValue(rel);
+  if (rel && typeof relation !== 'string') {
+    ctx.check('S21', file, false, 'JSX link relation is computed at runtime');
+    return;
+  }
+  ctx.check('S21', file);
+  const tokens = (relation || '').trim().toLowerCase().split(/\s+/);
+  if (tokens.includes('noopener') || tokens.includes('noreferrer')) return;
+  const intentionalOpener = tokens.includes('opener');
+  const literal = rel?.value?.type === 'JSXExpressionContainer' ? rel.value.expression : rel?.value;
+  const start = literal ? literal.end - 1 : element.openingElement.name.end;
+  const replacement = literal ? (relation ? ' noopener' : 'noopener') : ' rel="noopener"';
+  ctx.finding('S21', file, {
+    ...where, confidence: intentionalOpener ? 'tentative' : 'supported', severity: 'low',
+    evidence: 'Native JSX new-tab link has no explicit opener isolation. Modern browsers commonly imply it. An authored opener relationship needs contextual review.',
+    patch: intentionalOpener ? null : { start, end: start, replacement }
+  });
+}
+
+function collectGroupLabels(element, labels) {
+  const children = element.children.filter(child => !(child.type === 'JSXText' && !child.value.trim()) &&
+    !(child.type === 'JSXExpressionContainer' && child.expression.type === 'JSXEmptyExpression'));
+  for (let index = 1; index < children.length; index++) {
+    const label = children[index - 1];
+    const heading = children[index];
+    if (label.type !== 'JSXElement' || heading.type !== 'JSXElement' ||
+        !precedingLabelTags.has(tagName(label)) || !headingTag.test(tagName(heading)) || skipCopy(label) || skipCopy(heading)) continue;
+    if (label.openingElement.attributes.some(attribute => attribute.type === 'JSXSpreadAttribute' ||
+        ['id', 'role'].includes(attribute.name.name)) ||
+        label.children.some(child => child.type !== 'JSXText' &&
+          !(child.type === 'JSXExpressionContainer' && child.expression.type === 'StringLiteral'))) continue;
+    labels.push({ label, heading });
+  }
+}
+
 export function checkJsx(file, ctx, extension) {
-  const reviewCopy = ctx.enabled.has('copy') && /<(?:p|h[1-6])[\s>]/.test(file.text);
+  const reviewCopy = (ctx.enabled.has('copy') || ctx.enabled.has('ux')) && /<(?:p|h[1-6])[\s>]/.test(file.text);
+  const reviewDesign = ctx.enabled.has('design') && /<h[1-6][\s>]/.test(file.text);
   const reviewImages = ctx.enabled.has('accessibility') && /<img(?=[\s/>])/.test(file.text);
-  if (!reviewCopy && !reviewImages) return;
+  const reviewLinks = (ctx.enabled.has('security') || ctx.enabled.has('ux')) && /<a(?=[\s/>])/.test(file.text);
+  if (!reviewCopy && !reviewDesign && !reviewImages && !reviewLinks) return;
   let program;
   try {
     program = parse(file.text, { sourceType: 'unambiguous', plugins: extension === '.tsx' ? ['jsx', 'typescript'] : ['jsx'] }).program;
   } catch (_error) {
     if (reviewCopy) ctx.check('C08', file, false, 'JSX syntax could not be parsed for literal copy');
+    if (reviewDesign) ctx.check('D02', file, false, 'JSX syntax could not be parsed for heading labels');
     if (reviewImages) ctx.check('A02', file, false, 'JSX syntax could not be parsed for native images');
+    if (reviewLinks) {
+      ctx.check('S21', file, false, 'JSX syntax could not be parsed for link policies');
+      ctx.check('UX01', file, false, 'JSX syntax could not be parsed for link destinations');
+    }
     return;
   }
   const blocks = [];
   const images = [];
+  const links = [];
+  const labels = [];
   const pending = [{ node: program, copy: reviewCopy }];
   while (pending.length) {
     const entry = pending.pop();
@@ -94,11 +156,13 @@ export function checkJsx(file, ctx, extension) {
       if (copy) copy = !skipCopy(node);
       const tag = tagName(node);
       if (reviewImages && tag === 'img') images.push(node);
+      if (reviewLinks && tag === 'a') links.push(node);
+      if (reviewDesign && headingGroupTags.has(tag) && !skipCopy(node)) collectGroupLabels(node, labels);
       if (copy && copyTag.test(tag)) blocks.push({
         text: literalText(node.children), tagName: tag, line: node.loc.start.line, offset: node.start
       });
     }
-    if (!copy && !reviewImages) continue;
+    if (!copy && !reviewDesign && !reviewImages && !reviewLinks) continue;
     for (const value of Object.values(node)) {
       if (Array.isArray(value)) {
         for (const item of value) if (item?.type) pending.push({ node: item, copy });
@@ -106,7 +170,14 @@ export function checkJsx(file, ctx, extension) {
     }
   }
   blocks.sort((a, b) => a.offset - b.offset);
-  if (reviewCopy) checkSentenceRhythm(file, ctx, blocks.map((block, index) => ({ ...block, anchor: 'jsx:' + index })));
+  if (reviewCopy) checkText(file, ctx, blocks.map((block, index) => ({ ...block, anchor: 'jsx:' + index })));
   images.sort((a, b) => a.start - b.start);
   for (const [index, element] of images.entries()) checkNativeImage(element, file, ctx, index);
+  links.sort((a, b) => a.start - b.start);
+  for (const [index, element] of links.entries()) checkNativeLink(element, file, ctx, index);
+  labels.sort((a, b) => a.label.start - b.label.start);
+  for (const [index, { label, heading }] of labels.entries()) {
+    checkHeadingLabel(file, ctx, literalText(label.children), literalText(heading.children),
+      { anchor: 'jsx-heading-label:' + index, line: label.loc.start.line });
+  }
 }

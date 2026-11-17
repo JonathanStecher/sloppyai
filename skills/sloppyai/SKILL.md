@@ -35,6 +35,7 @@ Load only relevant references:
 | --- | --- |
 | Visual identity, composition and hierarchy | [Design](references/design.md) |
 | Shared product, launch and short-form review | [Product and release checklist](references/release-review.md) |
+| Repair and verification steps for the agent | [Repair instructions](references/repairs.md) |
 | Dense dashboards and operational controls | [Operational interfaces](references/operational-ui.md) |
 | Journeys, state and recovery | [UX](references/ux.md) |
 | Wording, claims and localization | [Copy](references/copy.md) |
@@ -72,7 +73,8 @@ relying on the result.
 1. Run `audit TARGET --out REPORT_DIR` for static evidence and inputDigest.
 2. Add relevant visual, source, runtime and factual review using available tools.
 3. Rate only assessed domains with the rubric in references/ratings.md.
-4. Make the smallest useful authorized repair. Check the actual root cause.
+4. Run the authorized built-in repairs and use the repair instructions for
+   evidence-supported changes in the app. Check the actual root cause.
 5. Re-audit changed inputs, rerun the relevant checks, and produce a fresh review.
 6. Compare per-domain ratings and issue histories; investigate new failures.
 

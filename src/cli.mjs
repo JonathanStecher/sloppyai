@@ -2,6 +2,7 @@ import { parseArgs } from 'node:util';
 import path from 'node:path';
 import { open } from 'node:fs/promises';
 import { audit, assertStableInputs } from './audit.mjs';
+import { improvementGuidance } from './guidance.mjs';
 import { targetInfo } from './files.mjs';
 import { saveReport, prepareOutput } from './state.mjs';
 import { improveLoop, watchTarget } from './loop.mjs';
@@ -191,8 +192,20 @@ export async function main(args = process.argv.slice(2)) {
     if (!values['no-save']) saved = await saveReport(options.output, result.report, { ...(baseline ? { baseline } : {}) });
     if (command === 'plan') {
       const actionable = result.report.findings.filter(item => item.disposition === 'open');
-      const plan = ['# Improvement plan', '', `Target: ${short(result.report.target)}. Input digest: ${result.report.inputDigest}.`, '', 'Preserve required features, useful statuses, actual costs, navigation, accessibility and accepted style.', '', ...actionable.flatMap((item, i) => [`## ${i + 1}. ${short(item.title)}`, '', `Evidence (${item.confidence}): ${short(item.evidence, 1000)}`, '', `Change: ${short(item.recommendation, 1000)}`, '', 'Verify the original issue and the relevant preserved behaviour. Record unassessed runtime or contextual work.', '']), ...(actionable.length ? [] : ['No supported static findings. Select relevant contextual review domains before claiming full verification.']), ''].join('\n');
-      console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan }, null, 2) : plan);
+      const guidance = improvementGuidance(result);
+      const byId = new Map(actionable.map(item => [item.id, item]));
+      const plan = ['# Improvement plan', '', `Target: ${short(result.report.target)}. Input digest: ${result.report.inputDigest}.`, '', 'Preserve required features, useful statuses, actual costs, navigation, accessibility and accepted style.', '',
+        ...guidance.steps.flatMap((step, i) => {
+          const item = byId.get(step.findingId);
+          return [`## ${i + 1}. ${short(item.title)} (${step.ruleId})`, '',
+            `Source ${short(item.location.path)}:${item.location.line}. ${step.method === 'built_in' ? 'Available through loop --apply.' : 'Review the context before changing source.'}`, '',
+            `Evidence (${item.confidence}): ${short(item.evidence, 1000)}`, '',
+            `Change: ${short(item.recommendation, 1000)}`, '',
+            ...step.verification.map(verification => short(verification, 1000)), ''];
+        }),
+        ...(actionable.length ? [] : ['Static source checks returned zero findings. Use the relevant checklist rows to assess other evidence.']), '',
+        `Checklist: ${guidance.checklistFile}`, `Repair guide: ${guidance.repairGuideFile}`, ''].join('\n');
+      console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan, guidance }, null, 2) : plan);
     } else outputReport(saved?.report || result.report, values, saved?.output);
     return exitFor(result.report, values['fail-on']);
   } finally {

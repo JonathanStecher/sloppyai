@@ -40,7 +40,7 @@
       "media"
     ],
     "verification": [
-      "Inspect the relevant artifact and establish the concrete impact before recommending a change."
+      "Check whether a repeated label and heading render together. Preserve any status, accessible relationship or navigation role before removing redundant copy."
     ],
     "counterexamples": [
       "A deliberate choice serving the audience or an accepted project requirement is not a defect."
@@ -49,7 +49,7 @@
       "image-3",
       "nngroup-heuristics"
     ],
-    "automation": "none",
+    "automation": "partial",
     "original": {
       "image": 3,
       "item": 2

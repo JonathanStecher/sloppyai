@@ -41,6 +41,7 @@ It retains snapshots, rating changes, failed attempts and stop reasons. New
 objective failures, worsened requirement severity or a passing-to-failing command
 stop the loop. A lack of useful progress reaches the stall bound.
 
-Only the assessed automated and configured reviewer targets determine the target
-stop. Outstanding review prompts and unassessed domains remain visible. Deadlines,
+Available built-in repairs and reviewer-supported work for a configured fixer
+take priority over the score-based target. Outstanding review prompts and
+unassessed domains remain visible. Deadlines,
 attempt limits and target scores are never approval to publish or spend more.
