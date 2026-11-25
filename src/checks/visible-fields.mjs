@@ -21,7 +21,8 @@ export function checkVisibleJsxFields(file, ctx, program) {
     let wrapped = wrappingLabel;
     if (node.type === 'JSXElement') {
       const tag = name(node), props = attributes(node);
-      if (props.has('hidden') || props.has('inert') || value(props.get('aria-hidden')) === 'true') continue;
+      const hidden = key => props.has(key) && value(props.get(key)) !== false;
+      if (hidden('hidden') || hidden('inert') || [true, 'true'].includes(value(props.get('aria-hidden')))) continue;
       if (tag === 'label') {
         wrapped = wrapped || labelText(node.children);
         const id = value(props.get('htmlFor'));

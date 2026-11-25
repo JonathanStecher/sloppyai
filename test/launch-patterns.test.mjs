@@ -44,3 +44,9 @@ test('verified decoding and fixture exclusions avoid spurious auth findings', as
   const { report } = await audit(f.target);
   assert.equal(report.findings.filter(item => item.ruleId === 'S37').length, 0);
 });
+
+test('false hidden props do not suppress visible-field review and boolean aria-hidden stays excluded', async t => {
+  const f = await fixture(t, { 'form.tsx': 'export default () => <><input hidden={false} inert={false} placeholder="Visible" /><div aria-hidden={true}><input placeholder="Hidden" /></div></>;' });
+  const { report } = await audit(f.target);
+  assert.equal(report.findings.filter(item => item.ruleId === 'UX14').length, 1);
+});
