@@ -1,3 +1,4 @@
+import { checkVisibleJsxFields } from './visible-fields.mjs';
 import { parse } from '@babel/parser';
 import { checkHeadingLabel, checkText, headingGroupTags, headingTag, precedingLabelTags } from './text.mjs';
 
@@ -128,11 +129,13 @@ export function checkJsx(file, ctx, extension) {
   const reviewDesign = ctx.enabled.has('design') && /<h[1-6][\s>]/.test(file.text);
   const reviewImages = ctx.enabled.has('accessibility') && /<img(?=[\s/>])/.test(file.text);
   const reviewLinks = (ctx.enabled.has('security') || ctx.enabled.has('ux')) && /<a(?=[\s/>])/.test(file.text);
-  if (!reviewCopy && !reviewDesign && !reviewImages && !reviewLinks) return;
+  const reviewFields = ctx.enabled.has('ux') && /<(?:input|textarea|select)(?=[\s/>])/.test(file.text);
+  if (!reviewCopy && !reviewDesign && !reviewImages && !reviewLinks && !reviewFields) return;
   let program;
   try {
     program = parse(file.text, { sourceType: 'unambiguous', plugins: extension === '.tsx' ? ['jsx', 'typescript'] : ['jsx'] }).program;
   } catch (_error) {
+    if (reviewFields) ctx.check('UX14', file, false, 'JSX could not be parsed for persistent labels');
     if (reviewCopy) ctx.check('C08', file, false, 'JSX syntax could not be parsed for literal copy');
     if (reviewDesign) ctx.check('D02', file, false, 'JSX syntax could not be parsed for heading labels');
     if (reviewImages) ctx.check('A02', file, false, 'JSX syntax could not be parsed for native images');
@@ -142,6 +145,7 @@ export function checkJsx(file, ctx, extension) {
     }
     return;
   }
+  if (reviewFields) checkVisibleJsxFields(file, ctx, program);
   const blocks = [];
   const images = [];
   const links = [];

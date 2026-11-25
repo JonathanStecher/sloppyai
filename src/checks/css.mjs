@@ -41,6 +41,23 @@ export function checkCss(file, ctx, cssText = file.text, offset = 0, namespace =
       if (parent && /keyframes$/i.test(parent.name)) ctx.finding('F04', file, { ...where, evidence: 'Keyframes animate a layout-affecting property. Measure the actual cost and preserve intentional behaviour.' });
     }
   });
+  root.walkRules(rule => {
+    const selector = rule.selector || '';
+    const action = /(?:^|[\s>+~,])button\b|\[role\s*=\s*["']?button\b|\.(?:[\w-]*-)?(?:button|cta)(?:[\s.#:[>+~,]|$)/i.test(selector);
+    const hero = /(?:hero|landing|auth)[\w-]*(?:backdrop|glow|background)|(?:hero|landing|auth)-(?:glow|backdrop|background)/i.test(selector);
+    for (const decl of rule.nodes || []) {
+      if (decl.type !== 'decl') continue;
+      const prop = decl.prop.toLowerCase();
+      const where = { anchor: 'release-css:' + namespace + ':' + selector + ':' + prop, line: lineOffset + (decl.source?.start?.line || 1), confidence: 'tentative' };
+      if (action && ((/^(background|background-image)$/.test(prop) && /gradient\(/i.test(decl.value)) ||
+          (/:hover\b/.test(selector) && prop === 'opacity' && /^(?:0(?:\.\d+)?|\.\d+)$/.test(decl.value.trim()) && Number(decl.value) < 1))) {
+        ctx.finding('D22', file, { ...where, evidence: 'An action selector declares a gradient fill or reduced hover opacity. This is a contextual source prompt; rendered contrast and design intent remain unverified.' });
+      }
+      if (hero && prop === 'filter' && /\bblur\(/i.test(decl.value)) {
+        ctx.finding('D23', file, { ...where, evidence: 'A hero/auth background selector declares a blur filter. Check the actual pixels and purpose before changing it.' });
+      }
+    }
+  });
   root.walkAtRules('font-face', rule => {
     if (!rule.nodes?.some(node => node.type === 'decl' && node.prop.toLowerCase() === 'font-display')) ctx.finding('F02', file, { anchor: 'font-face:' + namespace + ':' + rule.source?.start?.line, line: lineOffset + (rule.source?.start?.line || 1), confidence: 'tentative', evidence: 'An authored font-face has no font-display declaration. Evaluate the font and real loading strategy before changing it.' });
   });

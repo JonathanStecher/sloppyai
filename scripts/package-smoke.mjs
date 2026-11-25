@@ -24,6 +24,10 @@ try {
   assert.equal((await library.loadCatalog()).digest, (await loadCatalog()).digest);
   const checklist = 'skills/sloppyai/references/release-review.md';
   assert.equal(await readFile(path.join(installed, checklist), 'utf8'), await readFile(path.join(root, checklist), 'utf8'));
+  const matrix = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'checklist', '--json'], { cwd: temporary, maxBuffer: 2_000_000 });
+  const unassessed = JSON.parse(matrix.stdout);
+  assert.equal(unassessed.items.length, 188);
+  assert.ok(unassessed.items.every(item => item.status === 'not_assessed' && item.evidence.length === 0));
   const artifact = path.join(temporary, 'fixture.html');
   await writeFile(artifact, '<!doctype html><html lang="en"><body><h1>Export your report</h1><button>Save report</button></body></html>');
   const { stdout } = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'audit', artifact, '--json', '--no-save'], { cwd: temporary });

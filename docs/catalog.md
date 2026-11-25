@@ -2,7 +2,7 @@
 
 Generated from the canonical JSON records. Edit skills/sloppyai/catalog, then run npm run catalog.
 
-206 entries, including all 102 original screenshot labels.
+210 entries, including all 102 original screenshot labels.
 
 Kinds: requirement, heuristic, option, definition. An entry is not necessarily an implemented automated check.
 
@@ -1351,6 +1351,62 @@ Verification: Inspect the relevant artifact and establish the concrete impact be
 Counterexample: A deliberate choice serving the audience or an accepted project requirement is not a defect.
 
 Sources: [image-3](#source-image-3), [nngroup-heuristics](#source-nngroup-heuristics)
+
+### D22: Decorative button effects
+
+Domain: design. Kind: heuristic. Automation: partial.
+
+Gradient fills and opacity changes on action controls can weaken the action hierarchy or readability.
+
+Review the rendered default, hover, focus and pending states. Prefer the accepted accent and stable label contrast when decoration contributes no useful state information.
+
+Verification: Compare the real action at desktop and mobile widths in default, hover, keyboard focus and loading states; measure label contrast against its actual background.
+
+Counterexample: A deliberate branded gradient or an opacity-based disabled state can be appropriate; the source pattern alone is not a defect.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22)
+
+### D23: Decorative hero blur
+
+Domain: design. Kind: heuristic. Automation: partial.
+
+A blurred hero or authentication background may compete with content or add unnecessary rendering work.
+
+Inspect the actual background, text contrast and performance. Remove atmospheric blur when it has no role in the accepted visual system.
+
+Verification: Compare the rendered hero and auth form with the effect enabled and disabled, including narrow viewports and reduced motion.
+
+Counterexample: A purposeful image blur or a supported brand treatment can be appropriate; selector names do not prove visible decoration.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22)
+
+### UX14: Persistent field labels
+
+Domain: ux. Kind: heuristic. Automation: partial.
+
+Placeholder-only fields lose their visible instruction as soon as a person enters text.
+
+Give fields a persistent visible label where needed; retain the accessible name and use placeholders for examples. Review search or compact controls in context.
+
+Verification: Enter text, autofill and submit invalid data. Confirm the field remains identifiable, its error is understandable and its programmatic name is correct.
+
+Counterexample: A search field with an unambiguous adjacent control or a space-constrained, well-named control may not need an additional visible label.
+
+Sources: [w3c-wcag22](#source-w3c-wcag22)
+
+### S37: Disabled token-signature verification
+
+Domain: security. Kind: requirement. Automation: partial.
+
+Decoding a token without signature verification must not establish an authenticated identity or authorization.
+
+Trace the decoded claims to their use. Verify signatures, issuer, audience and expiry through the trusted identity service before making authorization decisions.
+
+Verification: Use signed, tampered, expired, wrong-issuer and unsigned tokens against the relevant operation; confirm only the authorized identity is accepted.
+
+Counterexample: Unverified decoding for display or diagnostics is acceptable only when no security decision trusts the result.
+
+Sources: [owasp-asvs](#source-owasp-asvs)
 
 ### M01: Grounded imagery
 

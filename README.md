@@ -84,6 +84,22 @@ Reports are written locally to `.sloppyai` beneath the selected directory, or
 beside a selected file. `--out` selects another directory; `--no-save` produces
 stdout-only audit/plan/verify output. Formats include JSON, Markdown and HTML.
 
+## Release checklist
+
+Print all 188 design, usability, security and public-release prompts from ten
+reference lists, with catalogue mappings and verification steps:
+
+```sh
+node skills/sloppyai/scripts/sloppyai.mjs checklist --json
+node skills/sloppyai/scripts/sloppyai.mjs checklist --domain security
+node skills/sloppyai/scripts/sloppyai.mjs checklist --query "two devices"
+```
+
+This command prints an unassessed template. It does not inspect a target, execute
+project commands or turn absent evidence into a passing result. The 19 adverse
+journeys cover offline uploads, duplicate signup, password whitespace, RTL, text
+zoom, permissions, checkout navigation, deletion and concurrent devices.
+
 ## Continuous improvement
 
 ```sh
@@ -188,11 +204,12 @@ node skills/sloppyai/scripts/sloppyai.mjs undo /path/to/artifact --out /path/to/
 ## What is implemented
 
 - A self-contained skill with plan, audit, improve and verify workflows.
-- 206 canonical entries, retaining all 102 original research labels: requirements,
+- 210 canonical entries, retaining all 102 original research labels: requirements,
   contextual heuristics, optional visual techniques and definitions.
 - Static HTML naming, language, zoom, duplicate-ID and link checks. Native JSX
   checks cover image alternatives, link destinations and relations, and literal
-  copy. Contextual review includes repeated heading labels, contrast, image
+  copy and persistent-field-label prompts. Contextual source prompts cover action gradients,
+  hover opacity, hero blur and disabled JWT signature verification. Contextual review includes repeated heading labels, contrast, image
   sizing, CSS, copy and likely privileged Next.js client substitutions.
 - Bounded loops, change-triggered watch, optional command checks and review/fix hooks.
 - Fresh-review binding, separate ratings, issue comparisons, backups and undo.

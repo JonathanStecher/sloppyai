@@ -6,6 +6,21 @@ needed for each applicable item. Report one finding per observed problem.
 Use the most specific catalogue ID and include the location, consequence,
 proposed fix and a verification step. Record missing evidence in coverage.
 
+## Repeatable reference matrix
+
+Run `node scripts/sloppyai.mjs checklist --json` from the installed skill to print
+all 188 prompts from the ten supplied lists, including 19 adverse customer journeys.
+Use `--domain security` or `--query "two devices"` to narrow the template.
+The machine-readable [reference matrix](../checklists/release.json) maps each prompt
+to existing catalogue guidance and concrete verification steps. Every emitted row
+starts **not assessed**, with unresolved applicability and no evidence. It is not
+an audit result and never contributes a clean score.
+
+Apply the project brief first. Do not automatically add FAQs, tracking, reviews,
+maps, team photos or marketing promises. Contextual design preferences do not prove
+AI authorship. The monetary penalties in a social-media screenshot are not legal
+findings. Review the actual product and jurisdiction; do not copy those amounts.
+
 ## Design and writing
 
 | Check | What to inspect | Catalogue |

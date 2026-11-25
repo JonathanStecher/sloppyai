@@ -30,6 +30,7 @@ export function improvementGuidance(result) {
   }));
   return {
     checklistFile: reference('release-review.md'),
+    checklistTemplateFile: path.join(SKILL_ROOT, 'checklists', 'release.json'),
     repairGuideFile: reference('repairs.md'),
     rubricFile: reference('ratings.md'),
     reviewSchemaFile: path.join(SKILL_ROOT, 'schemas', 'review.schema.json'),
