@@ -5,12 +5,15 @@ import { promisify } from 'node:util';
 import { releaseChecklist, checklistMarkdown } from '../src/release-checklist.mjs';
 const exec = promisify(execFile);
 
-test('all ten reference lists remain mapped without inventing audit evidence', async () => {
+test('all original reference lists and visual quality remain mapped without invented audit evidence', async () => {
   const result = await releaseChecklist();
-  assert.equal(result.items.length, 188);
-  assert.equal(new Set(result.items.map(item => item.id)).size, 188);
-  assert.equal(new Set(result.items.map(item => item.group)).size, 10);
-  assert.deepEqual(result.summary, { total: 188, notAssessed: 188 });
+  const original = result.items.filter(item => item.group !== 'visual-quality');
+  assert.equal(original.length, 188);
+  assert.equal(new Set(original.map(item => item.group)).size, 10);
+  assert.equal(result.items.length, 196);
+  assert.equal(new Set(result.items.map(item => item.id)).size, 196);
+  assert.equal(result.items.filter(item => item.group === 'visual-quality').length, 8);
+  assert.deepEqual(result.summary, { total: 196, notAssessed: 196 });
   for (const item of result.items) {
     assert.equal(item.status, 'not_assessed');
     assert.equal(item.applicability, 'unresolved');

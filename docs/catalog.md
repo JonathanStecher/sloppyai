@@ -2,7 +2,7 @@
 
 Generated from the canonical JSON records. Edit skills/sloppyai/catalog, then run npm run catalog.
 
-210 entries, including all 102 original screenshot labels.
+218 entries, including all 102 original screenshot labels.
 
 Kinds: requirement, heuristic, option, definition. An entry is not necessarily an implemented automated check.
 
@@ -2864,6 +2864,118 @@ Counterexample: An intentional, appropriate project choice or existing verified 
 
 Sources: [nngroup-heuristics](#source-nngroup-heuristics), [nngroup-aiprototyping](#source-nngroup-aiprototyping)
 
+### D24: Palette and colour relationships
+
+Domain: design. Kind: heuristic. Automation: none.
+
+A palette can pass a contrast check while its hue relationships, temperature, saturation or accent balance still conflict with the intended character.
+
+Judge the actual rendered palette against the audience and design brief. Give surfaces, text, actions and statuses deliberate colour roles; compare hue relationships, warm and cool balance, chroma, neutral undertones and large-area colour proportions. Preserve an intentional monochrome, vivid or gradient direction.
+
+Verification: Compare the dominant surface, text, accent and status colours together on the actual rendered artifact; explain how their relationships support or weaken the stated direction. Inspect accent distribution and saturation at page scale, then check the actual foreground/background contrast of affected text and controls. Compare relevant light, dark, hover, focus and disabled states; retain meaning without relying on colour alone.
+
+Counterexample: A deliberately loud palette, single-hue interface or restrained monochrome system may serve the brief better than a conventional balanced palette.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [w3c-wcag22](#source-w3c-wcag22)
+
+### D25: Typographic character and optical fit
+
+Domain: design. Kind: heuristic. Automation: none.
+
+Font character, pairing, weight and optical spacing influence perceived quality beyond whether text fits its box.
+
+Evaluate the typeface voice, pairing, x-height, weight contrast, tracking, leading and line endings against the content and identity. Compare optical alignment and emphasis in real words. Keep a familiar font when it fits; novelty and the number of fonts are not quality measures.
+
+Verification: Inspect real headings, prose, labels and changing numbers together; explain whether their type roles and character fit the audience and brief. Check optical spacing, awkward wraps, widows, line length and font loading using actual short, long and localized content. Recheck narrow widths, zoom, selected and bold states without removing meaningful emphasis or accepted type choices.
+
+Counterexample: A single system font, expressive serif, dense monospaced tool or deliberately tight display headline can be an appropriate identity.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+
+### D26: Composition and visual rhythm
+
+Domain: design. Kind: heuristic. Automation: none.
+
+A structurally correct layout can still feel unbalanced, monotonous or visually disconnected from its subject.
+
+Judge focal points, optical weight, scale relationships, whitespace, alignment and the rhythm of dense and quiet areas. Give important product content appropriate visual presence. Prefer the composition that serves the task and subject, including purposeful asymmetry or density.
+
+Verification: Inspect the full composition and identify the first, second and third focal points using actual rendered evidence. Compare the scale and optical weight of text, images, controls and empty space; identify a concrete imbalance or monotonous repetition before changing it. Recheck section transitions and responsive reflow while preserving useful data, navigation and task density.
+
+Counterexample: Symmetric grids, repeated data rows, sparse editorial layouts and dense operating interfaces can all be deliberate and effective.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+
+### D27: Imagery and art direction
+
+Domain: design. Kind: heuristic. Automation: none.
+
+Imagery needs a coherent subject, crop, tone and relationship to the product, rather than serving as interchangeable decoration.
+
+Assess subject relevance, framing, crop, focal point, colour treatment, texture and consistency with the surrounding type and palette. Prefer truthful product evidence where it helps the decision. Keep illustrative examples, generated art and actual product captures distinguishable.
+
+Verification: Inspect the actual images or media and explain what each contributes to the task, message or accepted visual identity. Compare crops, focal points, resolution and colour treatment at the rendered sizes, including narrow layouts. Verify relevant alternatives, provenance and rights separately; a good-looking image does not establish permission or factual authenticity.
+
+Counterexample: Abstract art, generated illustrations, monochrome images or a text-only presentation may be the right direction for the product.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+
+### D28: Surface, light and material
+
+Domain: design. Kind: heuristic. Automation: none.
+
+Surface tones, borders, shadows, texture and depth cues affect whether components feel coherent, flat, noisy or physically inconsistent.
+
+Evaluate the chosen material language and consistent light, layering, edge treatment, concentric radii and elevation. Use depth or texture when it clarifies the interface or expresses the accepted direction; retain a deliberate flat treatment.
+
+Verification: Compare adjacent surfaces, borders, radii, highlights and shadows on the rendered artifact; identify inconsistent material or lighting cues. Inspect overlays and layered components in their actual context, including text contrast and clear separation. Recheck both themes and relevant reduced-motion or lower-performance conditions when changing blur, texture or effects.
+
+Counterexample: Flat ink-on-paper design, glass, strong shadows, texture and skeuomorphic treatments can each be appropriate when deliberate and usable.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+
+### D29: Component visual coherence
+
+Domain: design. Kind: heuristic. Automation: none.
+
+Individually acceptable controls can look unrelated when their shape, weight, icons, spacing or colour roles drift.
+
+Compare components as a family. Reuse purposeful type, spacing, shape, icon stroke, edge and accent decisions across related controls while retaining variants that communicate a real difference.
+
+Verification: Compare the rendered buttons, fields, menus, cards, dialogs and icons side by side across related routes. Trace an observed visual mismatch to the shared component or token before adding a local styling exception. Recheck default, focus, pending, disabled and error states without erasing meaningful component variants.
+
+Counterexample: Different controls may need different shapes, densities or treatments to express priority, status or platform conventions.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+
+### D30: Visual quality across states
+
+Domain: design. Kind: heuristic. Automation: none.
+
+A polished default screen can lose its visual quality with different content, themes, screen sizes or interaction states.
+
+Review visual continuity during real loading, success, error, empty, long-content and permission states. Match motion and state styling to the direction while preserving clear feedback, reduced motion and responsive behavior.
+
+Verification: Inspect applicable state transitions and content extremes using current rendered or project-generated evidence. Compare narrow and wide layouts, supported themes, zoom and localized content for coherent type, crop, colour and hierarchy. Exercise relevant keyboard, touch and reduced-motion paths; report missing state evidence instead of extending a default-screen judgment.
+
+Counterexample: A static publication need not implement application states, and a product may intentionally support one documented appearance.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [w3c-wcag22](#source-w3c-wcag22)
+
+### D31: Intentional product character
+
+Domain: design. Kind: heuristic. Automation: none.
+
+An artifact can be tidy and functional while its combined visual choices still feel interchangeable or unsuitable for its audience.
+
+Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style.
+
+Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects.
+
+Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake.
+
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+
 ## Sources
 
 Sources include normative standards, guidance, workflow inspiration and qualitative community observations. They do not all establish an empirical claim or a universal rule.
@@ -3325,3 +3437,12 @@ Labels supplied during the original research. No screenshot, portrait or source-
 Type: user-reference.
 
 Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored.
+
+<a id="source-sloppyai-visual-quality"></a>
+### sloppy.ai contextual visual-quality review
+
+Type: project. Reviewed 2026-11-25.
+
+[Original source](https://github.com/JonathanStecher/sloppyai/blob/main/skills/sloppyai/references/visual-quality.md)
+
+Authored review method for taste and appearance. These contextual heuristics require actual visual evidence and do not establish AI authorship.

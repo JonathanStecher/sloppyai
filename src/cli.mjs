@@ -230,6 +230,12 @@ export async function main(args = process.argv.slice(2)) {
             ...step.verification.map(verification => short(verification, 1000)), ''];
         }),
         ...(actionable.length ? [] : ['Static source checks returned zero findings. Use the relevant checklist rows to assess other evidence.']), '',
+        ...(guidance.designReview ? [
+          '## Visual quality review', '',
+          guidance.designReview.assurance, '',
+          ...guidance.designReview.criteria.map(item => `- ${item.title} (${item.ruleId}): Not assessed.`), '',
+          `Visual review guide: ${guidance.designReview.guideFile}`, ''
+        ] : []),
         `Checklist: ${guidance.checklistFile}`, `Repair guide: ${guidance.repairGuideFile}`, ''].join('\n');
       console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan, guidance }, null, 2) : plan);
     } else outputReport(saved?.report || result.report, values, saved?.output);

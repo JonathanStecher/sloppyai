@@ -26,7 +26,7 @@ try {
   assert.equal(await readFile(path.join(installed, checklist), 'utf8'), await readFile(path.join(root, checklist), 'utf8'));
   const matrix = await exec(process.execPath, [path.join(installed, 'skills/sloppyai/scripts/sloppyai.mjs'), 'checklist', '--json'], { cwd: temporary, maxBuffer: 2_000_000 });
   const unassessed = JSON.parse(matrix.stdout);
-  assert.equal(unassessed.items.length, 188);
+  assert.equal(unassessed.items.length, 196);
   assert.ok(unassessed.items.every(item => item.status === 'not_assessed' && item.evidence.length === 0));
   const artifact = path.join(temporary, 'fixture.html');
   await writeFile(artifact, '<!doctype html><html lang="en"><body><h1>Export your report</h1><button>Save report</button></body></html>');
@@ -47,6 +47,9 @@ try {
   assert.ok(guidance.steps.some(step => step.ruleId === 'A02' && step.method === 'contextual' && step.verification.length));
   assert.ok((await readFile(guidance.repairGuideFile, 'utf8')).includes('Repair by problem'));
   assert.equal(await readFile(guidance.checklistFile, 'utf8'), await readFile(path.join(root, checklist), 'utf8'));
+  assert.equal(guidance.designReview.criteria.length, 8);
+  assert.ok(guidance.designReview.criteria.every(item => item.status === 'not_assessed' && item.score === null));
+  assert.equal(await readFile(guidance.designReview.guideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/visual-quality.md'), 'utf8'));
   assert.ok(!(await readdir(installed)).includes('src'), 'The installed bundle must work without development source');
   console.log('Packaged CLI, catalogue and library work from an isolated installation.');
 } finally {

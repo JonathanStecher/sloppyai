@@ -28162,7 +28162,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.2.0";
+var VERSION = "0.3.0";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38139,7 +38139,7 @@ import path6 from "node:path";
 
 // src/checks/scope.mjs
 function isTestFixture(path16) {
-  return /(?:^|\/)(?:tests?|__tests__|fixtures?)(?:\/|$)|\.(?:test|spec)\.[^.]+$/i.test(path16);
+  return /(?:^|\/)(?:tests?|__tests__|fixtures?)(?:\/|$)|\.(?:test|spec)\.[^.]+$|(?:^|\/)test[-_][^/]+\.(?:[cm]?[jt]sx?|py|rb)$/i.test(path16);
 }
 
 // src/inventory.mjs
@@ -38504,6 +38504,7 @@ var referenceFor = {
   rights: "media.md",
   devex: "engineering.md"
 };
+var visualQualityRuleIds = ["D24", "D25", "D26", "D27", "D28", "D29", "D30", "D31"];
 function improvementGuidance(result) {
   const { report, config, catalog, patches, confirmedReviewFindings } = result;
   const reference = (filename) => path9.join(SKILL_ROOT, "references", filename);
@@ -38524,6 +38525,22 @@ function improvementGuidance(result) {
     reviewSchemaFile: path9.join(SKILL_ROOT, "schemas", "review.schema.json"),
     domains: config.domains,
     domainReferences: Object.fromEntries(config.domains.map((domain) => [domain, reference(referenceFor[domain])])),
+    ...config.domains.includes("design") ? {
+      designReview: {
+        guideFile: reference("visual-quality.md"),
+        brief: config.designBrief ?? {},
+        assurance: "Contextual visual review requires current rendered evidence; source checks do not assess taste.",
+        criteria: visualQualityRuleIds.map((ruleId) => catalog.byId.get(ruleId)).filter(Boolean).map((rule2) => ({
+          ruleId: rule2.id,
+          title: rule2.title,
+          guidance: rule2.guidance,
+          verification: rule2.verification,
+          status: "not_assessed",
+          evidence: [],
+          score: null
+        }))
+      }
+    } : {},
     steps
   };
 }
@@ -38896,7 +38913,7 @@ function markdownReport(report, comparison = null) {
   const rows = report.ratings.map((item) => `| ${md(item.domain)} | ${item.score === null ? "Not assessed" : item.score + "/100"} | ${item.confirmedIssues} | ${item.reviewPrompts} |`);
   const issueRows = report.findings.map((item) => `| ${md(item.ruleId)} | ${md(item.severity)} | ${md(item.confidence)} | ${md(item.location.path)}:${item.location.line} | ${md(item.title)} | ${md(item.disposition)} |`);
   const sections = [
-    "# sloppyai report",
+    "# sloppy.ai report",
     "",
     `Status: **${report.status}**. Engine ${VERSION}.`,
     "",
@@ -38942,9 +38959,9 @@ function htmlReport(report, comparison = null) {
   const changes = comparison ? `<section><h2>Change from previous assessment</h2><p>${e(comparison.note)}</p><p>${comparison.resolved.length} no longer observed; ${comparison.added.length} newly observed. Regression: ${comparison.regression ? "yes" : "none observed in comparable checks"}.</p><ul>${comparison.scoreChanges.map((item) => `<li>${e(item.domain)}: ${item.before ?? "N/A"} \u2192 ${item.after ?? "N/A"} (${item.delta === null ? "not comparable" : (item.delta >= 0 ? "+" : "") + item.delta})</li>`).join("")}</ul></section>` : "";
   const runtime = report.runtime ? `<section><h2>Rendered pages and diagnostics</h2><ul>${runtimeRows(report).map((row) => `<li>${e(row)}</li>`).join("")}${evidenceLinks(report.runtime).map((link) => `<li><a href="${e(link.path)}">Open ${e(link.label)} capture</a></li>`).join("")}</ul></section>` : "";
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>sloppyai report</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>sloppy.ai report</title>
 <style>:root{color-scheme:light dark;--bg:#faf9f5;--fg:#242923;--muted:#4b5549;--line:#c5ccbf;--accent:#216442}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.6 system-ui,sans-serif}main{max-width:68rem;margin:auto;padding:2rem 1.25rem 5rem}h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.12;letter-spacing:-.025em;margin:.5rem 0 1rem}h2{margin-top:2.5rem;line-height:1.25}h3{line-height:1.35}p{max-width:75ch}header{padding:1rem 0 1.5rem;border-bottom:2px solid var(--accent)}.meta{color:var(--muted);font-size:.95rem}section{margin:2rem 0}article{border-top:1px solid var(--line);padding:1rem 0}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:left;border-bottom:1px solid var(--line);padding:.75rem .5rem;vertical-align:top}th[scope=row]{font-weight:600}.table-wrap{overflow-x:auto}code{overflow-wrap:anywhere}li{margin:.4rem 0}a{color:var(--accent)}a:focus-visible{outline:3px solid currentColor;outline-offset:3px}@media(prefers-color-scheme:dark){:root{--bg:#172019;--fg:#eff2e8;--muted:#c2cdbc;--line:#596452;--accent:#a0d0b1}}@media print{body{font-size:10pt}main{max-width:none;padding:0}article{break-inside:avoid}}</style></head>
-<body><main><header><p class="meta">SLOPPYAI \xB7 ${e(report.createdAt)}</p><h1>Artifact quality report</h1><p><strong>${e(report.status)}</strong> \xB7 ${report.coverage.assessedFiles} files \xB7 ${e(report.coverage.kind)}</p><p>Check scores describe the implemented checks. They do not certify the whole artifact or identify AI authorship.</p></header>${runtime}<section><h2>Automated check ratings</h2><div class="table-wrap"><table><thead><tr><th scope="col">Domain</th><th scope="col">Check score</th><th scope="col">Confirmed issues</th><th scope="col">Review prompts</th></tr></thead><tbody>${scores}</tbody></table></div></section>${changes}${reviews}${executions}<section><h2>Findings</h2>${findings || "<p>No supported findings in the assessed static scope.</p>"}</section>${report.loop ? `<section><h2>Improvement loop</h2><p>Stop reason: ${e(report.loop.stopReason)}. Repairs attempted: ${report.loop.repairRounds}. Stopping is not approval.</p></section>` : ""}<section><h2>Coverage and limitations</h2><ul>${report.coverage.limitations.map((value2) => `<li>${e(value2)}</li>`).join("")}</ul><p>Input limit reached: ${report.coverage.capped}. Skipped paths recorded: ${report.coverage.skipped.length}.</p>${comparison?.unassessed?.length ? `<p>${comparison.unassessed.length} previously observed issue(s) were not reassessed. They remain open.</p>` : ""}<p class="meta">Input digest: <code>${e(report.inputDigest)}</code></p></section></main></body></html>
+<body><main><header><p class="meta">sloppy.ai \xB7 ${e(report.createdAt)}</p><h1>Artifact quality report</h1><p><strong>${e(report.status)}</strong> \xB7 ${report.coverage.assessedFiles} files \xB7 ${e(report.coverage.kind)}</p><p>Check scores describe the implemented checks. They do not certify the whole artifact or identify AI authorship.</p></header>${runtime}<section><h2>Automated check ratings</h2><div class="table-wrap"><table><thead><tr><th scope="col">Domain</th><th scope="col">Check score</th><th scope="col">Confirmed issues</th><th scope="col">Review prompts</th></tr></thead><tbody>${scores}</tbody></table></div></section>${changes}${reviews}${executions}<section><h2>Findings</h2>${findings || "<p>No supported findings in the assessed static scope.</p>"}</section>${report.loop ? `<section><h2>Improvement loop</h2><p>Stop reason: ${e(report.loop.stopReason)}. Repairs attempted: ${report.loop.repairRounds}. Stopping is not approval.</p></section>` : ""}<section><h2>Coverage and limitations</h2><ul>${report.coverage.limitations.map((value2) => `<li>${e(value2)}</li>`).join("")}</ul><p>Input limit reached: ${report.coverage.capped}. Skipped paths recorded: ${report.coverage.skipped.length}.</p>${comparison?.unassessed?.length ? `<p>${comparison.unassessed.length} previously observed issue(s) were not reassessed. They remain open.</p>` : ""}<p class="meta">Input digest: <code>${e(report.inputDigest)}</code></p></section></main></body></html>
 `;
 }
 
@@ -39820,6 +39837,16 @@ async function main(args = process.argv.slice(2)) {
         }),
         ...actionable.length ? [] : ["Static source checks returned zero findings. Use the relevant checklist rows to assess other evidence."],
         "",
+        ...guidance.designReview ? [
+          "## Visual quality review",
+          "",
+          guidance.designReview.assurance,
+          "",
+          ...guidance.designReview.criteria.map((item) => `- ${item.title} (${item.ruleId}): Not assessed.`),
+          "",
+          `Visual review guide: ${guidance.designReview.guideFile}`,
+          ""
+        ] : [],
         `Checklist: ${guidance.checklistFile}`,
         `Repair guide: ${guidance.repairGuideFile}`,
         ""

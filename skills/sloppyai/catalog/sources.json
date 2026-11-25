@@ -397,5 +397,13 @@
     "title": "User-supplied screenshot 5",
     "kind": "user-reference",
     "note": "Labels supplied during the original research. No screenshot, portrait or source-file path is distributed. Explanations are independently authored."
+  },
+  {
+    "id": "sloppyai-visual-quality",
+    "title": "sloppy.ai contextual visual-quality review",
+    "url": "https://github.com/JonathanStecher/sloppyai/blob/main/skills/sloppyai/references/visual-quality.md",
+    "kind": "project",
+    "reviewed": "2026-11-25",
+    "note": "Authored review method for taste and appearance. These contextual heuristics require actual visual evidence and do not establish AI authorship."
   }
 ]

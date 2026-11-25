@@ -11,6 +11,9 @@ does not follow automatically.
    behaviour and accepted identity.
 2. Find the root cause and choose a focused repair. Prefer existing services and
    components over a second path or manually patched materialized output.
+   Include taste and appearance using [visual quality](../references/visual-quality.md):
+   compare actual colour relationships, type, crop, optical balance and material
+   against the brief. Preserve useful character while improving the weakest area.
 3. For operational interfaces, list each repeated headline, secondary line, badge,
    icon and separator, and ask whether it conveys a decision, status, relationship
    or recovery path. Remove redundant ornament *only where task evidence supports it*.

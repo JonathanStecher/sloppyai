@@ -9,6 +9,11 @@ spacing, imagery, consistency and meaningful motion. Name what the eye notices
 first and whether that order supports the task. Inspect the actual rendered
 surface when possible; source classes alone do not establish visual quality.
 
+Use the [visual-quality review](visual-quality.md) for palette relationships,
+typographic character, art direction, material, optical balance and overall taste.
+Start from the accepted or explicitly inferred direction and give a visible
+example and a concrete visual rationale for a proposed improvement.
+
 Review cards, badges, eyebrows, dividers and repeated sections for information
 value. For operational interfaces, identify the job each label, icon, description
 and separator performs; remove duplication only when essential meaning remains.

@@ -21,6 +21,17 @@
     },
     "checks": { "type": "array", "maxItems": 12, "items": { "$ref": "#/definitions/command" } },
     "logs": { "type": "array", "maxItems": 12, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 300 } },
+    "designBrief": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "audience": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "intent": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "character": { "$ref": "#/definitions/designBriefList" },
+        "preserve": { "$ref": "#/definitions/designBriefList" },
+        "avoid": { "$ref": "#/definitions/designBriefList" },
+        "references": { "$ref": "#/definitions/designBriefList" }
+      }
+    },
     "visual": {
       "type": "object", "additionalProperties": false,
       "properties": {
@@ -45,6 +56,10 @@
     }
   },
   "definitions": {
+    "designBriefList": {
+      "type": "array", "maxItems": 10, "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 500 }
+    },
     "command": {
       "type": "object", "additionalProperties": false, "required": ["name", "command"],
       "properties": {

@@ -124,6 +124,9 @@ test('the agent hook receives repair instructions and acts on a confirmed design
     "const request = JSON.parse(fs.readFileSync(process.env.SLOPPYAI_REQUEST, 'utf8'));",
     "assert.ok(fs.readFileSync(request.guidance.checklistFile, 'utf8').includes('Product and release review'));",
     "assert.ok(fs.existsSync(request.guidance.reviewSchemaFile));",
+    "assert.equal(request.guidance.designReview.brief.intent, 'Keep the existing print-like identity');",
+    "assert.ok(request.guidance.designReview.criteria.some(item => item.ruleId === 'D24' && item.status === 'not_assessed' && item.score === null));",
+    "assert.ok(fs.existsSync(request.guidance.designReview.guideFile));",
     "const report = JSON.parse(fs.readFileSync(request.reportFile, 'utf8'));",
     "const label = report.findings.find(item => item.ruleId === 'D02');",
     "const findings = label ? [{ruleId:'D02', anchor:label.location.anchor, path:'index.html', severity:'low', confidence:'supported', evidence:'The visible label and heading repeat the exact page name.', recommendation:'Remove the duplicate label and retain the heading.'}] : [];",
@@ -136,10 +139,12 @@ test('the agent hook receives repair instructions and acts on a confirmed design
     "assert.ok(fs.readFileSync(request.guidance.repairGuideFile, 'utf8').includes('Repair by problem'));",
     "assert.ok(request.guidance.steps.some(step => step.ruleId === 'D02' && step.reviewerConfirmed && step.method === 'contextual' && step.verification.length));",
     "assert.ok(request.preservation.some(item => item.contains.includes('Choose plan')));",
+    "assert.equal(request.guidance.designReview.brief.intent, 'Keep the existing print-like identity');",
     "fs.writeFileSync('index.html', fs.readFileSync('index.html', 'utf8').replace('<span>Pricing</span>', ''));"
   ].join('\n');
   const f = await fixture(t, { 'index.html': original, 'review.mjs': reviewer, 'fix.mjs': fixer });
   const config = {
+    designBrief: { intent: 'Keep the existing print-like identity', preserve: ['The primary action and palette'] },
     preserve: [{ path: 'index.html', contains: ['Choose plan'] }],
     reviewer: { name: 'fixture reviewer', command: [process.execPath, 'review.mjs'] },
     fixer: { name: 'fixture fixer', command: [process.execPath, 'fix.mjs'] }

@@ -1,5 +1,11 @@
 # Product and release review checklist
 
+Include [taste, colour and visual quality](visual-quality.md) for visual artifacts.
+Use D24–D31 to judge the palette, typography, composition, imagery, surfaces,
+component family, applicable states and product character against the brief.
+The executable checklist includes these eight areas alongside the original
+188 prompts. They are contextual review work, not automatic visual findings.
+
 Choose the routes, workflows and artifacts relevant to the release. Run the
 static audit, then inspect the rendered states and approved test fixtures
 needed for each applicable item. Report one finding per observed problem.
@@ -9,7 +15,7 @@ proposed fix and a verification step. Record missing evidence in coverage.
 ## Repeatable reference matrix
 
 Run `node scripts/sloppyai.mjs checklist --json` from the installed skill to print
-all 188 prompts from the ten supplied lists, including 19 adverse customer journeys.
+all 196 prompts: the original 188 from ten supplied lists, eight visual-quality areas, and 19 adverse customer journeys within the original lists.
 Use `--domain security` or `--query "two devices"` to narrow the template.
 The machine-readable [reference matrix](../checklists/release.json) maps each prompt
 to existing catalogue guidance and concrete verification steps. Every emitted row

@@ -10,6 +10,9 @@
 3. Inspect the relevant artifact directly. For an interface, walk complete key tasks
    and applicable loading, empty, failure, permission and partial states. For writing
    and media, check actual claims, sources, timing and output quality.
+   For visual artifacts, use [visual quality](../references/visual-quality.md)
+   to assess the actual palette, type, composition, imagery, surfaces, component
+   family, states and character. Report missing rendered evidence explicitly.
 4. For operational UIs, compare the first screen's action/metric density against
    copy, repeated badges, duplicate navigation labels, unexplained icons and
    dividers. Record where they obscure data or require scanning. Do not call

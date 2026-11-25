@@ -1536,6 +1536,68 @@
           ]
         }
       ]
+    },
+    {
+      "id": "visual-quality",
+      "title": "Taste, colour and visual quality",
+      "items": [
+        {
+          "id": "visual-quality-d24",
+          "label": "Palette and colour relationships",
+          "ruleIds": [
+            "D24"
+          ]
+        },
+        {
+          "id": "visual-quality-d25",
+          "label": "Typographic character and optical fit",
+          "ruleIds": [
+            "D25"
+          ]
+        },
+        {
+          "id": "visual-quality-d26",
+          "label": "Composition and visual rhythm",
+          "ruleIds": [
+            "D26"
+          ]
+        },
+        {
+          "id": "visual-quality-d27",
+          "label": "Imagery and art direction",
+          "ruleIds": [
+            "D27"
+          ]
+        },
+        {
+          "id": "visual-quality-d28",
+          "label": "Surface, light and material",
+          "ruleIds": [
+            "D28"
+          ]
+        },
+        {
+          "id": "visual-quality-d29",
+          "label": "Component visual coherence",
+          "ruleIds": [
+            "D29"
+          ]
+        },
+        {
+          "id": "visual-quality-d30",
+          "label": "Visual quality across states",
+          "ruleIds": [
+            "D30"
+          ]
+        },
+        {
+          "id": "visual-quality-d31",
+          "label": "Intentional product character",
+          "ruleIds": [
+            "D31"
+          ]
+        }
+      ]
     }
   ]
 }
