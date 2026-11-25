@@ -12,6 +12,8 @@
    execution additionally requires `--allow-exec`. Inspect the configured commands.
 6. Reinspect meaningful visual, runtime and factual concerns. Import a fresh review
    against the new inputDigest; never carry an old score onto changed inputs.
+   Compare palette, type, imagery, composition and character against the same
+   brief and rendered conditions. A passing structural check cannot verify taste.
 7. Compare compatible ratings, confirmed failures, review prompts, and new issues.
    A disappearing static warning is only 'not observed', not independent runtime closure.
 

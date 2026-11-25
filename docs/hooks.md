@@ -33,6 +33,13 @@ findings. See [the schema](../skills/sloppyai/schemas/review.schema.json).
 Only rate assessed domains, with rationale and evidence. Ratings use the
 [0–5 rubric](../skills/sloppyai/references/ratings.md).
 
+When design is enabled, `guidance.designReview` supplies the visual-quality
+guide, the optional configured `designBrief`, and eight catalogue-backed criteria.
+They start not assessed with no evidence or score. Review the rendered artifact
+against the brief before attributing a design judgment; source checks do not
+judge colour harmony, typography, imagery or taste. The same guidance reaches
+the fixer. Changing the brief changes the input digest and invalidates old reviews.
+
 When confirming an existing finding, reuse its rule ID, relative path and source
 anchor. The controller retains the static observation and uses the review
 confirmation to schedule contextual work.

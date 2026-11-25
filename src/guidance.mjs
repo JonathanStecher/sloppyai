@@ -14,6 +14,8 @@ const referenceFor = {
   devex: 'engineering.md'
 };
 
+const visualQualityRuleIds = ['D24', 'D25', 'D26', 'D27', 'D28', 'D29', 'D30', 'D31'];
+
 export function improvementGuidance(result) {
   const { report, config, catalog, patches, confirmedReviewFindings } = result;
   const reference = filename => path.join(SKILL_ROOT, 'references', filename);
@@ -30,11 +32,23 @@ export function improvementGuidance(result) {
   }));
   return {
     checklistFile: reference('release-review.md'),
+    checklistTemplateFile: path.join(SKILL_ROOT, 'checklists', 'release.json'),
     repairGuideFile: reference('repairs.md'),
     rubricFile: reference('ratings.md'),
     reviewSchemaFile: path.join(SKILL_ROOT, 'schemas', 'review.schema.json'),
     domains: config.domains,
     domainReferences: Object.fromEntries(config.domains.map(domain => [domain, reference(referenceFor[domain])])),
+    ...(config.domains.includes('design') ? {
+      designReview: {
+        guideFile: reference('visual-quality.md'),
+        brief: config.designBrief ?? {},
+        assurance: 'Contextual visual review requires current rendered evidence; source checks do not assess taste.',
+        criteria: visualQualityRuleIds.map(ruleId => catalog.byId.get(ruleId)).filter(Boolean).map(rule => ({
+          ruleId: rule.id, title: rule.title, guidance: rule.guidance,
+          verification: rule.verification, status: 'not_assessed', evidence: [], score: null
+        }))
+      }
+    } : {}),
     steps
   };
 }

@@ -10,6 +10,7 @@ useful features and deliberate style choices.
 - **[Getting started](blog/how-to-use-sloppyai.md):** installation, copyable prompts and a worked example.
 - [AI use and the EU AI Act](skills/sloppyai/references/eu-ai-act.md)
 - [Product and release review checklist](skills/sloppyai/references/release-review.md)
+- [Taste, colour and visual quality](skills/sloppyai/references/visual-quality.md)
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.
@@ -83,6 +84,49 @@ node skills/sloppyai/scripts/sloppyai.mjs catalog --domain accessibility
 Reports are written locally to `.sloppyai` beneath the selected directory, or
 beside a selected file. `--out` selects another directory; `--no-save` produces
 stdout-only audit/plan/verify output. Formats include JSON, Markdown and HTML.
+
+## Release checklist
+
+Print all 196 review prompts: the 188 original design, usability, security and
+public-release prompts plus eight visual-quality areas, with catalogue mappings
+and verification steps:
+
+```sh
+node skills/sloppyai/scripts/sloppyai.mjs checklist --json
+node skills/sloppyai/scripts/sloppyai.mjs checklist --domain security
+node skills/sloppyai/scripts/sloppyai.mjs checklist --query "two devices"
+```
+
+This command prints an unassessed template. It does not inspect a target, execute
+project commands or turn absent evidence into a passing result. The 19 adverse
+journeys cover offline uploads, duplicate signup, password whitespace, RTL, text
+zoom, permissions, checkout navigation, deletion and concurrent devices.
+
+### Review taste and appearance
+
+The agent reviews palette relationships, typography, composition, imagery,
+surfaces, component coherence, visual states and product character against the
+project's actual brief. These eight areas stay unassessed until rendered evidence
+is reviewed. A clean source scan does not establish good taste.
+
+An optional brief in `.sloppyai.json` preserves the intended direction:
+
+```json
+{
+  "designBrief": {
+    "audience": "Working designers",
+    "intent": "A warm editorial journal",
+    "character": ["Tactile", "Quiet"],
+    "preserve": ["Expressive serif", "Warm paper", "Visible action accent"],
+    "avoid": ["Replacing the identity with a generic neutral interface"]
+  }
+}
+```
+
+`plan TARGET --json --no-save` includes the brief and eight unassessed criteria.
+Reviewer and fixer hooks receive the same catalogue-backed guidance. Changing the
+brief invalidates stale review bindings. See the [visual-quality guide](skills/sloppyai/references/visual-quality.md)
+for the evidence and comparison method.
 
 ## Continuous improvement
 
@@ -188,11 +232,12 @@ node skills/sloppyai/scripts/sloppyai.mjs undo /path/to/artifact --out /path/to/
 ## What is implemented
 
 - A self-contained skill with plan, audit, improve and verify workflows.
-- 206 canonical entries, retaining all 102 original research labels: requirements,
+- 218 canonical entries, retaining all 102 original research labels: requirements,
   contextual heuristics, optional visual techniques and definitions.
 - Static HTML naming, language, zoom, duplicate-ID and link checks. Native JSX
   checks cover image alternatives, link destinations and relations, and literal
-  copy. Contextual review includes repeated heading labels, contrast, image
+  copy and persistent-field-label prompts. Contextual source prompts cover action gradients,
+  hover opacity, hero blur and disabled JWT signature verification. Contextual review includes repeated heading labels, contrast, image
   sizing, CSS, copy and likely privileged Next.js client substitutions.
 - Bounded loops, change-triggered watch, optional command checks and review/fix hooks.
 - Fresh-review binding, separate ratings, issue comparisons, backups and undo.

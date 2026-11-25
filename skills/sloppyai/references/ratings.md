@@ -30,6 +30,11 @@ Do not award 5 for polish or a missing test. State who rated it and how. All imp
 human/agent ratings are self-reported, not independent witnessed runtime verification.
 Security and legal concerns still need individual findings and scoped evidence.
 
+For a design rating, state the brief and which visual-quality areas were actually
+reviewed. Use D24–D31 and [visual quality](visual-quality.md) for taste, colour,
+type, imagery and character. Keep subjective rationale distinct from measured
+contrast or geometry, and leave unavailable states or images unassessed.
+
 Reviews use schemas/review.schema.json and the current audit inputDigest. A changed
 manifest, configuration, catalogue or engine invalidates the old binding. Reviewer
 hooks run again on every assessment; the default reviewer target is 4/5. Do not

@@ -110,6 +110,17 @@ export function checkCode(file, ctx) {
       if (occurrence >= 50) break;
     }
   }
+  if (/\b(?:jwt|token)\w*\.(?:decode|decode_complete)\s*\(/i.test(file.text)) {
+    for (const match of file.text.matchAll(/["']verify_signature["']\s*:\s*(?:False|false)\b/g)) {
+      ctx.finding('S37', file, {
+        anchor: 'signature-verification:' + match.index,
+        line: file.text.slice(0, match.index).split('\n').length,
+        confidence: 'tentative',
+        evidence: 'A token-decoding source contains an explicit disabled-signature option. No claim is made about whether those unverified claims reach authorization.',
+        recommendation: 'Trace this result to its use; require trusted signature, issuer, audience and expiry verification before authorizing. Keep display-only decoding separate.'
+      });
+    }
+  }
   const secrets = /-----BEGIN (?:[A-Z ]+ )?PRIVATE KEY-----|\b(?:sk-(?:proj-|ant-)?[A-Za-z0-9_-]{20,}|sk_live_[A-Za-z0-9]{16,}|gh[pousr]_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[A-Z0-9]{16})\b/g;
   let occurrence = 0;
   for (const match of file.text.matchAll(secrets)) {

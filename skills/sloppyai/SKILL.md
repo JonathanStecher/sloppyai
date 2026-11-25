@@ -1,6 +1,6 @@
 ---
 name: sloppyai
-description: Review, improve, and verify existing AI-assisted interfaces, writing, code, and media. Use when asked to remove AI slop, improve an artifact, review quality, or repeat checks after repairs. Preserves useful features, accepted style, factual accuracy, and evidence boundaries.
+description: Review, improve, and verify existing AI-assisted interfaces, writing, code, and media, including visual taste, colour, typography and art direction. Use for quality reviews, removing AI slop and rechecking repairs. Preserve useful features, accepted identity and evidence boundaries.
 license: MIT
 ---
 
@@ -34,6 +34,7 @@ Load only relevant references:
 | Work | Reference |
 | --- | --- |
 | Visual identity, composition and hierarchy | [Design](references/design.md) |
+| Taste, colour, typography, imagery and overall looks | [Visual quality](references/visual-quality.md) |
 | Shared product, launch and short-form review | [Product and release checklist](references/release-review.md) |
 | Repair and verification steps for the agent | [Repair instructions](references/repairs.md) |
 | Dense dashboards and operational controls | [Operational interfaces](references/operational-ui.md) |
@@ -74,6 +75,9 @@ relying on the result.
    review with rendered evidence, project checks and log summaries. Use
    `audit TARGET` for source-only evidence.
 2. Add relevant visual, source, runtime and factual review using available tools.
+   For visual artifacts, assess palette, type, composition, imagery, surfaces,
+   component coherence, applicable states and product character against the brief.
+   A clean structural scan does not assess these visual qualities.
 3. Rate only assessed domains with the rubric in references/ratings.md.
 4. Run the authorized built-in repairs and use the repair instructions for
    evidence-supported changes in the app. Check the actual root cause.

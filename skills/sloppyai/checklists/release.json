@@ -1,0 +1,1603 @@
+{
+  "schemaVersion": 1,
+  "title": "Release review reference matrix",
+  "policy": [
+    "These user-supplied prompts are review inputs, not proof of AI authorship, universal requirements, fixed fines or legal advice.",
+    "Preserve the project brief, deliberate brand decisions and useful behavior. Do not add analytics, FAQs, maps, team photos, invented metrics or testimonials to satisfy a generic list.",
+    "Each row starts not_assessed with unresolved applicability and no evidence. Static findings, completed commands and documentation do not establish a passed customer journey or live security configuration.",
+    "Record applicability with a reason, current source revision, observation, consequence, repair and recheck evidence. Keep unknown, blocked and not-applicable outcomes distinct.",
+    "Do not rewrite shared Git history or rotate credentials automatically. Remove source exposure, identify affected credentials privately and coordinate rotation and history cleanup through the owner."
+  ],
+  "groups": [
+    {
+      "id": "design-slop",
+      "title": "Design patterns",
+      "items": [
+        {
+          "id": "design-slop-01",
+          "label": "Arrows on every button",
+          "ruleIds": [
+            "D10",
+            "H05"
+          ]
+        },
+        {
+          "id": "design-slop-02",
+          "label": "Decorative dots between words",
+          "ruleIds": [
+            "C10",
+            "D05"
+          ]
+        },
+        {
+          "id": "design-slop-03",
+          "label": "Overused eyebrow labels",
+          "ruleIds": [
+            "H13",
+            "D02"
+          ]
+        },
+        {
+          "id": "design-slop-04",
+          "label": "Cream backgrounds",
+          "ruleIds": [
+            "H07",
+            "A07"
+          ]
+        },
+        {
+          "id": "design-slop-05",
+          "label": "One italic word in the headline",
+          "ruleIds": [
+            "H02",
+            "D03"
+          ]
+        },
+        {
+          "id": "design-slop-06",
+          "label": "Sparkle icons",
+          "ruleIds": [
+            "H05",
+            "D05"
+          ]
+        },
+        {
+          "id": "design-slop-07",
+          "label": "Everything in a card",
+          "ruleIds": [
+            "H08",
+            "UX11"
+          ]
+        },
+        {
+          "id": "design-slop-08",
+          "label": "The word quiet",
+          "ruleIds": [
+            "C01",
+            "C10"
+          ]
+        },
+        {
+          "id": "design-slop-09",
+          "label": "Numbered sections",
+          "ruleIds": [
+            "H12"
+          ]
+        },
+        {
+          "id": "design-slop-10",
+          "label": "Pulsing green dots",
+          "ruleIds": [
+            "D19",
+            "A11"
+          ]
+        },
+        {
+          "id": "design-slop-11",
+          "label": "Blurry glows behind the hero",
+          "ruleIds": [
+            "D23"
+          ]
+        },
+        {
+          "id": "design-slop-12",
+          "label": "Instrument Serif",
+          "ruleIds": [
+            "H03"
+          ]
+        },
+        {
+          "id": "design-slop-13",
+          "label": "Colored left borders",
+          "ruleIds": [
+            "H06",
+            "H08"
+          ]
+        },
+        {
+          "id": "design-slop-14",
+          "label": "Three icon cards in a row",
+          "ruleIds": [
+            "H08",
+            "UX11"
+          ]
+        },
+        {
+          "id": "design-slop-15",
+          "label": "Pills above the headline",
+          "ruleIds": [
+            "H01",
+            "H13"
+          ]
+        },
+        {
+          "id": "design-slop-16",
+          "label": "The word real",
+          "ruleIds": [
+            "C01",
+            "C10"
+          ]
+        },
+        {
+          "id": "design-slop-17",
+          "label": "Made-up statistics",
+          "ruleIds": [
+            "C02",
+            "C06"
+          ]
+        },
+        {
+          "id": "design-slop-18",
+          "label": "Two-word sentences",
+          "ruleIds": [
+            "C08"
+          ]
+        },
+        {
+          "id": "design-slop-19",
+          "label": "Sections fading in on scroll",
+          "ruleIds": [
+            "A11",
+            "D20"
+          ]
+        },
+        {
+          "id": "design-slop-20",
+          "label": "Dithering",
+          "ruleIds": [
+            "H14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "practical-design",
+      "title": "Practical design",
+      "items": [
+        {
+          "id": "practical-design-01",
+          "label": "Left-align long text",
+          "ruleIds": [
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-02",
+          "label": "Fit text and button padding",
+          "ruleIds": [
+            "D10",
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-03",
+          "label": "Use regular body-text weight",
+          "ruleIds": [
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-04",
+          "label": "Tint neutral grays coherently",
+          "ruleIds": [
+            "H07",
+            "D11",
+            "A07"
+          ]
+        },
+        {
+          "id": "practical-design-05",
+          "label": "Separate Delete from Save",
+          "ruleIds": [
+            "UX06",
+            "A12"
+          ]
+        },
+        {
+          "id": "practical-design-06",
+          "label": "Tighten headline leading",
+          "ruleIds": [
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-07",
+          "label": "Layer shadows purposefully",
+          "ruleIds": [
+            "D13"
+          ]
+        },
+        {
+          "id": "practical-design-08",
+          "label": "Use sentence case",
+          "ruleIds": [
+            "H18",
+            "C10"
+          ]
+        },
+        {
+          "id": "practical-design-09",
+          "label": "Tint text to its surface hue",
+          "ruleIds": [
+            "H07",
+            "A07"
+          ]
+        },
+        {
+          "id": "practical-design-10",
+          "label": "Align related baselines",
+          "ruleIds": [
+            "D17",
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-11",
+          "label": "Use labels rather than placeholders alone",
+          "ruleIds": [
+            "A03",
+            "UX14"
+          ]
+        },
+        {
+          "id": "practical-design-12",
+          "label": "Use consistent hue roles",
+          "ruleIds": [
+            "H07",
+            "D11"
+          ]
+        },
+        {
+          "id": "practical-design-13",
+          "label": "Balance side padding",
+          "ruleIds": [
+            "D08",
+            "UX13"
+          ]
+        },
+        {
+          "id": "practical-design-14",
+          "label": "Say what buttons do",
+          "ruleIds": [
+            "C07",
+            "D10"
+          ]
+        },
+        {
+          "id": "practical-design-15",
+          "label": "Give headings space above",
+          "ruleIds": [
+            "D08",
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-16",
+          "label": "Moderate dark-mode accent saturation",
+          "ruleIds": [
+            "H07",
+            "A07"
+          ]
+        },
+        {
+          "id": "practical-design-17",
+          "label": "Right-align comparable numbers",
+          "ruleIds": [
+            "D18",
+            "D21"
+          ]
+        },
+        {
+          "id": "practical-design-18",
+          "label": "Use a consistent text-based gap",
+          "ruleIds": [
+            "D08"
+          ]
+        },
+        {
+          "id": "practical-design-19",
+          "label": "Give empty states a next action",
+          "ruleIds": [
+            "UX04",
+            "UX11"
+          ]
+        },
+        {
+          "id": "practical-design-20",
+          "label": "Size landing-page CTAs for prominence",
+          "ruleIds": [
+            "D10",
+            "UX11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stress-journeys",
+      "title": "Adverse customer journeys",
+      "items": [
+        {
+          "id": "stress-journeys-01",
+          "label": "Go back during checkout",
+          "ruleIds": [
+            "UX06",
+            "S11"
+          ],
+          "scenario": "Return with browser Back, refresh and retry. Confirm one pending checkout and no duplicate charge; final completion comes from an owner-verified server/provider result."
+        },
+        {
+          "id": "stress-journeys-02",
+          "label": "Emoji in username",
+          "ruleIds": [
+            "UX09",
+            "E07"
+          ],
+          "scenario": "Save, reload and display a Unicode username without HTML execution, broken encoding or clipping."
+        },
+        {
+          "id": "stress-journeys-03",
+          "label": "Very long profile text",
+          "ruleIds": [
+            "UX09",
+            "UX13"
+          ],
+          "scenario": "Submit oversized text; the server rejects or bounds it and the UI wraps it without losing actions or pretending to save."
+        },
+        {
+          "id": "stress-journeys-04",
+          "label": "Upload while offline",
+          "ruleIds": [
+            "UX04",
+            "UX06",
+            "S34"
+          ],
+          "scenario": "Disconnect during upload, reconnect and retry. Show an error and retain the draft; reject incomplete files and avoid duplicate paid work."
+        },
+        {
+          "id": "stress-journeys-05",
+          "label": "Rotate the device",
+          "ruleIds": [
+            "UX13"
+          ],
+          "scenario": "Rotate while a menu, keyboard or dialog is open. Keep the focused field and primary actions visible."
+        },
+        {
+          "id": "stress-journeys-06",
+          "label": "Increase font size",
+          "ruleIds": [
+            "A05",
+            "UX13"
+          ],
+          "scenario": "Test 200% text size and narrow reflow, with no clipped labels, loss of content or inaccessible controls."
+        },
+        {
+          "id": "stress-journeys-07",
+          "label": "Switch color preference",
+          "ruleIds": [
+            "D14",
+            "A07"
+          ],
+          "scenario": "Change the saved and OS preferences. Honor the supported theme contract and retain readable text, focus and controls."
+        },
+        {
+          "id": "stress-journeys-08",
+          "label": "Register twice",
+          "ruleIds": [
+            "UX10",
+            "S28"
+          ],
+          "scenario": "Submit the same address twice and retry rapidly. Avoid duplicate identity/credit grants and account-enumerating errors."
+        },
+        {
+          "id": "stress-journeys-09",
+          "label": "Submit a blank email",
+          "ruleIds": [
+            "A03",
+            "E07"
+          ],
+          "scenario": "Test empty, whitespace-only and invalid addresses. Show a field error and refuse invalid server requests."
+        },
+        {
+          "id": "stress-journeys-10",
+          "label": "Use spaces in a password",
+          "ruleIds": [
+            "S05",
+            "E07"
+          ],
+          "scenario": "Preserve the exact password, including leading and trailing spaces, across registration, login and recovery; do not silently trim it."
+        },
+        {
+          "id": "stress-journeys-11",
+          "label": "Change foldable viewport dimensions",
+          "ruleIds": [
+            "UX13"
+          ],
+          "scenario": "Resize between folded, unfolded, narrow and split-screen widths during the same task; preserve entered state and reachable controls."
+        },
+        {
+          "id": "stress-journeys-12",
+          "label": "Deny permissions",
+          "ruleIds": [
+            "UX05",
+            "UX04"
+          ],
+          "scenario": "Deny and revoke microphone/camera permission. Stop capture, explain recovery and leave the ordinary input path usable."
+        },
+        {
+          "id": "stress-journeys-13",
+          "label": "Use a private relay email",
+          "ruleIds": [
+            "S28",
+            "UX10"
+          ],
+          "scenario": "Register, confirm, recover and receive transactional mail with a relay address; do not require the user's underlying address."
+        },
+        {
+          "id": "stress-journeys-14",
+          "label": "Leave onboarding midway",
+          "ruleIds": [
+            "UX08",
+            "UX10"
+          ],
+          "scenario": "Leave, reload and resume onboarding without creating duplicate accounts or losing an already-saved choice."
+        },
+        {
+          "id": "stress-journeys-15",
+          "label": "Change timezone",
+          "ruleIds": [
+            "UX09",
+            "E07"
+          ],
+          "scenario": "Change timezone and locale; preserve event instants, billing periods and stable sort order without duplicate scheduled work."
+        },
+        {
+          "id": "stress-journeys-16",
+          "label": "Use Arabic and RTL",
+          "ruleIds": [
+            "UX09",
+            "UX13"
+          ],
+          "scenario": "Test Arabic text, bidirectional email/IDs and long translated labels on mobile; retain focus order and correct directional icons."
+        },
+        {
+          "id": "stress-journeys-17",
+          "label": "Use a slow connection",
+          "ruleIds": [
+            "UX04",
+            "F06"
+          ],
+          "scenario": "Throttle or delay requests. Keep pending feedback, prevent duplicate mutation submission, and expose retry after a failure."
+        },
+        {
+          "id": "stress-journeys-18",
+          "label": "Delete an account then register again",
+          "ruleIds": [
+            "UX10",
+            "S28",
+            "S32"
+          ],
+          "scenario": "Verify deletion, session revocation, upload cleanup and retained fiscal records separately; do not grant repeat free entitlements accidentally."
+        },
+        {
+          "id": "stress-journeys-19",
+          "label": "Use two devices",
+          "ruleIds": [
+            "UX05",
+            "S11",
+            "S28"
+          ],
+          "scenario": "Change/deactivate an account on one device and use a stale session on the other; reauthorize server mutations and reconcile balances atomically."
+        }
+      ]
+    },
+    {
+      "id": "vibecoded-design",
+      "title": "Interface repetition",
+      "items": [
+        {
+          "id": "vibecoded-design-01",
+          "label": "Purple-to-blue gradients",
+          "ruleIds": [
+            "H19",
+            "D22"
+          ]
+        },
+        {
+          "id": "vibecoded-design-02",
+          "label": "Gradient hero text",
+          "ruleIds": [
+            "D13",
+            "H19"
+          ]
+        },
+        {
+          "id": "vibecoded-design-03",
+          "label": "Emoji in headings",
+          "ruleIds": [
+            "H05",
+            "C10"
+          ]
+        },
+        {
+          "id": "vibecoded-design-04",
+          "label": "Inter everywhere",
+          "ruleIds": [
+            "D21"
+          ]
+        },
+        {
+          "id": "vibecoded-design-05",
+          "label": "Colored border cards",
+          "ruleIds": [
+            "H08"
+          ]
+        },
+        {
+          "id": "vibecoded-design-06",
+          "label": "Glassmorphism cards",
+          "ruleIds": [
+            "H08",
+            "D13"
+          ]
+        },
+        {
+          "id": "vibecoded-design-07",
+          "label": "Low-contrast dark mode",
+          "ruleIds": [
+            "A07",
+            "D15"
+          ]
+        },
+        {
+          "id": "vibecoded-design-08",
+          "label": "Three icon boxes in a row",
+          "ruleIds": [
+            "H08",
+            "UX11"
+          ]
+        },
+        {
+          "id": "vibecoded-design-09",
+          "label": "Badge above headline",
+          "ruleIds": [
+            "H01",
+            "H13"
+          ]
+        },
+        {
+          "id": "vibecoded-design-10",
+          "label": "Lucide icons everywhere",
+          "ruleIds": [
+            "D05",
+            "H05"
+          ]
+        },
+        {
+          "id": "vibecoded-design-11",
+          "label": "Untailored shadcn components",
+          "ruleIds": [
+            "D05",
+            "D08"
+          ]
+        },
+        {
+          "id": "vibecoded-design-12",
+          "label": "Fade-in on scroll",
+          "ruleIds": [
+            "A11",
+            "D20"
+          ]
+        },
+        {
+          "id": "vibecoded-design-13",
+          "label": "Cursor-following beams",
+          "ruleIds": [
+            "H05",
+            "F05"
+          ]
+        },
+        {
+          "id": "vibecoded-design-14",
+          "label": "Buttons fading on hover",
+          "ruleIds": [
+            "D22",
+            "A07"
+          ]
+        },
+        {
+          "id": "vibecoded-design-15",
+          "label": "Inconsistent spacing",
+          "ruleIds": [
+            "D08"
+          ]
+        },
+        {
+          "id": "vibecoded-design-16",
+          "label": "Repeated em dashes",
+          "ruleIds": [
+            "C10"
+          ]
+        },
+        {
+          "id": "vibecoded-design-17",
+          "label": "Generic buzzwords",
+          "ruleIds": [
+            "C01"
+          ]
+        },
+        {
+          "id": "vibecoded-design-18",
+          "label": "Serif italic accents",
+          "ruleIds": [
+            "H02",
+            "D21"
+          ]
+        },
+        {
+          "id": "vibecoded-design-19",
+          "label": "Space Grotesk and Instrument Serif pairing",
+          "ruleIds": [
+            "H03",
+            "D21"
+          ]
+        },
+        {
+          "id": "vibecoded-design-20",
+          "label": "Grain over gradients",
+          "ruleIds": [
+            "H19",
+            "F05"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launch-security",
+      "title": "Security before launch",
+      "items": [
+        {
+          "id": "launch-security-01",
+          "label": "Keep privileged API keys server-side",
+          "ruleIds": [
+            "S23",
+            "S36"
+          ]
+        },
+        {
+          "id": "launch-security-02",
+          "label": "Remediate secrets in Git history",
+          "ruleIds": [
+            "S02",
+            "S23"
+          ]
+        },
+        {
+          "id": "launch-security-03",
+          "label": "Use restricted public database keys",
+          "ruleIds": [
+            "S06",
+            "S27"
+          ]
+        },
+        {
+          "id": "launch-security-04",
+          "label": "Enforce row-level security",
+          "ruleIds": [
+            "S06",
+            "S27"
+          ]
+        },
+        {
+          "id": "launch-security-05",
+          "label": "Protect sensitive stored data",
+          "ruleIds": [
+            "S06",
+            "S32"
+          ]
+        },
+        {
+          "id": "launch-security-06",
+          "label": "Enforce server-side authentication",
+          "ruleIds": [
+            "S05",
+            "S27"
+          ]
+        },
+        {
+          "id": "launch-security-07",
+          "label": "Check record ownership",
+          "ruleIds": [
+            "S27"
+          ]
+        },
+        {
+          "id": "launch-security-08",
+          "label": "Allowlist mutable fields",
+          "ruleIds": [
+            "E07",
+            "S27"
+          ]
+        },
+        {
+          "id": "launch-security-09",
+          "label": "Set appropriate session cookies",
+          "ruleIds": [
+            "S28"
+          ]
+        },
+        {
+          "id": "launch-security-10",
+          "label": "Use password hashing through the identity provider",
+          "ruleIds": [
+            "S28"
+          ]
+        },
+        {
+          "id": "launch-security-11",
+          "label": "Rate-limit login",
+          "ruleIds": [
+            "S08",
+            "S30"
+          ]
+        },
+        {
+          "id": "launch-security-12",
+          "label": "Configure bot protection where warranted",
+          "ruleIds": [
+            "S08",
+            "S30"
+          ]
+        },
+        {
+          "id": "launch-security-13",
+          "label": "Parameterize database queries",
+          "ruleIds": [
+            "S25"
+          ]
+        },
+        {
+          "id": "launch-security-14",
+          "label": "Validate input",
+          "ruleIds": [
+            "E07"
+          ]
+        },
+        {
+          "id": "launch-security-15",
+          "label": "Encode user content for its output context",
+          "ruleIds": [
+            "S22"
+          ]
+        },
+        {
+          "id": "launch-security-16",
+          "label": "Restrict file uploads",
+          "ruleIds": [
+            "S34"
+          ]
+        },
+        {
+          "id": "launch-security-17",
+          "label": "Minimize API response fields",
+          "ruleIds": [
+            "S27",
+            "S32"
+          ]
+        },
+        {
+          "id": "launch-security-18",
+          "label": "Set security headers",
+          "ruleIds": [
+            "S33"
+          ]
+        },
+        {
+          "id": "launch-security-19",
+          "label": "Enforce HTTPS",
+          "ruleIds": [
+            "S26",
+            "S33"
+          ]
+        },
+        {
+          "id": "launch-security-20",
+          "label": "Scan dependency advisories",
+          "ruleIds": [
+            "S31"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legal-release",
+      "title": "Notices and customer rights",
+      "items": [
+        {
+          "id": "legal-release-01",
+          "label": "Match the privacy policy to actual data flows",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-02",
+          "label": "Publish applicable terms",
+          "ruleIds": [
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-03",
+          "label": "Explain refunds and statutory withdrawal",
+          "ruleIds": [
+            "R07",
+            "UX10"
+          ]
+        },
+        {
+          "id": "legal-release-04",
+          "label": "Explain cookie use",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-05",
+          "label": "Obtain consent before optional tracking",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-06",
+          "label": "Check form consent and choices",
+          "ruleIds": [
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-07",
+          "label": "Minimize collected data",
+          "ruleIds": [
+            "R06",
+            "S32"
+          ]
+        },
+        {
+          "id": "legal-release-08",
+          "label": "Audit third-party SDKs and processors",
+          "ruleIds": [
+            "R06",
+            "S31"
+          ]
+        },
+        {
+          "id": "legal-release-09",
+          "label": "Remove dark patterns",
+          "ruleIds": [
+            "UX06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-10",
+          "label": "Disclose complete fees",
+          "ruleIds": [
+            "C10",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-11",
+          "label": "Remove fabricated reviews",
+          "ruleIds": [
+            "C06",
+            "R03"
+          ]
+        },
+        {
+          "id": "legal-release-12",
+          "label": "Remove unsupported claims",
+          "ruleIds": [
+            "C02",
+            "C06"
+          ]
+        },
+        {
+          "id": "legal-release-13",
+          "label": "Provide meaningful text alternatives",
+          "ruleIds": [
+            "A02"
+          ]
+        },
+        {
+          "id": "legal-release-14",
+          "label": "Check color contrast",
+          "ruleIds": [
+            "A07"
+          ]
+        },
+        {
+          "id": "legal-release-15",
+          "label": "Support keyboard navigation",
+          "ruleIds": [
+            "A08",
+            "A12"
+          ]
+        },
+        {
+          "id": "legal-release-16",
+          "label": "Publish accurate business details",
+          "ruleIds": [
+            "P10"
+          ]
+        },
+        {
+          "id": "legal-release-17",
+          "label": "Assess children's-data conditions",
+          "ruleIds": [
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-release-18",
+          "label": "Provide marketing unsubscribe",
+          "ruleIds": [
+            "R07",
+            "UX10"
+          ]
+        },
+        {
+          "id": "legal-release-19",
+          "label": "Verify font and image licensing",
+          "ruleIds": [
+            "R01",
+            "R04"
+          ]
+        },
+        {
+          "id": "legal-release-20",
+          "label": "Support data deletion requests",
+          "ruleIds": [
+            "S32",
+            "R07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-maintenance",
+      "title": "Defensive maintenance",
+      "items": [
+        {
+          "id": "security-maintenance-01",
+          "label": "Remove demonstrably unused packages",
+          "ruleIds": [
+            "S31"
+          ]
+        },
+        {
+          "id": "security-maintenance-02",
+          "label": "Check Git for exposed credentials",
+          "ruleIds": [
+            "S02",
+            "S23"
+          ]
+        },
+        {
+          "id": "security-maintenance-03",
+          "label": "Apply rate and spend limits",
+          "ruleIds": [
+            "S08",
+            "S30"
+          ]
+        },
+        {
+          "id": "security-maintenance-04",
+          "label": "Check user access boundaries",
+          "ruleIds": [
+            "S27"
+          ]
+        },
+        {
+          "id": "security-maintenance-05",
+          "label": "Verify password hashing",
+          "ruleIds": [
+            "S28"
+          ]
+        },
+        {
+          "id": "security-maintenance-06",
+          "label": "Hide privileged API keys from clients",
+          "ruleIds": [
+            "S23",
+            "S36"
+          ]
+        },
+        {
+          "id": "security-maintenance-07",
+          "label": "Verify authentication",
+          "ruleIds": [
+            "S05",
+            "S28"
+          ]
+        },
+        {
+          "id": "security-maintenance-08",
+          "label": "Review dependency updates",
+          "ruleIds": [
+            "S31"
+          ]
+        },
+        {
+          "id": "security-maintenance-09",
+          "label": "Validate forms on the server",
+          "ruleIds": [
+            "E07"
+          ]
+        },
+        {
+          "id": "security-maintenance-10",
+          "label": "Protect output against XSS",
+          "ruleIds": [
+            "S22"
+          ]
+        },
+        {
+          "id": "security-maintenance-11",
+          "label": "Disable production debug exposure",
+          "ruleIds": [
+            "S17"
+          ]
+        },
+        {
+          "id": "security-maintenance-12",
+          "label": "Perform a scoped security review",
+          "ruleIds": [
+            "S27",
+            "S33"
+          ]
+        },
+        {
+          "id": "security-maintenance-13",
+          "label": "Separate environment variables",
+          "ruleIds": [
+            "S23",
+            "S36"
+          ]
+        },
+        {
+          "id": "security-maintenance-14",
+          "label": "Check exposed files",
+          "ruleIds": [
+            "S02",
+            "S17"
+          ]
+        },
+        {
+          "id": "security-maintenance-15",
+          "label": "Protect admin operations",
+          "ruleIds": [
+            "S27"
+          ]
+        },
+        {
+          "id": "security-maintenance-16",
+          "label": "Secure API endpoints",
+          "ruleIds": [
+            "S27",
+            "S30"
+          ]
+        },
+        {
+          "id": "security-maintenance-17",
+          "label": "Verify CORS",
+          "ruleIds": [
+            "S33"
+          ]
+        },
+        {
+          "id": "security-maintenance-18",
+          "label": "Set response security headers",
+          "ruleIds": [
+            "S33"
+          ]
+        },
+        {
+          "id": "security-maintenance-19",
+          "label": "Restrict database access",
+          "ruleIds": [
+            "S06",
+            "S27"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "public-launch",
+      "title": "Public website release",
+      "items": [
+        {
+          "id": "public-launch-01",
+          "label": "Provide a useful custom 404",
+          "ruleIds": [
+            "P09",
+            "UX07"
+          ]
+        },
+        {
+          "id": "public-launch-02",
+          "label": "Expose the main CTA on the first screen",
+          "ruleIds": [
+            "D10",
+            "UX11"
+          ]
+        },
+        {
+          "id": "public-launch-03",
+          "label": "Connect useful internal links",
+          "ruleIds": [
+            "P09",
+            "UX07"
+          ]
+        },
+        {
+          "id": "public-launch-04",
+          "label": "Show a truthful completion or thank-you state",
+          "ruleIds": [
+            "UX04"
+          ]
+        },
+        {
+          "id": "public-launch-05",
+          "label": "Provide breadcrumbs when navigation needs them",
+          "ruleIds": [
+            "UX07"
+          ]
+        },
+        {
+          "id": "public-launch-06",
+          "label": "Use substantiated case studies",
+          "ruleIds": [
+            "P10",
+            "C06"
+          ]
+        },
+        {
+          "id": "public-launch-07",
+          "label": "Add FAQs only when they serve the product brief",
+          "ruleIds": [
+            "P10"
+          ]
+        },
+        {
+          "id": "public-launch-08",
+          "label": "Make realistic support response promises",
+          "ruleIds": [
+            "P10",
+            "C02"
+          ]
+        },
+        {
+          "id": "public-launch-09",
+          "label": "Use a sticky mobile action only when useful",
+          "ruleIds": [
+            "UX13",
+            "UX11"
+          ]
+        },
+        {
+          "id": "public-launch-10",
+          "label": "Verify robots.txt",
+          "ruleIds": [
+            "P09"
+          ]
+        },
+        {
+          "id": "public-launch-11",
+          "label": "Use distinct page titles",
+          "ruleIds": [
+            "P09"
+          ]
+        },
+        {
+          "id": "public-launch-12",
+          "label": "Write page-specific descriptions",
+          "ruleIds": [
+            "P09"
+          ]
+        },
+        {
+          "id": "public-launch-13",
+          "label": "Provide a social share image",
+          "ruleIds": [
+            "P09"
+          ]
+        },
+        {
+          "id": "public-launch-14",
+          "label": "Add maps and directions for place-based services",
+          "ruleIds": [
+            "P10"
+          ]
+        },
+        {
+          "id": "public-launch-15",
+          "label": "Use genuine customer reviews",
+          "ruleIds": [
+            "C06",
+            "R03"
+          ]
+        },
+        {
+          "id": "public-launch-16",
+          "label": "Add useful image alternatives",
+          "ruleIds": [
+            "A02"
+          ]
+        },
+        {
+          "id": "public-launch-17",
+          "label": "Use local schema only for an applicable business",
+          "ruleIds": [
+            "P09",
+            "P10"
+          ]
+        },
+        {
+          "id": "public-launch-18",
+          "label": "Publish the applicable privacy notice",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "public-launch-19",
+          "label": "Add analytics only with a defined need and lawful configuration",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "public-launch-20",
+          "label": "Use an authentic team photo only when appropriate",
+          "ruleIds": [
+            "P10",
+            "R01"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-threats",
+      "title": "Security abuse cases",
+      "items": [
+        {
+          "id": "security-threats-01",
+          "label": "Optional Next.js identification header",
+          "ruleIds": [
+            "S35"
+          ]
+        },
+        {
+          "id": "security-threats-02",
+          "label": "Public Git directory",
+          "ruleIds": [
+            "S02",
+            "S17"
+          ]
+        },
+        {
+          "id": "security-threats-03",
+          "label": "Public Supabase storage exposure",
+          "ruleIds": [
+            "S06",
+            "S34"
+          ]
+        },
+        {
+          "id": "security-threats-04",
+          "label": "Prices supplied by the browser",
+          "ruleIds": [
+            "S04"
+          ]
+        },
+        {
+          "id": "security-threats-05",
+          "label": "Credential stuffing",
+          "ruleIds": [
+            "S08",
+            "S28"
+          ]
+        },
+        {
+          "id": "security-threats-06",
+          "label": "Open database access",
+          "ruleIds": [
+            "S06",
+            "S27"
+          ]
+        },
+        {
+          "id": "security-threats-07",
+          "label": "Third-party Polyfill.io dependency",
+          "ruleIds": [
+            "S07",
+            "S31"
+          ]
+        },
+        {
+          "id": "security-threats-08",
+          "label": "SMS cost abuse",
+          "ruleIds": [
+            "S08",
+            "S30"
+          ]
+        },
+        {
+          "id": "security-threats-09",
+          "label": "Prompt injection across tool boundaries",
+          "ruleIds": [
+            "S09",
+            "S30"
+          ]
+        },
+        {
+          "id": "security-threats-10",
+          "label": "Weak JWT signing material",
+          "ruleIds": [
+            "S10",
+            "S23"
+          ]
+        },
+        {
+          "id": "security-threats-11",
+          "label": "Race conditions in mutations and settlement",
+          "ruleIds": [
+            "S11",
+            "S29"
+          ]
+        },
+        {
+          "id": "security-threats-12",
+          "label": "Account pre-hijacking and unsafe linking",
+          "ruleIds": [
+            "S12",
+            "S28"
+          ]
+        },
+        {
+          "id": "security-threats-13",
+          "label": "Dangling subdomains",
+          "ruleIds": [
+            "S13"
+          ]
+        },
+        {
+          "id": "security-threats-14",
+          "label": "Server-side request forgery",
+          "ruleIds": [
+            "S14"
+          ]
+        },
+        {
+          "id": "security-threats-15",
+          "label": "Path traversal",
+          "ruleIds": [
+            "S15",
+            "S34"
+          ]
+        },
+        {
+          "id": "security-threats-16",
+          "label": "Password-reset destination poisoning",
+          "ruleIds": [
+            "S16",
+            "S28"
+          ]
+        },
+        {
+          "id": "security-threats-17",
+          "label": "Public production source maps",
+          "ruleIds": [
+            "S17"
+          ]
+        },
+        {
+          "id": "security-threats-18",
+          "label": "Clickjacking",
+          "ruleIds": [
+            "S18",
+            "S33"
+          ]
+        },
+        {
+          "id": "security-threats-19",
+          "label": "Open redirects",
+          "ruleIds": [
+            "S19"
+          ]
+        },
+        {
+          "id": "security-threats-20",
+          "label": "User enumeration",
+          "ruleIds": [
+            "S20",
+            "S28"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legal-risk-claims",
+      "title": "Product-specific legal risk review",
+      "items": [
+        {
+          "id": "legal-risk-claims-01",
+          "label": "Missing privacy notice",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-02",
+          "label": "Undisclosed data collection",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-03",
+          "label": "Undisclosed AI use where disclosure applies",
+          "ruleIds": [
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-04",
+          "label": "Unnamed processors or data recipients",
+          "ruleIds": [
+            "R06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-05",
+          "label": "Uploaded files surviving a deletion request",
+          "ruleIds": [
+            "S32",
+            "S34"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-06",
+          "label": "Public storage containing private files",
+          "ruleIds": [
+            "S06",
+            "S34"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-07",
+          "label": "Fake testimonials",
+          "ruleIds": [
+            "C06",
+            "R03"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-08",
+          "label": "Obstructed subscription cancellation",
+          "ruleIds": [
+            "UX06",
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-09",
+          "label": "Trial or renewal reminders where applicable",
+          "ruleIds": [
+            "R07"
+          ]
+        },
+        {
+          "id": "legal-risk-claims-10",
+          "label": "Sensitive-distress response where the feature permits it",
+          "ruleIds": [
+            "S09",
+            "R07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visual-quality",
+      "title": "Taste, colour and visual quality",
+      "items": [
+        {
+          "id": "visual-quality-d24",
+          "label": "Palette and colour relationships",
+          "ruleIds": [
+            "D24"
+          ]
+        },
+        {
+          "id": "visual-quality-d25",
+          "label": "Typographic character and optical fit",
+          "ruleIds": [
+            "D25"
+          ]
+        },
+        {
+          "id": "visual-quality-d26",
+          "label": "Composition and visual rhythm",
+          "ruleIds": [
+            "D26"
+          ]
+        },
+        {
+          "id": "visual-quality-d27",
+          "label": "Imagery and art direction",
+          "ruleIds": [
+            "D27"
+          ]
+        },
+        {
+          "id": "visual-quality-d28",
+          "label": "Surface, light and material",
+          "ruleIds": [
+            "D28"
+          ]
+        },
+        {
+          "id": "visual-quality-d29",
+          "label": "Component visual coherence",
+          "ruleIds": [
+            "D29"
+          ]
+        },
+        {
+          "id": "visual-quality-d30",
+          "label": "Visual quality across states",
+          "ruleIds": [
+            "D30"
+          ]
+        },
+        {
+          "id": "visual-quality-d31",
+          "label": "Intentional product character",
+          "ruleIds": [
+            "D31"
+          ]
+        }
+      ]
+    }
+  ]
+}

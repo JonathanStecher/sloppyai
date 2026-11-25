@@ -2,6 +2,7 @@ import { parseArgs } from 'node:util';
 import path from 'node:path';
 import { open } from 'node:fs/promises';
 import { audit, assertStableInputs } from './audit.mjs';
+import { releaseChecklist, checklistMarkdown } from './release-checklist.mjs';
 import { improvementGuidance } from './guidance.mjs';
 import { attachRuntime, collectRuntime } from './runtime.mjs';
 import { targetInfo } from './files.mjs';
@@ -30,6 +31,7 @@ Usage: sloppyai <command> [target] [options]
   loop TARGET        Check → narrow fix → recheck with bounded attempts and history.
   watch TARGET       Recheck changed inputs, within cycle and duration limits.
   init TARGET        Create a safe .sloppyai.json without overwriting an existing one.
+  checklist          Print the unassessed design, security and journey checklist.
   catalog            Browse the complete rule, technique and glossary catalogue.
   history            Show issue and rating history from --out.
   undo TARGET        Restore --transaction if repaired files have no later changes.
@@ -146,6 +148,14 @@ export async function main(args = process.argv.slice(2)) {
   process.once('SIGTERM', cancel);
   options.signal = controller.signal;
   try {
+    if (command === 'checklist') {
+      if (target) fail('INVALID_ARGUMENT', 'Checklist does not inspect a target.', 'Use audit or review for artifact evidence.');
+      if (values.apply || values['allow-exec'] || values.out) fail('INVALID_ARGUMENT', 'Checklist prints a template only.', 'Redirect stdout deliberately if you want to save the unassessed template.');
+      if (values.format === 'html') fail('INVALID_FORMAT', 'Checklist supports JSON or Markdown.', 'Use --json or --format markdown.');
+      const checklist = await releaseChecklist({ domain: values.domain, query: values.query });
+      console.log(values.json || values.format === 'json' ? JSON.stringify(checklist, null, 2) : checklistMarkdown(checklist));
+      return 0;
+    }
     if (command === 'catalog') {
       const catalog = await loadCatalog();
       const entries = selectCatalog(catalog, { domain: values.domain, kind: values.kind, query: values.query });
@@ -220,6 +230,12 @@ export async function main(args = process.argv.slice(2)) {
             ...step.verification.map(verification => short(verification, 1000)), ''];
         }),
         ...(actionable.length ? [] : ['Static source checks returned zero findings. Use the relevant checklist rows to assess other evidence.']), '',
+        ...(guidance.designReview ? [
+          '## Visual quality review', '',
+          guidance.designReview.assurance, '',
+          ...guidance.designReview.criteria.map(item => `- ${item.title} (${item.ruleId}): Not assessed.`), '',
+          `Visual review guide: ${guidance.designReview.guideFile}`, ''
+        ] : []),
         `Checklist: ${guidance.checklistFile}`, `Repair guide: ${guidance.repairGuideFile}`, ''].join('\n');
       console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan, guidance }, null, 2) : plan);
     } else outputReport(saved?.report || result.report, values, saved?.output);
