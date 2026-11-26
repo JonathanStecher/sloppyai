@@ -24,6 +24,8 @@ test('a clean source scan leaves visual taste unassessed and preserves the suppl
   assert.deepEqual(guidance.designReview.qualityWorkflow.evidence, []);
   assert.ok((await readFile(guidance.designReview.qualityWorkflow.guideFile, 'utf8')).length > 1000);
   assert.ok((await readFile(guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8')).length > 1000);
+  assert.ok((await readFile(guidance.designReview.qualityWorkflow.identityGuideFile, 'utf8')).length > 1000);
+  assert.ok(guidance.designReview.qualityWorkflow.checks.some(item => item.id === 'positive_identity'));
   assert.equal(guidance.designReview.criteria.length, 8);
   for (const item of guidance.designReview.criteria) {
     assert.equal(item.status, 'not_assessed');
@@ -110,6 +112,7 @@ test('the portable plan exposes unassessed visual criteria even when source find
   assert.equal(result.guidance.designReview.referencePolicy.use, 'quality');
   assert.equal(result.guidance.designReview.qualityWorkflow.status, 'not_assessed');
   assert.ok((await readFile(result.guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8')).length > 1000);
+  assert.ok((await readFile(result.guidance.designReview.qualityWorkflow.identityGuideFile, 'utf8')).length > 1000);
   assert.ok(result.plan.includes(brief.audience));
   assert.ok(result.plan.includes(brief.intent));
   assert.ok(result.guidance.designReview.criteria.every(item => item.score === null && item.status === 'not_assessed'));

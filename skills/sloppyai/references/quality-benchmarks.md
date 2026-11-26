@@ -27,6 +27,9 @@ Connect audience, primary task and real content to concrete decisions about type
 colour roles, imagery, density and composition. Explain why those decisions help
 this product. “Modern”, “premium”, “clean” or “less AI” alone do not give a direction.
 Avoid substituting a default minimal interface or a fashionable editorial serif.
+Use [real-product studies](product-identity.md) to observe the relationships among
+content, assets, type, colour and interaction. Create a positive identity rather
+than treating removal or resemblance to a reference as the goal.
 
 When the direction is unresolved and the change is substantial, compare materially
 different approaches using the same content before committing. A short description,

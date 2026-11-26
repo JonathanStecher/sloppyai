@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+- Added bounded studies of four live product websites, separating observed relationships from transferable principles and brand-specific assets.
+- Added positive identity, rendered alternatives and whole-journey continuity to agent workflows and CLI review guidance.
+- Kept expressive and restrained identities valid; simplification, novelty and automatic style scores are not taste verdicts.
+
 ## 0.4.1
 
 - Added sourced guidance for rejected overlines, type, palettes, buttons and icons, with limits and legitimate counterexamples.

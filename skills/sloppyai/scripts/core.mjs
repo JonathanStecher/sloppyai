@@ -28156,7 +28156,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.4.1";
+var VERSION = "0.4.2";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38493,6 +38493,7 @@ function improvementGuidance(result) {
         qualityWorkflow: {
           guideFile: reference("quality-benchmarks.md"),
           decisionGuideFile: reference("design-decisions.md"),
+          identityGuideFile: reference("product-identity.md"),
           status: "not_assessed",
           evidence: [],
           checks: [
@@ -38501,6 +38502,9 @@ function improvementGuidance(result) {
             { id: "identity_acceptance", question: "Which identity choices did the user accept, which were only generated defaults, and which have been rejected?" },
             { id: "decoration_purpose", question: "What do the actual overlines, type emphasis, palette, button treatments and icons contribute to this task, and which combined choices caused the rejection?" },
             { id: "different_assumption", question: "If the look was rejected, which materially different approach was compared with the same content and required behavior?" },
+            { id: "reference_relationships", question: "Which relationships were observed in actual product websites, what principle transfers, and what identity or assets must remain with those references?" },
+            { id: "positive_identity", question: "What positive identity follows from this product, and how do content, type, colour, imagery and interaction reinforce it beyond the removal of generic decoration?" },
+            { id: "identity_continuity", question: "What was created or strengthened across the whole page and useful states, and what current rendered evidence supports that judgment?" },
             { id: "coherent_execution", question: "Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?" },
             { id: "rendered_critique", question: "Which specific rendered weaknesses were improved at page and detail scale, and which remain?" },
             { id: "preserved_behavior", question: "Do meaningful content, controls, responsive states and recovery paths still work?" }

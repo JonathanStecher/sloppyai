@@ -2968,13 +2968,13 @@ Domain: design. Kind: heuristic. Automation: none.
 
 An artifact can be tidy and functional while its combined visual choices still feel interchangeable or unsuitable for its audience.
 
-Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style. Treat quality references as execution benchmarks by default. Derive the visual direction from this product; use a reference style only when requested. A cosmetic reskin or familiar-pattern removal does not establish visual quality. Do not treat the first generated style as accepted branding. When the user rejects a bundle of type, palette, overlines, buttons and icons, reconsider that bundle and compare a materially different assumption with the same content. Preserve required behavior separately from the visual repair outcome.
+Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style. Treat quality references as execution benchmarks by default. Derive the visual direction from this product; use a reference style only when requested. A cosmetic reskin or familiar-pattern removal does not establish visual quality. Do not treat the first generated style as accepted branding. When the user rejects a bundle of type, palette, overlines, buttons and icons, reconsider that bundle and compare a materially different assumption with the same content. Preserve required behavior separately from the visual repair outcome. Simplification alone does not create identity. Study actual product relationships, then build mutually supporting content, type, colour, imagery and interaction for this product. Expressive choices can contribute personality without operating a control; do not require novelty or decoration for its own sake.
 
-Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects. Establish whether each reference sets a quality bar or an explicitly requested visual direction, using current available evidence. Explain how the chosen type, palette, composition and product evidence belong to this artifact; revisit a rejected design assumption before another styling pass. Separate explicitly accepted identity, inferred defaults and user-rejected choices. Recheck the named rejected combination and record visual and functional outcomes independently.
+Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects. Establish whether each reference sets a quality bar or an explicitly requested visual direction, using current available evidence. Explain how the chosen type, palette, composition and product evidence belong to this artifact; revisit a rejected design assumption before another styling pass. Separate explicitly accepted identity, inferred defaults and user-rejected choices. Recheck the named rejected combination and record visual and functional outcomes independently. Name what positive identity was created or strengthened and inspect its continuity beyond the hero, including meaningful content and states. Separate observed reference relationships from borrowed style or assets.
 
-Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake. An explicit request to follow a visual reference or shared brand system can legitimately reuse its style. A first generated direction can become accepted through explicit user approval; conventional fonts, palettes and components remain valid when they serve that accepted direction.
+Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake. An explicit request to follow a visual reference or shared brand system can legitimately reuse its style. A first generated direction can become accepted through explicit user approval; conventional fonts, palettes and components remain valid when they serve that accepted direction. A restrained product can gain identity through specific content and behaviour; a vivid brand can gain it through expressive imagery and type. Neither minimalism nor maximalism is a required taste outcome.
 
-Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [google-first-impressions](#source-google-first-impressions), [pentagram-garden-museum](#source-pentagram-garden-museum), [doshi-hauser-diversity](#source-doshi-hauser-diversity)
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [google-first-impressions](#source-google-first-impressions), [pentagram-garden-museum](#source-pentagram-garden-museum), [doshi-hauser-diversity](#source-doshi-hauser-diversity), [product-graza](#source-product-graza), [product-arena](#source-product-arena), [product-patch](#source-product-patch), [product-teenage](#source-product-teenage)
 
 ## Sources
 
@@ -3518,3 +3518,39 @@ Type: study. Reviewed 2026-11-26.
 [Original source](https://arxiv.org/abs/2312.00506)
 
 Short-story experiment; a transfer to website design is an explicitly labelled inference. Journal DOI: 10.1126/sciadv.adn5290.
+
+<a id="source-product-graza"></a>
+### Graza live product website
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://www.graza.co/)
+
+Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets.
+
+<a id="source-product-arena"></a>
+### Are.na live product website
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://www.are.na/)
+
+Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets.
+
+<a id="source-product-patch"></a>
+### Patch live product website
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://www.patchplants.com/)
+
+Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets.
+
+<a id="source-product-teenage"></a>
+### teenage engineering live product website
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://teenage.engineering/)
+
+Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets.
