@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1
+
+- Added sourced guidance for rejected overlines, type, palettes, buttons and icons, with limits and legitimate counterexamples.
+- Separated approved identity from generated defaults and user-rejected choices in agent workflows and CLI guidance.
+- Kept purpose audits and alternative comparisons contextual and unassessed; added no automatic style bans or authorship scores.
+- Included the research reference in the portable skill and verified isolated package access.
+
 ## 0.4.0
 
 - Distinguished quality benchmarks from explicitly requested style references, including older briefs.

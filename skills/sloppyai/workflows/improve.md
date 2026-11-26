@@ -9,6 +9,8 @@ does not follow automatically.
    [repair instructions](../references/repairs.md). Keep useful states,
    price/credit information, navigation, accessibility, terminology, API
    behaviour and accepted identity.
+   Separate explicit acceptance from generated defaults. User-rejected visual
+   choices are not part of an accepted brand merely because they are in the baseline.
 2. Find the root cause and choose a focused repair. Prefer existing services and
    components over a second path or manually patched materialized output.
    Include taste and appearance using [visual quality](../references/visual-quality.md):
@@ -17,6 +19,10 @@ does not follow automatically.
    Use [quality benchmarks](../references/quality-benchmarks.md) when a reference
    sets the quality bar or a previous redesign was rejected. Translate execution
    strengths into product-specific criteria and repair the failed assumption.
+   For rejected overlines, type, colours, buttons or icons, read
+   [research-informed decisions](../references/design-decisions.md). Audit their
+   purpose together and compare a materially different approach with the same
+   content; keep functional success separate from the visual repair outcome.
 3. For operational interfaces, list each repeated headline, secondary line, badge,
    icon and separator, and ask whether it conveys a decision, status, relationship
    or recovery path. Remove redundant ornament *only where task evidence supports it*.
