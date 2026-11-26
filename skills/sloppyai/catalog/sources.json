@@ -469,5 +469,37 @@
     "kind": "study",
     "reviewed": "2026-11-26",
     "note": "Short-story experiment; a transfer to website design is an explicitly labelled inference. Journal DOI: 10.1126/sciadv.adn5290."
+  },
+  {
+    "id": "product-graza",
+    "title": "Graza live product website",
+    "url": "https://www.graza.co/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets."
+  },
+  {
+    "id": "product-arena",
+    "title": "Are.na live product website",
+    "url": "https://www.are.na/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets."
+  },
+  {
+    "id": "product-patch",
+    "title": "Patch live product website",
+    "url": "https://www.patchplants.com/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets."
+  },
+  {
+    "id": "product-teenage",
+    "title": "teenage engineering live product website",
+    "url": "https://teenage.engineering/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Qualitative live homepage study: sampled desktop/phone renders and one lower section. Not a complete UX audit, efficacy experiment, endorsement or permission to copy identity or assets."
   }
 ]

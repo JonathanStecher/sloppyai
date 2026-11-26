@@ -6,6 +6,10 @@ It supplements [visual quality](visual-quality.md) and
 [quality benchmarks](quality-benchmarks.md). It is agent guidance, not a font
 classifier, an automatic taste score or model-weight training.
 
+For taste and character, continue with [real-product identity studies](product-identity.md).
+A useful purpose can be expressive as well as operational. Removing unsupported
+ornament does not supply a positive identity; do not stop at a generic neutral page.
+
 ## Start with what the user actually accepted
 
 An AI-generated first pass is a baseline, not an approved brand system. Separate

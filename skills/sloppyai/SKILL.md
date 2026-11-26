@@ -41,6 +41,10 @@ Use [research-informed design decisions](references/design-decisions.md) to audi
 what those choices contribute, preserve useful behavior and test a different
 assumption. Do not defend the rejected direction with a passing source scan.
 
+When simplification still feels generic, use [real-product identity studies](references/product-identity.md).
+Study how actual product content and visual choices work together, then create a
+positive identity for this product and carry it through the useful journey.
+
 Load only relevant references:
 
 | Work | Reference |
@@ -48,6 +52,7 @@ Load only relevant references:
 | Visual identity, composition and hierarchy | [Design](references/design.md) |
 | Taste, colour, typography, imagery and overall looks | [Visual quality](references/visual-quality.md) |
 | Rejected generic styling, overlines, font choices, buttons and icons | [Research-informed design decisions](references/design-decisions.md) |
+| Real product references, positive identity and art direction | [Product identity](references/product-identity.md) |
 | Shared product, launch and short-form review | [Product and release checklist](references/release-review.md) |
 | Repair and verification steps for the agent | [Repair instructions](references/repairs.md) |
 | Dense dashboards and operational controls | [Operational interfaces](references/operational-ui.md) |
