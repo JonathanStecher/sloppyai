@@ -80,12 +80,15 @@ test('visual checklist filters resolve real catalogue rules without manufacturin
 });
 
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
-  const f = await fixture(t, { 'index.html': '<h1>Studio journal</h1>' });
+  const brief = { audience: 'Independent book designers', intent: 'A working desk for publishing projects' };
+  const f = await fixture(t, { 'index.html': '<h1>Studio journal</h1>', '.sloppyai.json': JSON.stringify({ designBrief: brief }) });
   const { stdout } = await exec(process.execPath, ['skills/sloppyai/scripts/sloppyai.mjs', 'plan', f.target, '--json', '--no-save']);
   const result = JSON.parse(stdout);
   assert.equal(result.findings.length, 0);
   assert.equal(result.guidance.designReview.criteria.length, 8);
   assert.equal(result.guidance.designReview.referencePolicy.use, 'quality');
   assert.equal(result.guidance.designReview.qualityWorkflow.status, 'not_assessed');
+  assert.ok(result.plan.includes(brief.audience));
+  assert.ok(result.plan.includes(brief.intent));
   assert.ok(result.guidance.designReview.criteria.every(item => item.score === null && item.status === 'not_assessed'));
 });

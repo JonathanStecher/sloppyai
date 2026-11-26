@@ -9,6 +9,10 @@ calls to action, inconsistent terminology and unnecessary explanation. A phrase
 such as seamless or Continue can be appropriate in context; do not replace words
 merely because a style detector recognizes them.
 
+Separate account, payment and demo conditions can legitimately use short sentences.
+Preserve every useful condition when reviewing a C08 prompt; terse disclosures and
+clear status messages do not need to become a marketing sentence.
+
 Write headlines and taglines as one natural phrase without a trailing period.
 Avoid strings of clipped sentences with full stops for emphasis. When several
 short sentences break up one thought, connect the related ideas in normal prose.
