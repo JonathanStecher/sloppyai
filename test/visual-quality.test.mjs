@@ -23,6 +23,7 @@ test('a clean source scan leaves visual taste unassessed and preserves the suppl
   assert.equal(guidance.designReview.qualityWorkflow.status, 'not_assessed');
   assert.deepEqual(guidance.designReview.qualityWorkflow.evidence, []);
   assert.ok((await readFile(guidance.designReview.qualityWorkflow.guideFile, 'utf8')).length > 1000);
+  assert.ok((await readFile(guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8')).length > 1000);
   assert.equal(guidance.designReview.criteria.length, 8);
   for (const item of guidance.designReview.criteria) {
     assert.equal(item.status, 'not_assessed');
@@ -41,6 +42,26 @@ test('changing the design brief invalidates a previous reviewer binding', async 
   const first = await audit(f.target, { config: { designBrief: { intent: 'Warm editorial' } } });
   const review = { inputDigest: first.report.inputDigest, reviewer: { name: 'Visual reviewer', kind: 'agent' }, assessments: [], findings: [] };
   await assert.rejects(audit(f.target, { config: { designBrief: { intent: 'Precise technical' } }, review }), error => error.code === 'STALE_REVIEW');
+});
+
+test('familiar visual choices and an approved identity never become automatic style violations', async t => {
+  const f = await fixture(t, {
+    'index.html': '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Garden journal</title><link rel="stylesheet" href="style.css"></head><body><p class="overline">Plant care</p><h1>The garden journal</h1><a href="#article">Read the article <span aria-hidden="true">→</span></a><article id="article"><h2>Watering in winter</h2><p>Check the soil before watering.</p></article></body></html>',
+    'style.css': 'body{background:#f8f6ef;color:#263b2d;font-family:Georgia,serif}.overline{text-transform:uppercase}a{border-radius:24px}'
+  });
+  const designBrief = { intent: 'The established garden publication', preserve: ['Approved serif', 'Green and warm paper', 'Useful article category'], referenceUse: 'style' };
+  const result = await audit(f.target, { config: { designBrief } });
+  assert.equal(result.report.findings.length, 0);
+  const review = improvementGuidance(result).designReview;
+  assert.deepEqual(review.brief, designBrief);
+  assert.equal(review.referencePolicy.use, 'style');
+  assert.equal(review.qualityWorkflow.status, 'not_assessed');
+  assert.deepEqual(review.qualityWorkflow.evidence, []);
+  assert.ok(review.qualityWorkflow.checks.some(item => item.id === 'identity_acceptance'));
+  assert.ok(review.qualityWorkflow.checks.some(item => item.id === 'decoration_purpose'));
+  assert.ok(review.qualityWorkflow.checks.some(item => item.id === 'different_assumption'));
+  assert.ok(review.criteria.every(item => item.status === 'not_assessed' && item.score === null));
+  assert.deepEqual(result.report.reviewerAssessments, []);
 });
 
 test('nonvisual scope does not receive taste prompts and malformed briefs are rejected', async t => {
@@ -88,6 +109,7 @@ test('the portable plan exposes unassessed visual criteria even when source find
   assert.equal(result.guidance.designReview.criteria.length, 8);
   assert.equal(result.guidance.designReview.referencePolicy.use, 'quality');
   assert.equal(result.guidance.designReview.qualityWorkflow.status, 'not_assessed');
+  assert.ok((await readFile(result.guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8')).length > 1000);
   assert.ok(result.plan.includes(brief.audience));
   assert.ok(result.plan.includes(brief.intent));
   assert.ok(result.guidance.designReview.criteria.every(item => item.score === null && item.status === 'not_assessed'));

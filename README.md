@@ -11,6 +11,7 @@ useful features and deliberate style choices.
 - [AI use and the EU AI Act](skills/sloppyai/references/eu-ai-act.md)
 - [Product and release review checklist](skills/sloppyai/references/release-review.md)
 - [Taste, colour and visual quality](skills/sloppyai/references/visual-quality.md)
+- [Research-informed design decisions](skills/sloppyai/references/design-decisions.md): reconsider rejected overlines, fonts, palettes, buttons and icons without style blacklists.
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.
 - **[Marketing copy](marketing/README.md):** product sections, FAQ and launch copy.

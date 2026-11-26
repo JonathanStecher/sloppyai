@@ -9,6 +9,9 @@ findings does not assess its looks.
 For quality comparisons and rejected generic redesigns, first read
 [quality benchmarks](quality-benchmarks.md). Establish the role of the reference
 and derive a direction from the artifact's own product before choosing a look.
+For a rejected visual formula, use [research-informed decisions](design-decisions.md)
+to separate approved identity from first-pass assumptions and review ornament by
+its purpose. Assess combined choices, without a blacklist of fonts or colours.
 
 Use the user's brief and accepted brand first. Describe the audience, purpose,
 intended character, existing palette and type, references and choices to preserve.

@@ -2870,13 +2870,13 @@ Domain: design. Kind: heuristic. Automation: none.
 
 A palette can pass a contrast check while its hue relationships, temperature, saturation or accent balance still conflict with the intended character.
 
-Judge the actual rendered palette against the audience and design brief. Give surfaces, text, actions and statuses deliberate colour roles; compare hue relationships, warm and cool balance, chroma, neutral undertones and large-area colour proportions. Preserve an intentional monochrome, vivid or gradient direction.
+Judge the actual rendered palette against the audience and design brief. Give surfaces, text, actions and statuses deliberate colour roles; compare hue relationships, warm and cool balance, chroma, neutral undertones and large-area colour proportions. Preserve an intentional monochrome, vivid or gradient direction. Check whether a subject stereotype or generated default is the only reason for the palette; a user-rejected combination needs reconsideration, while an approved green, cream, purple or vivid palette remains legitimate.
 
 Verification: Compare the dominant surface, text, accent and status colours together on the actual rendered artifact; explain how their relationships support or weaken the stated direction. Inspect accent distribution and saturation at page scale, then check the actual foreground/background contrast of affected text and controls. Compare relevant light, dark, hover, focus and disabled states; retain meaning without relying on colour alone.
 
 Counterexample: A deliberately loud palette, single-hue interface or restrained monochrome system may serve the brief better than a conventional balanced palette.
 
-Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [w3c-wcag22](#source-w3c-wcag22)
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [w3c-wcag22](#source-w3c-wcag22), [nng-good-visual-design](#source-nng-good-visual-design)
 
 ### D25: Typographic character and optical fit
 
@@ -2884,13 +2884,13 @@ Domain: design. Kind: heuristic. Automation: none.
 
 Font character, pairing, weight and optical spacing influence perceived quality beyond whether text fits its box.
 
-Evaluate the typeface voice, pairing, x-height, weight contrast, tracking, leading and line endings against the content and identity. Compare optical alignment and emphasis in real words. Keep a familiar font when it fits; novelty and the number of fonts are not quality measures.
+Evaluate the typeface voice, pairing, x-height, weight contrast, tracking, leading and line endings against the content and identity. Compare optical alignment and emphasis in real words. Keep a familiar font when it fits; novelty and the number of fonts are not quality measures. Test the actual content and displayed sizes. A generated type choice is not approved identity, and replacing a familiar font with an unusual one does not itself improve the work.
 
 Verification: Inspect real headings, prose, labels and changing numbers together; explain whether their type roles and character fit the audience and brief. Check optical spacing, awkward wraps, widows, line length and font loading using actual short, long and localized content. Recheck narrow widths, zoom, selected and bold states without removing meaningful emphasis or accepted type choices.
 
 Counterexample: A single system font, expressive serif, dense monospaced tool or deliberately tight display headline can be an appropriate identity.
 
-Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [google-choosing-fonts](#source-google-choosing-fonts)
 
 ### D26: Composition and visual rhythm
 
@@ -2898,13 +2898,13 @@ Domain: design. Kind: heuristic. Automation: none.
 
 A structurally correct layout can still feel unbalanced, monotonous or visually disconnected from its subject.
 
-Judge focal points, optical weight, scale relationships, whitespace, alignment and the rhythm of dense and quiet areas. Give important product content appropriate visual presence. Prefer the composition that serves the task and subject, including purposeful asymmetry or density.
+Judge focal points, optical weight, scale relationships, whitespace, alignment and the rhythm of dense and quiet areas. Give important product content appropriate visual presence. Prefer the composition that serves the task and subject, including purposeful asymmetry or density. Review whether repeated overlines and identical section formulas add reading structure or only reproduce the first generated template. Keep useful category labels and familiar task conventions.
 
 Verification: Inspect the full composition and identify the first, second and third focal points using actual rendered evidence. Compare the scale and optical weight of text, images, controls and empty space; identify a concrete imbalance or monotonous repetition before changing it. Recheck section transitions and responsive reflow while preserving useful data, navigation and task density.
 
 Counterexample: Symmetric grids, repeated data rows, sparse editorial layouts and dense operating interfaces can all be deliberate and effective.
 
-Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [google-first-impressions](#source-google-first-impressions), [nng-good-visual-design](#source-nng-good-visual-design)
 
 ### D27: Imagery and art direction
 
@@ -2940,13 +2940,13 @@ Domain: design. Kind: heuristic. Automation: none.
 
 Individually acceptable controls can look unrelated when their shape, weight, icons, spacing or colour roles drift.
 
-Compare components as a family. Reuse purposeful type, spacing, shape, icon stroke, edge and accent decisions across related controls while retaining variants that communicate a real difference.
+Compare components as a family. Reuse purposeful type, spacing, shape, icon stroke, edge and accent decisions across related controls while retaining variants that communicate a real difference. Audit repeated button chrome, overlines, badges and icons for a useful job. Retain recognisable state and action controls; remove unsupported decoration only after checking the meaning and hierarchy of the whole family.
 
-Verification: Compare the rendered buttons, fields, menus, cards, dialogs and icons side by side across related routes. Trace an observed visual mismatch to the shared component or token before adding a local styling exception. Recheck default, focus, pending, disabled and error states without erasing meaningful component variants.
+Verification: Compare the rendered buttons, fields, menus, cards, dialogs and icons side by side across related routes. Trace an observed visual mismatch to the shared component or token before adding a local styling exception. Recheck default, focus, pending, disabled and error states without erasing meaningful component variants. Name what each questioned icon, button treatment or overline adds; compare a simpler alternative while rechecking selected, error and keyboard-focus meaning.
 
-Counterexample: Different controls may need different shapes, densities or treatments to express priority, status or platform conventions.
+Counterexample: Different controls may need different shapes, densities or treatments to express priority, status or platform conventions. A disclosure chevron, radio dot, article category or labelled transport icon can convey useful meaning and must not be removed merely for resembling a generated pattern.
 
-Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [nng-bad-icons](#source-nng-bad-icons), [govuk-buttons](#source-govuk-buttons), [ec-button-usage](#source-ec-button-usage)
 
 ### D30: Visual quality across states
 
@@ -2968,13 +2968,13 @@ Domain: design. Kind: heuristic. Automation: none.
 
 An artifact can be tidy and functional while its combined visual choices still feel interchangeable or unsuitable for its audience.
 
-Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style. Treat quality references as execution benchmarks by default. Derive the visual direction from this product; use a reference style only when requested. A cosmetic reskin or familiar-pattern removal does not establish visual quality.
+Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style. Treat quality references as execution benchmarks by default. Derive the visual direction from this product; use a reference style only when requested. A cosmetic reskin or familiar-pattern removal does not establish visual quality. Do not treat the first generated style as accepted branding. When the user rejects a bundle of type, palette, overlines, buttons and icons, reconsider that bundle and compare a materially different assumption with the same content. Preserve required behavior separately from the visual repair outcome.
 
-Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects. Establish whether each reference sets a quality bar or an explicitly requested visual direction, using current available evidence. Explain how the chosen type, palette, composition and product evidence belong to this artifact; revisit a rejected design assumption before another styling pass.
+Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects. Establish whether each reference sets a quality bar or an explicitly requested visual direction, using current available evidence. Explain how the chosen type, palette, composition and product evidence belong to this artifact; revisit a rejected design assumption before another styling pass. Separate explicitly accepted identity, inferred defaults and user-rejected choices. Recheck the named rejected combination and record visual and functional outcomes independently.
 
-Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake. An explicit request to follow a visual reference or shared brand system can legitimately reuse its style.
+Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake. An explicit request to follow a visual reference or shared brand system can legitimately reuse its style. A first generated direction can become accepted through explicit user approval; conventional fonts, palettes and components remain valid when they serve that accepted direction.
 
-Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
+Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality), [google-first-impressions](#source-google-first-impressions), [pentagram-garden-museum](#source-pentagram-garden-museum), [doshi-hauser-diversity](#source-doshi-hauser-diversity)
 
 ## Sources
 
@@ -3446,3 +3446,75 @@ Type: project. Reviewed 2026-11-25.
 [Original source](https://github.com/JonathanStecher/sloppyai/blob/main/skills/sloppyai/references/visual-quality.md)
 
 Authored review method for taste and appearance. These contextual heuristics require actual visual evidence and do not establish AI authorship.
+
+<a id="source-google-first-impressions"></a>
+### Website complexity and prototypicality
+
+Type: study. Reviewed 2026-11-26.
+
+[Original source](https://research.google/blog/users-love-simple-and-familiar-designs-why-websites-need-to-make-a-great-first-impression/)
+
+First-impression screenshot study; not a test of AI authorship or every product context.
+
+<a id="source-google-choosing-fonts"></a>
+### Choosing web fonts
+
+Type: guidance. Reviewed 2026-11-26.
+
+[Original source](https://design.google/library/choosing-web-fonts-beginners-guide)
+
+Choose and test type against actual content, display size and project needs; no font blacklist.
+
+<a id="source-nng-good-visual-design"></a>
+### Good Visual Design, Explained
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://www.nngroup.com/articles/good-visual-design/)
+
+Authored visual-design analysis; not an automatic taste rubric.
+
+<a id="source-nng-bad-icons"></a>
+### Bad Icons: How to Identify and Improve Them
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://www.nngroup.com/articles/bad-icons/)
+
+Review repeated icons for meaning, recognisability and clutter in context.
+
+<a id="source-govuk-buttons"></a>
+### GOV.UK button guidance
+
+Type: guidance. Reviewed 2026-11-26.
+
+[Original source](https://design-system.service.gov.uk/components/button/)
+
+Action labels and hierarchy; apply relevant principles without copying government branding.
+
+<a id="source-ec-button-usage"></a>
+### European Commission button usage
+
+Type: guidance. Reviewed 2026-11-26.
+
+[Original source](https://ec.europa.eu/component-library/eu/components/button/usage/)
+
+Action hierarchy and relevant icon use; not a universal visual style.
+
+<a id="source-pentagram-garden-museum"></a>
+### Garden Museum identity case study
+
+Type: practitioner. Reviewed 2026-11-26.
+
+[Original source](https://www.pentagram.com/work/garden-museum)
+
+Designer-authored reasoning about a specific identity; not an efficacy experiment or permission to copy assets.
+
+<a id="source-doshi-hauser-diversity"></a>
+### Generative AI, creativity and collective diversity
+
+Type: study. Reviewed 2026-11-26.
+
+[Original source](https://arxiv.org/abs/2312.00506)
+
+Short-story experiment; a transfer to website design is an explicitly labelled inference. Journal DOI: 10.1126/sciadv.adn5290.

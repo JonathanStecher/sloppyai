@@ -405,5 +405,69 @@
     "kind": "project",
     "reviewed": "2026-11-25",
     "note": "Authored review method for taste and appearance. These contextual heuristics require actual visual evidence and do not establish AI authorship."
+  },
+  {
+    "id": "google-first-impressions",
+    "title": "Website complexity and prototypicality",
+    "url": "https://research.google/blog/users-love-simple-and-familiar-designs-why-websites-need-to-make-a-great-first-impression/",
+    "kind": "study",
+    "reviewed": "2026-11-26",
+    "note": "First-impression screenshot study; not a test of AI authorship or every product context."
+  },
+  {
+    "id": "google-choosing-fonts",
+    "title": "Choosing web fonts",
+    "url": "https://design.google/library/choosing-web-fonts-beginners-guide",
+    "kind": "guidance",
+    "reviewed": "2026-11-26",
+    "note": "Choose and test type against actual content, display size and project needs; no font blacklist."
+  },
+  {
+    "id": "nng-good-visual-design",
+    "title": "Good Visual Design, Explained",
+    "url": "https://www.nngroup.com/articles/good-visual-design/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Authored visual-design analysis; not an automatic taste rubric."
+  },
+  {
+    "id": "nng-bad-icons",
+    "title": "Bad Icons: How to Identify and Improve Them",
+    "url": "https://www.nngroup.com/articles/bad-icons/",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Review repeated icons for meaning, recognisability and clutter in context."
+  },
+  {
+    "id": "govuk-buttons",
+    "title": "GOV.UK button guidance",
+    "url": "https://design-system.service.gov.uk/components/button/",
+    "kind": "guidance",
+    "reviewed": "2026-11-26",
+    "note": "Action labels and hierarchy; apply relevant principles without copying government branding."
+  },
+  {
+    "id": "ec-button-usage",
+    "title": "European Commission button usage",
+    "url": "https://ec.europa.eu/component-library/eu/components/button/usage/",
+    "kind": "guidance",
+    "reviewed": "2026-11-26",
+    "note": "Action hierarchy and relevant icon use; not a universal visual style."
+  },
+  {
+    "id": "pentagram-garden-museum",
+    "title": "Garden Museum identity case study",
+    "url": "https://www.pentagram.com/work/garden-museum",
+    "kind": "practitioner",
+    "reviewed": "2026-11-26",
+    "note": "Designer-authored reasoning about a specific identity; not an efficacy experiment or permission to copy assets."
+  },
+  {
+    "id": "doshi-hauser-diversity",
+    "title": "Generative AI, creativity and collective diversity",
+    "url": "https://arxiv.org/abs/2312.00506",
+    "kind": "study",
+    "reviewed": "2026-11-26",
+    "note": "Short-story experiment; a transfer to website design is an explicitly labelled inference. Journal DOI: 10.1126/sciadv.adn5290."
   }
 ]

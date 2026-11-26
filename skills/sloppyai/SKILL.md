@@ -35,12 +35,19 @@ own audience, task and identity to choose its visual direction. Read
 choosing art direction or revising a result the user finds generic. Explicit
 requests to match a reference's style remain valid within their stated scope.
 
+A generated first pass is not an accepted brand. When the user rejects the look,
+reconsider the named combination of type, palette, overlines, controls and icons.
+Use [research-informed design decisions](references/design-decisions.md) to audit
+what those choices contribute, preserve useful behavior and test a different
+assumption. Do not defend the rejected direction with a passing source scan.
+
 Load only relevant references:
 
 | Work | Reference |
 | --- | --- |
 | Visual identity, composition and hierarchy | [Design](references/design.md) |
 | Taste, colour, typography, imagery and overall looks | [Visual quality](references/visual-quality.md) |
+| Rejected generic styling, overlines, font choices, buttons and icons | [Research-informed design decisions](references/design-decisions.md) |
 | Shared product, launch and short-form review | [Product and release checklist](references/release-review.md) |
 | Repair and verification steps for the agent | [Repair instructions](references/repairs.md) |
 | Dense dashboards and operational controls | [Operational interfaces](references/operational-ui.md) |

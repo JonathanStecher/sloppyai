@@ -51,6 +51,8 @@ try {
   assert.equal(guidance.designReview.referencePolicy.use, 'quality');
   assert.equal(guidance.designReview.qualityWorkflow.status, 'not_assessed');
   assert.equal(await readFile(guidance.designReview.qualityWorkflow.guideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/quality-benchmarks.md'), 'utf8'));
+  assert.equal(await readFile(guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/design-decisions.md'), 'utf8'));
+  assert.ok(guidance.designReview.qualityWorkflow.checks.some(item => item.id === 'identity_acceptance'));
   assert.ok(guidance.designReview.criteria.every(item => item.status === 'not_assessed' && item.score === null));
   assert.equal(await readFile(guidance.designReview.guideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/visual-quality.md'), 'utf8'));
   assert.ok(!(await readdir(installed)).includes('src'), 'The installed bundle must work without development source');

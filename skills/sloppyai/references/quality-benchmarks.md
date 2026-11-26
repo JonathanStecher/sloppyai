@@ -51,7 +51,10 @@ swapping its name. A conventional professional tool may legitimately share a
 structure; explain the fit instead of forcing decorative originality.
 
 If the user rejects the result, identify the failed design assumption and address
-it. Do not repeat the same structure in new colours, import the benchmark's identity,
+it. A first generated direction is not automatically an accepted identity. Use
+[research-informed design decisions](design-decisions.md) to review the named
+bundle of type, colours, overlines, buttons and icons, keeping functional meaning.
+Do not repeat the same structure in new colours, import the benchmark's identity,
 or present a clean source scan as a rebuttal to visual feedback.
 
 Finish the scoped visual review only with current rendered evidence, a rationale

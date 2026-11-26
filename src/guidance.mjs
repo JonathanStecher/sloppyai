@@ -52,11 +52,15 @@ export function improvementGuidance(result) {
         },
         qualityWorkflow: {
           guideFile: reference('quality-benchmarks.md'),
+          decisionGuideFile: reference('design-decisions.md'),
           status: 'not_assessed',
           evidence: [],
           checks: [
             { id: 'reference_intent', question: 'What is the reference being used to assess, and what current evidence supports that comparison?' },
             { id: 'product_direction', question: 'Which visual decisions follow from this audience, task, content and accepted identity?' },
+            { id: 'identity_acceptance', question: 'Which identity choices did the user accept, which were only generated defaults, and which have been rejected?' },
+            { id: 'decoration_purpose', question: 'What do the actual overlines, type emphasis, palette, button treatments and icons contribute to this task, and which combined choices caused the rejection?' },
+            { id: 'different_assumption', question: 'If the look was rejected, which materially different approach was compared with the same content and required behavior?' },
             { id: 'coherent_execution', question: 'Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?' },
             { id: 'rendered_critique', question: 'Which specific rendered weaknesses were improved at page and detail scale, and which remain?' },
             { id: 'preserved_behavior', question: 'Do meaningful content, controls, responsive states and recovery paths still work?' }
