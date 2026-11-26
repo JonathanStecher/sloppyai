@@ -42,6 +42,26 @@ export function improvementGuidance(result) {
       designReview: {
         guideFile: reference('visual-quality.md'),
         brief: config.designBrief ?? {},
+        referencePolicy: {
+          use: config.designBrief?.referenceUse ?? 'quality',
+          explicit: config.designBrief?.referenceUse !== undefined,
+          references: config.designBrief?.references ?? [],
+          instruction: config.designBrief?.referenceUse === 'style'
+            ? 'Apply only the requested visual direction while preserving the product, content and useful behavior. A style reference is not permission to copy unrelated product flows or assets.'
+            : 'Use references to assess execution quality. Derive the visual direction from this product; do not transfer a reference palette, font, layout or signature interaction merely to match its quality.'
+        },
+        qualityWorkflow: {
+          guideFile: reference('quality-benchmarks.md'),
+          status: 'not_assessed',
+          evidence: [],
+          checks: [
+            { id: 'reference_intent', question: 'What is the reference being used to assess, and what current evidence supports that comparison?' },
+            { id: 'product_direction', question: 'Which visual decisions follow from this audience, task, content and accepted identity?' },
+            { id: 'coherent_execution', question: 'Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?' },
+            { id: 'rendered_critique', question: 'Which specific rendered weaknesses were improved at page and detail scale, and which remain?' },
+            { id: 'preserved_behavior', question: 'Do meaningful content, controls, responsive states and recovery paths still work?' }
+          ]
+        },
         assurance: 'Contextual visual review requires current rendered evidence; source checks do not assess taste.',
         criteria: visualQualityRuleIds.map(ruleId => catalog.byId.get(ruleId)).filter(Boolean).map(rule => ({
           ruleId: rule.id, title: rule.title, guidance: rule.guidance,

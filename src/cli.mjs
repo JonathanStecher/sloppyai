@@ -233,8 +233,15 @@ export async function main(args = process.argv.slice(2)) {
         ...(guidance.designReview ? [
           '## Visual quality review', '',
           guidance.designReview.assurance, '',
+          `Reference use: ${guidance.designReview.referencePolicy.use}${guidance.designReview.referencePolicy.explicit ? ' (configured)' : ' (default)'}.`,
+          guidance.designReview.referencePolicy.instruction, '',
+          ...(guidance.designReview.brief.audience ? [`Audience: ${short(guidance.designReview.brief.audience, 1000)}`] : []),
+          ...(guidance.designReview.brief.intent ? [`Product direction: ${short(guidance.designReview.brief.intent, 1000)}`] : []),
+          '', 'Host visual review work (not assessed):',
+          ...guidance.designReview.qualityWorkflow.checks.map(item => `- ${item.question}`), '',
           ...guidance.designReview.criteria.map(item => `- ${item.title} (${item.ruleId}): Not assessed.`), '',
-          `Visual review guide: ${guidance.designReview.guideFile}`, ''
+          `Visual review guide: ${guidance.designReview.guideFile}`, '',
+          `Quality benchmark guide: ${guidance.designReview.qualityWorkflow.guideFile}`, ''
         ] : []),
         `Checklist: ${guidance.checklistFile}`, `Repair guide: ${guidance.repairGuideFile}`, ''].join('\n');
       console.log(values.json ? JSON.stringify({ inputDigest: result.report.inputDigest, findings: actionable, plan, guidance }, null, 2) : plan);

@@ -3,9 +3,14 @@
 Run the actual scripts/sloppyai.mjs with Node 22.13 or later. It is bundled and
 works when the complete skill folder is copied without node_modules.
 
-Commands: audit, plan, verify, loop, watch, init, catalog, history, undo, install,
+Commands: review, audit, plan, verify, loop, watch, init, catalog, checklist, history, undo, install,
 uninstall. Use --help for current flags. The root README and docs/quickstart.md in
 the source repository contain complete runnable examples.
+
+Use `review TARGET --allow-exec` for rendered product review and authorized
+checks; use `audit TARGET` for source-only evidence. The plan's host visual work
+and reference policy guide the coding agent's critique; the CLI does not choose
+a product's art direction or supply visual approval.
 
 Audit reads supported UTF-8 source and saves report.json, report.md, report.html,
 history.json, snapshots and a checkpoint in the selected output directory. Use

@@ -2968,11 +2968,11 @@ Domain: design. Kind: heuristic. Automation: none.
 
 An artifact can be tidy and functional while its combined visual choices still feel interchangeable or unsuitable for its audience.
 
-Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style.
+Describe the intended character from the user's brief, existing brand and actual subject. Judge the combined palette, type, imagery, composition and details against that direction. Give a concrete preference rationale and a focused proposal; do not substitute the reviewer's favourite style. Treat quality references as execution benchmarks by default. Derive the visual direction from this product; use a reference style only when requested. A cosmetic reskin or familiar-pattern removal does not establish visual quality.
 
-Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects.
+Verification: State the accepted or explicitly inferred visual direction and identify rendered choices that reinforce or weaken it. Compare proposed alternatives using the same content and task; explain the audience-specific visual tradeoff. Recheck the complete artifact after a focused change, preserving accepted brand decisions and separating taste judgment from objective defects. Establish whether each reference sets a quality bar or an explicitly requested visual direction, using current available evidence. Explain how the chosen type, palette, composition and product evidence belong to this artifact; revisit a rejected design assumption before another styling pass.
 
-Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake.
+Counterexample: A conventional enterprise interface or familiar component library can be the most suitable identity; distinctiveness is not novelty for its own sake. An explicit request to follow a visual reference or shared brand system can legitimately reuse its style.
 
 Sources: [sloppyai-visual-quality](#source-sloppyai-visual-quality)
 

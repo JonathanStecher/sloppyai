@@ -29,6 +29,12 @@ the audience, task, surface, existing system, required behaviour and accepted ch
 Classify the surface by its purpose: marketing, operating, reading, showcasing, or
 a mixture. Use the user's requirements over stylistic defaults.
 
+Treat “as good as” a reference as an execution-quality target. Use the artifact's
+own audience, task and identity to choose its visual direction. Read
+[quality benchmarks](references/quality-benchmarks.md) when comparing quality,
+choosing art direction or revising a result the user finds generic. Explicit
+requests to match a reference's style remain valid within their stated scope.
+
 Load only relevant references:
 
 | Work | Reference |

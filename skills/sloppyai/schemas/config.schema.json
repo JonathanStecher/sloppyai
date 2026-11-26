@@ -29,6 +29,7 @@
         "character": { "$ref": "#/definitions/designBriefList" },
         "preserve": { "$ref": "#/definitions/designBriefList" },
         "avoid": { "$ref": "#/definitions/designBriefList" },
+        "referenceUse": { "enum": ["quality", "style"] },
         "references": { "$ref": "#/definitions/designBriefList" }
       }
     },
