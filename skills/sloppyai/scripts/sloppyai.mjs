@@ -28162,7 +28162,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.3.0";
+var VERSION = "0.4.0";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38529,6 +38529,24 @@ function improvementGuidance(result) {
       designReview: {
         guideFile: reference("visual-quality.md"),
         brief: config.designBrief ?? {},
+        referencePolicy: {
+          use: config.designBrief?.referenceUse ?? "quality",
+          explicit: config.designBrief?.referenceUse !== void 0,
+          references: config.designBrief?.references ?? [],
+          instruction: config.designBrief?.referenceUse === "style" ? "Apply only the requested visual direction while preserving the product, content and useful behavior. A style reference is not permission to copy unrelated product flows or assets." : "Use references to assess execution quality. Derive the visual direction from this product; do not transfer a reference palette, font, layout or signature interaction merely to match its quality."
+        },
+        qualityWorkflow: {
+          guideFile: reference("quality-benchmarks.md"),
+          status: "not_assessed",
+          evidence: [],
+          checks: [
+            { id: "reference_intent", question: "What is the reference being used to assess, and what current evidence supports that comparison?" },
+            { id: "product_direction", question: "Which visual decisions follow from this audience, task, content and accepted identity?" },
+            { id: "coherent_execution", question: "Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?" },
+            { id: "rendered_critique", question: "Which specific rendered weaknesses were improved at page and detail scale, and which remain?" },
+            { id: "preserved_behavior", question: "Do meaningful content, controls, responsive states and recovery paths still work?" }
+          ]
+        },
         assurance: "Contextual visual review requires current rendered evidence; source checks do not assess taste.",
         criteria: visualQualityRuleIds.map((ruleId) => catalog.byId.get(ruleId)).filter(Boolean).map((rule2) => ({
           ruleId: rule2.id,
@@ -39842,9 +39860,14 @@ async function main(args = process.argv.slice(2)) {
           "",
           guidance.designReview.assurance,
           "",
+          `Reference use: ${guidance.designReview.referencePolicy.use}${guidance.designReview.referencePolicy.explicit ? " (configured)" : " (default)"}.`,
+          guidance.designReview.referencePolicy.instruction,
+          "",
           ...guidance.designReview.criteria.map((item) => `- ${item.title} (${item.ruleId}): Not assessed.`),
           "",
           `Visual review guide: ${guidance.designReview.guideFile}`,
+          "",
+          `Quality benchmark guide: ${guidance.designReview.qualityWorkflow.guideFile}`,
           ""
         ] : [],
         `Checklist: ${guidance.checklistFile}`,

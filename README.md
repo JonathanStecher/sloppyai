@@ -104,6 +104,12 @@ zoom, permissions, checkout navigation, deletion and concurrent devices.
 
 ### Review taste and appearance
 
+Use references as a quality bar by default. “As good as” calls for comparable care
+in the product's own direction; an explicit `designBrief.referenceUse: "style"`
+can record a requested visual match. The [quality-benchmark guide](skills/sloppyai/references/quality-benchmarks.md)
+connects reference criteria to art direction, whole-page critique and rendered
+verification. It does not generate an automatic taste verdict.
+
 The agent reviews palette relationships, typography, composition, imagery,
 surfaces, component coherence, visual states and product character against the
 project's actual brief. These eight areas stay unassessed until rendered evidence

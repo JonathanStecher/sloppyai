@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+- Distinguished quality benchmarks from explicitly requested style references, including older briefs.
+- Added product-direction and rendered-critique guidance to plans, reviewer hooks and fixer hooks.
+- Kept visual outcomes unassessed until supported by current rendered evidence; preserved deliberate style matches and conventional interfaces.
+
 ## 0.3.0
 
 - Added eight contextual visual-quality criteria for palette, typography, composition, imagery, surfaces, component coherence, states and product character.

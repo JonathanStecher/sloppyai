@@ -14,6 +14,8 @@
    against the new inputDigest; never carry an old score onto changed inputs.
    Compare palette, type, imagery, composition and character against the same
    brief and rendered conditions. A passing structural check cannot verify taste.
+   For a quality benchmark, verify the product-specific direction and execution
+   criteria; visual resemblance to the reference is not evidence of equal quality.
 7. Compare compatible ratings, confirmed failures, review prompts, and new issues.
    A disappearing static warning is only 'not observed', not independent runtime closure.
 

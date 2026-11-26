@@ -13,6 +13,8 @@ Use the [visual-quality review](visual-quality.md) for palette relationships,
 typographic character, art direction, material, optical balance and overall taste.
 Start from the accepted or explicitly inferred direction and give a visible
 example and a concrete visual rationale for a proposed improvement.
+Use [quality benchmarks](quality-benchmarks.md) to distinguish the quality bar
+from a requested style match and critique an artifact's own product direction.
 
 Review cards, badges, eyebrows, dividers and repeated sections for information
 value. For operational interfaces, identify the job each label, icon, description

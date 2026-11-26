@@ -40,6 +40,12 @@ against the brief before attributing a design judgment; source checks do not
 judge colour harmony, typography, imagery or taste. The same guidance reaches
 the fixer. Changing the brief changes the input digest and invalidates old reviews.
 
+The same `designReview` includes `referencePolicy` (quality by default, or an explicit
+style preference) and `qualityWorkflow`, an unassessed set of product-direction and
+rendered-critique prompts linked to the self-contained quality-benchmark guide.
+Neither object supplies a visual verdict. `designBrief.referenceUse` changes are
+bound to the input digest like the rest of the brief.
+
 When confirming an existing finding, reuse its rule ID, relative path and source
 anchor. The controller retains the static observation and uses the review
 confirmation to schedule contextual work.

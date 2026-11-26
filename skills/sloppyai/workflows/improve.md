@@ -14,6 +14,9 @@ does not follow automatically.
    Include taste and appearance using [visual quality](../references/visual-quality.md):
    compare actual colour relationships, type, crop, optical balance and material
    against the brief. Preserve useful character while improving the weakest area.
+   Use [quality benchmarks](../references/quality-benchmarks.md) when a reference
+   sets the quality bar or a previous redesign was rejected. Translate execution
+   strengths into product-specific criteria and repair the failed assumption.
 3. For operational interfaces, list each repeated headline, secondary line, badge,
    icon and separator, and ask whether it conveys a decision, status, relationship
    or recovery path. Remove redundant ornament *only where task evidence supports it*.

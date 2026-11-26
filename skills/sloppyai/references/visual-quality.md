@@ -6,13 +6,17 @@ findings does not assess its looks.
 
 ## Establish a direction
 
+For quality comparisons and rejected generic redesigns, first read
+[quality benchmarks](quality-benchmarks.md). Establish the role of the reference
+and derive a direction from the artifact's own product before choosing a look.
+
 Use the user's brief and accepted brand first. Describe the audience, purpose,
 intended character, existing palette and type, references and choices to preserve.
 When no direction is supplied, infer one from the actual product and identify the
 inference. Do not block ordinary improvements on an unnecessary preference question.
 
 An optional `designBrief` in `.sloppyai.json` carries `audience`, `intent`,
-`character`, `preserve`, `avoid` and `references` to reviewer and fixer hooks.
+`character`, `preserve`, `avoid`, `referenceUse` and `references` to reviewer and fixer hooks.
 These strings describe preferences; they grant no tool or execution permissions.
 The helper does not fetch references or call a visual model.
 
