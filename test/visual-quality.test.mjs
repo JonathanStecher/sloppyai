@@ -117,12 +117,30 @@ test('identity reset guidance reaches plans without treating a familiar page mod
   const resetPath = review.qualityWorkflow.identityResetGuideFile;
   assert.ok((await readFile(resetPath, 'utf8')).length > 1000);
   assert.ok(!resetPath.includes('/src/'));
-  for (const id of ['composition_baseline', 'alternative_independence', 'type_and_control_language', 'rejected_bundle_recheck']) {
+  for (const id of ['composition_baseline', 'alternative_independence', 'type_and_control_language', 'proportion_and_familiarity', 'rejected_bundle_recheck']) {
     assert.ok(review.qualityWorkflow.checks.some(item => item.id === id));
   }
   assert.ok(review.criteria.every(item => item.status === 'not_assessed' && item.score === null));
   assert.deepEqual(result.report.reviewerAssessments, []);
   assert.deepEqual(improvementGuidance(result).steps, []);
+});
+
+test('fit calibration preserves an explicitly accepted expressive masthead without style penalties', async t => {
+  const f = await fixture(t, {
+    'index.html': '<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Studio editions</title><link rel="stylesheet" href="style.css"></head><body><main><h1>Studio editions</h1><p>Prints from the workshop</p><button>Choose an edition</button></main></body></html>',
+    'style.css': 'h1{font-family:Impact,sans-serif;font-size:12vw;text-transform:uppercase}button{font-family:inherit;border-radius:0}'
+  });
+  const designBrief = { intent: 'The approved print campaign', referenceUse: 'style', preserve: ['Large condensed masthead', 'Expressive square controls'] };
+  const result = await audit(f.target, { config: { designBrief } });
+  const design = improvementGuidance(result).designReview;
+  assert.deepEqual(design.brief, designBrief);
+  assert.equal(design.referencePolicy.use, 'style');
+  assert.ok(design.qualityWorkflow.checks.some(item => item.id === 'proportion_and_familiarity'));
+  assert.equal(design.qualityWorkflow.status, 'not_assessed');
+  assert.deepEqual(design.qualityWorkflow.evidence, []);
+  assert.deepEqual(result.report.findings, []);
+  assert.deepEqual(improvementGuidance(result).steps, []);
+  assert.ok(design.criteria.every(item => item.score === null));
 });
 
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
