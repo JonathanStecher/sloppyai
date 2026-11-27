@@ -28,6 +28,10 @@ Read applicable project instructions and the relevant source or artifact. Identi
 the audience, task, surface, existing system, required behaviour and accepted choices.
 Classify the surface by its purpose: marketing, operating, reading, showcasing, or
 a mixture. Use the user's requirements over stylistic defaults.
+For a product introduction or mixed marketing/demo page, use
+[landing pages](references/landing-pages.md) to connect the offer, art direction
+and useful demonstration. A functioning operating screen alone need not satisfy
+a landing-page brief.
 
 Treat “as good as” a reference as an execution-quality target. Use the artifact's
 own audience, task and identity to choose its visual direction. Read

@@ -26,6 +26,10 @@ does not follow automatically.
    If the result still lacks character, use [product identity](../references/product-identity.md)
    to study real products, render positive alternatives and create a coherent
    direction that continues beyond the hero. Simplification alone is not the target.
+   For product introductions and mixed marketing/demo pages, use
+   [landing pages](../references/landing-pages.md). Preserve the operating tool,
+   but also recheck the offer, focal visual and visitor's decision when those are
+   part of the brief.
    If the user rejects the shared layout or combined type and control treatment,
    use [identity reset](../references/identity-reset.md). Compare different reading
    experiences, then recheck the exact rejected bundle in matched renders.
