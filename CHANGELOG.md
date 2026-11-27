@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4
+
+- Added fit and proportion calibration after a different redesign still feels awkward, without escalating novelty or overriding accepted expressive design.
+- Added the calibration question to portable guidance and kept familiar controls and ordinary typography valid choices.
+
 ## 0.4.3
 
 - Added a conditional identity reset for redesigns that retain the user-rejected page model, typography and controls.

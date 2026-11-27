@@ -28162,7 +28162,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.4.3";
+var VERSION = "0.4.4";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38553,6 +38553,7 @@ function improvementGuidance(result) {
             { id: "composition_baseline", question: "When the layout was rejected, what reading order, content priority, image role and repeated spatial relationships caused that response?" },
             { id: "alternative_independence", question: "Do matched desktop and phone renders, including a grayscale comparison and useful lower section, show a different reading experience rather than two treatments of the rejected model?" },
             { id: "type_and_control_language", question: "How do real product names, prices, form labels, errors and normal/focus/selected controls express the chosen identity, and what rendered specimens support those decisions?" },
+            { id: "proportion_and_familiarity", question: "If the different redesign still feels awkward, which choices were overcorrected? Do brand, headline, imagery and controls have credible proportions for this service, and what actual comparison or user preference supports the calibration without overriding accepted expressive choices?" },
             { id: "rejected_bundle_recheck", question: "Which rejected relationships changed and which stayed for a useful reason? If the combined treatment remains, is the visual repair recorded as unchanged or failed separately from passing functional checks?" },
             { id: "identity_continuity", question: "What was created or strengthened across the whole page and useful states, and what current rendered evidence supports that judgment?" },
             { id: "coherent_execution", question: "Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?" },

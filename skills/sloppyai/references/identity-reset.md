@@ -62,6 +62,32 @@ larger branding, a poster layout or unframed rows do not automatically improve
 the result. A conventional layout may still be right when the actual problem
 was weak execution; demonstrate that through current renders and the brief.
 
+## Calibrate fit before escalating the style
+
+A different silhouette can still feel awkward. In a later OFFBEAT revision, a
+large condensed masthead and open inventory changed the earlier page model, but
+the user still found the design weird. Difference had been demonstrated; fit and
+visual acceptance had not. Do not assume the next concept must be louder,
+quieter or more unusual.
+
+Check whether the brand, headline, product imagery and useful actions have natural
+proportions for the expected service. Compare actual words and controls at reading
+size, with enough context to judge them together. A masthead should earn the space
+it takes from the product, and strong display type need not appear in every price,
+button and completion state. A well-made familiar control can be the best choice.
+
+If the feedback is broad and repeated, ask one short preference question when it
+would resolve the direction, while continuing independent work. Compare a
+credible alternative that reflects the user's direction with the same useful
+content; do not turn it into a plain wireframe to favour another candidate.
+Translate the chosen direction into real content and useful interaction. A music
+software direction can lead with actual listening and selection; decorative
+waveforms, invented meters or non-working studio controls do not establish fit.
+This is an example of grounding the design, not a required music-site template.
+Preserve an explicitly approved poster, unusual type or dense composition. This
+is contextual calibration, not a new ban on expressive design or a fixed scale,
+radius or palette rule.
+
 ## Recheck the rejected experience
 
 Compare the revised page directly with the rejected baseline at equal widths,

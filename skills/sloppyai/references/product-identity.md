@@ -80,6 +80,10 @@ Write a short ledger from product truth to design decision, expected effect and
 rendered check. This is a design hypothesis, not proof that the user will like it.
 Keep explicit acceptance separate from inferred choices.
 
+When a distinctive revision still feels awkward, use the
+[fit calibration](identity-reset.md#calibrate-fit-before-escalating-the-style).
+Difference from the baseline is evidence of change, not evidence of good taste.
+
 ## Compare positive alternatives
 
 If the user rejected the shared layout or visual system, start with the
