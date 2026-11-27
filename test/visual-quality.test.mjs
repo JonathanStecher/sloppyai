@@ -102,6 +102,29 @@ test('visual checklist filters resolve real catalogue rules without manufacturin
   assert.equal('ratings' in matrix, false);
 });
 
+test('identity reset guidance reaches plans without treating a familiar page model as a violation', async t => {
+  const f = await fixture(t, {
+    'index.html': '<!doctype html><html lang="en"><head><title>Instrument hire</title></head><body><main><section class="intro"><h1>Borrow an instrument</h1><p>Choose a rental length and compare the costs.</p></section><section><h2>Instruments</h2><button>Choose keyboard</button></section></main></body></html>',
+    'style.css': '.intro{display:grid;grid-template-columns:1fr 1fr;color:#222;background:#fff}button{border-radius:6px}'
+  });
+  const accepted = { intent: 'The accepted instrument shop system', preserve: ['Two-column introduction', 'Existing type and button family'] };
+  const result = await audit(f.target, { config: { designBrief: accepted } });
+  assert.equal(result.report.findings.length, 0);
+  const review = improvementGuidance(result).designReview;
+  assert.deepEqual(review.brief, accepted);
+  assert.equal(review.qualityWorkflow.status, 'not_assessed');
+  assert.deepEqual(review.qualityWorkflow.evidence, []);
+  const resetPath = review.qualityWorkflow.identityResetGuideFile;
+  assert.ok((await readFile(resetPath, 'utf8')).length > 1000);
+  assert.ok(!resetPath.includes('/src/'));
+  for (const id of ['composition_baseline', 'alternative_independence', 'type_and_control_language', 'rejected_bundle_recheck']) {
+    assert.ok(review.qualityWorkflow.checks.some(item => item.id === id));
+  }
+  assert.ok(review.criteria.every(item => item.status === 'not_assessed' && item.score === null));
+  assert.deepEqual(result.report.reviewerAssessments, []);
+  assert.deepEqual(improvementGuidance(result).steps, []);
+});
+
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
   const brief = { audience: 'Independent book designers', intent: 'A working desk for publishing projects' };
   const f = await fixture(t, { 'index.html': '<h1>Studio journal</h1>', '.sloppyai.json': JSON.stringify({ designBrief: brief }) });
@@ -113,6 +136,7 @@ test('the portable plan exposes unassessed visual criteria even when source find
   assert.equal(result.guidance.designReview.qualityWorkflow.status, 'not_assessed');
   assert.ok((await readFile(result.guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8')).length > 1000);
   assert.ok((await readFile(result.guidance.designReview.qualityWorkflow.identityGuideFile, 'utf8')).length > 1000);
+  assert.ok((await readFile(result.guidance.designReview.qualityWorkflow.identityResetGuideFile, 'utf8')).length > 1000);
   assert.ok(result.plan.includes(brief.audience));
   assert.ok(result.plan.includes(brief.intent));
   assert.ok(result.guidance.designReview.criteria.every(item => item.score === null && item.status === 'not_assessed'));

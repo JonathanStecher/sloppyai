@@ -59,6 +59,8 @@ it. A first generated direction is not automatically an accepted identity. Use
 bundle of type, colours, overlines, buttons and icons, keeping functional meaning.
 Do not repeat the same structure in new colours, import the benchmark's identity,
 or present a clean source scan as a rebuttal to visual feedback.
+For that failure, use the [identity reset](identity-reset.md) to compare the actual
+reading experience, type roles and control language against the rejected baseline.
 
 Finish the scoped visual review only with current rendered evidence, a rationale
 against the product brief and reference criteria, and preserved useful behavior.

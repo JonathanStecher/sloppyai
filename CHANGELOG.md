@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3
+
+- Added a conditional identity reset for redesigns that retain the user-rejected page model, typography and controls.
+- Added composition baselines, different reading experiences, grayscale comparison and real type/control specimens to portable agent guidance.
+- Kept accepted brands and useful conventional layouts valid, and separated attributed host screenshots from failed browser launches and visual acceptance.
+
 ## 0.4.2
 
 - Added bounded studies of four live product websites, separating observed relationships from transferable principles and brand-specific assets.

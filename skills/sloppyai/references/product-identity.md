@@ -82,6 +82,12 @@ Keep explicit acceptance separate from inferred choices.
 
 ## Compare positive alternatives
 
+If the user rejected the shared layout or visual system, start with the
+[identity reset](identity-reset.md). Record the baseline's reading order and
+compare different content priorities, typography and control language. Two
+palettes or illustration arrangements within the same page model are insufficient
+evidence of a different approach to that rejection.
+
 When the identity is unresolved and the redesign substantial, render two small,
 materially different directions with the same facts and available assets. Compare
 voice, composition and relationships as well as token values. A description of
