@@ -3,6 +3,9 @@
 1. Resolve the current source revision, artifact and relevant previous report.
 2. Reproduce the original observation on the baseline when available, then check the
    changed artifact against the same meaningful assertion and legitimate controls.
+   For visual repairs, recheck the [change contract](../references/design-decisions.md#scope-the-next-visual-change):
+   assess both the requested improvement and the preserved direction. A passed
+   functional check does not close an unchanged or regressed visual result.
 3. Rerun appropriate existing tests. Add a test only if it protects useful behaviour
    and would catch a real regression not already covered. Avoid production seams
    used solely to make a test mirror the implementation.

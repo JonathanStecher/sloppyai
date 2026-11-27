@@ -4,6 +4,9 @@ Use this mode when the user requests a plan or has not authorized changes.
 
 1. Identify the artifact, intended audience, success condition, existing constraints
    and actual available evidence. Read relevant project instructions first.
+   For visual work, record the [preferred direction and change scope](../references/design-decisions.md#scope-the-next-visual-change)
+   before choosing a refinement, redesign or restoration. Name the requested
+   changes and what should survive; keep unknown preferences unknown.
 2. Capture the current state. Use source, the actual rendered artifact or supplied
    evidence as appropriate; clearly mark inaccessible states.
 3. Identify requirements and preservation constraints before aesthetics. Do not

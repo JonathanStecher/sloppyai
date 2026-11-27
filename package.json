@@ -1,6 +1,6 @@
 {
   "name": "@jonathanstecher/sloppyai",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Remove AI slop, improve design and writing, and fix bugs and security issues in websites and apps built with AI.",
   "type": "module",
   "license": "MIT",

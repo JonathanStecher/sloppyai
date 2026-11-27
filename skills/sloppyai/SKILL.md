@@ -38,6 +38,9 @@ ornament while preserving needed information and explicitly accepted identity.
 Apply local type, control and copy preferences within the preferred direction
 first. If the user prefers the earlier version, restore it; do not interpret a
 cleanup request as a reason to replace the whole composition or page purpose.
+Record the [next visual change](references/design-decisions.md#scope-the-next-visual-change) with
+`designBrief.changeScope`, `preferredDirection` and `requestedChanges` when known.
+Plans and both hooks receive the same change contract; missing evidence stays unassessed.
 
 Treat “as good as” a reference as an execution-quality target. Use the artifact's
 own audience, task and identity to choose its visual direction. Read

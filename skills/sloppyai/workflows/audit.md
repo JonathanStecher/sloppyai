@@ -7,6 +7,9 @@
    dependencies, generated output and symlinks and records relevant input limits.
    For a cross-surface or launch review, use the applicable rows in the
    [product and release checklist](../references/release-review.md).
+   For a visual repair, resolve the preferred baseline and the
+   [change contract](../references/design-decisions.md#scope-the-next-visual-change).
+   Assess the requested issue separately from the character and purpose to preserve.
 3. Inspect the relevant artifact directly. For an interface, walk complete key tasks
    and applicable loading, empty, failure, permission and partial states. For writing
    and media, check actual claims, sources, timing and output quality.

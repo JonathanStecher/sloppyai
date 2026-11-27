@@ -16,6 +16,29 @@ const referenceFor = {
 
 const visualQualityRuleIds = ['D24', 'D25', 'D26', 'D27', 'D28', 'D29', 'D30', 'D31'];
 
+function designChangeContract(brief = {}) {
+  const scope = brief.changeScope ?? 'refine';
+  const instructions = {
+    refine: 'Make focused repairs within the preferred direction and page purpose. Preserve the composition, imagery and colour relationships that the user values while addressing the requested changes. Simpler type or controls do not require replacing a landing page with a neutral catalogue.',
+    redesign: 'Reconsider the composition and visual system within the requested redesign scope. Preserve product facts, useful behavior and explicitly protected choices; do not force the previous layout or a generic clean template onto the new direction.',
+    restore: 'Restore the specified preferred version or direction before proposing further visual changes. Keep useful behavior and unrelated user work. Comparative preference does not approve every earlier detail; verify an exact restoration with source bytes when exact restoration was requested.'
+  };
+  return {
+    scope, explicit: brief.changeScope !== undefined,
+    preferredDirection: brief.preferredDirection ?? null,
+    requestedChanges: brief.requestedChanges ?? [],
+    preserve: brief.preserve ?? [], avoid: brief.avoid ?? [],
+    instruction: instructions[scope],
+    verification: [
+      'Compare the preferred baseline and current result at matched desktop and phone widths, including a useful lower section and affected states. Name the source revisions and distinguish screenshots from source observations.',
+      'Check the requested repair and the preserved page purpose, composition, imagery, colours and useful behavior separately. Fewer labels, smaller type or passing commands alone do not establish a visual improvement.',
+      'Record unchanged or regressed visual execution even when functional checks pass. Keep missing rendered evidence and user acceptance unassessed; stop on an evidence-supported regression rather than continuing to simplify.'
+    ],
+    status: 'not_assessed', evidence: [],
+    assurance: 'Planning guidance, not automatic scope enforcement or a taste verdict. The refine default does not override the user\'s requested redesign or restoration. A direction label does not load or verify a baseline.'
+  };
+}
+
 export function improvementGuidance(result) {
   const { report, config, catalog, patches, confirmedReviewFindings } = result;
   const reference = filename => path.join(SKILL_ROOT, 'references', filename);
@@ -42,6 +65,7 @@ export function improvementGuidance(result) {
       designReview: {
         guideFile: reference('visual-quality.md'),
         brief: config.designBrief ?? {},
+        changeContract: designChangeContract(config.designBrief),
         referencePolicy: {
           use: config.designBrief?.referenceUse ?? 'quality',
           explicit: config.designBrief?.referenceUse !== undefined,
