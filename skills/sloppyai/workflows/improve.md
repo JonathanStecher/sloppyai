@@ -26,6 +26,9 @@ does not follow automatically.
    If the result still lacks character, use [product identity](../references/product-identity.md)
    to study real products, render positive alternatives and create a coherent
    direction that continues beyond the hero. Simplification alone is not the target.
+   If the user rejects the shared layout or combined type and control treatment,
+   use [identity reset](../references/identity-reset.md). Compare different reading
+   experiences, then recheck the exact rejected bundle in matched renders.
 3. For operational interfaces, list each repeated headline, secondary line, badge,
    icon and separator, and ask whether it conveys a decision, status, relationship
    or recovery path. Remove redundant ornament *only where task evidence supports it*.

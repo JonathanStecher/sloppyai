@@ -54,6 +54,7 @@ export function improvementGuidance(result) {
           guideFile: reference('quality-benchmarks.md'),
           decisionGuideFile: reference('design-decisions.md'),
           identityGuideFile: reference('product-identity.md'),
+          identityResetGuideFile: reference('identity-reset.md'),
           status: 'not_assessed',
           evidence: [],
           checks: [
@@ -64,6 +65,10 @@ export function improvementGuidance(result) {
             { id: 'different_assumption', question: 'If the look was rejected, which materially different approach was compared with the same content and required behavior?' },
             { id: 'reference_relationships', question: 'Which relationships were observed in actual product websites, what principle transfers, and what identity or assets must remain with those references?' },
             { id: 'positive_identity', question: 'What positive identity follows from this product, and how do content, type, colour, imagery and interaction reinforce it beyond the removal of generic decoration?' },
+            { id: 'composition_baseline', question: 'When the layout was rejected, what reading order, content priority, image role and repeated spatial relationships caused that response?' },
+            { id: 'alternative_independence', question: 'Do matched desktop and phone renders, including a grayscale comparison and useful lower section, show a different reading experience rather than two treatments of the rejected model?' },
+            { id: 'type_and_control_language', question: 'How do real product names, prices, form labels, errors and normal/focus/selected controls express the chosen identity, and what rendered specimens support those decisions?' },
+            { id: 'rejected_bundle_recheck', question: 'Which rejected relationships changed and which stayed for a useful reason? If the combined treatment remains, is the visual repair recorded as unchanged or failed separately from passing functional checks?' },
             { id: 'identity_continuity', question: 'What was created or strengthened across the whole page and useful states, and what current rendered evidence supports that judgment?' },
             { id: 'coherent_execution', question: 'Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?' },
             { id: 'rendered_critique', question: 'Which specific rendered weaknesses were improved at page and detail scale, and which remain?' },
