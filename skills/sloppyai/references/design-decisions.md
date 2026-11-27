@@ -32,6 +32,36 @@ composition. They do not by themselves call for replacing a product introduction
 with a neutral catalogue. Keep the imagery, colour relationships and reading
 progression that contributed to the preference, then recheck the actual diff.
 
+## Scope the next visual change
+
+Record the preferred direction and the next changes in `designBrief` when that
+context is known. `changeScope` is `refine`, `redesign` or `restore`;
+`preferredDirection` names the selected version or direction; `requestedChanges`
+lists the specific refinements. Continue to use `preserve` and `avoid` for the
+identity and behavior constraints. Do not infer approval of every prior detail
+from a preference for its overall direction.
+
+The portable plan and both hook requests expose these as
+`guidance.designReview.changeContract`. An omitted scope starts with `refine` and
+is marked as a default. Explicit redesign and restoration remain valid; the
+starting default does not override the user's request or require asking again.
+This object is review guidance, not automatic scope enforcement. Naming a version
+does not load its files or prove that a baseline was inspected.
+
+Before editing, resolve the actual preferred source or rendered evidence. For a
+refinement, connect each proposed change to a requested issue while retaining the
+page purpose, imagery, composition and colour relationships that matter. For a
+redesign, reconsider those relationships within the requested scope. For a
+restoration, recover the selected direction first and check source bytes if an
+exact restoration was requested.
+
+After editing, assess the requested improvement and preservation separately at
+matched desktop and phone widths, including a useful lower section and affected
+states. A functional pass or fewer labels does not close a visual concern. Report
+an unchanged or regressed result with its evidence; keep absent rendered evidence
+and user acceptance unassessed. The controller can stop on a comparable reviewer
+decline or supported regression, but it does not independently judge taste.
+
 ## Start with direct, familiar interface defaults
 
 For a fresh or rejected clean interface, start with readable familiar type,

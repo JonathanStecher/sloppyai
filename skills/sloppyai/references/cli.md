@@ -23,6 +23,13 @@ preservation anchors, command checks and loop limits. Exclusions are relative
 file/directory prefixes, not globs. The helper does not read project commands from
 package scripts automatically.
 
+Optional `designBrief.changeScope` (`refine`, `redesign`, `restore`),
+`preferredDirection` and `requestedChanges` make the next visual repair explicit.
+Plans and both hooks receive `guidance.designReview.changeContract` with the
+scope, requested changes, preservation context and unassessed verification work.
+The starting scope is `refine`, marked as a default; it does not override an
+explicit redesign. See [visual change scope](design-decisions.md#scope-the-next-visual-change).
+
 Commands are arrays, never implicitly shell-interpolated. Configured checks,
 reviewer and fixer hooks run only with --allow-exec. They have the caller's
 permissions and may use network or paid services if the caller's command does so.

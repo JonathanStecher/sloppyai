@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.8
+
+- Added optional visual change scope, preferred direction and requested changes to the design brief; portable plans, reviewers and fixers receive the same unassessed change contract.
+- Start existing-artifact repairs with focused refinements while keeping explicit redesign and restoration valid. A direction label does not load evidence or enforce visual preservation automatically.
+- Added pipeline regression cases for preserved product character and a reported identity regression despite passing rental checks, plus installed-tarball coverage and stale-review binding checks.
+
 ## 0.4.7
 
 - Restore an earlier direction when the user prefers it and apply type, corner and copy refinements within that composition before replacing the page model.

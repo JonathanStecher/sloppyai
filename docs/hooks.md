@@ -46,6 +46,18 @@ rendered-critique prompts linked to the self-contained quality-benchmark guide.
 Neither object supplies a visual verdict. `designBrief.referenceUse` changes are
 bound to the input digest like the rest of the brief.
 
+`designReview.changeContract` carries `designBrief.changeScope` (`refine`,
+`redesign`, `restore`), `preferredDirection`, `requestedChanges`, `preserve` and
+`avoid`, plus instructions and verification work. Missing scope starts with
+`refine` and is marked `explicit: false`. It is a planning default, not automatic
+scope enforcement or a rule against an explicitly requested redesign.
+
+Resolve the named preferred baseline before making or reviewing changes; its
+label does not load evidence. Review the requested improvement and preserved
+direction separately, including matched rendered states when assessing visual
+quality. A source-only contract remains `not_assessed` with empty evidence.
+Changing these brief fields invalidates prior reviewer bindings.
+
 When confirming an existing finding, reuse its rule ID, relative path and source
 anchor. The controller retains the static observation and uses the review
 confirmation to schedule contextual work.
@@ -62,9 +74,14 @@ Read `guidance.repairGuideFile` and the installed checklist for the relevant
 repair. Join `guidance.steps` to report findings by `findingId` to see the
 method, reviewer confirmation and rule-specific verification. Repair only
 authorized source, preserve required behaviour, and exit zero.
+For visual work, follow the same `designReview.changeContract` that reached the
+reviewer. Local type, control and copy refinements should retain the preferred
+composition and character; broader redesign or restoration follows its selected scope.
 
 After the hook, the controller re-audits source and reruns the pinned checks.
-It stops when new objective failures or passing-to-failing checks appear. External
+It stops when new objective failures, comparable reviewer rating declines or
+passing-to-failing checks appear. A passing project check does not erase a
+supported visual regression. External
 changes are retained for inspection, not automatically reverted. Use your normal
 reviewable diff or an isolated checkout. Built-in fixes have separate private backups.
 

@@ -14,6 +14,9 @@ does not follow automatically.
    If the user prefers an earlier version, restore that direction and narrow the
    next repair. Type, corner and copy preferences do not alone call for replacing
    the page's purpose, composition, imagery or colour relationships.
+   Record the [change contract](../references/design-decisions.md#scope-the-next-visual-change)
+   when known. The reviewer and fixer receive the same preferred direction,
+   requested changes and refinement, redesign or restoration scope.
 2. Find the root cause and choose a focused repair. Prefer existing services and
    components over a second path or manually patched materialized output.
    Include taste and appearance using [visual quality](../references/visual-quality.md):

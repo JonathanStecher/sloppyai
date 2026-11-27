@@ -126,6 +126,9 @@ An optional brief in `.sloppyai.json` preserves the intended direction:
   "designBrief": {
     "audience": "Working designers",
     "intent": "A warm editorial journal",
+    "changeScope": "refine",
+    "preferredDirection": "The existing warm journal introduction",
+    "requestedChanges": ["Improve long-title wrapping", "Clarify the export action"],
     "character": ["Tactile", "Quiet"],
     "preserve": ["Expressive serif", "Warm paper", "Visible action accent"],
     "avoid": ["Replacing the identity with a generic neutral interface"]
@@ -137,6 +140,13 @@ An optional brief in `.sloppyai.json` preserves the intended direction:
 Reviewer and fixer hooks receive the same catalogue-backed guidance. Changing the
 brief invalidates stale review bindings. See the [visual-quality guide](skills/sloppyai/references/visual-quality.md)
 for the evidence and comparison method.
+
+Plans and both hooks also receive a visual change contract. Its starting scope is
+`refine`; an explicit `redesign` or `restore` records broader work. The preferred
+direction and requested changes keep local cleanup tied to the intended page.
+Functional checks and attributed visual judgments remain separate. See
+[change scope](skills/sloppyai/references/design-decisions.md#scope-the-next-visual-change)
+and the [hook contract](docs/hooks.md) for the behavior and limits.
 
 ## Continuous improvement
 

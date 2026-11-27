@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import path from 'node:path';
 import { readFile } from 'node:fs/promises';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -17,6 +18,11 @@ test('a clean source scan leaves visual taste unassessed and preserves the suppl
   assert.equal(result.report.findings.length, 0);
   const guidance = improvementGuidance(result);
   assert.deepEqual(guidance.designReview.brief, brief);
+  assert.equal(guidance.designReview.changeContract.scope, 'refine');
+  assert.equal(guidance.designReview.changeContract.explicit, false);
+  assert.equal(guidance.designReview.changeContract.preferredDirection, null);
+  assert.equal(guidance.designReview.changeContract.status, 'not_assessed');
+  assert.deepEqual(guidance.designReview.changeContract.preserve, brief.preserve);
   assert.equal(guidance.designReview.referencePolicy.use, 'quality');
   assert.equal(guidance.designReview.referencePolicy.explicit, false);
   assert.deepEqual(guidance.designReview.referencePolicy.references, brief.references);
@@ -44,6 +50,13 @@ test('changing the design brief invalidates a previous reviewer binding', async 
   const first = await audit(f.target, { config: { designBrief: { intent: 'Warm editorial' } } });
   const review = { inputDigest: first.report.inputDigest, reviewer: { name: 'Visual reviewer', kind: 'agent' }, assessments: [], findings: [] };
   await assert.rejects(audit(f.target, { config: { designBrief: { intent: 'Precise technical' } }, review }), error => error.code === 'STALE_REVIEW');
+  for (const change of [
+    { changeScope: 'redesign' },
+    { preferredDirection: 'The earlier warm landing page' },
+    { requestedChanges: ['Round the existing buttons'] }
+  ]) {
+    await assert.rejects(audit(f.target, { config: { designBrief: { intent: 'Warm editorial', ...change } }, review }), error => error.code === 'STALE_REVIEW');
+  }
 });
 
 test('familiar visual choices and an approved identity never become automatic style violations', async t => {
@@ -70,7 +83,7 @@ test('nonvisual scope does not receive taste prompts and malformed briefs are re
   const f = await fixture(t, { 'copy.txt': 'Export a report for your accountant.' });
   const result = await audit(f.target, { config: { domains: ['copy'] } });
   assert.equal('designReview' in improvementGuidance(result), false);
-  for (const designBrief of [{ intent: 12 }, { character: ['Calm', 'Calm'] }, { command: ['delete'] }, { avoid: [''] }, { referenceUse: 'copy' }]) {
+  for (const designBrief of [{ intent: 12 }, { character: ['Calm', 'Calm'] }, { command: ['delete'] }, { avoid: [''] }, { referenceUse: 'copy' }, { changeScope: 'simplify' }, { preferredDirection: 4 }, { requestedChanges: 'Rewrite everything' }, { requestedChanges: [''] }, { requestedChanges: ['Round buttons', 'Round buttons'] }]) {
     await assert.rejects(audit(f.target, { config: { designBrief } }));
   }
 });
@@ -200,6 +213,43 @@ test('local cleanup preferences preserve the earlier product introduction and it
   assert.deepEqual(guidance.steps, []);
   assert.equal(guidance.designReview.qualityWorkflow.status, 'not_assessed');
   assert.ok(guidance.designReview.criteria.every(criterion => criterion.score === null));
+});
+
+test('the portable plan carries focused changes and a preferred direction without modifying the artifact', async t => {
+  const original = '<!doctype html><html lang="en"><head><title>Studio rental</title></head><body><main><h1>Explore the instruments</h1><button type="button">Play preview</button></main></body></html>';
+  const designBrief = { intent: 'Refine the preferred landing page', changeScope: 'refine', preferredDirection: 'The warm landing before the collection redesign', requestedChanges: ['Comfortable heading line height', 'Round the existing buttons'], preserve: ['Coral product stage', 'Image-led introduction'], avoid: ['Replacing the landing with a neutral catalogue'] };
+  const f = await fixture(t, { 'index.html': original, '.sloppyai.json': JSON.stringify({ designBrief }) });
+  const { stdout } = await exec(process.execPath, ['skills/sloppyai/scripts/sloppyai.mjs', 'plan', f.target, '--json', '--no-save']);
+  const result = JSON.parse(stdout);
+  const contract = result.guidance.designReview.changeContract;
+  assert.equal(contract.scope, 'refine');
+  assert.equal(contract.explicit, true);
+  assert.equal(contract.preferredDirection, designBrief.preferredDirection);
+  assert.deepEqual(contract.requestedChanges, designBrief.requestedChanges);
+  assert.deepEqual(contract.preserve, designBrief.preserve);
+  assert.deepEqual(contract.avoid, designBrief.avoid);
+  assert.equal(contract.status, 'not_assessed');
+  assert.deepEqual(contract.evidence, []);
+  assert.deepEqual(result.findings, []);
+  assert.ok(result.plan.includes(designBrief.preferredDirection));
+  assert.ok(designBrief.requestedChanges.every(change => result.plan.includes(change)));
+  assert.equal(await readFile(path.join(f.target, 'index.html'), 'utf8'), original);
+});
+
+test('explicit redesign and restoration remain valid scopes without automatic visual approval', async t => {
+  const f = await fixture(t, { 'index.html': '<h1>Studio editions</h1><button type="button">Choose an edition</button>' });
+  for (const scope of ['redesign', 'restore']) {
+    const brief = { changeScope: scope, preferredDirection: 'The approved expressive print campaign', preserve: ['Large masthead', 'Useful purchase flow'] };
+    const result = await audit(f.target, { config: { designBrief: brief } });
+    const design = improvementGuidance(result).designReview;
+    assert.equal(design.changeContract.scope, scope);
+    assert.equal(design.changeContract.explicit, true);
+    assert.deepEqual(design.brief, brief);
+    assert.deepEqual(result.report.findings, []);
+    assert.deepEqual(design.changeContract.evidence, []);
+    assert.equal(design.changeContract.status, 'not_assessed');
+    assert.ok(design.criteria.every(criterion => criterion.score === null));
+  }
 });
 
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
