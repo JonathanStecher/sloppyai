@@ -24,6 +24,14 @@ result successful because it became more readable. Readability, usability and
 the user's visual judgment are separate outcomes. A visual pass can fail while
 the booking flow passes.
 
+When the user prefers an earlier version, restore that direction before making
+another visual proposal. Treat the preference as comparative feedback, not proof
+that every earlier detail was approved. Requests about fonts, text heights,
+corners or filler usually call for focused changes within the preferred
+composition. They do not by themselves call for replacing a product introduction
+with a neutral catalogue. Keep the imagery, colour relationships and reading
+progression that contributed to the preference, then recheck the actual diff.
+
 ## Start with direct, familiar interface defaults
 
 For a fresh or rejected clean interface, start with readable familiar type,
@@ -31,6 +39,11 @@ comfortable text sizes and line heights, ordinary controls and a consistent,
 comfortable corner radius. Strengthen identity through the actual content,
 imagery and relationships rather than stretching type or inventing controls.
 Honor the user's explicit typography, shape and copy preferences.
+
+Apply these defaults in context. A simpler interface can lose the product's
+character or purpose. First try the requested type, control or copy refinements
+within the existing direction; change the whole composition when the brief and
+feedback support that scope, not as a side effect of removing ornament.
 
 - Do not add an overline above a heading or a subtitle beneath every heading by
   habit. Keep real information where it helps a decision.

@@ -12,6 +12,13 @@ the user still found it template-like. Adding the usual marketing pieces had
 not created a visual system. Treat this as evidence to reconsider the image
 roles, type metrics and composition together, not to add another default section.
 
+The next pass replaced that introduction with a clean image-led instrument
+collection. The user preferred the earlier landing page. Record this as a failed
+visual repair despite passing functional checks: the cleanup had also changed
+the page's role and character. Restore the preferred direction and make focused
+refinements there. The type and rounding preferences still matter; they are not
+a requirement to replace every landing page with an operating catalogue.
+
 ## A small music-product comparison
 
 On 2026-11-27, actual Chromium samples of

@@ -28156,7 +28156,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.4.6";
+var VERSION = "0.4.7";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38502,7 +38502,7 @@ function improvementGuidance(result) {
             { id: "reference_intent", question: "What is the reference being used to assess, and what current evidence supports that comparison?" },
             { id: "product_direction", question: "Which visual decisions follow from this audience, task, content and accepted identity?" },
             { id: "surface_purpose_and_story", question: "Is this an operating screen, a product landing page or a mixture? For a landing page, how do the offer, focal visual, reading progression and useful demonstration help a new visitor understand and choose the actual product, without inventing proof or replacing an accepted direct-to-tool experience?" },
-            { id: "identity_acceptance", question: "Which identity choices did the user accept, which were only generated defaults, and which have been rejected?" },
+            { id: "identity_acceptance", question: "Which identity choices did the user accept, which were generated defaults, and which were rejected? If an earlier direction is preferred, what should be restored, and which requested type, control or copy refinements can be made within it without replacing the page purpose or composition?" },
             { id: "decoration_purpose", question: "Which overlines, subtitles, FAQ blocks, section numbers, separators, type emphasis and icons supply needed information, and which were generated defaults or rejected choices? Are real labels, controls, focus and state information preserved?" },
             { id: "different_assumption", question: "If the look was rejected, which materially different approach was compared with the same content and required behavior?" },
             { id: "reference_relationships", question: "Which relationships were observed in actual product websites, what principle transfers, and what identity or assets must remain with those references?" },

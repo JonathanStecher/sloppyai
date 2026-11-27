@@ -186,6 +186,22 @@ test('clean interface defaults preserve a useful help FAQ, real labels and accep
   assert.ok((await readFile(guidance.designReview.qualityWorkflow.landingPageGuideFile, 'utf8')).length > 1000);
 });
 
+test('local cleanup preferences preserve the earlier product introduction and its character', async t => {
+  const f = await fixture(t, {
+    'index.html': '<!doctype html><html lang="en"><head><title>Studio rental</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main><h1>Rent an instrument for your next session</h1><figure><img src="instrument.svg" width="600" height="400" alt="A compact keyboard"></figure><a href="#instruments">Explore instruments</a><section id="instruments"><h2>Instruments</h2><button type="button">Play preview</button></section></main></body></html>',
+    'style.css': 'body{font-family:Arial,sans-serif;background:#fffdf8;color:#242522}figure{background:#f5a780;border-radius:12px}button{border-radius:12px}',
+    'instrument.svg': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect x="30" y="60" width="540" height="280" rx="20" fill="#ece5d8"/></svg>'
+  });
+  const brief = { intent: 'Restore the preferred product introduction, then refine it', preserve: ['Existing composition', 'Warm imagery and coral product stage', 'Working sound preview'], avoid: ['Awkward text heights', 'Default FAQs and overlines', 'Replacing the landing page with a neutral catalogue'] };
+  const result = await audit(f.target, { config: { designBrief: brief } });
+  const guidance = improvementGuidance(result);
+  assert.deepEqual(guidance.designReview.brief, brief);
+  assert.deepEqual(result.report.findings, []);
+  assert.deepEqual(guidance.steps, []);
+  assert.equal(guidance.designReview.qualityWorkflow.status, 'not_assessed');
+  assert.ok(guidance.designReview.criteria.every(criterion => criterion.score === null));
+});
+
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
   const brief = { audience: 'Independent book designers', intent: 'A working desk for publishing projects' };
   const f = await fixture(t, { 'index.html': '<h1>Studio journal</h1>', '.sloppyai.json': JSON.stringify({ designBrief: brief }) });
