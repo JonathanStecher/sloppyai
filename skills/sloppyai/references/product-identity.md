@@ -13,6 +13,12 @@ as an ornamental template. Keep the functional gains, then decide what the work
 should positively express through its content, imagery, typography, colour,
 composition and interactions.
 
+A large headline and product image are not a complete visual identity. Define
+the relationships among readable type, an image system, composition, surfaces
+and ordinary controls, then inspect those relationships in the real selection
+and completion states. Familiar fonts and comfortable rounding can be deliberate
+choices; carry those decisions through the useful journey instead of adding tricks or sections.
+
 For a product introduction or mixed marketing/demo page, also use
 [landing pages](landing-pages.md). A useful catalogue can support a product story
 without being the whole landing page; a direct-to-tool experience can still be

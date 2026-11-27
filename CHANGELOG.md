@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.6
+
+- Strengthened visual-system guidance beyond a large headline and product image, including coherent imagery and useful page compositions.
+- Added clean interface defaults for familiar type, comfortable metrics and rounding, plain actions and copy, without automatic FAQs, subtitles, overlines, section numbers or ornament.
+- Kept accepted expressive identities, useful help FAQs, real form labels and meaningful states valid; source checks still do not assign automatic style penalties or taste verdicts.
+
 ## 0.4.5
 
 - Added conditional guidance for product landing pages and mixed marketing/demo experiences, including the offer, art direction, focal visual and reading progression.

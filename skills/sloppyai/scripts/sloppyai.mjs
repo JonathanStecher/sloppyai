@@ -28162,7 +28162,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.4.5";
+var VERSION = "0.4.6";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38548,7 +38548,7 @@ function improvementGuidance(result) {
             { id: "product_direction", question: "Which visual decisions follow from this audience, task, content and accepted identity?" },
             { id: "surface_purpose_and_story", question: "Is this an operating screen, a product landing page or a mixture? For a landing page, how do the offer, focal visual, reading progression and useful demonstration help a new visitor understand and choose the actual product, without inventing proof or replacing an accepted direct-to-tool experience?" },
             { id: "identity_acceptance", question: "Which identity choices did the user accept, which were only generated defaults, and which have been rejected?" },
-            { id: "decoration_purpose", question: "What do the actual overlines, type emphasis, palette, button treatments and icons contribute to this task, and which combined choices caused the rejection?" },
+            { id: "decoration_purpose", question: "Which overlines, subtitles, FAQ blocks, section numbers, separators, type emphasis and icons supply needed information, and which were generated defaults or rejected choices? Are real labels, controls, focus and state information preserved?" },
             { id: "different_assumption", question: "If the look was rejected, which materially different approach was compared with the same content and required behavior?" },
             { id: "reference_relationships", question: "Which relationships were observed in actual product websites, what principle transfers, and what identity or assets must remain with those references?" },
             { id: "positive_identity", question: "What positive identity follows from this product, and how do content, type, colour, imagery and interaction reinforce it beyond the removal of generic decoration?" },
@@ -38558,7 +38558,7 @@ function improvementGuidance(result) {
             { id: "proportion_and_familiarity", question: "If the different redesign still feels awkward, which choices were overcorrected? Do brand, headline, imagery and controls have credible proportions for this service, and what actual comparison or user preference supports the calibration without overriding accepted expressive choices?" },
             { id: "rejected_bundle_recheck", question: "Which rejected relationships changed and which stayed for a useful reason? If the combined treatment remains, is the visual repair recorded as unchanged or failed separately from passing functional checks?" },
             { id: "identity_continuity", question: "What was created or strengthened across the whole page and useful states, and what current rendered evidence supports that judgment?" },
-            { id: "coherent_execution", question: "Do type, palette, composition, imagery and interaction form a coherent whole rather than a cosmetic reskin?" },
+            { id: "coherent_execution", question: "How do type metrics, an imagery system, composition, surfaces and familiar controls form a product-specific visual system beyond the headline and hero image? What do current desktop and phone renders show about those relationships and the requested corner treatment in selection, costs and recovery?" },
             { id: "rendered_critique", question: "Which specific rendered weaknesses were improved at page and detail scale, and which remain?" },
             { id: "preserved_behavior", question: "Do meaningful content, controls, responsive states and recovery paths still work?" }
           ]

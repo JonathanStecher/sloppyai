@@ -24,6 +24,32 @@ result successful because it became more readable. Readability, usability and
 the user's visual judgment are separate outcomes. A visual pass can fail while
 the booking flow passes.
 
+## Start with direct, familiar interface defaults
+
+For a fresh or rejected clean interface, start with readable familiar type,
+comfortable text sizes and line heights, ordinary controls and a consistent,
+comfortable corner radius. Strengthen identity through the actual content,
+imagery and relationships rather than stretching type or inventing controls.
+Honor the user's explicit typography, shape and copy preferences.
+
+- Do not add an overline above a heading or a subtitle beneath every heading by
+  habit. Keep real information where it helps a decision.
+- Do not scaffold a FAQ, numbered sections, repeated explanatory strips or
+  feature boxes without content that needs them. Put costs and necessary
+  disclosures in context instead of using them to justify filler sections.
+- Avoid decorative separators and icons by default. Use spacing and surface
+  contrast; preserve meaningful input boundaries, focus, selection and states.
+- Give buttons clear action labels and familiar behavior. Keep corners coherent
+  across buttons, images and panels; do not use shape novelty as the identity.
+- Write the actual offer and behavior in plain language. Replace vague creative
+  promises with useful facts, not clipped slogans or repeated short beats.
+
+These are starting points, not automatic style violations. Preserve an accepted
+expressive brand, a useful FAQ in a help centre, real form labels, meaningful
+numbers and appropriate control symbols. A user-requested change takes precedence
+over an earlier generated default. Do not infer AI authorship from any of these
+features or remove required information merely to obtain a cleaner screenshot.
+
 ## What the research supports
 
 The table records source findings separately from the proposed design practice.

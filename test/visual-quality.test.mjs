@@ -170,6 +170,22 @@ test('landing guidance preserves an accepted plain direct-to-tool product withou
   assert.ok(guidance.designReview.criteria.every(criterion => criterion.score === null));
 });
 
+test('clean interface defaults preserve a useful help FAQ, real labels and accepted control geometry', async t => {
+  const f = await fixture(t, {
+    'index.html': '<!doctype html><html lang="en"><head><title>Rental help</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main><h1>Rental help</h1><label>Rental length <select><option>3 days</option></select></label><section><h2>Frequently asked questions</h2><details><summary>Is the deposit part of the rental fee?</summary><p>The refundable deposit is shown separately.</p></details></section><button type="button">Review rental</button></main></body></html>',
+    'style.css': 'body{font-family:Arial,sans-serif;line-height:1.5}button{border-radius:0}'
+  });
+  const brief = { intent: 'The accepted help centre', preserve: ['Useful FAQ', 'Real form labels and 3-day value', 'Existing square technical controls'] };
+  const result = await audit(f.target, { config: { designBrief: brief } });
+  const guidance = improvementGuidance(result);
+  assert.deepEqual(guidance.designReview.brief, brief);
+  assert.deepEqual(result.report.findings, []);
+  assert.deepEqual(guidance.steps, []);
+  assert.equal(guidance.designReview.qualityWorkflow.status, 'not_assessed');
+  assert.ok(guidance.designReview.criteria.every(criterion => criterion.score === null));
+  assert.ok((await readFile(guidance.designReview.qualityWorkflow.landingPageGuideFile, 'utf8')).length > 1000);
+});
+
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
   const brief = { audience: 'Independent book designers', intent: 'A working desk for publishing projects' };
   const f = await fixture(t, { 'index.html': '<h1>Studio journal</h1>', '.sloppyai.json': JSON.stringify({ designBrief: brief }) });
