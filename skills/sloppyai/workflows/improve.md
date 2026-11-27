@@ -11,6 +11,9 @@ does not follow automatically.
    behaviour and accepted identity.
    Separate explicit acceptance from generated defaults. User-rejected visual
    choices are not part of an accepted brand merely because they are in the baseline.
+   If the user prefers an earlier version, restore that direction and narrow the
+   next repair. Type, corner and copy preferences do not alone call for replacing
+   the page's purpose, composition, imagery or colour relationships.
 2. Find the root cause and choose a focused repair. Prefer existing services and
    components over a second path or manually patched materialized output.
    Include taste and appearance using [visual quality](../references/visual-quality.md):

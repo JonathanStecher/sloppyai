@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.7
+
+- Restore an earlier direction when the user prefers it and apply type, corner and copy refinements within that composition before replacing the page model.
+- Record the OFFBEAT collection cleanup as a rejected visual repair despite passing functional checks; keep relative preference separate from approval of every prior detail.
+- Preserve the same guidance identifiers and unassessed visual outcomes, with no automatic style penalties or taste verdicts.
+
 ## 0.4.6
 
 - Strengthened visual-system guidance beyond a large headline and product image, including coherent imagery and useful page compositions.
