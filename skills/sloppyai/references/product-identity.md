@@ -13,6 +13,11 @@ as an ornamental template. Keep the functional gains, then decide what the work
 should positively express through its content, imagery, typography, colour,
 composition and interactions.
 
+For a product introduction or mixed marketing/demo page, also use
+[landing pages](landing-pages.md). A useful catalogue can support a product story
+without being the whole landing page; a direct-to-tool experience can still be
+right when the brief and audience support it.
+
 An expressive choice can earn its place through personality, emotional tone or a
 recognisable brand relationship. It does not need to operate a control. The test
 is whether the combined choices serve this product and are executed well. Do not

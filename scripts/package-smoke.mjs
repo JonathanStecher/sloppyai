@@ -54,6 +54,8 @@ try {
   assert.equal(await readFile(guidance.designReview.qualityWorkflow.decisionGuideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/design-decisions.md'), 'utf8'));
   assert.equal(await readFile(guidance.designReview.qualityWorkflow.identityGuideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/product-identity.md'), 'utf8'));
   assert.equal(await readFile(guidance.designReview.qualityWorkflow.identityResetGuideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/identity-reset.md'), 'utf8'));
+  assert.equal(await readFile(guidance.designReview.qualityWorkflow.landingPageGuideFile, 'utf8'), await readFile(path.join(root, 'skills/sloppyai/references/landing-pages.md'), 'utf8'));
+  assert.ok(guidance.designReview.qualityWorkflow.checks.some(item => item.id === 'surface_purpose_and_story'));
   assert.ok(guidance.designReview.qualityWorkflow.checks.some(item => item.id === 'alternative_independence'));
   assert.ok(guidance.designReview.qualityWorkflow.checks.some(item => item.id === 'type_and_control_language'));
   assert.ok(guidance.designReview.qualityWorkflow.checks.some(item => item.id === 'proportion_and_familiarity'));

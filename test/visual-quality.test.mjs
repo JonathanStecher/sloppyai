@@ -143,6 +143,33 @@ test('fit calibration preserves an explicitly accepted expressive masthead witho
   assert.ok(design.criteria.every(item => item.score === null));
 });
 
+test('a landing brief receives visitor-decision guidance without an automatic taste verdict', async t => {
+  const f = await fixture(t, { 'index.html': '<!doctype html><html lang="en"><head><title>Instrument rentals</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main><h1>Choose an instrument</h1><button type="button">Choose keyboard</button></main></body></html>' });
+  const brief = { intent: 'A music product landing page with a useful rental demonstration' };
+  const result = await audit(f.target, { config: { designBrief: brief } });
+  const guidance = improvementGuidance(result);
+  const workflow = guidance.designReview.qualityWorkflow;
+  assert.ok(workflow.checks.some(check => check.id === 'surface_purpose_and_story'));
+  assert.ok((await readFile(workflow.landingPageGuideFile, 'utf8')).length > 1000);
+  assert.ok(!workflow.landingPageGuideFile.includes('/src/'));
+  assert.equal(workflow.status, 'not_assessed');
+  assert.deepEqual(workflow.evidence, []);
+  assert.deepEqual(result.report.reviewerAssessments, []);
+  assert.ok(guidance.designReview.criteria.every(criterion => criterion.score === null));
+});
+
+test('landing guidance preserves an accepted plain direct-to-tool product without requiring a hero', async t => {
+  const f = await fixture(t, { 'index.html': '<!doctype html><html lang="en"><head><title>Sound library</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main><h1>Sounds</h1><label>Find a sound <input type="search"></label><button type="button">Play selected sound</button></main></body></html>' });
+  const brief = { intent: 'The accepted direct-to-tool sound library', preserve: ['Plain operating screen', 'Search and immediate playback', 'No campaign hero'] };
+  const result = await audit(f.target, { config: { designBrief: brief } });
+  const guidance = improvementGuidance(result);
+  assert.deepEqual(guidance.designReview.brief, brief);
+  assert.deepEqual(result.report.findings, []);
+  assert.deepEqual(guidance.steps, []);
+  assert.equal(guidance.designReview.qualityWorkflow.status, 'not_assessed');
+  assert.ok(guidance.designReview.criteria.every(criterion => criterion.score === null));
+});
+
 test('the portable plan exposes unassessed visual criteria even when source findings are absent', async t => {
   const brief = { audience: 'Independent book designers', intent: 'A working desk for publishing projects' };
   const f = await fixture(t, { 'index.html': '<h1>Studio journal</h1>', '.sloppyai.json': JSON.stringify({ designBrief: brief }) });

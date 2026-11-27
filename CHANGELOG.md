@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.5
+
+- Added conditional guidance for product landing pages and mixed marketing/demo experiences, including the offer, art direction, focal visual and reading progression.
+- Kept working product demonstrations and accepted direct-to-tool experiences valid without requiring marketing sections or inventing proof.
+- Exposed the surface-purpose question and self-contained reference in portable plans; visual quality and acceptance remain unassessed by source checks.
+
 ## 0.4.4
 
 - Added fit and proportion calibration after a different redesign still feels awkward, without escalating novelty or overriding accepted expressive design.

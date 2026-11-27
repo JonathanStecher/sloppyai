@@ -28162,7 +28162,7 @@ var SKILL_ROOT = fileURLToPath(new URL(
   true ? "../" : "../skills/sloppyai/",
   import.meta.url
 ));
-var VERSION = "0.4.4";
+var VERSION = "0.4.5";
 var DOMAINS = ["accessibility", "ux", "copy", "performance", "security", "engineering", "design", "media", "rights", "devex"];
 var SEVERITIES = ["critical", "high", "medium", "low", "suggestion"];
 var PENALTIES = { critical: 25, high: 12, medium: 6, low: 2, suggestion: 0 };
@@ -38540,11 +38540,13 @@ function improvementGuidance(result) {
           decisionGuideFile: reference("design-decisions.md"),
           identityGuideFile: reference("product-identity.md"),
           identityResetGuideFile: reference("identity-reset.md"),
+          landingPageGuideFile: reference("landing-pages.md"),
           status: "not_assessed",
           evidence: [],
           checks: [
             { id: "reference_intent", question: "What is the reference being used to assess, and what current evidence supports that comparison?" },
             { id: "product_direction", question: "Which visual decisions follow from this audience, task, content and accepted identity?" },
+            { id: "surface_purpose_and_story", question: "Is this an operating screen, a product landing page or a mixture? For a landing page, how do the offer, focal visual, reading progression and useful demonstration help a new visitor understand and choose the actual product, without inventing proof or replacing an accepted direct-to-tool experience?" },
             { id: "identity_acceptance", question: "Which identity choices did the user accept, which were only generated defaults, and which have been rejected?" },
             { id: "decoration_purpose", question: "What do the actual overlines, type emphasis, palette, button treatments and icons contribute to this task, and which combined choices caused the rejection?" },
             { id: "different_assumption", question: "If the look was rejected, which materially different approach was compared with the same content and required behavior?" },
