@@ -13,7 +13,7 @@ useful features and deliberate style choices.
 - [Taste, colour and visual quality](skills/sloppyai/references/visual-quality.md)
 - [Research-informed design decisions](skills/sloppyai/references/design-decisions.md): reconsider rejected overlines, fonts, palettes, buttons and icons without style blacklists.
 - [Real product studies and identity](skills/sloppyai/references/product-identity.md): build positive character from a product's own content and practice, beyond removing decoration.
-- [Product landing pages](skills/sloppyai/references/landing-pages.md): connect the offer, art direction and useful demo while preserving direct-to-tool products.
+- [Product landing pages](skills/sloppyai/references/landing-pages.md): build a visual system beyond a headline and product image, with familiar UI and useful content instead of default marketing filler.
 - [Repair a rejected visual system](skills/sloppyai/references/identity-reset.md): compare reading experiences, typography and controls when a redesign still feels like the same layout.
 - **[About sloppy.ai](ABOUT.md):** what it helps with and why it exists.
 - **[Blog](blog/README.md):** practical guides for improving your work.

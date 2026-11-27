@@ -32,6 +32,9 @@ For a product introduction or mixed marketing/demo page, use
 [landing pages](references/landing-pages.md) to connect the offer, art direction
 and useful demonstration. A functioning operating screen alone need not satisfy
 a landing-page brief.
+For clean interface work, start with familiar type, comfortable metrics and
+corner rounding, clear actions and plain copy. Use the [direct interface defaults](references/design-decisions.md#start-with-direct-familiar-interface-defaults) to avoid automatic overlines, subtitles, FAQs, section numbers and
+ornament while preserving needed information and explicitly accepted identity.
 
 Treat “as good as” a reference as an execution-quality target. Use the artifact's
 own audience, task and identity to choose its visual direction. Read

@@ -7,6 +7,11 @@ page. In the OFFBEAT example, the user rejected a working dark audio catalogue
 because it lacked a persuasive introduction and a positive visual identity.
 Passing playback and rental tests did not resolve that rejection.
 
+A later pass added a large headline, a product render and a service story, but
+the user still found it template-like. Adding the usual marketing pieces had
+not created a visual system. Treat this as evidence to reconsider the image
+roles, type metrics and composition together, not to add another default section.
+
 ## A small music-product comparison
 
 On 2026-11-27, actual Chromium samples of
@@ -24,6 +29,15 @@ some lower Arcade assets were missing, and product interactions and commercial
 effectiveness were not assessed. A Splice text fetch was readable but its rendered
 sample was blank, so it was not used as visual-quality evidence. Research access
 failures do not justify filling the missing page with assumptions.
+
+A follow-up on the same date sampled [Felt Instruments](https://feltinstruments.com/)
+and [Vongon](https://www.vongon.com/) at the same desktop and phone widths, with one
+lower desktop view. Felt's material close-ups continue into its catalogue, while
+Vongon uses distinct staged product scenes. The transferable practice is deliberate
+image selection and treatment, not their grain, props, typography, palette or page
+arrangement. These samples were also partial; full interactions and effectiveness
+were not assessed. Their own treatments can be appropriate without overriding a
+different user's explicit preference for familiar type and restrained UI.
 
 ## Identify the visitor's decision
 
@@ -47,6 +61,20 @@ Use a deliberate focal visual when useful: an authored product illustration,
 real output or working demonstration can create interest before dense controls.
 An image can contribute emotion and recognition without being a button.
 
+Develop imagery as a system when the content calls for several images. Specify
+subjects, setting, light, camera distance, crop and material treatment together.
+Compare the images beside actual names, prices and controls. A collection that
+shows use, detail and scale can say more than one isolated product cutout, but
+photography, close-ups and asymmetric galleries are examples, not new templates.
+Do not copy another brand's subjects or pretend generated scenes are real stock
+or customer evidence.
+
+Check what remains beyond the lead headline and image. Do the product-selection,
+cost and recovery states share deliberate type, image, surface and control rules,
+or do they revert to a scaffold? Compare meaningful page compositions rather than
+only moving copy around the same oversized picture. Keep conventional layouts
+when they serve the actual content; difference is not a quality quota.
+
 Inspect the hero and at least one transition at actual reading size. Check the
 optical relationship between headline and visual, the path to a useful action,
 and how the identity changes density around details and forms. More sections,
@@ -59,6 +87,8 @@ or a screenshot suggesting unavailable features can weaken the product story.
 Conversely, do not replace a useful operating browser just to make the hero look
 different. A live tool can be the lead experience when the brief and audience
 support that choice; it does not need a slogan or a large illustration by rule.
+
+Use the [direct, familiar interface defaults](design-decisions.md#start-with-direct-familiar-interface-defaults) when developing a clean interface. Keep real information and accepted identity while avoiding automatic marketing filler.
 
 ## Recheck the whole visitor experience
 
